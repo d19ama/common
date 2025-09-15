@@ -16,5 +16,8 @@
   "main": "index.js",
   "scripts": {
     "test": "exit 0"
+  },
+  "publishConfig": {
+    "@BlindResist:registry": "https://npm.pkg.github.com"
   }
 }
