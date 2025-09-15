@@ -8,6 +8,7 @@ import type {
   AppInputFileProps,
   AppInputFileSlots,
 } from './types';
+import { componentName } from '@/helpers';
 
 const props = withDefaults(defineProps<AppInputFileProps>(), {
   hint: '',
@@ -134,7 +135,7 @@ function validate(): void {
       >*</span>
     </span>
 
-    <span class="app-input-file__inner">
+    <span class="app-input-file__wrapper">
       <span
         v-if="hasButton"
         class="app-input-file__button"
@@ -145,6 +146,7 @@ function validate(): void {
       </span>
       <input
         type="file"
+        :name="props.name || componentName('app-input-file')"
         :multiple="props.multiple"
         :accept="ACCEPT_SETTINGS[props.acceptType]"
         class="app-input-file__input"

@@ -6,6 +6,7 @@ export type AppInputFileType = 'base64' | 'file';
 export type AppInputFileAcceptType = 'image' | 'json';
 
 export interface AppInputFileProps {
+  name?: string;
   label?: string;
   hint?: string;
   required?: boolean;

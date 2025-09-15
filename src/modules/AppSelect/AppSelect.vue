@@ -10,7 +10,7 @@ import type {
   AppSelectProps,
   AppSelectSlots,
 } from './types';
-import type { HTMLElementClass } from '@/common/types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppSelectProps>(), {
   hint: '',
@@ -25,11 +25,12 @@ const props = withDefaults(defineProps<AppSelectProps>(), {
 
 const slots = defineSlots<AppSelectSlots>();
 
-const selected = defineModel<string>('selected', {
+const value = defineModel<string>('value', {
   required: false,
   default: '',
 });
 
+const selected = ref<AppSelectOption>();
 const error = ref<boolean>(false);
 const opened = ref<boolean>(false);
 const selectRef = ref<HTMLElement | null>(null);
@@ -105,7 +106,8 @@ function changeSelected(option: AppSelectOption): void {
       selected: item.id === option.id,
     };
   });
-  selected.value = option.text;
+  selected.value = option;
+  value.value = option.text;
   opened.value = false;
 }
 
@@ -125,7 +127,7 @@ function optionClass(item: AppSelectOption): HTMLElementClass {
   };
 }
 
-watch(props.options, (value) => {
+watch(() => props.options, (value) => {
   localOptions.value = value;
 });
 
@@ -165,10 +167,10 @@ watch(opened, (value) => {
         {{ props.placeholder }}
       </span>
       <span
-        v-if="selected.length"
+        v-if="selected"
         class="app-select__selected"
       >
-        {{ selected }}
+        {{ selected.text }}
       </span>
       <span class="app-select__arrow" />
     </div>
@@ -185,7 +187,7 @@ watch(opened, (value) => {
           @click="changeSelected(item)"
         >
           <slot
-            :name="`checkbox-${String(item.id)}`"
+            :name="`select-item-${String(item.id)}`"
             :text="item.text"
           >
             {{ item.text }}

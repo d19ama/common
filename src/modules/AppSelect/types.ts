@@ -21,7 +21,7 @@ export interface AppSelectOption<ID extends string | number | symbol = string> {
 }
 
 export interface AppSelectSlots {
-  [key: `checkbox-${AppSelectOption['id']}`]: (scope: {
+  [key: `select-item-${AppSelectOption['id']}`]: (scope: {
     text: string;
   }) => VNode[];
   hint?: () => VNode[];
