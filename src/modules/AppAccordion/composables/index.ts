@@ -1,0 +1,1 @@
+export { useAppAccordion } from './useAppAccordion';

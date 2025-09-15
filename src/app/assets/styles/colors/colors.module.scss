@@ -1,0 +1,19 @@
+$white: #ffffff;
+$black: #212121;
+$black-50: rgba($black, 0.5);
+$red: #ed174b;
+$red-dark: #c20f3b;
+$gray-dark: #2d2d2d;
+$gray-lite: #f1f1f1;
+$gray-middle: #E6E6E6;
+
+:export {
+  white: $white;
+  black: $black;
+  black-50: $black-50;
+  red: $red;
+  red-dark: $red-dark;
+  gray-dark: $gray-dark;
+  gray-lite: $gray-lite;
+  gray-middle: $gray-middle;
+}
