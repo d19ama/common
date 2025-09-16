@@ -1,14 +1,14 @@
 {
-  "name": "@blindresist/common",
-  "version": "1.1.0",
+  "name": "@d19ama/common",
+  "version": "1.1.1",
   "description": "Common UI components, helpers, utils, validators etc",
-  "homepage": "https://github.com/BlindResist/common#readme",
+  "homepage": "https://github.com/d19ama/common#readme",
   "bugs": {
-    "url": "https://github.com/BlindResist/common/issues"
+    "url": "https://github.com/d19ama/common/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlindResist/common.git"
+    "url": "git+https://github.com/d19ama/common.git"
   },
   "license": "ISC",
   "author": "Artem Anpilov",
@@ -17,7 +17,7 @@
   "module": "./dist/common.es.js",
   "types": "./dist/src/index.d.ts",
   "publishConfig": {
-    "@BlindResist:registry": "https://npm.pkg.github.com"
+    "@d19ama:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "dev": "vite",
