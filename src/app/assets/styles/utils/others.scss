@@ -1,0 +1,20 @@
+.text-color-red {
+  color: var(--color-red);
+}
+
+.text-highlighter {
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.position-relative {
+  position: relative;
+}
