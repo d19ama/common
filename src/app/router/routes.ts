@@ -10,20 +10,4 @@ export const routes: RouteRecordRaw[] = [
       title: 'home',
     },
   },
-  {
-    path: '/demo',
-    name: RouteNames.Demo,
-    component: () => import('@/pages/demo.vue'),
-    meta: {
-      title: 'demo',
-    },
-  },
-  {
-    path: '/storybook',
-    name: RouteNames.StoryBook,
-    component: () => import('@/pages/storybook.vue'),
-    meta: {
-      title: 'storybook',
-    },
-  },
 ];

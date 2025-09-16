@@ -2,7 +2,7 @@ import {
   type Ref,
   ref,
 } from 'vue';
-import type { AppAccordionItemType } from '@/common/components';
+import type { AppAccordionItemType } from '../components/AppAccordionItem/types';
 
 type State = Map<string, boolean>;
 
