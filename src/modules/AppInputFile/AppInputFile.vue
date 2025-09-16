@@ -2,6 +2,7 @@
 import {
   computed,
   ref,
+  useTemplateRef,
 } from 'vue';
 import type {
   AppInputFileEmits,
@@ -32,6 +33,8 @@ const ACCEPT_SETTINGS = {
   image: '.jpg, .jpeg, .png, .gif, .svg',
   json: 'application/json',
 };
+
+const input = useTemplateRef<HTMLInputElement>('inputRef');
 
 const currentFile = ref<File>();
 const error = ref<boolean>(false);
@@ -90,6 +93,10 @@ function validate(): void {
   props.validation?.$touch();
   error.value = !!props.validation?.$error;
 }
+
+function onClick(): void {
+  input.value?.click();
+}
 </script>
 
 <template>
@@ -102,6 +109,7 @@ function validate(): void {
     :error-text="props.errorText"
     :validation="props.validation"
     :placeholder="props.placeholder"
+    @click="onClick"
   >
     <template #label>
       <slot name="label" />
@@ -117,6 +125,7 @@ function validate(): void {
         </slot>
       </span>
       <input
+        ref="inputRef"
         type="file"
         :name="props.name || componentName('app-input-file')"
         :multiple="props.multiple"
@@ -154,7 +163,8 @@ function validate(): void {
   gap: .25rem;
 
   &__input {
-    display: none;
+    width: 0;
+    overflow: hidden;
   }
 
   &__button,

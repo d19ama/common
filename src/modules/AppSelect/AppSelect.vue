@@ -3,6 +3,7 @@ import {
   computed,
   onMounted,
   ref,
+  useTemplateRef,
   watch,
 } from 'vue';
 import type {
@@ -31,10 +32,11 @@ const value = defineModel<string>('value', {
   default: '',
 });
 
+const select = useTemplateRef<HTMLElement>('selectRef');
+
 const selected = ref<AppSelectOption>();
 const error = ref<boolean>(false);
 const opened = ref<boolean>(false);
-const selectRef = ref<HTMLElement | null>(null);
 const localOptions = ref<AppSelectOption[]>(props.options);
 
 const isPlaceholderVisible = computed<boolean>(() => {
@@ -59,12 +61,12 @@ onMounted(() => {
 });
 
 function hideDropdown(event: MouseEvent): void {
-  if (!selectRef.value) {
+  if (!select.value) {
     return;
   }
 
-  const select = selectRef.value as HTMLElement;
-  const isOutside: boolean = select !== event.target && !select.contains(event.target as Node);
+  const isOutside: boolean = select.value !== event.target
+    && !select.value.contains(event.target as Node);
 
   if (isOutside) {
     opened.value = false;
@@ -112,7 +114,6 @@ watch(opened, (value) => {
 
 <template>
   <InputBase
-    ref="selectRef"
     class="app-select"
     :class="selectClass"
     :hint="props.hint"
@@ -125,6 +126,7 @@ watch(opened, (value) => {
   >
     <template #default>
       <div
+        ref="selectRef"
         class="app-select__container"
         @click.self="toggleDropdown"
       >
