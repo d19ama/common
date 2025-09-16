@@ -162,6 +162,13 @@ function onClick(): void {
 </template>
 
 <style lang="scss">
+// RESET
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+// COMPONENT STYLES
 .app-input-file {
   $padding: 1rem;
 

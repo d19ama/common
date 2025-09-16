@@ -5,6 +5,7 @@ export * from './AppRadio';
 export * from './AppInput';
 export * from './AppTitle';
 export * from './AppTable';
+export * from './AppImage';
 export * from './AppModal';
 export * from './AppSelect';
 export * from './AppButton';

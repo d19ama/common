@@ -55,6 +55,12 @@ function onClick(event: Event): void {
 </template>
 
 <style lang="scss">
+// RESET
+a {
+  background-color: transparent;
+}
+
+// COMPONENT STYLES
 .app-link {
   color: var(--color-black);
   transition: color var(--transition);

@@ -1,5 +1,3 @@
-import './assets/styles/index.scss';
-
 export * from './modules';
 
 export * as utils from './utils';

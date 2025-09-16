@@ -3,7 +3,7 @@ import {
   minLength as validator,
 } from '@vuelidate/validators';
 import type { ValidationRuleWithParams } from '@vuelidate/core';
-import { numeric } from 'src/format';
+import { numeric } from '@/format';
 
 export function minLength(min: number): ValidationRuleWithParams {
   return helpers.withMessage(({

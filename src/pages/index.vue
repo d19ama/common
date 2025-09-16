@@ -595,3 +595,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+@import '@/app/assets/styles/index';
+</style>

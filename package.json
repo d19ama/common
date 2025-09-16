@@ -12,8 +12,10 @@
   },
   "license": "ISC",
   "author": "Artem Anpilov",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/common.umd.js",
+  "module": "./dist/common.es.js",
+  "types": "./dist/src/index.d.ts",
   "publishConfig": {
     "@BlindResist:registry": "https://npm.pkg.github.com"
   },

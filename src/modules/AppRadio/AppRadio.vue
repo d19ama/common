@@ -88,6 +88,13 @@ function validate(): void {
 </template>
 
 <style lang="scss">
+// RESET
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+// COMPONENT STYLES
 .app-radio {
   $parent: &;
 

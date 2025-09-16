@@ -63,6 +63,13 @@ const elementClass = computed<HTMLElementClass>(() => {
 </template>
 
 <style lang="scss">
+// RESET
+[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+// COMPONENT STYLES
 .app-checkbox {
   $parent: &;
 
