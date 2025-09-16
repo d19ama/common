@@ -1,11 +1,13 @@
-import type { VNode } from 'vue';
-import type { BaseValidation } from '@vuelidate/core';
 import type {
   FactoryConstructorOpts,
   FactoryInstanceOpts,
   FactoryStaticOpts,
   MaskedPatternOptions,
 } from 'imask';
+import type {
+  InputBaseProps,
+  InputBaseSlots,
+} from '@/common/components/InputBase';
 
 type FactoryStaticOptionsWithoutLazy =
   | Exclude<FactoryStaticOpts, 'MaskedPatternOptions'>
@@ -22,23 +24,12 @@ export interface AppInputMaskValues {
   unmaskedValue: string;
 }
 
-export interface AppInputProps {
+export interface AppInputProps extends InputBaseProps {
   name?: string;
-  label?: string;
-  hint?: string;
-  disabled?: boolean;
-  required?: boolean;
   maxLength?: string;
-  errorText?: string;
-  placeholder?: string;
   theme?: 'text' | 'search';
   position?: 'left' | 'center' | 'right';
   type?: 'text' | 'number' | 'tel' | 'email' | 'password';
-
-  // validation
-  validation?: BaseValidation;
-
-  // mask
   mask?: AppInputMaskParams;
   maskVisibility?: 'always' | 'onFocus';
 }
@@ -50,8 +41,4 @@ export interface AppInputEmits {
   blur: [];
 }
 
-export interface AppInputSlots {
-  hint?: () => VNode[];
-  label?: () => VNode[];
-  error?: () => VNode[];
-}
+export interface AppInputSlots extends InputBaseSlots {}

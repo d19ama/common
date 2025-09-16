@@ -4,7 +4,7 @@ import type {
   AppTitleProps,
   AppTitleSlots,
 } from './types';
-import type { HTMLElementClass } from '@/common/types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppTitleProps>(), {
   text: '',

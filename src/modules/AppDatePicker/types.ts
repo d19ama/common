@@ -1,27 +1,25 @@
 import type { VueDatePickerProps } from '@vuepic/vue-datepicker';
 import type { VNode } from 'vue';
-import type { BaseValidation } from '@vuelidate/core';
+import type {
+  InputBaseProps,
+  InputBaseSlots,
+} from '@/common/components/InputBase';
 
 export type AppDatePickerModel = Date | number | string | string[];
 
-export interface AppDatePickerProps {
+export interface AppDatePickerProps extends InputBaseProps {
   range?: VueDatePickerProps['range'];
   format?: VueDatePickerProps['format'];
-  required?: VueDatePickerProps['required'];
-  disabled?: VueDatePickerProps['disabled'];
+  minDate?: VueDatePickerProps['minDate'];
+  maxDate?: VueDatePickerProps['maxDate'];
+  position?: VueDatePickerProps['position'];
   autoApply?: VueDatePickerProps['autoApply'];
   modelType?: VueDatePickerProps['modelType'];
   yearPicker?: VueDatePickerProps['yearPicker'];
   monthPicker?: VueDatePickerProps['yearPicker'];
-  placeholder?: VueDatePickerProps['placeholder'];
-
-  hint?: string;
-  label?: string;
-  errorText?: string;
-  validation?: BaseValidation;
 }
 
-export interface AppDatePickerSlots {
+export interface AppDatePickerSlots extends InputBaseSlots {
   hint?: () => VNode[];
   label?: () => VNode[];
   error?: () => VNode[];

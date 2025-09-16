@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import {
+  type ComponentInternalInstance,
   computed,
+  getCurrentInstance,
   onMounted,
   onUnmounted,
   ref,
@@ -16,8 +18,8 @@ import type {
   AppInputProps,
   AppInputSlots,
 } from './types';
-import type { HTMLElementClass } from '@/types';
-import { componentName } from '@/helpers';
+import { InputBase } from '@/common/components/InputBase';
+import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppInputProps>(), {
   hint: '',
@@ -34,7 +36,7 @@ const props = withDefaults(defineProps<AppInputProps>(), {
 
 const emit = defineEmits<AppInputEmits>();
 
-const slots = defineSlots<AppInputSlots>();
+defineSlots<AppInputSlots>();
 
 const [
   value,
@@ -69,38 +71,10 @@ const focus = ref<boolean>(false);
 const inputRef = ref<HTMLInputElement | null>(null);
 const maskRef = ref<InputMask<FactoryOpts> | undefined>(undefined);
 
-const hasLabel = computed<boolean>(() => {
-  return !!slots.label! || props.label;
-});
+const instance: ComponentInternalInstance | null = getCurrentInstance();
 
-const hasHint = computed<boolean>(() => {
-  return !!slots.hint! || props.hint;
-});
-
-const errorMessage = computed<string | undefined>(() => {
-  if (props.errorText) {
-    return props.errorText;
-  }
-
-  if (props.validation) {
-    return props.validation.$errors.map(({
-      $message,
-    }) => $message.toString()).at(0);
-  }
-
-  return undefined;
-});
-
-const isErrorVisible = computed<boolean>(() => {
-  return props.required
-    && error.value
-    && !!errorMessage.value;
-});
-
-const elementClass = computed<HTMLElementClass>(() => {
-  return {
-    'app-input--disabled': props.disabled,
-  };
+const name = computed<string>(() => {
+  return props.name || componentNameByInstance(instance);
 });
 
 const maskParams = computed<FactoryOpts | undefined>(() => {
@@ -225,28 +199,25 @@ watch(
 </script>
 
 <template>
-  <div
+  <InputBase
     class="app-input"
-    :class="elementClass"
+    :hint="props.hint"
+    :label="props.label"
+    :required="props.required"
+    :disabled="props.disabled"
+    :error-text="props.errorText"
+    :validation="props.validation"
+    :placeholder="props.placeholder"
   >
-    <div
-      v-if="hasLabel"
-      class="app-input__label"
-    >
-      <slot name="label">
-        {{ props.label }}
-      </slot>
-      <span
-        v-if="props.required"
-        class="app-input__label-asterisk"
-      >*</span>
-    </div>
+    <template #label>
+      <slot name="label" />
+    </template>
 
-    <div class="app-input__wrapper">
+    <template #default>
       <input
         ref="inputRef"
         v-model="value"
-        :name="props.name || componentName('app-input')"
+        :name="name"
         autocomplete="off"
         class="app-input__input"
         :type="props.type"
@@ -259,24 +230,16 @@ watch(
         @change="onChange"
         @keyup.enter="onChange"
       >
-    </div>
-    <span
-      v-if="isErrorVisible"
-      class="app-input__error"
-    >
-      <slot name="error">
-        {{ errorMessage }}
-      </slot>
-    </span>
-    <span
-      v-if="hasHint && !isErrorVisible"
-      class="app-input__hint"
-    >
-      <slot name="hint">
-        {{ props.hint }}
-      </slot>
-    </span>
-  </div>
+    </template>
+
+    <template #error>
+      <slot name="error" />
+    </template>
+
+    <template #hint>
+      <slot name="hint" />
+    </template>
+  </InputBase>
 </template>
 
 <style lang="scss">
@@ -284,46 +247,14 @@ watch(
   $parent: &;
   $padding: 1rem;
 
-  display: flex;
-  align-items: flex-start;
-  flex-flow: column nowrap;
-  gap: .25rem;
-  position: relative;
-
-  &__wrapper {
-    width: 100%;
-    position: relative;
-    border-radius: .5rem;
-    background-color: var(--color-gray-lite);
-  }
-
-  &__label,
-  &__error,
-  &__hint {
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  &__label {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: .125rem;
-    width: 100%;
-    color: var(--color-gray-dark);
-    user-select: none;
-  }
-
-  &__label-asterisk {
-    color: var(--color-red);
-  }
-
   &__input {
     width: 100%;
     border: none;
     padding: $padding;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: .875rem;
+    color: var(--color-gray-dark);
     background-color: transparent;
 
     &:hover,
@@ -338,42 +269,6 @@ watch(
     &::-ms-clear {
       display: none;
     }
-  }
-
-  &__input,
-  &__placeholder {
-    font-weight: 400;
-    line-height: 1.5;
-    font-size: .875rem;
-    color: var(--color-gray-dark);
-  }
-
-  &__placeholder {
-    display: block;
-    max-width: 100%;
-    opacity: .5;
-    overflow: hidden;
-    padding: $padding;
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    pointer-events: none;
-  }
-
-  &__hint {
-    opacity: .5;
-    color: var(--color-gray-dark);
-  }
-
-  &__error {
-    color: var(--color-red);
-  }
-
-  &--disabled {
-    opacity: .1;
-    pointer-events: none;
   }
 }
 </style>

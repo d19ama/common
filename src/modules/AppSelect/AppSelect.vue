@@ -3,6 +3,7 @@ import {
   computed,
   onMounted,
   ref,
+  useTemplateRef,
   watch,
 } from 'vue';
 import type {
@@ -11,6 +12,7 @@ import type {
   AppSelectSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { InputBase } from '@/common/components/InputBase';
 
 const props = withDefaults(defineProps<AppSelectProps>(), {
   hint: '',
@@ -23,26 +25,19 @@ const props = withDefaults(defineProps<AppSelectProps>(), {
   options: () => [],
 });
 
-const slots = defineSlots<AppSelectSlots>();
+defineSlots<AppSelectSlots>();
 
 const value = defineModel<string>('value', {
   required: false,
   default: '',
 });
 
+const select = useTemplateRef<HTMLElement>('selectRef');
+
 const selected = ref<AppSelectOption>();
 const error = ref<boolean>(false);
 const opened = ref<boolean>(false);
-const selectRef = ref<HTMLElement | null>(null);
 const localOptions = ref<AppSelectOption[]>(props.options);
-
-const hasLabel = computed<boolean>(() => {
-  return !!slots.label! || props.label;
-});
-
-const hasHint = computed<boolean>(() => {
-  return !!slots.hint! || props.hint;
-});
 
 const isPlaceholderVisible = computed<boolean>(() => {
   return props.placeholder.length > 0
@@ -52,7 +47,6 @@ const isPlaceholderVisible = computed<boolean>(() => {
 const selectClass = computed<HTMLElementClass>(() => {
   return {
     'app-select--opened': opened.value,
-    'app-select--disabled': props.disabled,
   };
 });
 
@@ -62,37 +56,17 @@ const dropdownClass = computed<HTMLElementClass>(() => {
   };
 });
 
-const errorMessage = computed<string | undefined>(() => {
-  if (props.errorText) {
-    return props.errorText;
-  }
-
-  if (props.validation) {
-    return props.validation.$errors.map(({
-      $message,
-    }) => $message.toString()).at(0);
-  }
-
-  return undefined;
-});
-
-const isErrorVisible = computed<boolean>(() => {
-  return props.required
-    && error.value
-    && !!errorMessage.value;
-});
-
 onMounted(() => {
   document.addEventListener('click', hideDropdown);
 });
 
 function hideDropdown(event: MouseEvent): void {
-  if (!selectRef.value) {
+  if (!select.value) {
     return;
   }
 
-  const select = selectRef.value as HTMLElement;
-  const isOutside: boolean = select !== event.target && !select.contains(event.target as Node);
+  const isOutside: boolean = select.value !== event.target
+    && !select.value.contains(event.target as Node);
 
   if (isOutside) {
     opened.value = false;
@@ -139,93 +113,66 @@ watch(opened, (value) => {
 </script>
 
 <template>
-  <div
-    ref="selectRef"
+  <InputBase
     class="app-select"
     :class="selectClass"
+    :hint="props.hint"
+    :label="props.label"
+    :required="props.required"
+    :disabled="props.disabled"
+    :error-text="props.errorText"
+    :validation="props.validation"
+    :placeholder="props.placeholder"
   >
-    <div
-      v-if="hasLabel"
-      class="app-select__label"
-    >
-      <slot name="label">
-        {{ props.label }}
-      </slot>
-      <span
-        v-if="props.required"
-        class="app-select__label-asterisk"
-      >*</span>
-    </div>
-    <div
-      class="app-select__container"
-      @click.self="toggleDropdown"
-    >
-      <span
-        v-if="isPlaceholderVisible"
-        class="app-select__placeholder"
+    <template #default>
+      <div
+        ref="selectRef"
+        class="app-select__container"
+        @click.self="toggleDropdown"
       >
-        {{ props.placeholder }}
-      </span>
-      <span
-        v-if="selected"
-        class="app-select__selected"
-      >
-        {{ selected.text }}
-      </span>
-      <span class="app-select__arrow" />
-    </div>
-    <div
-      class="app-select__dropdown"
-      :class="dropdownClass"
-    >
-      <ul class="app-select__options">
-        <li
-          v-for="item in localOptions"
-          :key="item.id"
-          class="app-select__option"
-          :class="optionClass(item)"
-          @click="changeSelected(item)"
+        <span
+          v-if="isPlaceholderVisible"
+          class="app-select__placeholder"
         >
-          <slot
-            :name="`select-item-${String(item.id)}`"
-            :text="item.text"
+          {{ props.placeholder }}
+        </span>
+        <span
+          v-if="selected"
+          class="app-select__selected"
+        >
+          {{ selected.text }}
+        </span>
+        <span class="app-select__arrow" />
+      </div>
+      <div
+        class="app-select__dropdown"
+        :class="dropdownClass"
+      >
+        <ul class="app-select__options">
+          <li
+            v-for="item in localOptions"
+            :key="item.id"
+            class="app-select__option"
+            :class="optionClass(item)"
+            @click="changeSelected(item)"
           >
-            {{ item.text }}
-          </slot>
-        </li>
-      </ul>
-    </div>
-    <span
-      v-if="isErrorVisible"
-      class="app-select__error"
-    >
-      <slot name="error">
-        {{ errorMessage }}
-      </slot>
-    </span>
-    <span
-      v-if="hasHint && !isErrorVisible"
-      class="app-select__hint"
-    >
-      <slot name="hint">
-        {{ props.hint }}
-      </slot>
-    </span>
-  </div>
+            <slot
+              :name="`select-item-${String(item.id)}`"
+              :text="item.text"
+            >
+              {{ item.text }}
+            </slot>
+          </li>
+        </ul>
+      </div>
+    </template>
+  </InputBase>
 </template>
 
 <style lang="scss">
 .app-select {
   $padding: 1rem;
   $parent: &;
-
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: .25rem;
-  width: 100%;
-  position: relative;
 
   &--opened {
 
@@ -247,29 +194,6 @@ watch(opened, (value) => {
     border-radius: .5rem;
     background-color: var(--color-gray-lite);
     cursor: pointer;
-  }
-
-  &__label,
-  &__error,
-  &__hint {
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  &__label {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: .125rem;
-    width: 100%;
-    color: var(--color-gray-dark);
-    user-select: none;
-  }
-
-  &__label-asterisk {
-    color: var(--color-red);
   }
 
   &__selected,
@@ -418,15 +342,6 @@ watch(opened, (value) => {
       opacity: .5;
       pointer-events: none;
     }
-  }
-
-  &__hint {
-    opacity: .5;
-    color: var(--color-gray-dark);
-  }
-
-  &__error {
-    color: var(--color-red);
   }
 }
 </style>

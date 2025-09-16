@@ -1,15 +1,11 @@
-import type { VNode } from 'vue';
-import type { BaseValidation } from '@vuelidate/core';
+import type {
+  InputBaseProps,
+  InputBaseSlots,
+} from '@/common/components/InputBase';
 
-export interface AppTextareaProps {
-  label?: string;
-  hint?: string;
+export interface AppTextareaProps extends InputBaseProps {
+  name?: string;
   resize?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  errorText?: string;
-  placeholder?: string;
-  validation?: BaseValidation;
 }
 
 export interface AppTextareaEmits {
@@ -19,8 +15,4 @@ export interface AppTextareaEmits {
   change: [value: string];
 }
 
-export interface AppTextareaSlots {
-  hint?: () => VNode[];
-  label?: () => VNode[];
-  error?: () => VNode[];
-}
+export interface AppTextareaSlots extends InputBaseSlots {}

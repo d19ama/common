@@ -5,7 +5,7 @@ import type {
   AppLinkProps,
   AppLinkSlots,
 } from './types';
-import type { HTMLElementClass } from '@/common/types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppLinkProps>(), {
   url: '#',

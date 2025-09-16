@@ -1,6 +1,8 @@
 import type { VNode } from 'vue';
 
 export interface AppRadioProps {
+  id?: string;
+  name?: string;
   disabled?: boolean;
   required?: boolean;
   options?: AppRadioOption[];

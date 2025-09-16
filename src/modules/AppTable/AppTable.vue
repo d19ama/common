@@ -8,7 +8,7 @@ import type {
   AppTableProps,
   AppTableSlots,
 } from './types';
-import type { HTMLElementClass } from '@/common/types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppTableProps<T>>(), {
   rows: () => [],

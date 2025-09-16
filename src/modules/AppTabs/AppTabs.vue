@@ -3,7 +3,7 @@ import type {
   AppTabsItem,
   AppTabsSlots,
 } from './types';
-import type { HTMLElementClass } from '@/common/types';
+import type { HTMLElementClass } from '@/types';
 
 defineSlots<AppTabsSlots>();
 
