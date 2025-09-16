@@ -1,16 +1,12 @@
 import type { VNode } from 'vue';
-import type { BaseValidation } from '@vuelidate/core';
+import type {
+  InputBaseProps,
+  InputBaseSlots,
+} from '@/common/components/InputBase';
 
-export interface AppSelectProps {
-  hint?: string;
-  label?: string;
+export interface AppSelectProps extends InputBaseProps {
   multiple?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  errorText?: string;
-  placeholder?: string;
   options?: AppSelectOption[];
-  validation?: BaseValidation;
 }
 
 export interface AppSelectOption<ID extends string | number | symbol = string> {
@@ -20,11 +16,8 @@ export interface AppSelectOption<ID extends string | number | symbol = string> {
   disabled: boolean;
 }
 
-export interface AppSelectSlots {
+export interface AppSelectSlots extends InputBaseSlots {
   [key: `select-item-${AppSelectOption['id']}`]: (scope: {
     text: string;
   }) => VNode[];
-  hint?: () => VNode[];
-  label?: () => VNode[];
-  error?: () => VNode[];
 }
