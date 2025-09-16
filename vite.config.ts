@@ -4,10 +4,19 @@ import { defineConfig } from 'vite';
 import type { UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VueDevTools from 'vite-plugin-vue-devtools';
+import dtsPlugin from 'vite-plugin-dts';
 
 export default defineConfig((): UserConfig => {
   return {
-    plugins: [vue(), VueDevTools()],
+    plugins: [
+      vue(),
+      VueDevTools(),
+      dtsPlugin({
+        tsconfigPath: 'tsconfig.app.json',
+        cleanVueFileName: true,
+        copyDtsFiles: true,
+      }),
+    ],
 
     resolve: {
       alias: {
