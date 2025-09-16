@@ -326,11 +326,27 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
         class="margin-bottom--s"
       />
       <div class="row">
-        <div class="col-default-2">
+        <div class="col-default-3">
           <AppDatePicker
             placeholder="Select date"
             label="DatePicker"
             hint="Some hint"
+          />
+        </div>
+        <div class="col-default-3">
+          <AppDatePicker
+            placeholder="Select date"
+            label="DatePicker"
+            hint="Some hint"
+            required
+          />
+        </div>
+        <div class="col-default-3">
+          <AppDatePicker
+            placeholder="Select date"
+            label="DatePicker"
+            hint="Some hint"
+            disabled
           />
         </div>
       </div>

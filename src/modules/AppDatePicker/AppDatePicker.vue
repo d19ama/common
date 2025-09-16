@@ -10,6 +10,7 @@ import type {
   AppDatePickerSlots,
 } from './types';
 import '@vuepic/vue-datepicker/dist/main.css';
+import { InputBase } from '@/common/components/InputBase';
 
 const props = withDefaults(defineProps<AppDatePickerProps>(), {
   hint: '',
@@ -18,13 +19,14 @@ const props = withDefaults(defineProps<AppDatePickerProps>(), {
   placeholder: '',
   autoApply: true,
   disabled: false,
+  position: 'left',
   yearPicker: false,
   monthPicker: false,
   modelType: 'format',
   format: 'yyyy.MM.dd',
 });
 
-const slots = defineSlots<AppDatePickerSlots>();
+defineSlots<AppDatePickerSlots>();
 
 const date = defineModel<AppDatePickerModel>('date', {
   required: false,
@@ -32,37 +34,17 @@ const date = defineModel<AppDatePickerModel>('date', {
 
 const error = ref<boolean>(false);
 
-const hasLabel = computed<boolean>(() => {
-  return !!slots.label! || props.label;
-});
+const offset = computed<number>(() => {
+  const htmlElement: HTMLElementTagNameMap['html'] | null = document.querySelector('html');
 
-const hasHint = computed<boolean>(() => {
-  return !!slots.hint! || props.hint;
-});
-
-const isPlaceholderVisible = computed<boolean>(() => {
-  return props.placeholder.length > 0
-    && !date.value;
-});
-
-const errorMessage = computed<string | undefined>(() => {
-  if (props.errorText) {
-    return props.errorText;
+  if (!htmlElement) {
+    return 0;
   }
 
-  if (props.validation) {
-    return props.validation.$errors.map(({
-      $message,
-    }) => $message.toString()).at(0);
-  }
+  const fontSize: string = window.getComputedStyle(htmlElement, null).fontSize;
+  const fontSizeNumber: string = fontSize.replace(/[^\d-]/g, '');
 
-  return undefined;
-});
-
-const isErrorVisible = computed<boolean>(() => {
-  return props.required
-    && error.value
-    && !!errorMessage.value;
+  return Number(fontSizeNumber) * 1.5;
 });
 
 function onBlur(): void {
@@ -76,122 +58,58 @@ function validate(): void {
 </script>
 
 <template>
-  <div class="app-date-picker">
-    <div
-      v-if="hasLabel"
-      class="app-date-picker__label"
-    >
-      <slot name="label">
-        {{ props.label }}
-      </slot>
-      <span
-        v-if="props.required"
-        class="app-date-picker__label-asterisk"
-      >*</span>
-    </div>
-    <div class="app-date-picker__wrapper">
-      <VueDatePicker
-        v-model="date"
-        :range="props.range"
-        :format="props.format"
-        :auto-apply="props.autoApply"
-        :model-type="props.modelType"
-        :year-picker="props.yearPicker"
-        :month-picker="props.monthPicker"
-        @blur="onBlur"
-      />
-      <span
-        v-if="isPlaceholderVisible"
-        class="app-date-picker__placeholder"
-      >
-        {{ props.placeholder }}
-      </span>
-    </div>
-    <span
-      v-if="isErrorVisible"
-      class="app-date-picker__error"
-    >
-      <slot name="error">
-        {{ errorMessage }}
-      </slot>
-    </span>
-    <span
-      v-if="hasHint && !isErrorVisible"
-      class="app-date-picker__hint"
-    >
-      <slot name="hint">
-        {{ props.hint }}
-      </slot>
-    </span>
-  </div>
+  <InputBase
+    class="app-date-picker"
+    :hint="props.hint"
+    :label="props.label"
+    :required="props.required"
+    :disabled="props.disabled"
+    :error-text="props.errorText"
+    :validation="props.validation"
+    :placeholder="props.placeholder"
+  >
+    <template #label>
+      <slot name="label" />
+    </template>
+
+    <template #default>
+      <div class="app-date-picker__picker">
+        <VueDatePicker
+          v-model="date"
+          :range="props.range"
+          :format="props.format"
+          :min-date="props.minDate"
+          :max-date="props.maxDate"
+          :position="props.position"
+          :auto-apply="props.autoApply"
+          :model-type="props.modelType"
+          :year-picker="props.yearPicker"
+          :placeholder="props.placeholder"
+          :month-picker="props.monthPicker"
+          :offset="offset"
+          @blur="onBlur"
+        />
+      </div>
+    </template>
+
+    <template #error>
+      <slot name="error" />
+    </template>
+
+    <template #hint>
+      <slot name="hint" />
+    </template>
+  </InputBase>
 </template>
 
 <style lang="scss">
 $padding: 1rem;
 
 .app-date-picker {
-  display: flex;
-  align-items: flex-start;
-  flex-flow: column nowrap;
-  gap: .5rem;
-  position: relative;
 
-  &__wrapper {
-    width: 100%;
-    padding: $padding 0;
-    position: relative;
-    border-radius: .5rem;
-    background-color: var(--color-gray-lite);
-  }
-
-  &__label,
-  &__error,
-  &__hint {
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  &__label {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: .125rem;
-    width: 100%;
-    color: var(--color-gray-dark);
-    user-select: none;
-  }
-
-  &__label-asterisk {
-    color: var(--color-red);
-  }
-
-  &__placeholder {
+  &__picker  {
     display: block;
-    max-width: 100%;
-    opacity: .5;
-    overflow: hidden;
-    padding: $padding $padding $padding 2.5rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    font-weight: 400;
-    line-height: 1.5;
-    font-size: .875rem;
-    color: var(--color-gray-dark);
-    text-overflow: ellipsis;
-    pointer-events: none;
-  }
-
-  &__error {
-    color: var(--color-red);
-  }
-
-  &__hint {
-    opacity: .5;
-    color: var(--color-gray-dark);
+    padding: $padding 0;
   }
 }
 
@@ -204,7 +122,7 @@ $padding: 1rem;
   --dp-border-color-focus: none;
   --dp-icon-color: var(--color-gray-dark);
 
-  --dp-border-radius: 0;
+  --dp-border-radius: .5rem;
   --dp-font-size: .875rem;
   --dp-preview-font-size: .875rem;
   --dp-time-font-size: .875rem;
