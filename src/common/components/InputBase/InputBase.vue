@@ -68,9 +68,9 @@ const isErrorVisible = computed<boolean>(() => {
       >*</span>
     </div>
 
-    <div class="input-base__wrapper">
+    <label class="input-base__wrapper">
       <slot />
-    </div>
+    </label>
 
     <span
       v-if="isErrorVisible"
@@ -103,6 +103,7 @@ const isErrorVisible = computed<boolean>(() => {
   position: relative;
 
   &__wrapper {
+    display: flex;
     width: 100%;
     position: relative;
     border-radius: .5rem;

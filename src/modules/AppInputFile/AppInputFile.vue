@@ -9,6 +9,7 @@ import type {
   AppInputFileSlots,
 } from './types';
 import { componentName } from '@/helpers';
+import { InputBase } from '@/common/components/InputBase';
 
 const props = withDefaults(defineProps<AppInputFileProps>(), {
   hint: '',
@@ -33,16 +34,7 @@ const ACCEPT_SETTINGS = {
 };
 
 const currentFile = ref<File>();
-const message = ref<string>('');
 const error = ref<boolean>(false);
-
-const hasLabel = computed<boolean>(() => {
-  return !!slots.label! || props.label;
-});
-
-const hasHint = computed<boolean>(() => {
-  return !!slots.hint! || props.hint;
-});
 
 const hasButton = computed<boolean>(() => {
   return !!slots.button! || props.buttonText;
@@ -52,26 +44,6 @@ const fileName = computed<string>(() => {
   return currentFile.value && currentFile.value.name.length
     ? currentFile.value.name
     : props.placeholder;
-});
-
-const errorMessage = computed<string | undefined>(() => {
-  if (props.errorText) {
-    return props.errorText;
-  }
-
-  if (props.validation) {
-    return props.validation.$errors.map(({
-      $message,
-    }) => $message.toString()).at(0);
-  }
-
-  return undefined;
-});
-
-const isErrorVisible = computed<boolean>(() => {
-  return props.required
-    && error.value
-    && !!errorMessage.value;
 });
 
 function onChange(event: Event): void {
@@ -121,21 +93,21 @@ function validate(): void {
 </script>
 
 <template>
-  <label class="app-input-file">
-    <span
-      v-if="hasLabel"
-      class="app-input-file__label"
-    >
-      <slot name="label">
-        {{ props.label }}
-      </slot>
-      <span
-        v-if="props.required"
-        class="app-input-file__label-asterisk"
-      >*</span>
-    </span>
+  <InputBase
+    class="app-input-file"
+    :hint="props.hint"
+    :label="props.label"
+    :required="props.required"
+    :disabled="props.disabled"
+    :error-text="props.errorText"
+    :validation="props.validation"
+    :placeholder="props.placeholder"
+  >
+    <template #label>
+      <slot name="label" />
+    </template>
 
-    <span class="app-input-file__wrapper">
+    <template #default>
       <span
         v-if="hasButton"
         class="app-input-file__button"
@@ -160,73 +132,26 @@ function validate(): void {
           {{ fileName }}
         </slot>
       </span>
-    </span>
+    </template>
 
-    <span
-      v-if="error"
-      class="app-input-file__error"
-    >
-      <slot
-        name="error"
-        :error="message"
-      >
-        {{ message }}
-      </slot>
-    </span>
+    <template #error>
+      <slot name="error" />
+    </template>
 
-    <span
-      v-if="hasHint && !isErrorVisible"
-      class="app-input-file__hint"
-    >
-      <slot name="hint">
-        {{ props.hint }}
-      </slot>
-    </span>
-  </label>
+    <template #hint>
+      <slot name="hint" />
+    </template>
+  </InputBase>
 </template>
 
 <style lang="scss">
 .app-input-file {
   $padding: 1rem;
+
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
   gap: .25rem;
-
-  &__label,
-  &__error,
-  &__hint {
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  &__label {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: .125rem;
-    width: 100%;
-    color: var(--color-gray-dark);
-    user-select: none;
-  }
-
-  &__label-asterisk {
-    color: var(--color-red);
-  }
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    flex-flow: row nowrap;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    border-radius: .5rem;
-    background-color: var(--color-gray-lite);
-    cursor: pointer;
-  }
 
   &__input {
     display: none;
@@ -239,29 +164,23 @@ function validate(): void {
     line-height: 1.5;
     font-size: .875rem;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   &__button {
     color: var(--color-gray-dark);
+    border-radius: .5rem 0 0 .5rem;
     background-color: var(--color-gray-middle);
   }
 
   &__placeholder {
+    display: block;
+    width: 100%;
     opacity: .5;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--color-gray-dark);
-    pointer-events: none;
-  }
-
-  &__hint {
-    opacity: .5;
-    color: var(--color-gray-dark);
-  }
-
-  &__error {
-    color: var(--color-red);
   }
 }
 </style>
