@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import {
+  type ComponentInternalInstance,
   computed,
+  getCurrentInstance,
   ref,
   useTemplateRef,
 } from 'vue';
@@ -9,8 +11,8 @@ import type {
   AppInputFileProps,
   AppInputFileSlots,
 } from './types';
-import { componentName } from '@/helpers';
 import { InputBase } from '@/common/components/InputBase';
+import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppInputFileProps>(), {
   hint: '',
@@ -38,6 +40,12 @@ const input = useTemplateRef<HTMLInputElement>('inputRef');
 
 const currentFile = ref<File>();
 const error = ref<boolean>(false);
+
+const instance: ComponentInternalInstance | null = getCurrentInstance();
+
+const name = computed<string>(() => {
+  return props.name || componentNameByInstance(instance);
+});
 
 const hasButton = computed<boolean>(() => {
   return !!slots.button! || props.buttonText;
@@ -127,7 +135,7 @@ function onClick(): void {
       <input
         ref="inputRef"
         type="file"
-        :name="props.name || componentName('app-input-file')"
+        :name="name"
         :multiple="props.multiple"
         :accept="ACCEPT_SETTINGS[props.acceptType]"
         class="app-input-file__input"

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import {
+  type ComponentInternalInstance,
   computed,
+  getCurrentInstance,
   onMounted,
   onUnmounted,
   ref,
@@ -16,8 +18,8 @@ import type {
   AppInputProps,
   AppInputSlots,
 } from './types';
-import { componentName } from '@/helpers';
 import { InputBase } from '@/common/components/InputBase';
+import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppInputProps>(), {
   hint: '',
@@ -68,6 +70,12 @@ const focus = ref<boolean>(false);
 
 const inputRef = ref<HTMLInputElement | null>(null);
 const maskRef = ref<InputMask<FactoryOpts> | undefined>(undefined);
+
+const instance: ComponentInternalInstance | null = getCurrentInstance();
+
+const name = computed<string>(() => {
+  return props.name || componentNameByInstance(instance);
+});
 
 const maskParams = computed<FactoryOpts | undefined>(() => {
   if (props.mask) {
@@ -209,7 +217,7 @@ watch(
       <input
         ref="inputRef"
         v-model="value"
-        :name="props.name || componentName('app-input')"
+        :name="name"
         autocomplete="off"
         class="app-input__input"
         :type="props.type"

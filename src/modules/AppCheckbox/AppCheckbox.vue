@@ -1,11 +1,16 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import {
+  type ComponentInternalInstance,
+  computed,
+  getCurrentInstance,
+} from 'vue';
 import type {
   AppCheckboxProps,
   AppCheckboxSlots,
 } from './types';
 import { componentName } from '@/helpers';
 import type { HTMLElementClass } from '@/types';
+import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppCheckboxProps>(), {
   name: componentName('app-checkbox'),
@@ -16,6 +21,12 @@ defineSlots<AppCheckboxSlots>();
 
 const checked = defineModel<boolean>('checked', {
   required: true,
+});
+
+const instance: ComponentInternalInstance | null = getCurrentInstance();
+
+const name = computed<string>(() => {
+  return props.name || componentNameByInstance(instance);
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
@@ -29,14 +40,14 @@ const elementClass = computed<HTMLElementClass>(() => {
 <template>
   <div class="app-checkbox__wrapper">
     <label
-      :for="props.name"
+      :for="name"
       class="app-checkbox"
       :class="elementClass"
     >
       <input
-        :id="props.name"
+        :id="name"
         v-model="checked"
-        :name="props.name"
+        :name="name"
         type="checkbox"
         :disabled="props.disabled"
         class="app-checkbox__input"
