@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { RouterLinkStub } from '@vue/test-utils';
-import App from '@/App.vue';
+import App from './App.vue';
 
 import '@/app/assets/styles/index.scss';
 
