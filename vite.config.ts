@@ -31,6 +31,14 @@ export default defineConfig((): UserConfig => {
         name: 'Common',
         fileName: format => `common.${format}.js`,
       },
+      rollupOptions: {
+        external: ['vue', '@vueuse/core', 'dayjs'],
+        output: {
+          globals: {
+            vue: 'Vue',
+          },
+        },
+      },
     },
 
     css: {

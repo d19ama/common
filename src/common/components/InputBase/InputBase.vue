@@ -34,10 +34,18 @@ const errorMessage = computed<string | undefined>(() => {
     return props.errorText;
   }
 
-  if (props.validation) {
-    return props.validation.$errors.map(({
-      $message,
-    }) => $message.toString()).at(0);
+  if (!props.validation) {
+    return undefined;
+  }
+
+  const [
+    first,
+  ] = props.validation.$errors.map(({
+    $message,
+  }) => $message.toString());
+
+  if (first) {
+    return first;
   }
 
   return undefined;
