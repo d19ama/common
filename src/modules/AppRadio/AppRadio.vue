@@ -118,7 +118,7 @@ function validate(): void {
 
   &__text {
     font-weight: 400;
-    color: var(--color-black);
+    color: var(--color-text-main);
     font-size: .875rem;
     line-height: 1.5rem;
   }
@@ -129,7 +129,7 @@ function validate(): void {
     font-size: 1rem;
     padding-left: 39px;
     position: relative;
-    color: var(--color-black);
+    color: var(--color-text-main);
     line-height: 1.5rem;
     transition: color var(--transition);
     cursor: pointer;
@@ -142,7 +142,7 @@ function validate(): void {
       top: 0;
       left: 0;
       border-radius: 100%;
-      border: 1px solid var(--color-gray-dark);
+      border: 1px solid var(--color-ui-dark);
       background-color: var(--color-white);
       transition: border-color var(--transition), background-color var(--transition), opacity var(--transition);
     }
@@ -150,14 +150,18 @@ function validate(): void {
     &:hover {
 
       &::before {
-        border-color: var(--color-red);
+        border-color: var(--color-ui-dark);
+        background-color: var(--color-ui-dark);
+        box-shadow: inset 0 0 0 4px var(--color-white);
       }
     }
 
     &:active {
 
       &:before {
-        background-color: var(--color-red);
+        border-color: var(--color-ui-dark);
+        background-color: var(--color-ui-dark);
+        box-shadow: inset 0 0 0 4px var(--color-white);
       }
     }
   }
@@ -165,16 +169,10 @@ function validate(): void {
   &__input:checked + #{$parent}__label {
 
     &::before {
-      border-color: var(--color-red);
-      background-color: var(--color-red);
+      border-color: var(--color-ui-dark);
+      background-color: var(--color-ui-dark);
       box-shadow: inset 0 0 0 4px var(--color-white);
     }
-  }
-
-  &__error {
-    color: var(--color-red);
-    font-size: 1rem;
-    line-height: 1.4;
   }
 
   &--disabled {

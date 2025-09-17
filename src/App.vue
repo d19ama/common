@@ -8,8 +8,8 @@ import {
   AppAccordionItem,
   AppButton,
   AppCheckbox,
+  AppCombobox,
   AppDatePicker,
-  AppDivider,
   AppInput,
   AppInputFile,
   AppLink,
@@ -151,505 +151,607 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
 
 <template>
   <div class="container">
-    <div class="row">
-      <!--    AppAccordion    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppAccordion"
-          class="margin-bottom--s"
-        />
-        <br>
-        <AppAccordion>
-          <AppAccordionItem>
-            <template #header>
-              Accordion 1
-            </template>
-            <template #body>
-              Whoa!
-            </template>
-          </AppAccordionItem>
-          <AppAccordionItem>
-            <template #header>
-              Accordion 2
-            </template>
-            <template #body>
-              Whoa!
-            </template>
-          </AppAccordionItem>
-          <AppAccordionItem>
-            <template #header>
-              Accordion 3
-            </template>
-            <template #body>
-              Whoa!
-            </template>
-          </AppAccordionItem>
-        </AppAccordion>
-      </div>
-
-      <!--    AppLink    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppLink"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppLink
-              text="red link"
-            />
-          </div>
-          <div class="col-default-3">
-            <AppLink
-              text="gray-dark link"
-              theme="gray-dark"
-            />
+    <!--    AppAccordion    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppAccordion"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-12">
+              <AppAccordion>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 1
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 2
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 3
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+              </AppAccordion>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppList    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppList"
-          class="margin-bottom--s"
-        />
-        <br>
-        <AppList
-          text="Link"
-          :items="[
-            {
-              id: '1',
-              label: 'Label 1',
-            },
-            {
-              id: '2',
-              label: 'Label 2',
-            },
-          ]"
-        />
-      </div>
-
-      <!--    AppTitle    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          v-for="item in tags"
-          :key="item"
-          :tag="item"
-          :text="`AppTitle ${item}`"
-          class="margin-bottom--s"
-        />
-      </div>
-
-      <!--    AppButton    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppButton"
-          class="margin-bottom--s"
-        />
-        <AppTitle
-          tag="h5"
-          text="Sizes"
-          class="margin-bottom--s"
-        />
-        <div class="row margin-bottom--s">
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              size="s"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              size="m"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              size="l"
-            />
-          </div>
-        </div>
-        <AppTitle
-          tag="h5"
-          text="States"
-          class="margin-bottom--s"
-        />
-        <div class="row margin-bottom--s">
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              disabled
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              loading
-            />
-          </div>
-        </div>
-        <AppTitle
-          tag="h5"
-          text="Styles"
-          class="margin-bottom--s"
-        />
-        <div class="row margin-bottom--s">
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              rounded
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              auto-width
-            />
-          </div>
-        </div>
-        <AppTitle
-          tag="h5"
-          text="Themes"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              theme="primary"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              theme="secondary"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              theme="tertiary"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppButton
-              text="Button"
-              theme="transparent"
-            />
+    <!--    AppLink    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppLink"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-2">
+              <AppLink
+                text="Link"
+                theme="primary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppLink
+                text="Link"
+                theme="secondary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppLink
+                text="Link"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppLink
+                text="Link"
+                theme="transparent"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppCheckbox    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppCheckbox"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-2">
-            <AppCheckbox
-              v-model:checked="checkbox"
-              text="Button"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppCheckbox
-              v-model:checked="checkbox"
-              text="Button"
-              disabled
-            />
+    <!--    AppList    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppList"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-12">
+              <AppList
+                text="Link"
+                :items="[
+                  {
+                    id: '1',
+                    label: 'Label 1',
+                  },
+                  {
+                    id: '2',
+                    label: 'Label 2',
+                  },
+                ]"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppDatePicker    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppDatePicker"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppDatePicker
-              placeholder="Select date"
-              label="DatePicker"
-              hint="Some hint"
-            />
+    <!--    AppTitle    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            v-for="item in tags"
+            :key="item"
+            :tag="item"
+            :text="`AppTitle ${item}`"
+            class="margin-bottom--s"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--    AppButton    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppButton"
+            class="margin-bottom--s"
+          />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                size="s"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                size="m"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                size="l"
+              />
+            </div>
           </div>
-          <div class="col-default-3">
-            <AppDatePicker
-              placeholder="Select date"
-              label="DatePicker"
-              hint="Some hint"
-              required
-            />
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                disabled
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                loading
+              />
+            </div>
           </div>
-          <div class="col-default-3">
-            <AppDatePicker
-              placeholder="Select date"
-              label="DatePicker"
-              hint="Some hint"
-              disabled
-            />
+          <AppTitle
+            tag="h5"
+            text="Styles"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                rounded
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                auto-width
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="Themes"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="primary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="secondary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="transparent"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppInput    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppInput"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppInput
-              v-model:value="inputValue"
-              label="Some some"
-              placeholder="Type some"
-              hint="Some hint"
-            />
-          </div>
-          <div class="col-default-3">
-            <AppInput
-              v-model:value="inputValue"
-              label="Some some"
-              placeholder="Type some"
-              hint="Some hint"
-              required
-            />
-          </div>
-          <div class="col-default-3">
-            <AppInput
-              v-model:value="inputValue"
-              label="Some some"
-              placeholder="Type some"
-              hint="Some hint"
-              disabled
-            />
+    <!--    AppDatePicker    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppDatePicker"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppInputFile    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppInputFile"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppInputFile
-              label="Upload file"
-              button-text="Upload"
-              hint="Some hint"
-            />
+    <!--    AppInput    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppInput"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppRadio    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppRadio"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppRadio
-              v-model:value="radio"
-              :options="options"
-            />
-          </div>
-          <div class="col-default-3">
-            <AppRadio
-              v-model:value="radio"
-              :options="options"
-              disabled
-            />
+    <!--    AppInputFile    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppInputFile"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppSelect    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppSelect"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3">
-            <AppSelect
-              v-model:selected="select"
-              :options="options"
-              placeholder="Select"
-              label="Select"
-              hint="Some hint"
-            />
-          </div>
-          <div class="col-default-3">
-            <AppSelect
-              v-model:selected="select"
-              :options="options"
-              disabled
-              placeholder="Select"
-              label="Select"
-              hint="Some hint"
-            />
+    <!--    AppCheckbox    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppCheckbox"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-2">
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppSpinner    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppSpinner"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-3 position-relative">
-            <AppSpinner
-              v-model:active="spinner"
-            />
+    <!--    AppRadio    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppRadio"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppRadio
+                v-model:value="radio"
+                :options="options"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppRadio
+                v-model:value="radio"
+                :options="options"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppTabs    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppTabs"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-6">
-            <AppTabs
-              v-model:items="tabs"
-            />
+    <!--    AppSelect    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppSelect"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppSelect
+                v-model:selected="select"
+                :options="options"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppSelect
+                v-model:selected="select"
+                :options="options"
+                disabled
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppTextarea    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppTextarea"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-4">
-            <AppTextarea
-              v-model:value="textarea"
-              placeholder="Type some"
-              label="Textarea"
-              hint="Some hint"
-            />
-          </div>
-          <div class="col-default-4">
-            <AppTextarea
-              v-model:value="textarea"
-              placeholder="Type some"
-              label="Textarea"
-              hint="Some hint"
-              disabled
-            />
+    <!--    AppCombobox  -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppCombobox"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:selected="select"
+                :options="options"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:selected="select"
+                :options="options"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppTooltip    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppTooltip"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-4">
-            <AppTooltip>
-              tooltip
-            </AppTooltip>
+    <!--    AppSpinner    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppSpinner"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3 position-relative">
+              <AppSpinner
+                v-model:active="spinner"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppTable    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppTable"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-6">
-            <AppTable
-              :headers="headers"
-              :rows="rows"
-            />
-          </div>
-          <div class="col-default-6">
-            <AppTable
-              :headers="headers"
-              :rows="rows"
-            >
-              <template #td-one="{ data }">
-                {{ data.one }}
-              </template>
-            </AppTable>
+    <!--    AppTabs    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppTabs"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-6">
+              <AppTabs
+                v-model:items="tabs"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!--    AppModal    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppModal"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-4">
-            <AppButton
-              text="Open modal!"
-              @click="modal = !modal"
-            />
-            <AppModal v-model:visible="modal">
-              Modal content!
-            </AppModal>
+    <!--    AppTextarea    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppTextarea"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-4">
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-4">
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    AppTooltip    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppTooltip"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-4">
+              <AppTooltip>
+                tooltip
+              </AppTooltip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    AppTable    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppTable"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-6">
+              <AppTable
+                :headers="headers"
+                :rows="rows"
+              />
+            </div>
+            <div class="col-default-6">
+              <AppTable
+                :headers="headers"
+                :rows="rows"
+              >
+                <template #td-one="{ data }">
+                  {{ data.one }}
+                </template>
+              </AppTable>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    AppModal    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppModal"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-4">
+              <AppButton
+                text="Open modal!"
+                @click="modal = !modal"
+              />
+              <AppModal v-model:visible="modal">
+                Modal content!
+              </AppModal>
+            </div>
           </div>
         </div>
       </div>
@@ -686,10 +788,12 @@ body {
   height: 100vh;
   min-width: 20rem;
   width: 100%;
+  margin: 0;
+  padding: 0;
   color: var(--color-black);
   font-weight: 400;
   font-family: 'jb', Arial, Helvetica, sans-serif;
-  background-color: var(--color-white);
+  background-color: var(--color-black-80);
 }
 
 h1,
@@ -719,19 +823,26 @@ ul {
   list-style: none;
 }
 
-.container {
-  max-width: 77.5rem;
-  min-height: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin: auto;
-}
-
 p {
   margin: 0;
 }
 
 p+p {
   margin: 1rem 0 0;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 60rem;
+  min-height: 100%;
+  padding: 2rem;
+  margin: auto;
+
+  &__block {
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: var(--color-white);
+  }
 }
 </style>

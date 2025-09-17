@@ -1,13 +1,17 @@
 import type { VNode } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
+import type {
+  GlobalPropSize,
+  GlobalPropTheme,
+} from '@/types';
 
-export type AppButtonSize = 's' | 'm' | 'l';
+export type AppButtonSize = GlobalPropSize;
+
+export type AppButtonTheme = GlobalPropTheme;
 
 export type AppButtonBlank = '_blank' | '_self';
 
 export type AppButtonTag = 'button' | 'RouterLink' | 'a';
-
-export type AppButtonTheme = 'primary' | 'secondary' | 'tertiary' | 'transparent';
 
 export interface AppButtonProps {
   text?: string;

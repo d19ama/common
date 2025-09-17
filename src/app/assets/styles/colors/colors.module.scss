@@ -1,19 +1,101 @@
-$white: #ffffff;
-$black: #212121;
-$black-50: rgba($black, 0.5);
-$red: #ed174b;
-$red-dark: #c20f3b;
-$gray-dark: #2d2d2d;
-$gray-lite: #f1f1f1;
-$gray-middle: #E6E6E6;
+// BASE
+$color-white: #ffffff;
+$color-white-10: rgba($color-white, 0.1);
+$color-white-20: rgba($color-white, 0.2);
+$color-white-30: rgba($color-white, 0.3);
+$color-white-40: rgba($color-white, 0.4);
+$color-white-50: rgba($color-white, 0.5);
+$color-white-60: rgba($color-white, 0.6);
+$color-white-70: rgba($color-white, 0.7);
+$color-white-80: rgba($color-white, 0.8);
+$color-white-90: rgba($color-white, 0.9);
+
+$color-black: #212121;
+$color-black-10: rgba($color-black, 0.1);
+$color-black-20: rgba($color-black, 0.2);
+$color-black-30: rgba($color-black, 0.3);
+$color-black-40: rgba($color-black, 0.4);
+$color-black-50: rgba($color-black, 0.5);
+$color-black-60: rgba($color-black, 0.6);
+$color-black-70: rgba($color-black, 0.7);
+$color-black-80: rgba($color-black, 0.8);
+$color-black-90: rgba($color-black, 0.9);
+
+// TEXT
+$color-text-main: #212121;
+$color-text-inverted: #ffffff;
+
+// STATE
+$color-error: #E73121;
+$color-success: #89F336;
+$color-warning: #FFEE8C;
+$color-required: #FF0038;
+$color-info: #90D5FF;
+
+// UI
+$color-ui-dark: #2d2d2d;
+$color-ui-middle: #E6E6E6;
+$color-ui-light: #f1f1f1;
+
+// THEME
+$color-primary: #ed174b;
+$color-primary-hover: #c20f3b;
+$color-primary-active: #ff446a;
+$color-secondary: #eaeaea;
+$color-secondary-hover: #b6b6b6;
+$color-secondary-active: #c2c2c2;
+$color-tertiary: #464545;
+$color-tertiary-hover: #2d2d2d;
+$color-tertiary-active: #6e6e6e;
 
 :export {
-  white: $white;
-  black: $black;
-  black-50: $black-50;
-  red: $red;
-  red-dark: $red-dark;
-  gray-dark: $gray-dark;
-  gray-lite: $gray-lite;
-  gray-middle: $gray-middle;
+  // BASE
+  color-white: $color-white;
+  color-white-10: $color-white-10;
+  color-white-20: $color-white-20;
+  color-white-30: $color-white-30;
+  color-white-40: $color-white-40;
+  color-white-50: $color-white-50;
+  color-white-60: $color-white-60;
+  color-white-70: $color-white-70;
+  color-white-80: $color-white-80;
+  color-white-90: $color-white-90;
+
+  color-black: $color-black;
+  color-black-10: $color-black-10;
+  color-black-20: $color-black-20;
+  color-black-30: $color-black-30;
+  color-black-40: $color-black-40;
+  color-black-50: $color-black-50;
+  color-black-60: $color-black-60;
+  color-black-70: $color-black-70;
+  color-black-80: $color-black-80;
+  color-black-90: $color-black-90;
+
+  // TEXT
+  color-text-main: $color-text-main;
+  color-text-inverted: $color-text-inverted;
+
+  // STATE
+  color-error: $color-error;
+  color-success: $color-success;
+  color-warning: $color-warning;
+  color-required: $color-required;
+  color-info: $color-info;
+
+  // UI
+  color-ui-dark: $color-ui-dark;
+  color-ui-light: $color-ui-light;
+  color-ui-middle: $color-ui-middle;
+
+  // THEME
+  color-primary: $color-primary;
+  color-primary-hover: $color-primary-hover;
+  color-primary-active: $color-primary-active;
+  color-secondary: $color-secondary;
+  color-secondary-hover: $color-secondary-hover;
+  color-secondary-active: $color-secondary-active;
+  color-tertiary: $color-tertiary;
+  color-tertiary-hover: $color-tertiary-hover;
+  color-tertiary-active: $color-tertiary-active;
 }

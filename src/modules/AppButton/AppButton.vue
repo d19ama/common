@@ -198,10 +198,28 @@ a {
   // Themes
   &--theme-primary {
     color: var(--color-white);
-    background-color: var(--color-red);
+    background-color: var(--color-primary);
 
     &:hover {
-      background-color: var(--color-red-dark);
+      background-color: var(--color-primary-hover);
+    }
+  }
+
+  &--theme-secondary {
+    color: var(--color-black);
+    background-color: var(--color-secondary);
+
+    &:hover {
+      background-color: var(--color-secondary-hover);
+    }
+  }
+
+  &--theme-tertiary {
+    color: var(--color-white);
+    background-color: var(--color-tertiary);
+
+    &:hover {
+      background-color: var(--color-tertiary-hover);
     }
   }
 

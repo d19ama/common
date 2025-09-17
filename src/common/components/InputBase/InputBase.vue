@@ -70,10 +70,10 @@ const isErrorVisible = computed<boolean>(() => {
       <slot name="label">
         {{ props.label }}
       </slot>
-      <span
+      <sup
         v-if="props.required"
-        class="input-base__label-asterisk"
-      >*</span>
+        class="input-base__label-required"
+      >*</sup>
     </div>
 
     <div class="input-base__wrapper">
@@ -153,7 +153,7 @@ select {
     width: 100%;
     position: relative;
     border-radius: .5rem;
-    background-color: var(--color-gray-lite);
+    background-color: var(--color-ui-light);
   }
 
   &__label,
@@ -171,12 +171,12 @@ select {
     justify-content: flex-start;
     gap: .125rem;
     width: 100%;
-    color: var(--color-gray-dark);
+    color: var(--color-ui-dark);
     user-select: none;
   }
 
-  &__label-asterisk {
-    color: var(--color-red);
+  &__label-required {
+    color: var(--color-required);
   }
 
   &__placeholder {
@@ -191,7 +191,7 @@ select {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--color-gray-dark);
+    color: var(--color-ui-dark);
     white-space: nowrap;
     text-overflow: ellipsis;
     pointer-events: none;
@@ -199,11 +199,11 @@ select {
 
   &__hint {
     opacity: .5;
-    color: var(--color-gray-dark);
+    color: var(--color-ui-dark);
   }
 
   &__error {
-    color: var(--color-red);
+    color: var(--color-error);
   }
 
   &--disabled {
