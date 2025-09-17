@@ -1,10 +1,7 @@
 import { createApp } from 'vue';
+import { RouterLinkStub } from '@vue/test-utils';
 import App from '@/App.vue';
-import { router } from '@/app/router';
 
 import '@/app/assets/styles/index.scss';
 
-const app = createApp(App);
-
-app.use(router);
-app.mount('#app');
+createApp(App).component('RouterLink', RouterLinkStub).mount('#app');
