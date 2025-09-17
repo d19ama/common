@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 import type {
   AppButtonEmits,
   AppButtonProps,
   AppButtonSlots,
+  AppButtonTag,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
-  test: '',
   size: 'm',
-  theme: 'red',
   tag: 'button',
-  to: undefined,
   type: 'button',
   rounded: false,
+  loading: false,
   disabled: false,
   download: false,
   autoWidth: false,
+  theme: 'primary',
+  target: '_blank',
   downloadName: 'file',
 });
 
@@ -26,48 +26,56 @@ const emit = defineEmits<AppButtonEmits>();
 
 defineSlots<AppButtonSlots>();
 
-const router = useRouter();
-
 const elementClass = computed<HTMLElementClass>(() => {
   return [
     `app-button--size-${props.size}`,
     `app-button--theme-${props.theme}`,
     {
       'app-button--rounded': props.rounded,
+      'app-button--loading': props.rounded,
       'app-button--disabled': props.disabled,
       'app-button--auto-width': props.autoWidth,
     },
   ];
 });
 
-const hrefValue = computed<string | undefined>(() => {
-  return props.tag === 'a'
-    ? props.href
-    : undefined;
+const componentTag = computed<AppButtonTag>(() => {
+  if (props.to || props.tag === 'RouterLink') {
+    return 'RouterLink';
+  }
+
+  if (props.href || props.tag === 'a') {
+    return 'a';
+  }
+
+  return 'button';
 });
 
-const targetValue = computed<string | undefined>(() => {
-  return (props.tag === 'a' && props.blank)
-    ? '_blank'
-    : undefined;
-});
+const attrs = computed<AppButtonProps>(() => {
+  if (props.to || props.tag === 'RouterLink') {
+    return {
+      to: props.to,
+      target: props.target,
+    };
+  }
 
-const downloadValue = computed<string | undefined>(() => {
-  return (props.tag === 'a' && props.download)
-    ? props.downloadName
-    : undefined;
+  if (props.href || props.tag === 'a') {
+    return {
+      href: props.href,
+      target: props.target,
+      download: props.download,
+      downloadName: props.downloadName,
+    };
+  }
+
+  return {
+    type: props.type,
+    disabled: props.disabled,
+  };
 });
 
 function onClick(event: Event): void {
-  if (props.tag === 'button') {
-    event.preventDefault();
-  }
-
-  if (props.to) {
-    router.push({
-      name: props.to,
-    });
-
+  if (props.loading || props.disabled) {
     return;
   }
 
@@ -77,22 +85,20 @@ function onClick(event: Event): void {
 
 <template>
   <Component
-    :is="props.tag"
+    :is="componentTag"
+    v-bind="attrs"
     class="app-button"
-    :href="hrefValue"
-    :type="props.type"
     :class="elementClass"
-    :target="targetValue"
-    :download="downloadValue"
-    :disabled="props.disabled"
     @click="onClick"
   >
     <span v-if="!!$slots.prepend">
       <slot name="prepend" />
     </span>
+
     <slot>
       {{ props.text }}
     </slot>
+
     <span v-if="!!$slots.append">
       <slot name="append" />
     </span>
@@ -156,6 +162,10 @@ a {
     pointer-events: none;
   }
 
+  &--loading {
+    pointer-events: none;
+  }
+
   &--rounded {
     border-radius: .5rem;
   }
@@ -167,26 +177,26 @@ a {
   &--size-s {
     padding: .25rem .5rem;
     font-size: .75rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
   }
 
   &--size-m {
-    padding: .5rem 1rem;
+    padding: .5rem .75rem;
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.5;
   }
 
   &--size-l {
-    padding: .75rem 1.5rem;
+    padding: .75rem 1rem;
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.5;
   }
 
   // Themes
-  &--theme-red {
+  &--theme-primary {
     color: var(--color-white);
     background-color: var(--color-red);
 

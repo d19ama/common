@@ -256,10 +256,56 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           text="AppButton"
           class="margin-bottom--s"
         />
-        <div class="row">
+        <AppTitle
+          tag="h5"
+          text="Sizes"
+          class="margin-bottom--s"
+        />
+        <div class="row margin-bottom--s">
           <div class="col-default-2">
-            <AppButton text="Button" />
+            <AppButton
+              text="Button"
+              size="s"
+            />
           </div>
+          <div class="col-default-2">
+            <AppButton
+              text="Button"
+              size="m"
+            />
+          </div>
+          <div class="col-default-2">
+            <AppButton
+              text="Button"
+              size="l"
+            />
+          </div>
+        </div>
+        <AppTitle
+          tag="h5"
+          text="States"
+          class="margin-bottom--s"
+        />
+        <div class="row margin-bottom--s">
+          <div class="col-default-2">
+            <AppButton
+              text="Button"
+              disabled
+            />
+          </div>
+          <div class="col-default-2">
+            <AppButton
+              text="Button"
+              loading
+            />
+          </div>
+        </div>
+        <AppTitle
+          tag="h5"
+          text="Styles"
+          class="margin-bottom--s"
+        />
+        <div class="row margin-bottom--s">
           <div class="col-default-2">
             <AppButton
               text="Button"
@@ -272,22 +318,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               auto-width
             />
           </div>
+        </div>
+        <AppTitle
+          tag="h5"
+          text="Themes"
+          class="margin-bottom--s"
+        />
+        <div class="row">
           <div class="col-default-2">
             <AppButton
               text="Button"
-              size="s"
+              theme="primary"
             />
           </div>
           <div class="col-default-2">
             <AppButton
               text="Button"
-              size="l"
+              theme="secondary"
             />
           </div>
           <div class="col-default-2">
             <AppButton
               text="Button"
-              disabled
+              theme="tertiary"
+            />
+          </div>
+          <div class="col-default-2">
+            <AppButton
+              text="Button"
+              theme="transparent"
             />
           </div>
         </div>

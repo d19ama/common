@@ -1,27 +1,28 @@
 import type { VNode } from 'vue';
-import type { RouteNames } from '@/app/router/route-names';
+import type { RouteLocationRaw } from 'vue-router';
 
 export type AppButtonSize = 's' | 'm' | 'l';
 
-export type AppButtonTag = 'button' | 'a';
-
 export type AppButtonBlank = '_blank' | '_self';
 
-export type AppButtonTheme = 'red' | 'transparent';
+export type AppButtonTag = 'button' | 'RouterLink' | 'a';
+
+export type AppButtonTheme = 'primary' | 'secondary' | 'tertiary' | 'transparent';
 
 export interface AppButtonProps {
-  href?: string;
   text?: string;
-  to?: RouteNames;
+  href?: string;
+  loading?: boolean;
   rounded?: boolean;
   tag?: AppButtonTag;
   download?: boolean;
   disabled?: boolean;
   autoWidth?: boolean;
   size?: AppButtonSize;
+  to?: RouteLocationRaw;
   downloadName?: string;
   theme?: AppButtonTheme;
-  blank?: AppButtonBlank;
+  target?: AppButtonBlank;
   type?: HTMLButtonElement['type'];
 }
 
