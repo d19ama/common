@@ -8,6 +8,7 @@ import {
   AppAccordionItem,
   AppButton,
   AppCheckbox,
+  AppCombobox,
   AppDatePicker,
   AppInput,
   AppInputFile,
@@ -159,33 +160,36 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppAccordion"
             class="margin-bottom--s"
           />
-          <br>
-          <AppAccordion>
-            <AppAccordionItem>
-              <template #header>
-                Accordion 1
-              </template>
-              <template #body>
-                Whoa!
-              </template>
-            </AppAccordionItem>
-            <AppAccordionItem>
-              <template #header>
-                Accordion 2
-              </template>
-              <template #body>
-                Whoa!
-              </template>
-            </AppAccordionItem>
-            <AppAccordionItem>
-              <template #header>
-                Accordion 3
-              </template>
-              <template #body>
-                Whoa!
-              </template>
-            </AppAccordionItem>
-          </AppAccordion>
+          <div class="row">
+            <div class="col-default-12">
+              <AppAccordion>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 1
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 2
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+                <AppAccordionItem>
+                  <template #header>
+                    Accordion 3
+                  </template>
+                  <template #body>
+                    Whoa!
+                  </template>
+                </AppAccordionItem>
+              </AppAccordion>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -238,20 +242,23 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppList"
             class="margin-bottom--s"
           />
-          <br>
-          <AppList
-            text="Link"
-            :items="[
-              {
-                id: '1',
-                label: 'Label 1',
-              },
-              {
-                id: '2',
-                label: 'Label 2',
-              },
-            ]"
-          />
+          <div class="row">
+            <div class="col-default-12">
+              <AppList
+                text="Link"
+                :items="[
+                  {
+                    id: '1',
+                    label: 'Label 1',
+                  },
+                  {
+                    id: '2',
+                    label: 'Label 2',
+                  },
+                ]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -569,6 +576,40 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
+    <!--    AppCombobox  -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppCombobox"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:selected="select"
+                :options="options"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:selected="select"
+                :options="options"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--    AppSpinner    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
@@ -793,7 +834,7 @@ p+p {
 .container {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 77.5rem;
+  max-width: 60rem;
   min-height: 100%;
   padding: 2rem;
   margin: auto;

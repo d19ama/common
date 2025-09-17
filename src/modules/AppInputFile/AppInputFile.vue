@@ -193,9 +193,9 @@ function onClick(): void {
   }
 
   &__button {
-    color: var(--color-form-dark);
+    color: var(--color-ui-dark);
     border-radius: .5rem 0 0 .5rem;
-    background-color: var(--color-form-middle);
+    background-color: var(--color-ui-middle);
   }
 
   &__placeholder {
@@ -205,7 +205,7 @@ function onClick(): void {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--color-form-dark);
+    color: var(--color-ui-dark);
   }
 }
 </style>

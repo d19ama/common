@@ -127,22 +127,22 @@ const trigger = computed<TippyComponent['trigger']>(() => {
   }
 
   &:global([data-placement^='top']) > :global(.tippy-arrow::before) {
-    border-top-color: var(--color-form-dark);
+    border-top-color: var(--color-ui-dark);
     bottom: -$arrow-height;
   }
 
   &:global([data-placement^='bottom']) > :global(.tippy-arrow::before) {
-    border-bottom-color: var(--color-form-dark);
+    border-bottom-color: var(--color-ui-dark);
     top: -$arrow-height;
   }
 
   &:global([data-placement^='left']) > :global(.tippy-arrow::before) {
-    border-left-color: var(--color-form-dark);
+    border-left-color: var(--color-ui-dark);
     right: -$arrow-height;
   }
 
   &:global([data-placement^='right']) > :global(.tippy-arrow::before) {
-    border-right-color: var(--color-form-dark);
+    border-right-color: var(--color-ui-dark);
     left: -$arrow-height;
   }
 }

@@ -142,7 +142,7 @@ function validate(): void {
       top: 0;
       left: 0;
       border-radius: 100%;
-      border: 1px solid var(--color-form-dark);
+      border: 1px solid var(--color-ui-dark);
       background-color: var(--color-white);
       transition: border-color var(--transition), background-color var(--transition), opacity var(--transition);
     }
@@ -150,8 +150,8 @@ function validate(): void {
     &:hover {
 
       &::before {
-        border-color: var(--color-form-dark);
-        background-color: var(--color-form-dark);
+        border-color: var(--color-ui-dark);
+        background-color: var(--color-ui-dark);
         box-shadow: inset 0 0 0 4px var(--color-white);
       }
     }
@@ -159,8 +159,8 @@ function validate(): void {
     &:active {
 
       &:before {
-        border-color: var(--color-form-dark);
-        background-color: var(--color-form-dark);
+        border-color: var(--color-ui-dark);
+        background-color: var(--color-ui-dark);
         box-shadow: inset 0 0 0 4px var(--color-white);
       }
     }
@@ -169,8 +169,8 @@ function validate(): void {
   &__input:checked + #{$parent}__label {
 
     &::before {
-      border-color: var(--color-form-dark);
-      background-color: var(--color-form-dark);
+      border-color: var(--color-ui-dark);
+      background-color: var(--color-ui-dark);
       box-shadow: inset 0 0 0 4px var(--color-white);
     }
   }

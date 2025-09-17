@@ -153,7 +153,7 @@ select {
     width: 100%;
     position: relative;
     border-radius: .5rem;
-    background-color: var(--color-form-light);
+    background-color: var(--color-ui-light);
   }
 
   &__label,
@@ -171,7 +171,7 @@ select {
     justify-content: flex-start;
     gap: .125rem;
     width: 100%;
-    color: var(--color-form-dark);
+    color: var(--color-ui-dark);
     user-select: none;
   }
 
@@ -191,7 +191,7 @@ select {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--color-form-dark);
+    color: var(--color-ui-dark);
     white-space: nowrap;
     text-overflow: ellipsis;
     pointer-events: none;
@@ -199,7 +199,7 @@ select {
 
   &__hint {
     opacity: .5;
-    color: var(--color-form-dark);
+    color: var(--color-ui-dark);
   }
 
   &__error {

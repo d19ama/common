@@ -12,6 +12,7 @@ export * from './AppButton';
 export * from './AppTooltip';
 export * from './AppSpinner';
 export * from './AppDivider';
+export * from './AppCombobox';
 export * from './AppTextarea';
 export * from './AppCheckbox';
 export * from './AppInputFile';

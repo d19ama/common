@@ -87,7 +87,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 
       &::after {
         opacity: 1;
-        background-color: var(--color-form-dark);
+        background-color: var(--color-ui-dark);
       }
     }
   }
@@ -122,7 +122,7 @@ const elementClass = computed<HTMLElementClass>(() => {
       left: 0;
       z-index: 1;
       background-color: transparent;
-      box-shadow: inset 0 0 0 1px var(--color-form-dark);
+      box-shadow: inset 0 0 0 1px var(--color-ui-dark);
       transition: box-shadow var(--transition), background-color var(--transition);
     }
 
@@ -145,14 +145,14 @@ const elementClass = computed<HTMLElementClass>(() => {
 
       &::before {
         background-color: transparent;
-        box-shadow: inset 0 0 0 1px var(--color-form-dark);
+        box-shadow: inset 0 0 0 1px var(--color-ui-dark);
       }
 
       &::after {
         opacity: 1;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: var(--color-form-dark);
+        background-color: var(--color-ui-dark);
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDUgOUwxMyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+);
       }
     }

@@ -33,10 +33,10 @@ export interface Styles {
   'color-required': string;
   'color-info': string;
 
-  // FORM
-  'color-form-dark': string;
-  'color-form-light': string;
-  'color-form-middle': string;
+  // UI
+  'color-ui-dark': string;
+  'color-ui-light': string;
+  'color-ui-middle': string;
 
   // THEME
   'color-primary': string;
