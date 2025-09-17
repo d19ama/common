@@ -1,17 +1,15 @@
 import type { VNode } from 'vue';
+import type { GlobalPropTheme } from '@/types';
 
-export type AppLinkHover = 'red';
+export type AppLinkTheme = GlobalPropTheme;
 
 export type AppLinkTarget = '_blank' | '_self';
-
-export type AppLinkTheme = 'red' | 'gray-dark';
 
 export interface AppLinkProps {
   url?: string;
   text?: string;
   prevent?: boolean;
   underline?: boolean;
-  hover?: AppLinkHover;
   theme?: AppLinkTheme;
   target?: AppLinkTarget;
 }

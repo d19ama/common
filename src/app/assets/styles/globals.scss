@@ -4,24 +4,69 @@
 
 @import 'mixins';
 
+// BREAKPOINTS
 :root {
-  // colors
-  --color-white: #{$white};
-  --color-black: #{$black};
-  --color-black-50: #{$black-50};
-  --color-red: #{$red};
-  --color-red-dark: #{$red-dark};
-  --color-gray-dark: #{$gray-dark};
-  --color-gray-lite: #{$gray-lite};
-  --color-gray-middle: #{$gray-middle};
-
-  // breakpoint
   --breakpoint-default: #{$breakpoint-default};
   --breakpoint-desktop: #{$breakpoint-desktop};
   --breakpoint-tablet: #{$breakpoint-tablet};
   --breakpoint-modile: #{$breakpoint-mobile};
   --breakpoint-v-mobile: #{$breakpoint-v-mobile};
+}
 
-  // vars
+// COLORS
+:root {
+  // BASE
+  --color-white: #{$color-white};
+  --color-white-10: #{$color-white-10};
+  --color-white-20: #{$color-white-20};
+  --color-white-30: #{$color-white-30};
+  --color-white-40: #{$color-white-40};
+  --color-white-50: #{$color-white-50};
+  --color-white-60: #{$color-white-60};
+  --color-white-70: #{$color-white-70};
+  --color-white-80: #{$color-white-80};
+  --color-white-90: #{$color-white-90};
+
+  --color-black: #{$color-black};
+  --color-black-10: #{$color-black-10};
+  --color-black-20: #{$color-black-20};
+  --color-black-30: #{$color-black-30};
+  --color-black-40: #{$color-black-40};
+  --color-black-50: #{$color-black-50};
+  --color-black-60: #{$color-black-60};
+  --color-black-70: #{$color-black-70};
+  --color-black-80: #{$color-black-80};
+  --color-black-90: #{$color-black-90};
+
+  // TEXT
+  --color-text-main: #{$color-text-main};
+  --color-text-inverted: #{$color-text-inverted};
+
+  // STATE
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-required: #{$color-required};
+  --color-info: #{$color-info};
+
+  // FORM
+  --color-form-dark: #{$color-form-dark};
+  --color-form-light: #{$color-form-light};
+  --color-form-middle: #{$color-form-middle};
+
+  // THEME
+  --color-primary: #{$color-primary};
+  --color-primary-hover: #{$color-primary-hover};
+  --color-primary-active: #{$color-primary-active};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-hover: #{$color-secondary-hover};
+  --color-secondary-active: #{$color-secondary-active};
+  --color-tertiary: #{$color-tertiary};
+  --color-tertiary-hover: #{$color-tertiary-hover};
+  --color-tertiary-active: #{$color-tertiary-active};
+}
+
+// OTHER
+:root {
   --transition: #{$transition}
 }

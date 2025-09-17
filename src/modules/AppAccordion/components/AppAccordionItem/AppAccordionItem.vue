@@ -120,7 +120,7 @@ onMounted(() => {
 
 <style lang="scss">
 .app-accordion-item {
-  border-bottom: 1px solid var(--color-gray-lite);
+  border-bottom: 1px solid var(--color-secondary);
   transition: background-color var(--transition);
 
   &__header {

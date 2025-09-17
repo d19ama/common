@@ -198,15 +198,28 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           class="margin-bottom--s"
         />
         <div class="row">
-          <div class="col-default-3">
+          <div class="col-default-2">
             <AppLink
-              text="red link"
+              text="Link"
+              theme="primary"
             />
           </div>
-          <div class="col-default-3">
+          <div class="col-default-2">
             <AppLink
-              text="gray-dark link"
-              theme="gray-dark"
+              text="Link"
+              theme="secondary"
+            />
+          </div>
+          <div class="col-default-2">
+            <AppLink
+              text="Link"
+              theme="tertiary"
+            />
+          </div>
+          <div class="col-default-2">
+            <AppLink
+              text="Link"
+              theme="transparent"
             />
           </div>
         </div>
@@ -352,31 +365,6 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
         </div>
       </div>
 
-      <!--    AppCheckbox    -->
-      <div class="col-default-12">
-        <AppDivider />
-        <AppTitle
-          tag="h4"
-          text="AppCheckbox"
-          class="margin-bottom--s"
-        />
-        <div class="row">
-          <div class="col-default-2">
-            <AppCheckbox
-              v-model:checked="checkbox"
-              text="Button"
-            />
-          </div>
-          <div class="col-default-2">
-            <AppCheckbox
-              v-model:checked="checkbox"
-              text="Button"
-              disabled
-            />
-          </div>
-        </div>
-      </div>
-
       <!--    AppDatePicker    -->
       <div class="col-default-12">
         <AppDivider />
@@ -464,6 +452,31 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               label="Upload file"
               button-text="Upload"
               hint="Some hint"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!--    AppCheckbox    -->
+      <div class="col-default-12">
+        <AppDivider />
+        <AppTitle
+          tag="h4"
+          text="AppCheckbox"
+          class="margin-bottom--s"
+        />
+        <div class="row">
+          <div class="col-default-2">
+            <AppCheckbox
+              v-model:checked="checkbox"
+              text="Button"
+            />
+          </div>
+          <div class="col-default-2">
+            <AppCheckbox
+              v-model:checked="checkbox"
+              text="Button"
+              disabled
             />
           </div>
         </div>

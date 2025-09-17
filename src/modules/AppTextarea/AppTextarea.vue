@@ -136,8 +136,6 @@ function validate(): void {
     height: 8rem;
     position: relative;
     padding: 1rem 1.5rem 1rem 1rem;
-    border-radius: .5rem;
-    background-color: var(--color-gray-lite);
   }
 
   &__textarea {
@@ -150,7 +148,7 @@ function validate(): void {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: rgba(var(--color-gray-lite), .5);
+    color: var(--color-text-main);
     background-color: transparent;
 
     &:focus,

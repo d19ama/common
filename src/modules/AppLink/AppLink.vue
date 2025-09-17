@@ -10,11 +10,10 @@ import type { HTMLElementClass } from '@/types';
 const props = withDefaults(defineProps<AppLinkProps>(), {
   url: '#',
   text: '',
-  hover: 'red',
+  theme: 'primary',
   prevent: false,
   underline: true,
   target: '_blank',
-  theme: 'red',
 });
 
 const emit = defineEmits<AppLinkEmits>();
@@ -24,7 +23,6 @@ defineSlots<AppLinkSlots>();
 const elementClass = computed<HTMLElementClass>(() => {
   return [
     `app-link--${props.theme}`,
-    `app-link--hover-${props.hover}`,
     {
       'app-link--underline': props.underline,
     },
@@ -71,23 +69,38 @@ a {
     outline: 0 none;
   }
 
-  &--hover-red {
+  // THEMES
+  &--primary {
+    color: var(--color-primary);
 
     &:hover {
-      color: var(--color-red);
+      color: var(--color-primary-hover);
     }
   }
 
+  &--secondary {
+    color: var(--color-secondary);
+
+    &:hover {
+      color: var(--color-secondary-hover);
+    }
+  }
+
+  &--tertiary {
+    color: var(--color-tertiary);
+
+    &:hover {
+      color: var(--color-tertiary-hover);
+    }
+  }
+
+  &--transparent {
+    color: var(--color-text-main);
+  }
+
+  // STYLES
   &--underline {
     text-decoration: underline;
-  }
-
-  &--red {
-    color: var(--color-red);
-  }
-
-  &--gray-dark {
-    color: var(--color-gray-middle);
   }
 }
 </style>

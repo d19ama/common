@@ -48,9 +48,10 @@ const elementClass = computed<HTMLElementClass>(() => {
         :id="name"
         v-model="checked"
         :name="name"
-        type="checkbox"
         :disabled="props.disabled"
+        type="checkbox"
         class="app-checkbox__input"
+        autocomplete="off"
       >
       <span class="app-checkbox__box" />
       <span class="app-checkbox__text">
@@ -84,13 +85,9 @@ const elementClass = computed<HTMLElementClass>(() => {
 
     #{$parent}__box {
 
-      &::before {
-        box-shadow: inset 0 0 0 1px var(--color-red);
-      }
-
       &::after {
         opacity: 1;
-        background-color: var(--color-red);
+        background-color: var(--color-form-dark);
       }
     }
   }
@@ -103,7 +100,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   &__text {
     font-size: .875rem;
     font-weight: 400;
-    color: var(--color-black);
+    color: var(--color-text-main);
     line-height: 1.5rem;
   }
 
@@ -123,8 +120,9 @@ const elementClass = computed<HTMLElementClass>(() => {
       position: absolute;
       top: 0;
       left: 0;
+      z-index: 1;
       background-color: transparent;
-      box-shadow: inset 0 0 0 1px var(--color-black);
+      box-shadow: inset 0 0 0 1px var(--color-form-dark);
       transition: box-shadow var(--transition), background-color var(--transition);
     }
 
@@ -136,7 +134,7 @@ const elementClass = computed<HTMLElementClass>(() => {
       position: absolute;
       top: 3px;
       left: 3px;
-      background-color: var(--color-red);
+      background-color: transparent;
       transition: background-color var(--transition), opacity var(--transition);
     }
   }
@@ -146,32 +144,22 @@ const elementClass = computed<HTMLElementClass>(() => {
     #{$parent}__box {
 
       &::before {
-        background-color: var(--color-red);
-        box-shadow: inset 0 0 0 1px var(--color-red);
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px var(--color-form-dark);
       }
 
       &::after {
         opacity: 1;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: var(--color-red);
+        background-color: var(--color-form-dark);
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDUgOUwxMyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+);
-      }
-    }
-
-    &:hover {
-
-      #{$parent}__box {
-
-        &::before {
-          background-color: var(--color-white);
-        }
       }
     }
   }
 
   &--disabled {
-    opacity: .1;
+    opacity: .4;
     pointer-events: none;
   }
 }

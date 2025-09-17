@@ -192,7 +192,7 @@ watch(opened, (value) => {
     padding: 1rem 2rem 1rem 1rem;
     position: relative;
     border-radius: .5rem;
-    background-color: var(--color-gray-lite);
+    background-color: var(--color-form-light);
     cursor: pointer;
   }
 
@@ -201,7 +201,7 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--color-gray-dark);
+    color: var(--color-form-dark);
   }
 
   &__selected {
@@ -232,7 +232,7 @@ watch(opened, (value) => {
     z-index: 2;
     border-radius: 50%;
     background-color: var(--color-white);
-    box-shadow: inset 0 0 0 1px var(--color-gray-dark);
+    box-shadow: inset 0 0 0 1px var(--color-form-dark);
     transform: translateY(-50%);
     transition: background-color var(--transition), box-shadow var(--transition);
 
@@ -247,7 +247,7 @@ watch(opened, (value) => {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: var(--color-gray-dark);
+      background-color: var(--color-form-dark);
       margin: auto;
       transition: background-color var(--transition);
       z-index: 1;
@@ -262,12 +262,12 @@ watch(opened, (value) => {
     }
 
     &:hover {
-      background-color: var(--color-gray-lite);
+      background-color: var(--color-form-light);
       box-shadow: none;
 
       &:before,
       &:after {
-        background-color: var(--color-red-dark);
+        background-color: var(--color-form-dark);
       }
     }
   }
@@ -283,7 +283,7 @@ watch(opened, (value) => {
     bottom: 0;
     z-index: 2;
     border: 4px solid transparent;
-    border-top: 8px solid var(--color-gray-dark);
+    border-top: 8px solid var(--color-form-dark);
     border-bottom: 0;
     pointer-events: none;
   }
@@ -297,7 +297,7 @@ watch(opened, (value) => {
     left: -1px;
     z-index: 10;
     border-radius: .5rem;
-    background-color: var(--color-gray-lite);
+    background-color: var(--color-form-light);
     transition: opacity var(--transition);
 
     &--opened {
@@ -314,12 +314,12 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--color-gray-dark);
+    color: var(--color-form-dark);
     transition: background-color var(--transition);
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-gray-middle);
+      background-color: var(--color-form-middle);
     }
 
     &--selected {
@@ -333,7 +333,7 @@ watch(opened, (value) => {
         transform: translateY(-50%);
         width: 1.5rem;
         height: 1.5rem;
-        color: var(--color-red);
+        color: var(--color-form-dark);
         font-family: 'icon-font', sans-serif;
       }
     }

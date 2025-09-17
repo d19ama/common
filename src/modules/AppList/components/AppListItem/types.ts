@@ -2,7 +2,9 @@ import type { VNode } from 'vue';
 import type { AppListProps } from '../../';
 
 export interface AppListItemProps
-  extends Omit<AppListProps, 'items'> {}
+  extends Omit<AppListProps, 'items'> {
+  prepend?: string;
+}
 
 export interface AppListItemSlots {
   default?: () => VNode[];
