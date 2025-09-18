@@ -1,5 +1,9 @@
-$transition: .3s ease-in-out;
+$common-transition: .3s ease-in-out;
+$common-border-radius: .5rem;
+$common-border: none;
 
 :export {
-  transition: $transition;
+  common-transition: $common-transition;
+  common-border: $common-border;
+  common-border-radius: $common-border-radius;
 }

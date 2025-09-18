@@ -6,67 +6,69 @@
 
 // BREAKPOINTS
 :root {
-  --breakpoint-default: #{$breakpoint-default};
-  --breakpoint-desktop: #{$breakpoint-desktop};
-  --breakpoint-tablet: #{$breakpoint-tablet};
-  --breakpoint-modile: #{$breakpoint-mobile};
-  --breakpoint-v-mobile: #{$breakpoint-v-mobile};
+  --common-breakpoint-default: #{$common-breakpoint-default};
+  --common-breakpoint-desktop: #{$common-breakpoint-desktop};
+  --common-breakpoint-tablet: #{$common-breakpoint-tablet};
+  --common-breakpoint-mobile: #{$common-breakpoint-mobile};
+  --common-breakpoint-v-mobile: #{$common-breakpoint-v-mobile};
 }
 
 // COLORS
 :root {
   // BASE
-  --color-white: #{$color-white};
-  --color-white-10: #{$color-white-10};
-  --color-white-20: #{$color-white-20};
-  --color-white-30: #{$color-white-30};
-  --color-white-40: #{$color-white-40};
-  --color-white-50: #{$color-white-50};
-  --color-white-60: #{$color-white-60};
-  --color-white-70: #{$color-white-70};
-  --color-white-80: #{$color-white-80};
-  --color-white-90: #{$color-white-90};
+  --common-color-white: #{$common-color-white};
+  --common-color-white-10: #{$common-color-white-10};
+  --common-color-white-20: #{$common-color-white-20};
+  --common-color-white-30: #{$common-color-white-30};
+  --common-color-white-40: #{$common-color-white-40};
+  --common-color-white-50: #{$common-color-white-50};
+  --common-color-white-60: #{$common-color-white-60};
+  --common-color-white-70: #{$common-color-white-70};
+  --common-color-white-80: #{$common-color-white-80};
+  --common-color-white-90: #{$common-color-white-90};
 
-  --color-black: #{$color-black};
-  --color-black-10: #{$color-black-10};
-  --color-black-20: #{$color-black-20};
-  --color-black-30: #{$color-black-30};
-  --color-black-40: #{$color-black-40};
-  --color-black-50: #{$color-black-50};
-  --color-black-60: #{$color-black-60};
-  --color-black-70: #{$color-black-70};
-  --color-black-80: #{$color-black-80};
-  --color-black-90: #{$color-black-90};
+  --common-color-black: #{$common-color-black};
+  --common-color-black-10: #{$common-color-black-10};
+  --common-color-black-20: #{$common-color-black-20};
+  --common-color-black-30: #{$common-color-black-30};
+  --common-color-black-40: #{$common-color-black-40};
+  --common-color-black-50: #{$common-color-black-50};
+  --common-color-black-60: #{$common-color-black-60};
+  --common-color-black-70: #{$common-color-black-70};
+  --common-color-black-80: #{$common-color-black-80};
+  --common-color-black-90: #{$common-color-black-90};
 
   // TEXT
-  --color-text-main: #{$color-text-main};
-  --color-text-inverted: #{$color-text-inverted};
+  --common-color-text-main: #{$common-color-text-main};
+  --common-color-text-inverted: #{$common-color-text-inverted};
 
   // STATE
-  --color-error: #{$color-error};
-  --color-success: #{$color-success};
-  --color-warning: #{$color-warning};
-  --color-required: #{$color-required};
-  --color-info: #{$color-info};
+  --common-color-error: #{$common-color-error};
+  --common-color-success: #{$common-color-success};
+  --common-color-warning: #{$common-color-warning};
+  --common-color-required: #{$common-color-required};
+  --common-color-info: #{$common-color-info};
 
   // UI
-  --color-ui-dark: #{$color-ui-dark};
-  --color-ui-light: #{$color-ui-light};
-  --color-ui-middle: #{$color-ui-middle};
+  --common-color-ui-primary: #{$common-color-ui-primary};
+  --common-color-ui-tertiary: #{$common-color-ui-tertiary};
+  --common-color-ui-secondary: #{$common-color-ui-secondary};
 
   // THEME
-  --color-primary: #{$color-primary};
-  --color-primary-hover: #{$color-primary-hover};
-  --color-primary-active: #{$color-primary-active};
-  --color-secondary: #{$color-secondary};
-  --color-secondary-hover: #{$color-secondary-hover};
-  --color-secondary-active: #{$color-secondary-active};
-  --color-tertiary: #{$color-tertiary};
-  --color-tertiary-hover: #{$color-tertiary-hover};
-  --color-tertiary-active: #{$color-tertiary-active};
+  --common-color-primary: #{$common-color-primary};
+  --common-color-primary-hover: #{$common-color-primary-hover};
+  --common-color-primary-active: #{$common-color-primary-active};
+  --common-color-secondary: #{$common-color-secondary};
+  --common-color-secondary-hover: #{$common-color-secondary-hover};
+  --common-color-secondary-active: #{$common-color-secondary-active};
+  --common-color-tertiary: #{$common-color-tertiary};
+  --common-color-tertiary-hover: #{$common-color-tertiary-hover};
+  --common-color-tertiary-active: #{$common-color-tertiary-active};
 }
 
 // OTHER
 :root {
-  --transition: #{$transition}
+  --common-transition: #{$common-transition};
+  --common-border-radius: #{$common-border-radius};
+  --common-border: #{$common-border};
 }

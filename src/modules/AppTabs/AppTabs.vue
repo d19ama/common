@@ -79,11 +79,12 @@ function toggleItem(id: AppTabsItem['id']): void {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.4;
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
     text-decoration: none;
     transition: color .3s, opacity .3s;
     border: 1px dashed transparent;
-    border-bottom-color: var(--color-ui-dark);
+    border-bottom-color: var(--common-color-ui-primary);
+    border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
     user-select: none;
     cursor: pointer;
 
@@ -96,15 +97,15 @@ function toggleItem(id: AppTabsItem['id']): void {
     }
 
     &--active {
-      border-left-color: var(--color-ui-dark);
-      border-top-color: var(--color-ui-dark);
-      border-right-color: var(--color-ui-dark);
+      border-left-color: var(--common-color-ui-primary);
+      border-top-color: var(--common-color-ui-primary);
+      border-right-color: var(--common-color-ui-primary);
       border-bottom-color: transparent;
-      background-color: var(--color-white);;
+      background-color: var(--common-color-white);;
     }
 
     &--disabled {
-      color: var(--color-ui-light);
+      color: var(--common-color-ui-tertiary);
       pointer-events: none;
     }
   }

@@ -47,11 +47,11 @@ const elementClass = computed<HTMLElementClass>(() => {
 <style lang="scss">
 .app-title {
   line-height: 1.25;
-  color: var(--color-ui-dark);
+  color: var(--common-color-ui-primary);
   user-select: none;
 
   &--inverted {
-    color: var(--color-text-inverted);
+    color: var(--common-color-text-inverted);
   }
 
   &--comment {
@@ -64,13 +64,13 @@ const elementClass = computed<HTMLElementClass>(() => {
       top: 0;
       left: 0;
       z-index: 1;
-      color: var(--color-ui-middle);
+      color: var(--common-color-ui-secondary);
     }
   }
 
   &--bordered {
     padding-bottom: 1rem;
-    border-bottom: 3px solid var(--color-ui-light);
+    border-bottom: 3px solid var(--common-color-ui-tertiary);
   }
 
   &--uppercase {

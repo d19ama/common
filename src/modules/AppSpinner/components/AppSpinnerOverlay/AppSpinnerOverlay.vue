@@ -28,6 +28,6 @@ const props = withDefaults(defineProps<AppSpinnerProps>(), {
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: var(--color-white-60);
+  background-color: var(--common-color-white-60);
 }
 </style>

@@ -164,7 +164,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-12">
               <AppAccordion>
                 <AppAccordionItem>
-                  <template #header>
+                  <template #header-text>
                     Accordion 1
                   </template>
                   <template #body>
@@ -172,7 +172,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                   </template>
                 </AppAccordionItem>
                 <AppAccordionItem>
-                  <template #header>
+                  <template #header-text>
                     Accordion 2
                   </template>
                   <template #body>
@@ -180,7 +180,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                   </template>
                 </AppAccordionItem>
                 <AppAccordionItem>
-                  <template #header>
+                  <template #header-text>
                     Accordion 3
                   </template>
                   <template #body>
@@ -337,12 +337,6 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             class="margin-bottom--s"
           />
           <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <AppButton
-                text="Button"
-                rounded
-              />
-            </div>
             <div class="col-default-2">
               <AppButton
                 text="Button"
@@ -771,14 +765,14 @@ html {
 }
 
 ::selection {
-  color: var(--color-white);
-  background: var(--color-black);
+  color: var(--common-color-white);
+  background: var(--common-color-black);
   text-shadow: none;
 }
 
 ::-moz-selection {
-  color: var(--color-white);
-  background: var(--color-black);
+  color: var(--common-color-white);
+  background: var(--common-color-black);
   text-shadow: none;
 }
 
@@ -790,10 +784,10 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  color: var(--color-black);
+  color: var(--common-color-black);
   font-weight: 400;
   font-family: 'jb', Arial, Helvetica, sans-serif;
-  background-color: var(--color-black-80);
+  background-color: var(--common-color-black-80);
 }
 
 h1,
@@ -806,7 +800,7 @@ h6 {
 }
 
 a {
-  color: var(--color-black);
+  color: var(--common-color-black);
   text-decoration: none;
 
   &:visited,
@@ -842,7 +836,7 @@ p+p {
   &__block {
     padding: 2rem;
     border-radius: .5rem;
-    background-color: var(--color-white);
+    background-color: var(--common-color-white);
   }
 }
 </style>

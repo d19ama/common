@@ -17,7 +17,7 @@ defineSlots<AppModalTitleSlots>();
 .app-modal-title {
   font-size: 2rem;
   line-height: 1.25;
-  color: var(--color-text-main);
+  color: var(--common-color-text-main);
   user-select: none;
 }
 </style>

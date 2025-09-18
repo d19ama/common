@@ -17,7 +17,6 @@ export interface AppButtonProps {
   text?: string;
   href?: string;
   loading?: boolean;
-  rounded?: boolean;
   tag?: AppButtonTag;
   download?: boolean;
   disabled?: boolean;

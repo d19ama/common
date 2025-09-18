@@ -13,8 +13,8 @@ import { componentName } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppAccordionItemProps>(), {
-  header: '',
-  body: '',
+  headerText: '',
+  bodyText: '',
 });
 
 defineSlots<AppAccordionItemSlots>();
@@ -39,10 +39,9 @@ const headerClass = computed<HTMLElementClass>(() => {
   };
 });
 
-const buttonClass = computed<HTMLElementClass>(() => {
+const iconClass = computed<HTMLElementClass>(() => {
   return {
     'icon-folder-open': currentState.value,
-    'app-accordion-item__button--active': currentState.value,
   };
 });
 
@@ -91,12 +90,16 @@ onMounted(() => {
       :class="headerClass"
       @click="toggleItem"
     >
-      <span
-        class="app-accordion-item__button icon icon-folder"
-        :class="buttonClass"
-      />
       <slot name="header">
-        {{ props.header }}
+        <slot name="header-text">
+          {{ props.headerText }}
+        </slot>
+        <slot name="icon">
+          <span
+            class="app-accordion-item__icon icon icon-folder"
+            :class="iconClass"
+          />
+        </slot>
       </slot>
     </div>
     <Transition
@@ -110,7 +113,7 @@ onMounted(() => {
       >
         <div class="app-accordion-item__content">
           <slot name="body">
-            {{ props.body }}
+            {{ props.bodyText }}
           </slot>
         </div>
       </div>
@@ -120,8 +123,8 @@ onMounted(() => {
 
 <style lang="scss">
 .app-accordion-item {
-  border-bottom: 1px solid var(--color-secondary);
-  transition: background-color var(--transition);
+  border-bottom: 1px solid var(--common-color-secondary);
+  transition: background-color var(--common-transition);
 
   &__header {
     display: flex;
@@ -132,25 +135,25 @@ onMounted(() => {
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 700;
-    color: var(--color-black);
+    color: var(--common-color-black);
     text-decoration: none;
-    transition: background-color var(--transition), color var(--transition);
+    transition: background-color var(--common-transition), color var(--common-transition);
     user-select: none;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      color: var(--color-black);
-      background-color: var(--color-white);
+      color: var(--common-color-black);
+      background-color: var(--common-color-white);
     }
 
     &:active {
-      color: var(--color-black);
-      background-color: var(--color-white);
+      color: var(--common-color-black);
+      background-color: var(--common-color-white);
     }
   }
 
-  &__button {
+  &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,10 +173,10 @@ onMounted(() => {
 
   &__body {
     padding: 1rem;
-    transition: background-color var(--transition);
+    transition: background-color var(--common-transition);
 
     &--active {
-      background-color: var(--color-white);
+      background-color: var(--common-color-white);
     }
   }
 

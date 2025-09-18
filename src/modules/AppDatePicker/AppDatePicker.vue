@@ -114,13 +114,13 @@ $padding: 1rem;
 }
 
 .dp__theme_light {
-  --dp-background-color: var(--color-ui-light);
-  --dp-text-color: var(--color-ui-dark);
+  --dp-background-color: var(--common-color-ui-tertiary);
+  --dp-text-color: var(--common-color-ui-primary);
   --dp-border-color: none;
   --dp-menu-border-color: none;
   --dp-border-color-hover: none;
   --dp-border-color-focus: none;
-  --dp-icon-color: var(--color-ui-dark);
+  --dp-icon-color: var(--common-color-ui-primary);
 
   --dp-border-radius: .5rem;
   --dp-font-size: .875rem;
@@ -129,10 +129,10 @@ $padding: 1rem;
   --dp-input-padding: $padding;
   --dp-input-icon-padding: 2.5rem;
 
-  --dp-primary-color: var(--color-ui-dark);
+  --dp-primary-color: var(--common-color-ui-primary);
 
   ::placeholder {
-    color: rgba(var(--color-ui-light), .75);
+    color: rgba(var(--common-color-ui-tertiary), .75);
   }
 
   .dp__input_icons {

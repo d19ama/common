@@ -148,7 +148,7 @@ function validate(): void {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
     background-color: transparent;
 
     &:focus,

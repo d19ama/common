@@ -87,7 +87,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 
       &::after {
         opacity: 1;
-        background-color: var(--color-ui-dark);
+        background-color: var(--common-color-ui-primary);
       }
     }
   }
@@ -100,7 +100,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   &__text {
     font-size: .875rem;
     font-weight: 400;
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
     line-height: 1.5rem;
   }
 
@@ -122,8 +122,8 @@ const elementClass = computed<HTMLElementClass>(() => {
       left: 0;
       z-index: 1;
       background-color: transparent;
-      box-shadow: inset 0 0 0 1px var(--color-ui-dark);
-      transition: box-shadow var(--transition), background-color var(--transition);
+      box-shadow: inset 0 0 0 1px var(--common-color-ui-primary);
+      transition: box-shadow var(--common-transition), background-color var(--common-transition);
     }
 
     &::after {
@@ -135,7 +135,7 @@ const elementClass = computed<HTMLElementClass>(() => {
       top: 3px;
       left: 3px;
       background-color: transparent;
-      transition: background-color var(--transition), opacity var(--transition);
+      transition: background-color var(--common-transition), opacity var(--common-transition);
     }
   }
 
@@ -145,14 +145,14 @@ const elementClass = computed<HTMLElementClass>(() => {
 
       &::before {
         background-color: transparent;
-        box-shadow: inset 0 0 0 1px var(--color-ui-dark);
+        box-shadow: inset 0 0 0 1px var(--common-color-ui-primary);
       }
 
       &::after {
         opacity: 1;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: var(--color-ui-dark);
+        background-color: var(--common-color-ui-primary);
         background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDUgOUwxMyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+);
       }
     }

@@ -60,8 +60,8 @@ a {
 
 // COMPONENT STYLES
 .app-link {
-  color: var(--color-black);
-  transition: color var(--transition);
+  color: var(--common-color-black);
+  transition: color var(--common-transition);
 
   &:visited,
   &:focus,
@@ -71,31 +71,31 @@ a {
 
   // THEMES
   &--primary {
-    color: var(--color-primary);
+    color: var(--common-color-primary);
 
     &:hover {
-      color: var(--color-primary-hover);
+      color: var(--common-color-primary-hover);
     }
   }
 
   &--secondary {
-    color: var(--color-secondary);
+    color: var(--common-color-secondary);
 
     &:hover {
-      color: var(--color-secondary-hover);
+      color: var(--common-color-secondary-hover);
     }
   }
 
   &--tertiary {
-    color: var(--color-tertiary);
+    color: var(--common-color-tertiary);
 
     &:hover {
-      color: var(--color-tertiary-hover);
+      color: var(--common-color-tertiary-hover);
     }
   }
 
   &--transparent {
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
   }
 
   // STYLES

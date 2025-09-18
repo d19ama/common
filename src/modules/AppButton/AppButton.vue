@@ -12,7 +12,6 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   size: 'm',
   tag: 'button',
   type: 'button',
-  rounded: false,
   loading: false,
   disabled: false,
   download: false,
@@ -31,8 +30,7 @@ const elementClass = computed<HTMLElementClass>(() => {
     `app-button--size-${props.size}`,
     `app-button--theme-${props.theme}`,
     {
-      'app-button--rounded': props.rounded,
-      'app-button--loading': props.rounded,
+      'app-button--loading': props.loading,
       'app-button--disabled': props.disabled,
       'app-button--auto-width': props.autoWidth,
     },
@@ -153,7 +151,8 @@ a {
   text-decoration: none;
   border: 0;
   outline: 0;
-  transition: background-color var(--transition), color var(--transition);
+  border-radius: var(--common-border-radius);
+  transition: background-color var(--common-transition), color var(--common-transition);
   user-select: none;
   cursor: pointer;
 
@@ -164,10 +163,6 @@ a {
 
   &--loading {
     pointer-events: none;
-  }
-
-  &--rounded {
-    border-radius: .5rem;
   }
 
   &--auto-width {
@@ -197,34 +192,34 @@ a {
 
   // Themes
   &--theme-primary {
-    color: var(--color-white);
-    background-color: var(--color-primary);
+    color: var(--common-color-white);
+    background-color: var(--common-color-primary);
 
     &:hover {
-      background-color: var(--color-primary-hover);
+      background-color: var(--common-color-primary-hover);
     }
   }
 
   &--theme-secondary {
-    color: var(--color-black);
-    background-color: var(--color-secondary);
+    color: var(--common-color-black);
+    background-color: var(--common-color-secondary);
 
     &:hover {
-      background-color: var(--color-secondary-hover);
+      background-color: var(--common-color-secondary-hover);
     }
   }
 
   &--theme-tertiary {
-    color: var(--color-white);
-    background-color: var(--color-tertiary);
+    color: var(--common-color-white);
+    background-color: var(--common-color-tertiary);
 
     &:hover {
-      background-color: var(--color-tertiary-hover);
+      background-color: var(--common-color-tertiary-hover);
     }
   }
 
   &--theme-transparent {
-    color: var(--color-black);
+    color: var(--common-color-black);
     background-color: transparent;
 
     &:hover {

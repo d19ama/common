@@ -1,9 +1,9 @@
 export interface Styles {
-  'breakpoint-default': string;
-  'breakpoint-desktop': string;
-  'breakpoint-tablet': string;
-  'breakpoint-mobile': string;
-  'breakpoint-v-mobile': string;
+  'common-breakpoint-default': string;
+  'common-breakpoint-desktop': string;
+  'common-breakpoint-tablet': string;
+  'common-breakpoint-mobile': string;
+  'common-breakpoint-v-mobile': string;
 }
 
 export type ClassNames = keyof Styles;

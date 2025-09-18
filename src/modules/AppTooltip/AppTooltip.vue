@@ -83,8 +83,8 @@ const trigger = computed<TippyComponent['trigger']>(() => {
 
   &__tooltip {
     max-width: 320px;
-    background: var(--color-white);
-    color: var(--color-text-main);
+    background: var(--common-color-white);
+    color: var(--common-color-text-main);
     padding: 8px 12px;
     overflow: hidden;
     overflow-wrap: break-word;
@@ -98,7 +98,7 @@ const trigger = computed<TippyComponent['trigger']>(() => {
     width: 1.5rem;
     height: 1.5rem;
     overflow: hidden;
-    color: var(--color-info);
+    color: var(--common-color-info);
     font-weight: 700;
     font-size: 1rem;
     border: none;
@@ -127,22 +127,22 @@ const trigger = computed<TippyComponent['trigger']>(() => {
   }
 
   &:global([data-placement^='top']) > :global(.tippy-arrow::before) {
-    border-top-color: var(--color-ui-dark);
+    border-top-color: var(--common-color-ui-primary);
     bottom: -$arrow-height;
   }
 
   &:global([data-placement^='bottom']) > :global(.tippy-arrow::before) {
-    border-bottom-color: var(--color-ui-dark);
+    border-bottom-color: var(--common-color-ui-primary);
     top: -$arrow-height;
   }
 
   &:global([data-placement^='left']) > :global(.tippy-arrow::before) {
-    border-left-color: var(--color-ui-dark);
+    border-left-color: var(--common-color-ui-primary);
     right: -$arrow-height;
   }
 
   &:global([data-placement^='right']) > :global(.tippy-arrow::before) {
-    border-right-color: var(--color-ui-dark);
+    border-right-color: var(--common-color-ui-primary);
     left: -$arrow-height;
   }
 }

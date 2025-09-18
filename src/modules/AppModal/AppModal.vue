@@ -222,7 +222,7 @@ watch(
     top: 0;
     bottom: 0;
     z-index: 999;
-    background-color: var(--color-black-50);
+    background-color: var(--common-color-black-50);
     backdrop-filter: blur(2px);
   }
 
@@ -237,7 +237,7 @@ watch(
     padding-top: var(--modal-content-padding);
     position: relative;
     overflow: hidden;
-    background-color: var(--color-white);
+    background-color: var(--common-color-white);
     pointer-events: auto;
 
     &--full-page {
@@ -245,7 +245,7 @@ watch(
     }
 
     &--rounded {
-      border-radius: .5rem;
+      border-radius: var(--common-border-radius);
     }
   }
 
