@@ -55,15 +55,18 @@
   --common-color-ui-secondary: #{$common-color-ui-secondary};
 
   // THEME
-  --common-color-primary: #{$common-color-primary};
-  --common-color-primary-hover: #{$common-color-primary-hover};
-  --common-color-primary-active: #{$common-color-primary-active};
-  --common-color-secondary: #{$common-color-secondary};
-  --common-color-secondary-hover: #{$common-color-secondary-hover};
-  --common-color-secondary-active: #{$common-color-secondary-active};
-  --common-color-tertiary: #{$common-color-tertiary};
-  --common-color-tertiary-hover: #{$common-color-tertiary-hover};
-  --common-color-tertiary-active: #{$common-color-tertiary-active};
+  --common-color-primary-medium: #{$common-color-primary-medium};
+  --common-color-primary-dark: #{$common-color-primary-dark};
+  --common-color-primary-light: #{$common-color-primary-light};
+  --common-color-secondary-medium: #{$common-color-secondary-medium};
+  --common-color-secondary-dark: #{$common-color-secondary-dark};
+  --common-color-secondary-light: #{$common-color-secondary-light};
+  --common-color-tertiary-medium: #{$common-color-tertiary-medium};
+  --common-color-tertiary-dark: #{$common-color-tertiary-dark};
+  --common-color-tertiary-light: #{$common-color-tertiary-light};
+  --common-color-unaccented-medium: #{$common-color-unaccented-medium};
+  --common-color-unaccented-dark: #{$common-color-unaccented-dark};
+  --common-color-unaccented-light: #{$common-color-unaccented-light};
 }
 
 // OTHER

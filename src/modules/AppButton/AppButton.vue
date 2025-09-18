@@ -6,6 +6,7 @@ import type {
   AppButtonSlots,
   AppButtonTag,
 } from './types';
+import { AppSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
@@ -18,6 +19,7 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   autoWidth: false,
   theme: 'primary',
   target: '_blank',
+  textStyle: 'theme',
   downloadName: 'file',
 });
 
@@ -29,6 +31,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   return [
     `app-button--size-${props.size}`,
     `app-button--theme-${props.theme}`,
+    `app-button--text-style-${props.textStyle}`,
     {
       'app-button--loading': props.loading,
       'app-button--disabled': props.disabled,
@@ -89,17 +92,23 @@ function onClick(event: Event): void {
     :class="elementClass"
     @click="onClick"
   >
-    <span v-if="!!$slots.prepend">
-      <slot name="prepend" />
-    </span>
+    <AppSpinner
+      v-if="props.loading"
+      size="s"
+    />
+    <template v-else>
+      <span v-if="!!$slots.prepend">
+        <slot name="prepend" />
+      </span>
 
-    <slot>
-      {{ props.text }}
-    </slot>
+      <slot>
+        {{ props.text }}
+      </slot>
 
-    <span v-if="!!$slots.append">
-      <slot name="append" />
-    </span>
+      <span v-if="!!$slots.append">
+        <slot name="append" />
+      </span>
+    </template>
   </Component>
 </template>
 
@@ -152,7 +161,7 @@ a {
   border: 0;
   outline: 0;
   border-radius: var(--common-border-radius);
-  transition: background-color var(--common-transition), color var(--common-transition);
+  transition: filter var(--common-transition), color var(--common-transition);
   user-select: none;
   cursor: pointer;
 
@@ -170,6 +179,7 @@ a {
   }
 
   &--size-s {
+    height: 1.625rem;
     padding: .25rem .5rem;
     font-size: .75rem;
     font-weight: 400;
@@ -177,6 +187,7 @@ a {
   }
 
   &--size-m {
+    height: 2.5rem;
     padding: .5rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -184,47 +195,51 @@ a {
   }
 
   &--size-l {
+    height: 3.375rem;
     padding: .75rem 1rem;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.5;
   }
 
-  // Themes
-  &--theme-primary {
-    color: var(--common-color-white);
-    background-color: var(--common-color-primary);
+  &:hover {
+    filter: brightness(0.9);
+  }
 
-    &:hover {
-      background-color: var(--common-color-primary-hover);
-    }
+  // THEMES
+  &--theme-primary {
+    color: var(--common-color-primary-dark);
+    background-color: var(--common-color-primary-light);
   }
 
   &--theme-secondary {
-    color: var(--common-color-black);
-    background-color: var(--common-color-secondary);
-
-    &:hover {
-      background-color: var(--common-color-secondary-hover);
-    }
+    color: var(--common-color-secondary-dark);
+    background-color: var(--common-color-secondary-light);
   }
 
   &--theme-tertiary {
-    color: var(--common-color-white);
-    background-color: var(--common-color-tertiary);
+    color: var(--common-color-tertiary-dark);
+    background-color: var(--common-color-tertiary-light);
+  }
 
-    &:hover {
-      background-color: var(--common-color-tertiary-hover);
-    }
+  &--theme-unaccented {
+    color: var(--common-color-text-main);
+    background-color: var(--common-color-unaccented-medium);
   }
 
   &--theme-transparent {
-    color: var(--common-color-black);
+    color: var(--common-color-unaccented-medium);
+    box-shadow: inset 0 0 0 1px var(--common-color-unaccented-medium);
     background-color: transparent;
+  }
 
-    &:hover {
-      background-color: transparent;
-    }
+  // TEXT STYLE
+  &--text-style-text {
+    color: var(--common-color-text-main);
+  }
+
+  &--text-style-inverted {
+    color: var(--common-color-text-inverted);
   }
 }
 </style>

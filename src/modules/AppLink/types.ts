@@ -10,6 +10,7 @@ export interface AppLinkProps {
   text?: string;
   prevent?: boolean;
   underline?: boolean;
+  lineThrough?: boolean;
   theme?: AppLinkTheme;
   target?: AppLinkTarget;
 }

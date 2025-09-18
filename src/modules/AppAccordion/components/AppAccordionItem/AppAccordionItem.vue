@@ -123,7 +123,7 @@ onMounted(() => {
 
 <style lang="scss">
 .app-accordion-item {
-  border-bottom: 1px solid var(--common-color-secondary);
+  border-bottom: 1px solid var(--common-color-ui-secondary);
   transition: background-color var(--common-transition);
 
   &__header {
@@ -140,17 +140,6 @@ onMounted(() => {
     transition: background-color var(--common-transition), color var(--common-transition);
     user-select: none;
     cursor: pointer;
-
-    &:hover,
-    &:focus {
-      color: var(--common-color-black);
-      background-color: var(--common-color-white);
-    }
-
-    &:active {
-      color: var(--common-color-black);
-      background-color: var(--common-color-white);
-    }
   }
 
   &__icon {
@@ -174,10 +163,6 @@ onMounted(() => {
   &__body {
     padding: 1rem;
     transition: background-color var(--common-transition);
-
-    &--active {
-      background-color: var(--common-color-white);
-    }
   }
 
   &__content {

@@ -5,4 +5,4 @@ export * as format from './format';
 export * as helpers from './helpers';
 export * as validators from './validators';
 
-export type * as types from './types';
+export type * from './types';

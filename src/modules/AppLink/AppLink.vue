@@ -10,10 +10,11 @@ import type { HTMLElementClass } from '@/types';
 const props = withDefaults(defineProps<AppLinkProps>(), {
   url: '#',
   text: '',
-  theme: 'primary',
   prevent: false,
   underline: true,
   target: '_blank',
+  theme: 'primary',
+  lineThrough: false,
 });
 
 const emit = defineEmits<AppLinkEmits>();
@@ -22,9 +23,10 @@ defineSlots<AppLinkSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-link--${props.theme}`,
+    `app-link--theme-${props.theme}`,
     {
-      'app-link--underline': props.underline,
+      'app-link--underline': props.underline && !props.lineThrough,
+      'app-link--line-through': !props.underline && props.lineThrough,
     },
   ];
 });
@@ -40,8 +42,8 @@ function onClick(event: Event): void {
 
 <template>
   <a
-    :href="props.url"
     class="app-link"
+    :href="props.url"
     :class="elementClass"
     :target="props.target"
     @click="onClick"
@@ -69,38 +71,50 @@ a {
     outline: 0 none;
   }
 
-  // THEMES
-  &--primary {
-    color: var(--common-color-primary);
-
-    &:hover {
-      color: var(--common-color-primary-hover);
-    }
-  }
-
-  &--secondary {
-    color: var(--common-color-secondary);
-
-    &:hover {
-      color: var(--common-color-secondary-hover);
-    }
-  }
-
-  &--tertiary {
-    color: var(--common-color-tertiary);
-
-    &:hover {
-      color: var(--common-color-tertiary-hover);
-    }
-  }
-
-  &--transparent {
-    color: var(--common-color-text-main);
-  }
-
   // STYLES
   &--underline {
     text-decoration: underline;
+  }
+
+  &--line-through {
+    text-decoration: line-through;
+  }
+
+  // THEMES
+  &--theme-primary {
+    color: var(--common-color-primary-light);
+
+    &:hover {
+      color: var(--common-color-primary-medium);
+    }
+  }
+
+  &--theme-secondary {
+    color: var(--common-color-secondary-light);
+
+    &:hover {
+      color: var(--common-color-secondary-medium);
+    }
+  }
+
+  &--theme-tertiary {
+    color: var(--common-color-tertiary-light);
+
+    &:hover {
+      color: var(--common-color-tertiary-medium);
+    }
+  }
+
+  &--theme-unaccented {
+    color: var(--common-color-unaccented-light);
+
+    &:hover {
+      color: var(--common-color-unaccented-medium);
+    }
+  }
+
+  &--theme-transparent {
+    color: var(--common-color-text-main);
   }
 }
 </style>

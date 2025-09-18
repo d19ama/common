@@ -48,7 +48,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   justify-content: center;
   width: auto;
   height: auto;
-  color: var(--common-color-primary);
+  color: var(--common-color-primary-light);
 
   &--size-s {
     width: 2rem;

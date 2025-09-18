@@ -40,14 +40,17 @@ export interface Styles {
 
   // THEME
   'common-color-primary': string;
-  'common-color-primary-hover': string;
-  'common-color-primary-active': string;
+  'common-color-primary-dark': string;
+  'common-color-primary-light': string;
   'common-color-secondary': string;
-  'common-color-secondary-hover': string;
-  'common-color-secondary-active': string;
+  'common-color-secondary-dark': string;
+  'common-color-secondary-light': string;
   'common-color-tertiary': string;
-  'common-color-tertiary-hover': string;
-  'common-color-tertiary-active': string;
+  'common-color-tertiary-dark': string;
+  'common-color-tertiary-light': string;
+  'common-color-unaccented': string;
+  'common-color-unaccented-dark': string;
+  'common-color-unaccented-light': string;
 }
 
 export type ClassNames = keyof Styles;

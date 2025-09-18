@@ -9,5 +9,7 @@ export interface AppTabsItem<T extends string = string> {
 }
 
 export interface AppTabsSlots {
-  [key: `tab-${AppTabsItem['id']}`]: (scope: { text?: string }) => VNode[];
+  [key: `tab-${AppTabsItem['id']}`]: (scope: {
+    text?: string;
+  }) => VNode[];
 }
