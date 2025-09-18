@@ -1,13 +1,13 @@
-$breakpoint-default: 1600px;
-$breakpoint-desktop: 1240px;
-$breakpoint-tablet: 1024px;
-$breakpoint-mobile: 768px;
-$breakpoint-v-mobile: 480px;
+$common-breakpoint-default: 1600px;
+$common-breakpoint-desktop: 1240px;
+$common-breakpoint-tablet: 1024px;
+$common-breakpoint-mobile: 768px;
+$common-breakpoint-v-mobile: 480px;
 
 :export {
-  breakpoint-default: $breakpoint-default;
-  breakpoint-desktop: $breakpoint-desktop;
-  breakpoint-tablet: $breakpoint-tablet;
-  breakpoint-mobile: $breakpoint-mobile;
-  breakpoint-v-mobile: $breakpoint-v-mobile;
+  common-breakpoint-default: $common-breakpoint-default;
+  common-breakpoint-desktop: $common-breakpoint-desktop;
+  common-breakpoint-tablet: $common-breakpoint-tablet;
+  common-breakpoint-mobile: $common-breakpoint-mobile;
+  common-breakpoint-v-mobile: $common-breakpoint-v-mobile;
 }

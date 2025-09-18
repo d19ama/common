@@ -191,8 +191,6 @@ watch(opened, (value) => {
     overflow: hidden;
     padding: 1rem 2rem 1rem 1rem;
     position: relative;
-    border-radius: .5rem;
-    background-color: var(--color-ui-light);
     cursor: pointer;
   }
 
@@ -201,7 +199,7 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-primary);
   }
 
   &__selected {
@@ -231,10 +229,10 @@ watch(opened, (value) => {
     right: 42px;
     z-index: 2;
     border-radius: 50%;
-    background-color: var(--color-white);
-    box-shadow: inset 0 0 0 1px var(--color-ui-dark);
+    background-color: var(--common-color-white);
+    box-shadow: inset 0 0 0 1px var(--common-color-ui-primary);
     transform: translateY(-50%);
-    transition: background-color var(--transition), box-shadow var(--transition);
+    transition: background-color var(--common-transition), box-shadow var(--common-transition);
 
     &:before,
     &:after {
@@ -247,9 +245,9 @@ watch(opened, (value) => {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: var(--color-ui-dark);
+      background-color: var(--common-color-ui-primary);
       margin: auto;
-      transition: background-color var(--transition);
+      transition: background-color var(--common-transition);
       z-index: 1;
     }
 
@@ -262,12 +260,12 @@ watch(opened, (value) => {
     }
 
     &:hover {
-      background-color: var(--color-ui-light);
+      background-color: var(--common-color-ui-tertiary);
       box-shadow: none;
 
       &:before,
       &:after {
-        background-color: var(--color-ui-dark);
+        background-color: var(--common-color-ui-primary);
       }
     }
   }
@@ -283,7 +281,7 @@ watch(opened, (value) => {
     bottom: 0;
     z-index: 2;
     border: 4px solid transparent;
-    border-top: 8px solid var(--color-ui-dark);
+    border-top: 8px solid var(--common-color-ui-primary);
     border-bottom: 0;
     pointer-events: none;
   }
@@ -296,9 +294,10 @@ watch(opened, (value) => {
     top: calc(100% + .5rem);
     left: -1px;
     z-index: 10;
-    border-radius: .5rem;
-    background-color: var(--color-ui-light);
-    transition: opacity var(--transition);
+    border: var(--common-border);
+    border-radius: var(--common-border-radius);
+    background-color: var(--common-color-ui-tertiary);
+    transition: opacity var(--common-transition);
 
     &--opened {
       display: block;
@@ -314,12 +313,12 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--color-ui-dark);
-    transition: background-color var(--transition);
+    color: var(--common-color-ui-primary);
+    transition: background-color var(--common-transition);
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-ui-middle);
+      background-color: var(--common-color-ui-secondary);
     }
 
     &--selected {
@@ -333,7 +332,7 @@ watch(opened, (value) => {
         transform: translateY(-50%);
         width: 1.5rem;
         height: 1.5rem;
-        color: var(--color-ui-dark);
+        color: var(--common-color-ui-primary);
         font-family: 'icon-font', sans-serif;
       }
     }

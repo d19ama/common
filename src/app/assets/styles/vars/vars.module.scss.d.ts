@@ -1,5 +1,7 @@
 export interface Styles {
-  $transition: string;
+  'common-transition': string;
+  'common-border-radius': string;
+  'common-border': string;
 }
 
 export type ClassNames = keyof Styles;

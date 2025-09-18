@@ -118,7 +118,7 @@ function validate(): void {
 
   &__text {
     font-weight: 400;
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
     font-size: .875rem;
     line-height: 1.5rem;
   }
@@ -129,9 +129,9 @@ function validate(): void {
     font-size: 1rem;
     padding-left: 39px;
     position: relative;
-    color: var(--color-text-main);
+    color: var(--common-color-text-main);
     line-height: 1.5rem;
-    transition: color var(--transition);
+    transition: color var(--common-transition);
     cursor: pointer;
 
     &:before {
@@ -142,26 +142,26 @@ function validate(): void {
       top: 0;
       left: 0;
       border-radius: 100%;
-      border: 1px solid var(--color-ui-dark);
-      background-color: var(--color-white);
-      transition: border-color var(--transition), background-color var(--transition), opacity var(--transition);
+      border: 1px solid var(--common-color-ui-primary);
+      background-color: var(--common-color-white);
+      transition: border-color var(--common-transition), background-color var(--common-transition), opacity var(--common-transition);
     }
 
     &:hover {
 
       &::before {
-        border-color: var(--color-ui-dark);
-        background-color: var(--color-ui-dark);
-        box-shadow: inset 0 0 0 4px var(--color-white);
+        border-color: var(--common-color-ui-primary);
+        background-color: var(--common-color-ui-primary);
+        box-shadow: inset 0 0 0 4px var(--common-color-white);
       }
     }
 
     &:active {
 
       &:before {
-        border-color: var(--color-ui-dark);
-        background-color: var(--color-ui-dark);
-        box-shadow: inset 0 0 0 4px var(--color-white);
+        border-color: var(--common-color-ui-primary);
+        background-color: var(--common-color-ui-primary);
+        box-shadow: inset 0 0 0 4px var(--common-color-white);
       }
     }
   }
@@ -169,9 +169,9 @@ function validate(): void {
   &__input:checked + #{$parent}__label {
 
     &::before {
-      border-color: var(--color-ui-dark);
-      background-color: var(--color-ui-dark);
-      box-shadow: inset 0 0 0 4px var(--color-white);
+      border-color: var(--common-color-ui-primary);
+      background-color: var(--common-color-ui-primary);
+      box-shadow: inset 0 0 0 4px var(--common-color-white);
     }
   }
 

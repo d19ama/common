@@ -152,8 +152,9 @@ select {
     display: flex;
     width: 100%;
     position: relative;
-    border-radius: .5rem;
-    background-color: var(--color-ui-light);
+    border-radius: var(--common-border-radius);
+    border: var(--common-border);
+    background-color: var(--common-color-ui-tertiary);
   }
 
   &__label,
@@ -171,12 +172,12 @@ select {
     justify-content: flex-start;
     gap: .125rem;
     width: 100%;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-primary);
     user-select: none;
   }
 
   &__label-required {
-    color: var(--color-required);
+    color: var(--common-color-required);
   }
 
   &__placeholder {
@@ -191,19 +192,18 @@ select {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-primary);
     white-space: nowrap;
     text-overflow: ellipsis;
     pointer-events: none;
   }
 
   &__hint {
-    opacity: .5;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-secondary);
   }
 
   &__error {
-    color: var(--color-error);
+    color: var(--common-color-error);
   }
 
   &--disabled {

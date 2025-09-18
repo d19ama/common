@@ -1,8 +1,8 @@
 import type { VNode } from 'vue';
 
 export interface AppAccordionItemProps {
-  header?: string;
-  body?: string;
+  headerText?: string;
+  bodyText?: string;
 }
 
 export interface AppAccordionItemType {
@@ -11,6 +11,8 @@ export interface AppAccordionItemType {
 }
 
 export interface AppAccordionItemSlots {
-  header?: () => VNode[];
-  body?: () => VNode[];
+  'icon'?: () => VNode[];
+  'body'?: () => VNode[];
+  'header'?: () => VNode[];
+  'header-text'?: () => VNode[];
 }

@@ -86,7 +86,7 @@ function cellWidth(cell: AppTableHeader<T>): StyleValue {
 .app-table {
   $parent: &;
 
-  border: 1px solid var(--color-ui-dark);
+  border: 1px solid var(--common-color-ui-primary);
 
   &__content {
     width: 100%;
@@ -94,7 +94,7 @@ function cellWidth(cell: AppTableHeader<T>): StyleValue {
   }
 
   &__thead {
-    border-bottom: 1px solid var(--color-ui-dark);
+    border-bottom: 1px solid var(--common-color-ui-primary);
   }
 
   &__th,

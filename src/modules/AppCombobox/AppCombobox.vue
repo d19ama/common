@@ -236,7 +236,7 @@ watch(focused, (value) => {
     font-weight: 400;
     line-height: 1.5rem;
     font-size: .875rem;
-    color: var(--color-gray-dark);
+    color: var(--common-color-text-main);
     border: none;
     background-color: transparent;
 
@@ -254,22 +254,6 @@ watch(focused, (value) => {
     }
   }
 
-  &__arrow {
-    display: block;
-    width: 0;
-    height: 0;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    right: .75rem;
-    bottom: 0;
-    z-index: 2;
-    border: 8px solid transparent;
-    border-top: 10px solid var(--color-ui-dark);
-    border-bottom: 0;
-    cursor: pointer;
-  }
-
   &__dropdown {
     width: 100%;
     overflow: auto;
@@ -278,9 +262,9 @@ watch(focused, (value) => {
     left: 0;
     z-index: 10;
     border-radius: .5rem;
-    border: 1px solid transparent;
-    background-color: var(--color-ui-light);
-    transition: opacity var(--transition);
+    border: var(--common-border);
+    background-color: var(--common-color-ui-tertiary);
+    transition: opacity var(--common-transition);
   }
 
   &__options {
@@ -293,15 +277,15 @@ watch(focused, (value) => {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-primary);
   }
 
   &__option {
-    transition: background-color var(--transition);
+    transition: background-color var(--common-transition);
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-ui-middle);
+      background-color: var(--common-color-ui-secondary);
     }
 
     &--selected {
@@ -315,7 +299,7 @@ watch(focused, (value) => {
         transform: translateY(-50%);
         width: 1.5rem;
         height: 1.5rem;
-        color: var(--color-ui-dark);
+        color: var(--common-color-ui-primary);
         font-family: 'icon-font', sans-serif;
       }
     }
@@ -336,7 +320,7 @@ watch(focused, (value) => {
     width: 2rem;
     height: 2rem;
     margin: 1rem auto;
-    color: var(--color-ui-dark);
+    color: var(--common-color-ui-primary);
   }
 }
 </style>

@@ -1,15 +1,15 @@
 @mixin breakpoint($point) {
     @if $point == desktop {
-        @media only screen and (max-width: $breakpoint-desktop) { @content; }
+        @media only screen and (max-width: $common-breakpoint-desktop) { @content; }
     }
     @else if $point == tablet {
-        @media only screen and (max-width: $breakpoint-tablet) { @content; }
+        @media only screen and (max-width: $common-breakpoint-tablet) { @content; }
     }
     @else if $point == mobile {
-        @media only screen and (max-width: $breakpoint-mobile) { @content; }
+        @media only screen and (max-width: $common-breakpoint-mobile) { @content; }
     }
     @else if $point == v-mobile {
-        @media only screen and (max-width: $breakpoint-v-mobile) { @content; }
+        @media only screen and (max-width: $common-breakpoint-v-mobile) { @content; }
     }
 }
 

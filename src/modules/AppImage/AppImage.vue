@@ -30,6 +30,6 @@ img {
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
-  border-radius: .5rem;
+  border-radius: var(--common-border-radius);
 }
 </style>
