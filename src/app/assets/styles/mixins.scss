@@ -1,37 +1,21 @@
 @mixin breakpoint($point) {
+    @if $point == default {
+        @media only screen and (max-width: var(--common-breakpoint-default)) { @content; }
+    }
     @if $point == desktop {
-        @media only screen and (max-width: $common-breakpoint-desktop) { @content; }
+        @media only screen and (max-width: var(--common-breakpoint-desktop)) { @content; }
     }
     @else if $point == tablet {
-        @media only screen and (max-width: $common-breakpoint-tablet) { @content; }
+        @media only screen and (max-width: var(--common-breakpoint-tablet)) { @content; }
     }
     @else if $point == mobile {
-        @media only screen and (max-width: $common-breakpoint-mobile) { @content; }
+        @media only screen and (max-width: var(--common-breakpoint-mobile)) { @content; }
     }
     @else if $point == v-mobile {
-        @media only screen and (max-width: $common-breakpoint-v-mobile) { @content; }
+        @media only screen and (max-width: var(--common-breakpoint-v-mobile)) { @content; }
     }
 }
 
 @mixin box-shadow-main() {
     box-shadow: 0 0 40px rgba(var(--color-gray-dark), .2);
-}
-
-@mixin svg($width, $height, $svg, $color: null, $colorType: "color") {
-    @if $color {
-        background-image: svg($svg, "[#{$colorType}]: #{$color}");
-    } @else {
-        background-image: svg($svg);
-    }
-    background-size: $width $height;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
-
-@mixin svg-fill($width, $height, $svg, $color) {
-    @include svg($width, $height, $svg, $color, "fill");
-}
-
-@mixin svg-stroke($width, $height, $svg, $color) {
-    @include svg($width, $height, $svg, $color, "stroke");
 }

@@ -225,6 +225,12 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-2">
               <AppLink
                 text="Link"
+                theme="unaccented"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppLink
+                text="Link"
                 theme="transparent"
               />
             </div>
@@ -333,23 +339,10 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </div>
           <AppTitle
             tag="h5"
-            text="Styles"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <AppButton
-                text="Button"
-                auto-width
-              />
-            </div>
-          </div>
-          <AppTitle
-            tag="h5"
             text="Themes"
             class="margin-bottom--s"
           />
-          <div class="row">
+          <div class="row margin-bottom--s">
             <div class="col-default-2">
               <AppButton
                 text="Button"
@@ -371,7 +364,92 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-2">
               <AppButton
                 text="Button"
+                theme="unaccented"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
                 theme="transparent"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="Text styles"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="primary"
+                text-style="text"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="secondary"
+                text-style="text"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="tertiary"
+                text-style="text"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="unaccented"
+                text-style="text"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="transparent"
+                text-style="text"
+              />
+            </div>
+          </div>
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="primary"
+                text-style="inverted"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="secondary"
+                text-style="inverted"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="tertiary"
+                text-style="inverted"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="unaccented"
+                text-style="inverted"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="transparent"
+                text-style="inverted"
               />
             </div>
           </div>

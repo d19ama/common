@@ -101,7 +101,6 @@ function toggleItem(id: AppTabsItem['id']): void {
       border-top-color: var(--common-color-ui-primary);
       border-right-color: var(--common-color-ui-primary);
       border-bottom-color: transparent;
-      background-color: var(--common-color-white);;
     }
 
     &--disabled {

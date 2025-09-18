@@ -4,6 +4,7 @@ import type {
   GlobalPropSize,
   GlobalPropTheme,
 } from '@/types';
+import type { GlobalPropsTextStyle } from '@/types/global-props';
 
 export type AppButtonSize = GlobalPropSize;
 
@@ -12,6 +13,8 @@ export type AppButtonTheme = GlobalPropTheme;
 export type AppButtonBlank = '_blank' | '_self';
 
 export type AppButtonTag = 'button' | 'RouterLink' | 'a';
+
+export type AppButtonTextStyle = GlobalPropsTextStyle;
 
 export interface AppButtonProps {
   text?: string;
@@ -26,6 +29,7 @@ export interface AppButtonProps {
   downloadName?: string;
   theme?: AppButtonTheme;
   target?: AppButtonBlank;
+  textStyle?: AppButtonTextStyle;
   type?: HTMLButtonElement['type'];
 }
 
