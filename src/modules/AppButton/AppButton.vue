@@ -180,6 +180,14 @@ a {
     width: auto;
   }
 
+  &--size-xs {
+    height: 1.375rem;
+    padding: 0.125rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   &--size-s {
     height: 1.625rem;
     padding: .25rem .5rem;
@@ -200,6 +208,14 @@ a {
     height: 3.375rem;
     padding: .75rem 1rem;
     font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  &--size-xl {
+    height: 4.25rem;
+    padding: 1rem 1.25rem;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
   }

@@ -9,6 +9,7 @@ import {
   AppButton,
   AppCheckbox,
   AppCombobox,
+  type AppComboboxOption,
   AppDatePicker,
   AppInput,
   AppInputFile,
@@ -47,7 +48,7 @@ const tags = ref<AppTitleTags[]>([
   'h6',
 ]);
 
-const options = ref<(AppRadioOption | AppSelectOption)[]>([
+const optionsSelect = ref<AppSelectOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -71,6 +72,48 @@ const options = ref<(AppRadioOption | AppSelectOption)[]>([
     text: 'Radio 4',
     selected: false,
     disabled: true,
+  },
+]);
+
+const optionsCombobox = ref<AppComboboxOption[]>([
+  {
+    id: '1',
+    text: 'Radio 1',
+    selected: true,
+    disabled: false,
+  },
+  {
+    id: '2',
+    text: 'Radio 2',
+    selected: false,
+    disabled: false,
+  },
+  {
+    id: '3',
+    text: 'Radio 3',
+    selected: false,
+    disabled: false,
+  },
+  {
+    id: '4',
+    text: 'Radio 4',
+    selected: false,
+    disabled: true,
+  },
+]);
+
+const optionsRadio = ref<AppRadioOption[]>([
+  {
+    id: '1',
+    text: 'Radio 1',
+    checked: true,
+    disabled: false,
+  },
+  {
+    id: '2',
+    text: 'Radio 2',
+    checked: false,
+    disabled: false,
   },
 ]);
 
@@ -116,8 +159,9 @@ const headers = ref<AppTableHeader<TableData>[]>([
   },
 ]);
 
-const radio = ref<string>('');
+const radio = ref<string>('1');
 const select = ref<string>('');
+const combobox = ref<string>('');
 const textarea = ref<string>('');
 const modal = ref<boolean>(false);
 const spinner = ref<boolean>(true);
@@ -302,6 +346,12 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-2">
               <AppButton
                 text="Button"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
                 size="s"
               />
             </div>
@@ -315,6 +365,12 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <AppButton
                 text="Button"
                 size="l"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                size="xl"
               />
             </div>
           </div>
@@ -558,6 +614,106 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
+    <!--    AppSelect    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppSelect"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                disabled
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    AppCombobox  -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppCombobox"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    AppTextarea    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <AppTitle
+            tag="h4"
+            text="AppTextarea"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-4">
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-4">
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--    AppCheckbox    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
@@ -642,86 +798,72 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppRadio"
             class="margin-bottom--s"
           />
-          <div class="row">
-            <div class="col-default-3">
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
               <AppRadio
                 v-model:value="radio"
-                :options="options"
+                :options="optionsRadio"
+                name="radio-1"
               />
             </div>
-            <div class="col-default-3">
+            <div class="col-default-2">
               <AppRadio
                 v-model:value="radio"
-                :options="options"
+                :options="optionsRadio"
+                name="radio-2"
                 disabled
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    AppSelect    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
           <AppTitle
-            tag="h4"
-            text="AppSelect"
+            tag="h5"
+            text="Themes"
             class="margin-bottom--s"
           />
-          <div class="row">
-            <div class="col-default-3">
-              <AppSelect
-                v-model:value="select"
-                :options="options"
-                placeholder="Select"
-                label="Select"
-                hint="Some hint"
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-3"
+                theme="form"
               />
             </div>
-            <div class="col-default-3">
-              <AppSelect
-                v-model:value="select"
-                :options="options"
-                disabled
-                placeholder="Select"
-                label="Select"
-                hint="Some hint"
+            <div class="col-default-2">
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-4"
+                theme="primary"
               />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    AppCombobox  -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <AppTitle
-            tag="h4"
-            text="AppCombobox"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-3">
-              <AppCombobox
-                v-model:value="select"
-                :options="options"
-                placeholder="Select"
-                label="Select"
-                hint="Some hint"
+            <div class="col-default-2">
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-5"
+                theme="secondary"
               />
             </div>
-            <div class="col-default-3">
-              <AppCombobox
-                v-model:value="select"
-                :options="options"
-                placeholder="Select"
-                label="Select"
-                hint="Some hint"
-                disabled
+            <div class="col-default-2">
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-6"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-7"
+                theme="unaccented"
               />
             </div>
           </div>
@@ -762,38 +904,6 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-6">
               <AppTabs
                 v-model:items="tabs"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    AppTextarea    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <AppTitle
-            tag="h4"
-            text="AppTextarea"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-4">
-              <AppTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-              />
-            </div>
-            <div class="col-default-4">
-              <AppTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                disabled
               />
             </div>
           </div>

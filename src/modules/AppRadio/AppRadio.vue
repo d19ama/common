@@ -1,13 +1,18 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import {
+  computed,
+  ref,
+} from 'vue';
 import type {
   AppRadioEmits,
   AppRadioOption,
   AppRadioProps,
   AppRadioSlots,
 } from './types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppRadioProps>(), {
+  theme: 'form',
   required: false,
   disabled: false,
   options: () => [],
@@ -23,8 +28,19 @@ const value = defineModel<string>('value', {
 
 const error = ref<boolean>(false);
 
-function uniqueName(item: AppRadioOption): string {
-  return `${item.text}-${item.id}`;
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-radio--theme-${props.theme}`,
+    {
+      'app-radio--disabled': props.disabled,
+    },
+  ];
+});
+
+function optionClass(option: AppRadioOption): HTMLElementClass {
+  return {
+    'app-radio__option--disabled': option.disabled,
+  };
 }
 
 function onChange(): void {
@@ -45,36 +61,32 @@ function validate(): void {
 <template>
   <div
     class="app-radio"
-    :class="{
-      'app-radio--disabled': props.disabled,
-    }"
+    :class="elementClass"
   >
     <div
       v-for="item in props.options"
       :key="item.id"
       class="app-radio__option"
-      :class="{
-        'app-radio--disabled': item.disabled,
-      }"
+      :class="optionClass(item)"
     >
       <input
-        :id="uniqueName(item)"
+        :id="item.id"
         v-model="value"
-        type="radio"
+        :name="props.name"
         :value="item.id"
+        type="radio"
         class="app-radio__input"
-        :checked="item.selected"
+        :checked="item.checked"
         :disabled="item.disabled"
+        autocomplete="off"
         @input="onInput"
         @change="onChange"
       >
       <label
         class="app-radio__label"
-        :for="uniqueName(item)"
+        :for="item.id"
       >
-        <span
-          class="app-radio__text"
-        >
+        <span class="app-radio__text">
           <slot
             :name="`radio-${String(item.id)}`"
             :text="item.text"
@@ -142,12 +154,45 @@ function validate(): void {
       top: 0;
       left: 0;
       border-radius: 100%;
-      border: 1px solid var(--common-color-ui-primary);
-      background-color: var(--common-color-white);
       transition: border-color var(--common-transition), background-color var(--common-transition), opacity var(--common-transition);
     }
+  }
 
-    &:hover {
+  &--disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  // THEMES
+  &--theme-form {
+
+    #{$parent}__label {
+
+      &:before {
+        border: 1px solid var(--common-color-ui-primary);
+        background-color: var(--common-color-white);
+      }
+
+      &:hover {
+
+        &::before {
+          border-color: var(--common-color-ui-primary);
+          background-color: var(--common-color-ui-primary);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+
+      &:active {
+
+        &:before {
+          border-color: var(--common-color-ui-primary);
+          background-color: var(--common-color-ui-primary);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+    }
+
+    #{$parent}__input:checked + #{$parent}__label {
 
       &::before {
         border-color: var(--common-color-ui-primary);
@@ -155,29 +200,158 @@ function validate(): void {
         box-shadow: inset 0 0 0 4px var(--common-color-white);
       }
     }
+  }
 
-    &:active {
+  &--theme-primary {
+
+    #{$parent}__label {
 
       &:before {
-        border-color: var(--common-color-ui-primary);
-        background-color: var(--common-color-ui-primary);
+        border: 1px solid var(--common-color-primary-light);
+        background-color: var(--common-color-white);
+      }
+
+      &:hover {
+
+        &::before {
+          border-color: var(--common-color-primary-light);
+          background-color: var(--common-color-primary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+
+      &:active {
+
+        &:before {
+          border-color: var(--common-color-primary-light);
+          background-color: var(--common-color-primary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+    }
+
+    #{$parent}__input:checked + #{$parent}__label {
+
+      &::before {
+        border-color: var(--common-color-primary-light);
+        background-color: var(--common-color-primary-light);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
       }
     }
   }
 
-  &__input:checked + #{$parent}__label {
+  &--theme-secondary {
 
-    &::before {
-      border-color: var(--common-color-ui-primary);
-      background-color: var(--common-color-ui-primary);
-      box-shadow: inset 0 0 0 4px var(--common-color-white);
+    #{$parent}__label {
+
+      &:before {
+        border: 1px solid var(--common-color-secondary-light);
+        background-color: var(--common-color-white);
+      }
+
+      &:hover {
+
+        &::before {
+          border-color: var(--common-color-secondary-light);
+          background-color: var(--common-color-secondary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+
+      &:active {
+
+        &:before {
+          border-color: var(--common-color-secondary-light);
+          background-color: var(--common-color-secondary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+    }
+
+    #{$parent}__input:checked + #{$parent}__label {
+
+      &::before {
+        border-color: var(--common-color-secondary-light);
+        background-color: var(--common-color-secondary-light);
+        box-shadow: inset 0 0 0 4px var(--common-color-white);
+      }
     }
   }
 
-  &--disabled {
-    opacity: .5;
-    pointer-events: none;
+  &--theme-tertiary {
+
+    #{$parent}__label {
+
+      &:before {
+        border: 1px solid var(--common-color-tertiary-light);
+        background-color: var(--common-color-white);
+      }
+
+      &:hover {
+
+        &::before {
+          border-color: var(--common-color-tertiary-light);
+          background-color: var(--common-color-tertiary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+
+      &:active {
+
+        &:before {
+          border-color: var(--common-color-tertiary-light);
+          background-color: var(--common-color-tertiary-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+    }
+
+    #{$parent}__input:checked + #{$parent}__label {
+
+      &::before {
+        border-color: var(--common-color-tertiary-light);
+        background-color: var(--common-color-tertiary-light);
+        box-shadow: inset 0 0 0 4px var(--common-color-white);
+      }
+    }
+  }
+
+  &--theme-unaccented {
+
+    #{$parent}__label {
+
+      &:before {
+        border: 1px solid var(--common-color-unaccented-light);
+        background-color: var(--common-color-white);
+      }
+
+      &:hover {
+
+        &::before {
+          border-color: var(--common-color-unaccented-light);
+          background-color: var(--common-color-unaccented-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+
+      &:active {
+
+        &:before {
+          border-color: var(--common-color-unaccented-light);
+          background-color: var(--common-color-unaccented-light);
+          box-shadow: inset 0 0 0 4px var(--common-color-white);
+        }
+      }
+    }
+
+    #{$parent}__input:checked + #{$parent}__label {
+
+      &::before {
+        border-color: var(--common-color-unaccented-light);
+        background-color: var(--common-color-unaccented-light);
+        box-shadow: inset 0 0 0 4px var(--common-color-white);
+      }
+    }
   }
 }
 </style>
