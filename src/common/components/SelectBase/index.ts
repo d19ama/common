@@ -1,3 +1,7 @@
 export { default as SelectBase } from './SelectBase.vue';
 
-export type * from './types';
+export type {
+  SelectBaseProps,
+  SelectBaseSlots,
+  SelectBaseOption,
+} from './types';

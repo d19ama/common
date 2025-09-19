@@ -1,26 +1,24 @@
-import type { VNode } from 'vue';
 import type {
   InputBaseProps,
   InputBaseSlots,
 } from '@/common/components/InputBase';
+import type {
+  SelectBaseOption,
+  SelectBaseProps,
+  SelectBaseSlots,
+} from '@/common/components/SelectBase';
 
-export interface AppSelectProps extends InputBaseProps {
-  multiple?: boolean;
+export interface AppSelectProps
+  extends
+  InputBaseProps,
+  SelectBaseProps {
   options?: AppSelectOption[];
 }
 
-export interface AppSelectOption<ID extends string | number | symbol = string> {
-  id: ID;
-  text: string;
-  selected: boolean;
-  disabled: boolean;
-}
+export interface AppSelectOption<ID extends string | number | symbol = string>
+  extends SelectBaseOption<ID> {}
 
-export interface AppSelectSlots extends InputBaseSlots {
-  [key: `select-item-${AppSelectOption['id']}`]: (scope: {
-    text: string;
-  }) => VNode[];
-  'icon'?: () => VNode[];
-  'option-text'?: () => VNode[];
-  'option-icon'?: () => VNode[];
-}
+export interface AppSelectSlots
+  extends
+  InputBaseSlots,
+  SelectBaseSlots {}
