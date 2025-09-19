@@ -2,10 +2,13 @@
 
 :root {
   --common-base-input-wrapper-bg: #{$common-base-input-wrapper-bg};
+  --common-base-input-wrapper-border-color: #{$common-base-input-wrapper-border-color};
   --common-base-input-wrapper-border: #{$common-base-input-wrapper-border};
   --common-base-input-wrapper-border-radius: #{$common-base-input-wrapper-border-radius};
   --common-base-input-label-color: #{$common-base-input-label-color};
   --common-base-input-label-required-color: #{$common-base-input-label-required-color};
   --common-base-input-hint-color: #{$common-base-input-hint-color};
   --common-base-input-error-color: #{$common-base-input-error-color};
+  --common-base-input-button-bg: #{$common-base-input-button-bg};
+  --common-base-input-button-color: #{$common-base-input-button-color};
 }

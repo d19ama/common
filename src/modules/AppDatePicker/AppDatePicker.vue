@@ -116,8 +116,8 @@ $padding: 1rem;
   .dp__theme_light {
     --dp-background-color: var(--common-base-input-wrapper-bg);
     --dp-text-color: var(--common-color-text-main);
-    --dp-border-color: none;
-    --dp-menu-border-color: none;
+    --dp-border-color: var(--common-base-input-wrapper-border-color);
+    --dp-menu-border-color: var(--common-base-input-wrapper-border-color);
     --dp-border-color-hover: none;
     --dp-border-color-focus: none;
     --dp-icon-color: var(--common-color-ui-primary);

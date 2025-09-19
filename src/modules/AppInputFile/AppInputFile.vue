@@ -193,9 +193,9 @@ function onClick(): void {
   }
 
   &__button {
-    color: var(--common-color-text-main);
+    color: var(--common-base-input-button-color);
     border-radius: var(--common-base-input-wrapper-border-radius) 0 0 var(--common-base-input-wrapper-border-radius);
-    backdrop-filter: brightness(0.9);
+    background-color: var(--common-base-input-button-bg);
   }
 
   &__placeholder {
