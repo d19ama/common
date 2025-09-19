@@ -142,7 +142,11 @@ watch(opened, (value) => {
         >
           {{ selected.text }}
         </span>
-        <span class="app-select__arrow" />
+        <div class="app-select__icon">
+          <slot name="icon">
+            <span class="app-select__arrow" />
+          </slot>
+        </div>
       </div>
       <div
         class="app-select__dropdown"
@@ -160,7 +164,12 @@ watch(opened, (value) => {
               :name="`select-item-${String(item.id)}`"
               :text="item.text"
             >
-              {{ item.text }}
+              <slot name="option-text">
+                {{ item.text }}
+              </slot>
+              <slot name="option-icon">
+                <div class="app-select__option-icon icon icon-checkmark" />
+              </slot>
             </slot>
           </li>
         </ul>
@@ -173,18 +182,6 @@ watch(opened, (value) => {
 .app-select {
   $padding: 1rem;
   $parent: &;
-
-  &--opened {
-
-    #{$parent}__arrow {
-      transform: rotate(180deg);
-    }
-  }
-
-  &--disabled {
-    opacity: .5;
-    pointer-events: none;
-  }
 
   &__container {
     width: 100%;
@@ -270,20 +267,27 @@ watch(opened, (value) => {
     }
   }
 
-  &__arrow {
-    display: block;
-    width: 0;
-    height: 0;
+  &__icon {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
     margin: auto;
     position: absolute;
     top: 0;
     right: .75rem;
     bottom: 0;
     z-index: 2;
+    pointer-events: none;
+  }
+
+  &__arrow {
+    display: block;
+    width: 0;
+    height: 0;
     border: 4px solid transparent;
     border-top: 8px solid var(--common-color-ui-primary);
     border-bottom: 0;
-    pointer-events: none;
   }
 
   &__dropdown {
@@ -294,9 +298,9 @@ watch(opened, (value) => {
     top: calc(100% + .5rem);
     left: -1px;
     z-index: 10;
-    border: var(--common-border);
-    border-radius: var(--common-border-radius);
-    background-color: var(--common-color-ui-tertiary);
+    border: var(--common-base-input-wrapper-border);
+    border-radius: var(--common-base-input-wrapper-border-radius);
+    background-color: var(--common-base-input-wrapper-bg);
     transition: opacity var(--common-transition);
 
     &--opened {
@@ -309,6 +313,11 @@ watch(opened, (value) => {
   }
 
   &__option {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem;
     padding: 1rem;
     font-weight: 400;
     line-height: 1.4;
@@ -318,22 +327,14 @@ watch(opened, (value) => {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--common-color-ui-secondary);
+      backdrop-filter: brightness(.95);
     }
 
     &--selected {
       position: relative;
 
-      &::before {
-        content: '\ea10';
-        position: absolute;
-        top: 50%;
-        right: .5rem;
-        transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        color: var(--common-color-ui-primary);
-        font-family: 'icon-font', sans-serif;
+      #{$parent}__option-icon {
+        opacity: 1;
       }
     }
 
@@ -341,6 +342,29 @@ watch(opened, (value) => {
       opacity: .5;
       pointer-events: none;
     }
+  }
+
+  &__option-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0;
+    color: var(--common-color-ui-primary);
+  }
+
+  &--opened {
+
+    #{$parent}__arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--disabled {
+    opacity: .5;
+    pointer-events: none;
   }
 }
 </style>

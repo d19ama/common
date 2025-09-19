@@ -20,4 +20,7 @@ export interface AppSelectSlots extends InputBaseSlots {
   [key: `select-item-${AppSelectOption['id']}`]: (scope: {
     text: string;
   }) => VNode[];
+  'icon'?: () => VNode[];
+  'option-text'?: () => VNode[];
+  'option-icon'?: () => VNode[];
 }
