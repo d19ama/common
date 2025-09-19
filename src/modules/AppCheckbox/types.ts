@@ -1,7 +1,18 @@
 import type { VNode } from 'vue';
-import type { GlobalPropTheme } from '@/types';
+import type {
+  GlobalThemeForm,
+  GlobalThemePrimary,
+  GlobalThemeSecondary,
+  GlobalThemeTertiary,
+  GlobalThemeUnaccented,
+} from '@/types/global-props';
 
-export type AppCheckboxTheme = GlobalPropTheme | 'form';
+export type AppCheckboxTheme =
+  | GlobalThemePrimary
+  | GlobalThemeSecondary
+  | GlobalThemeTertiary
+  | GlobalThemeUnaccented
+  | GlobalThemeForm;
 
 export interface AppCheckboxProps {
   name?: string;
