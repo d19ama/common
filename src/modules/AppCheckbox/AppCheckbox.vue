@@ -12,6 +12,7 @@ import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppCheckboxProps>(), {
+  theme: 'form',
   disabled: false,
 });
 
@@ -28,10 +29,13 @@ const name = computed<string>(() => {
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
-  return {
-    'app-checkbox--checked': checked.value,
-    'app-checkbox--disabled': props.disabled,
-  };
+  return [
+    `app-checkbox--theme-${props.theme}`,
+    {
+      'app-checkbox--checked': checked.value,
+      'app-checkbox--disabled': props.disabled,
+    },
+  ];
 });
 </script>
 
@@ -77,17 +81,6 @@ const elementClass = computed<HTMLElementClass>(() => {
   user-select: none;
   cursor: pointer;
 
-  &:hover {
-
-    #{$parent}__box {
-
-      &::after {
-        opacity: 1;
-        background-color: var(--common-color-ui-primary);
-      }
-    }
-  }
-
   &__input {
     display: none;
   }
@@ -117,8 +110,6 @@ const elementClass = computed<HTMLElementClass>(() => {
       top: 0;
       left: 0;
       z-index: 1;
-      background-color: transparent;
-      box-shadow: inset 0 0 0 1px var(--common-color-ui-primary);
       transition: box-shadow var(--common-transition), background-color var(--common-transition);
     }
 
@@ -130,12 +121,50 @@ const elementClass = computed<HTMLElementClass>(() => {
       position: absolute;
       top: 3px;
       left: 3px;
-      background-color: transparent;
       transition: background-color var(--common-transition), opacity var(--common-transition);
     }
   }
 
+  &:hover {
+
+    #{$parent}__box {
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
   &--checked {
+
+    #{$parent}__box {
+
+      &::after {
+        opacity: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDUgOUwxMyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+);
+      }
+    }
+  }
+
+  &--disabled {
+    opacity: .4;
+    pointer-events: none;
+  }
+
+  // THEMES
+  &--theme-form {
+
+    &:hover {
+
+      #{$parent}__box {
+
+        &::after {
+          background-color: var(--common-color-ui-primary);
+        }
+      }
+    }
 
     #{$parent}__box {
 
@@ -145,18 +174,184 @@ const elementClass = computed<HTMLElementClass>(() => {
       }
 
       &::after {
-        opacity: 1;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: var(--common-color-ui-primary);
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA1TDUgOUwxMyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+);
+        background-color: transparent;
+      }
+    }
+
+    &#{$parent}--checked {
+
+      #{$parent}__box {
+
+        &::before {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 1px var(--common-color-ui-primary);
+        }
+
+        &::after {
+          background-color: var(--common-color-ui-primary);
+        }
       }
     }
   }
 
-  &--disabled {
-    opacity: .4;
-    pointer-events: none;
+  &--theme-primary {
+
+    &:hover {
+
+      #{$parent}__box {
+
+        &::after {
+          background-color: var(--common-color-primary-light);
+        }
+      }
+    }
+
+    #{$parent}__box {
+
+      &::before {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px var(--common-color-primary-light);
+      }
+
+      &::after {
+        background-color: transparent;
+      }
+    }
+
+    &#{$parent}--checked {
+
+      #{$parent}__box {
+
+        &::before {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 1px var(--common-color-primary-light);
+        }
+
+        &::after {
+          background-color: var(--common-color-primary-light);
+        }
+      }
+    }
+  }
+
+  &--theme-secondary {
+
+    &:hover {
+
+      #{$parent}__box {
+
+        &::after {
+          background-color: var(--common-color-secondary-light);
+        }
+      }
+    }
+
+    #{$parent}__box {
+
+      &::before {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px var(--common-color-secondary-light);
+      }
+
+      &::after {
+        background-color: transparent;
+      }
+    }
+
+    &#{$parent}--checked {
+
+      #{$parent}__box {
+
+        &::before {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 1px var(--common-color-secondary-light);
+        }
+
+        &::after {
+          background-color: var(--common-color-secondary-light);
+        }
+      }
+    }
+  }
+
+  &--theme-tertiary {
+
+    &:hover {
+
+      #{$parent}__box {
+
+        &::after {
+          background-color: var(--common-color-tertiary-light);
+        }
+      }
+    }
+
+    #{$parent}__box {
+
+      &::before {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px var(--common-color-tertiary-light);
+      }
+
+      &::after {
+        background-color: transparent;
+      }
+    }
+
+    &#{$parent}--checked {
+
+      #{$parent}__box {
+
+        &::before {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 1px var(--common-color-tertiary-light);
+        }
+
+        &::after {
+          background-color: var(--common-color-tertiary-light);
+        }
+      }
+    }
+  }
+
+  &--theme-unaccented {
+
+    &:hover {
+
+      #{$parent}__box {
+
+        &::after {
+          background-color: var(--common-color-unaccented-light);
+        }
+      }
+    }
+
+    #{$parent}__box {
+
+      &::before {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px var(--common-color-unaccented-light);
+      }
+
+      &::after {
+        background-color: transparent;
+      }
+    }
+
+    &#{$parent}--checked {
+
+      #{$parent}__box {
+
+        &::before {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 1px var(--common-color-unaccented-light);
+        }
+
+        &::after {
+          background-color: var(--common-color-unaccented-light);
+        }
+      }
+    }
   }
 }
 </style>
