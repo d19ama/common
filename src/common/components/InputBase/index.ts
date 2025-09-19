@@ -1,3 +1,5 @@
+import './assets/styles/index.scss';
+
 export { default as InputBase } from './InputBase.vue';
 
 export type {

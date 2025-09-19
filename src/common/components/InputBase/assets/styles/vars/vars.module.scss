@@ -1,0 +1,17 @@
+$common-base-input-wrapper-bg: var(--common-color-ui-tertiary);
+$common-base-input-wrapper-border: var(--common-border);
+$common-base-input-wrapper-border-radius: var(--common-border-radius);
+$common-base-input-label-color: var(--common-color-ui-primary);
+$common-base-input-label-required-color: var(--common-color-required);
+$common-base-input-hint-color: var(--common-color-ui-secondary);
+$common-base-input-error-color: var(--common-color-error);
+
+:export {
+  common-base-input-wrapper-bg: $common-base-input-wrapper-bg;
+  common-base-input-wrapper-border: $common-base-input-wrapper-border;
+  common-base-input-wrapper-border-radius: $common-base-input-wrapper-border-radius;
+  common-base-input-label-color: $common-base-input-label-color;
+  common-base-input-label-required-color: $common-base-input-label-required-color;
+  common-base-input-hint-color: $common-base-input-hint-color;
+  common-base-input-error-color: $common-base-input-error-color;
+}

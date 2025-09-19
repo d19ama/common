@@ -8,12 +8,10 @@ import type {
   AppCheckboxProps,
   AppCheckboxSlots,
 } from './types';
-import { componentName } from '@/helpers';
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 
 const props = withDefaults(defineProps<AppCheckboxProps>(), {
-  name: componentName('app-checkbox'),
   disabled: false,
 });
 
@@ -38,29 +36,27 @@ const elementClass = computed<HTMLElementClass>(() => {
 </script>
 
 <template>
-  <div class="app-checkbox__wrapper">
-    <label
-      :for="name"
-      class="app-checkbox"
-      :class="elementClass"
+  <label
+    :for="name"
+    class="app-checkbox"
+    :class="elementClass"
+  >
+    <input
+      :id="name"
+      v-model="checked"
+      :name="name"
+      :disabled="props.disabled"
+      type="checkbox"
+      class="app-checkbox__input"
+      autocomplete="off"
     >
-      <input
-        :id="name"
-        v-model="checked"
-        :name="name"
-        :disabled="props.disabled"
-        type="checkbox"
-        class="app-checkbox__input"
-        autocomplete="off"
-      >
-      <span class="app-checkbox__box" />
-      <span class="app-checkbox__text">
-        <slot>
-          {{ props.text }}
-        </slot>
-      </span>
-    </label>
-  </div>
+    <span class="app-checkbox__box" />
+    <span class="app-checkbox__text">
+      <slot>
+        {{ props.text }}
+      </slot>
+    </span>
+  </label>
 </template>
 
 <style lang="scss">
