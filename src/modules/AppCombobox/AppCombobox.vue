@@ -3,9 +3,7 @@ import {
   type ComponentInternalInstance,
   computed,
   getCurrentInstance,
-  onMounted,
   ref,
-  useTemplateRef,
   watch,
 } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
@@ -15,14 +13,14 @@ import type {
   AppComboboxProps,
   AppComboboxSlots,
 } from './types';
-import type { HTMLElementClass } from '@/types';
-import { AppSpinner } from '@/modules';
 import {
   DEFAULT_DELAY,
   DEFAULT_SEARCH_LENGTH,
 } from '@/common/constants';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
+import { SelectBase } from '@/common/components/SelectBase';
+import { AppSpinner } from '@/modules';
 
 const props = withDefaults(defineProps<AppComboboxProps>(), {
   hint: '',
@@ -55,11 +53,9 @@ const search = defineModel<string>('search', {
   default: '',
 });
 
-const error = ref<boolean>(false);
 const opened = ref<boolean>(false);
 const focused = ref<boolean>(false);
 const localSearch = ref<string>('');
-const rootRef = useTemplateRef<HTMLElement>('rootRef');
 
 const instance: ComponentInternalInstance | null = getCurrentInstance();
 
@@ -72,39 +68,9 @@ const isDropdownVisible = computed<boolean>(() => {
     && search.value.length > DEFAULT_SEARCH_LENGTH;
 });
 
-const hasOptions = computed<boolean>(() => {
-  return !props.loading && options.value.length > 0;
-});
-
 const updateSearch = useDebounceFn((value) => {
   search.value = value;
 }, DEFAULT_DELAY);
-
-function hideDropdown(event: MouseEvent): void {
-  if (!rootRef.value) {
-    return;
-  }
-
-  const isOutside: boolean = rootRef.value !== event.target
-    && !rootRef.value.contains(event.target as Node);
-
-  if (isOutside) {
-    opened.value = false;
-  }
-}
-
-function changeSelected(option: AppComboboxOption): void {
-  options.value = options.value.map((item) => {
-    return {
-      ...item,
-      selected: item.id === option.id,
-    };
-  });
-
-  opened.value = false;
-  value.value = option.text;
-  localSearch.value = option.text;
-}
 
 function onFocus(): void {
   focused.value = true;
@@ -116,21 +82,9 @@ function onBlur(): void {
   emit('blur');
 }
 
-function validate(): void {
-  props.validation?.$touch();
-  error.value = !!props.validation?.$error;
+function changeSelected(option: AppComboboxOption): void {
+  localSearch.value = option.text;
 }
-
-function optionClass(item: AppComboboxOption): HTMLElementClass {
-  return {
-    'app-combobox__option--selected': item.selected,
-    'app-combobox__option--disabled': item.disabled,
-  };
-}
-
-onMounted(() => {
-  document.addEventListener('click', hideDropdown);
-});
 
 watch(localSearch, (value) => {
   const searchable = value.length > DEFAULT_SEARCH_LENGTH;
@@ -139,12 +93,6 @@ watch(localSearch, (value) => {
 
   if (searchable) {
     updateSearch(value);
-  }
-});
-
-watch(focused, (value) => {
-  if (!value) {
-    validate();
   }
 });
 </script>
@@ -161,47 +109,33 @@ watch(focused, (value) => {
     :placeholder="props.placeholder"
   >
     <template #default>
-      <div
-        ref="rootRef"
-        class="app-combobox__container"
+      <SelectBase
+        v-model:options="options"
+        v-model:value="value"
+        v-model:opened="opened"
+        :placeholder="props.placeholder"
+        :validation="props.validation"
+        :dropdown-visible="isDropdownVisible"
+        @change:selected="changeSelected"
       >
-        <input
-          v-model="localSearch"
-          :name="name"
-          :maxlength="props.maxLength"
-          :disabled="props.disabled"
-          :placeholder="props.placeholder"
-          autocomplete="off"
-          class="app-combobox__input"
-          type="text"
-          @focus="onFocus"
-          @blur="onBlur"
-        >
-        <div
-          v-if="isDropdownVisible"
-          class="app-combobox__dropdown"
-        >
-          <ul
-            v-if="hasOptions"
-            class="app-combobox__options"
+        <template #default>
+          <input
+            v-model="localSearch"
+            :name="name"
+            :maxlength="props.maxLength"
+            :disabled="props.disabled"
+            :placeholder="props.placeholder"
+            autocomplete="off"
+            class="app-combobox__input"
+            type="text"
+            @focus="onFocus"
+            @blur="onBlur"
           >
-            <li
-              v-for="item in options"
-              :key="item.id"
-              class="app-combobox__option"
-              :class="optionClass(item)"
-              @click="changeSelected(item)"
-            >
-              <slot
-                :name="`combobox-${String(item.id)}`"
-                :text="item.text"
-              >
-                {{ item.text }}
-              </slot>
-            </li>
-          </ul>
+        </template>
+
+        <template #append-dropdown>
           <AppSpinner
-            v-else-if="props.loading"
+            v-if="props.loading && !options.length"
             :active="props.loading"
             class="app-combobox__loading"
             auto-width
@@ -212,8 +146,30 @@ watch(focused, (value) => {
           >
             Не удалось загрузить данные.<br>Проверьте подключение к интернету и попробуйте еще раз.
           </div>
-        </div>
-      </div>
+        </template>
+
+        <template #icon>
+          <slot name="icon" />
+        </template>
+
+        <template
+          v-for="item in options"
+          #[`select-item-${String(item.id)}`]
+        >
+          <slot
+            :name="`select-item-${String(item.id)}`"
+            :text="item.text"
+          />
+        </template>
+
+        <template #option-text>
+          <slot name="option-text" />
+        </template>
+
+        <template #option-icon>
+          <slot name="option-icon" />
+        </template>
+      </SelectBase>
     </template>
   </InputBase>
 </template>
@@ -222,14 +178,6 @@ watch(focused, (value) => {
 .app-combobox {
   $padding: 1rem;
   $parent: &;
-
-  &__container {
-    width: 100%;
-    height: 3.5rem;
-    padding: 1rem;
-    position: relative;
-    cursor: pointer;
-  }
 
   &__input {
     width: 100%;
@@ -254,64 +202,13 @@ watch(focused, (value) => {
     }
   }
 
-  &__dropdown {
-    width: 100%;
-    overflow: auto;
-    position: absolute;
-    top: calc(100% + .25rem);
-    left: 0;
-    z-index: 10;
-    border-radius: .5rem;
-    border: var(--common-border);
-    background-color: var(--common-color-ui-tertiary);
-    transition: opacity var(--common-transition);
-  }
-
-  &__options {
-    margin: 0;
-  }
-
-  &__option,
   &__empty {
+    opacity: .4;
     padding: 1rem;
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
     color: var(--common-color-ui-primary);
-  }
-
-  &__option {
-    transition: background-color var(--common-transition);
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--common-color-ui-secondary);
-    }
-
-    &--selected {
-      position: relative;
-
-      &::before {
-        content: '\ea10';
-        position: absolute;
-        top: 50%;
-        right: .5rem;
-        transform: translateY(-50%);
-        width: 1.5rem;
-        height: 1.5rem;
-        color: var(--common-color-ui-primary);
-        font-family: 'icon-font', sans-serif;
-      }
-    }
-
-    &--disabled {
-      opacity: .4;
-      pointer-events: none;
-    }
-  }
-
-  &__empty {
-    opacity: .4;
   }
 
   &__loading {

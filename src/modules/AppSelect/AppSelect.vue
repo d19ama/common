@@ -29,7 +29,12 @@ const value = defineModel<string>('value', {
   default: '',
 });
 
+const opened = ref<boolean>(false);
 const localOptions = ref<AppSelectOption[]>(props.options);
+
+function toggleDropdown(): void {
+  opened.value = !opened.value;
+}
 
 watch(() => props.options, (value) => {
   localOptions.value = value;
@@ -51,8 +56,10 @@ watch(() => props.options, (value) => {
       <SelectBase
         v-model:options="localOptions"
         v-model:value="value"
+        v-model:opened="opened"
         :placeholder="props.placeholder"
         :validation="props.validation"
+        @click="toggleDropdown"
       >
         <template #icon>
           <slot name="icon" />

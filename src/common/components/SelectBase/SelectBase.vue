@@ -7,6 +7,7 @@ import {
   watch,
 } from 'vue';
 import type {
+  SelectBaseEmits,
   SelectBaseOption,
   SelectBaseProps,
   SelectBaseSlots,
@@ -18,11 +19,20 @@ const props = withDefaults(defineProps<SelectBaseProps>(), {
   label: '',
   errorText: '',
   placeholder: '',
+  loading: false,
   disabled: false,
   required: false,
+  dropdownVisible: true,
 });
 
+const emit = defineEmits<SelectBaseEmits>();
+
 defineSlots<SelectBaseSlots>();
+
+const opened = defineModel('opened', {
+  required: false,
+  default: false,
+});
 
 const value = defineModel<string>('value', {
   required: false,
@@ -36,7 +46,6 @@ const options = defineModel<SelectBaseOption[]>('options', {
 
 const select = useTemplateRef<HTMLElement>('selectRef');
 
-const opened = ref<boolean>(false);
 const selected = ref<SelectBaseOption>();
 
 const isPlaceholderVisible = computed<boolean>(() => {
@@ -44,15 +53,18 @@ const isPlaceholderVisible = computed<boolean>(() => {
     && !selected.value;
 });
 
-const selectClass = computed<HTMLElementClass>(() => {
-  return {
-    'select-base--opened': opened.value,
-  };
+const isDropdownVisible = computed<boolean>(() => {
+  return opened.value
+    && props.dropdownVisible;
 });
 
-const dropdownClass = computed<HTMLElementClass>(() => {
+const hasOptions = computed<boolean>(() => {
+  return !props.loading && options.value.length > 0;
+});
+
+const selectClass = computed<HTMLElementClass>(() => {
   return {
-    'select-base__dropdown--opened': opened.value,
+    'select-base--opened': opened.value && props.dropdownVisible,
   };
 });
 
@@ -61,10 +73,6 @@ function optionClass(item: SelectBaseOption): HTMLElementClass {
     'select-base__option--selected': item.selected,
     'select-base__option--disabled': item.disabled,
   };
-}
-
-function toggleDropdown(): void {
-  opened.value = !opened.value;
 }
 
 function hideDropdown(event: MouseEvent): void {
@@ -90,6 +98,7 @@ function changeSelected(option: SelectBaseOption): void {
   selected.value = option;
   value.value = option.text;
   opened.value = false;
+  emit('change:selected', option);
 }
 
 function validate(): void {
@@ -112,31 +121,36 @@ watch(opened, (value) => {
     ref="selectRef"
     class="select-base"
     :class="selectClass"
-    @click.self="toggleDropdown"
+    @click="emit('click')"
   >
-    <span
-      v-if="isPlaceholderVisible"
-      class="select-base__placeholder"
-    >
-      {{ props.placeholder }}
-    </span>
-    <span
-      v-if="selected"
-      class="select-base__selected"
-    >
-      {{ selected.text }}
-    </span>
-    <div class="select-base__icon">
-      <slot name="icon">
-        <span class="select-base__arrow" />
-      </slot>
-    </div>
+    <slot>
+      <span
+        v-if="isPlaceholderVisible"
+        class="select-base__placeholder"
+      >
+        {{ props.placeholder }}
+      </span>
+      <span
+        v-if="selected"
+        class="select-base__selected"
+      >
+        {{ selected.text }}
+      </span>
+      <div class="select-base__icon">
+        <slot name="icon">
+          <span class="select-base__arrow" />
+        </slot>
+      </div>
+    </slot>
   </div>
   <div
+    v-if="isDropdownVisible"
     class="select-base__dropdown"
-    :class="dropdownClass"
   >
-    <ul class="select-base__options">
+    <ul
+      v-if="hasOptions"
+      class="select-base__options"
+    >
       <li
         v-for="item in options"
         :key="item.id"
@@ -157,6 +171,7 @@ watch(opened, (value) => {
         </slot>
       </li>
     </ul>
+    <slot name="append-dropdown" />
   </div>
 </template>
 
@@ -220,7 +235,7 @@ watch(opened, (value) => {
   }
 
   &__dropdown {
-    display: none;
+    display: block;
     width: calc(100% + 2px);
     overflow: auto;
     position: absolute;
@@ -231,10 +246,6 @@ watch(opened, (value) => {
     border-radius: var(--common-base-input-wrapper-border-radius);
     background-color: var(--common-base-input-wrapper-bg);
     transition: opacity var(--common-transition);
-
-    &--opened {
-      display: block;
-    }
   }
 
   &__options {
