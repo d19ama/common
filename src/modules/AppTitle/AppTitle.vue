@@ -47,7 +47,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 <style lang="scss">
 .app-title {
   line-height: 1.25;
-  color: var(--common-color-ui-primary);
+  color: var(--common-color-text-main);
   user-select: none;
 
   &--inverted {

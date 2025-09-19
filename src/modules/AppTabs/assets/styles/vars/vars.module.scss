@@ -2,6 +2,7 @@ $app-tabs-header-bg: none;
 $app-tabs-label-bg: none;
 $app-tabs-label-bg-active: none;
 $app-tabs-label-border: 1px dashed transparent;
+$app-tabs-label-border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
 $app-tabs-label-border-color-active: var(--common-color-ui-primary);
 
 :export {
@@ -9,5 +10,6 @@ $app-tabs-label-border-color-active: var(--common-color-ui-primary);
   app-tabs-label-bg: $app-tabs-label-bg;
   app-tabs-label-bg-active: $app-tabs-label-bg-active;
   app-tabs-label-border: $app-tabs-label-border;
+  app-tabs-label-border-radius: $app-tabs-label-border-radius;
   app-tabs-label-border-color-active: $app-tabs-label-border-color-active;
 }

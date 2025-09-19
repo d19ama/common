@@ -3,6 +3,7 @@ export interface Styles {
   'app-tabs-label-bg': string;
   'app-tabs-label-bg-active': string;
   'app-tabs-label-border': string;
+  'app-tabs-label-border-radius': string;
   'app-tabs-label-border-color-active': string;
 }
 
