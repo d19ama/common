@@ -109,34 +109,37 @@ $padding: 1rem;
 
   &__picker  {
     display: block;
+    width: 100%;
     padding: $padding 0;
   }
-}
 
-.dp__theme_light {
-  --dp-background-color: var(--common-color-ui-tertiary);
-  --dp-text-color: var(--common-color-ui-primary);
-  --dp-border-color: none;
-  --dp-menu-border-color: none;
-  --dp-border-color-hover: none;
-  --dp-border-color-focus: none;
-  --dp-icon-color: var(--common-color-ui-primary);
+  .dp__theme_light {
+    --dp-background-color: var(--common-base-input-wrapper-bg);
+    --dp-text-color: var(--common-color-text-main);
+    --dp-border-color: none;
+    --dp-menu-border-color: none;
+    --dp-border-color-hover: none;
+    --dp-border-color-focus: none;
+    --dp-icon-color: var(--common-color-ui-primary);
 
-  --dp-border-radius: .5rem;
-  --dp-font-size: .875rem;
-  --dp-preview-font-size: .875rem;
-  --dp-time-font-size: .875rem;
-  --dp-input-padding: $padding;
-  --dp-input-icon-padding: 2.5rem;
+    --dp-border-radius: var(--common-base-input-wrapper-border-radius);
+    --dp-font-size: .875rem;
+    --dp-preview-font-size: .875rem;
+    --dp-time-font-size: .875rem;
+    --dp-input-padding: $padding;
+    --dp-input-icon-padding: 2.5rem;
 
-  --dp-primary-color: var(--common-color-ui-primary);
+    --dp-primary-color: var(--common-color-text-main);
 
-  ::placeholder {
-    color: rgba(var(--common-color-ui-tertiary), .75);
-  }
+    --dp-font-family: var(--common-font-family), Arial, Helvetica, sans-serif;
 
-  .dp__input_icons {
-    padding: 0 $padding;
+    ::placeholder {
+      color: rgba(var(--common-color-text-main), .5);
+    }
+
+    .dp__input_icons {
+      padding: 0 $padding;
+    }
   }
 }
 </style>

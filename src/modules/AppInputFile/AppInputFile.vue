@@ -193,8 +193,8 @@ function onClick(): void {
   }
 
   &__button {
-    color: var(--common-color-ui-primary);
-    border-radius: var(--common-border-radius) 0 0 var(--common-border-radius);
+    color: var(--common-color-text-main);
+    border-radius: var(--common-base-input-wrapper-border-radius) 0 0 var(--common-base-input-wrapper-border-radius);
     backdrop-filter: brightness(0.9);
   }
 
@@ -205,7 +205,7 @@ function onClick(): void {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--common-color-ui-primary);
+    color: var(--common-color-text-main);
   }
 }
 </style>

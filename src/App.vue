@@ -862,9 +862,9 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  color: var(--common-color-black);
+  color: var(--common-color-text-main);
   font-weight: 400;
-  font-family: 'jb', Arial, Helvetica, sans-serif;
+  font-family: var(--common-font-family), Arial, Helvetica, sans-serif;
   background-color: var(--common-color-black-80);
 }
 
@@ -878,7 +878,7 @@ h6 {
 }
 
 a {
-  color: var(--common-color-black);
+  color: var(--common-color-text-main);
   text-decoration: none;
 
   &:visited,
