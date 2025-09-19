@@ -1,9 +1,11 @@
 $common-transition: .3s ease-in-out;
+$common-font-family: 'jb';
 $common-border-radius: .5rem;
 $common-border: none;
 
 :export {
   common-transition: $common-transition;
+  common-font-family: $common-font-family;
   common-border: $common-border;
   common-border-radius: $common-border-radius;
 }

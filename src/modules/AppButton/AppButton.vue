@@ -151,6 +151,8 @@ a {
 
 // COMPONENT STYLES
 .app-button {
+  $parent: &;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,8 +162,8 @@ a {
   text-decoration: none;
   border: 0;
   outline: 0;
-  border-radius: var(--common-border-radius);
-  transition: filter var(--common-transition), color var(--common-transition);
+  border-radius: var(--app-button-border-radius);
+  transition: filter var(--common-transition), color var(--common-transition), background-color var(--common-transition);
   user-select: none;
   cursor: pointer;
 
@@ -225,6 +227,10 @@ a {
   &--theme-unaccented {
     color: var(--common-color-text-main);
     background-color: var(--common-color-unaccented-medium);
+
+    &:hover {
+      background-color: var(--common-color-unaccented-dark);
+    }
   }
 
   &--theme-transparent {
@@ -240,6 +246,10 @@ a {
 
   &--text-style-inverted {
     color: var(--common-color-text-inverted);
+
+    &#{$parent}--theme-transparent {
+      box-shadow: inset 0 0 0 1px var(--common-color-text-inverted);
+    }
   }
 }
 </style>
