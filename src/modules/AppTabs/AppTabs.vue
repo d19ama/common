@@ -62,14 +62,7 @@ function toggleItem(id: AppTabsItem['id']): void {
     align-items: flex-start;
     justify-content: flex-start;
     flex: 1 1 100%;
-  }
-
-  &__additional {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    padding: 0 2rem;
-    margin-left: auto;
+    background: var(--app-tabs-header-bg);
   }
 
   &__label {
@@ -82,8 +75,9 @@ function toggleItem(id: AppTabsItem['id']): void {
     color: var(--common-color-text-main);
     text-decoration: none;
     transition: color .3s, opacity .3s;
-    border: 1px dashed transparent;
-    border-bottom-color: var(--common-color-ui-primary);
+    border: var(--app-tabs-label-border);
+    border-bottom-color: var(--app-tabs-label-border-color-active);
+    background: var(--app-tabs-label-bg);
     border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
     user-select: none;
     cursor: pointer;
@@ -97,10 +91,11 @@ function toggleItem(id: AppTabsItem['id']): void {
     }
 
     &--active {
-      border-left-color: var(--common-color-ui-primary);
-      border-top-color: var(--common-color-ui-primary);
-      border-right-color: var(--common-color-ui-primary);
+      border-left-color: var(--app-tabs-label-border-color-active);
+      border-top-color: var(--app-tabs-label-border-color-active);
+      border-right-color: var(--app-tabs-label-border-color-active);
       border-bottom-color: transparent;
+      background: var(--app-tabs-label-bg-active);
     }
 
     &--disabled {
