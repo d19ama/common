@@ -208,7 +208,7 @@ watch(localSearch, (value) => {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--common-color-ui-primary);
+    color: var(--common-color-text-main);
   }
 
   &__loading {
