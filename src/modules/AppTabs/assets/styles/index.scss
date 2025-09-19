@@ -1,0 +1,9 @@
+@import 'vars/vars.module';
+
+:root {
+  --app-tabs-header-bg: #{$app-tabs-header-bg};
+  --app-tabs-label-bg: #{$app-tabs-label-bg};
+  --app-tabs-label-bg-active: #{$app-tabs-label-bg-active};
+  --app-tabs-label-border: #{$app-tabs-label-border};
+  --app-tabs-label-border-color-active: #{$app-tabs-label-border-color-active};
+}

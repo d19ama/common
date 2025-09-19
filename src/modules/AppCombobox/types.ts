@@ -1,31 +1,32 @@
-import type { VNode } from 'vue';
 import type {
   InputBaseProps,
   InputBaseSlots,
 } from '@/common/components/InputBase';
+import type {
+  SelectBaseOption,
+  SelectBaseProps,
+  SelectBaseSlots,
+} from '@/common/components/SelectBase';
 
-export interface AppComboboxProps extends InputBaseProps {
+export interface AppComboboxProps
+  extends
+  InputBaseProps,
+  SelectBaseProps {
   name?: string;
   loading?: boolean;
-  multiple?: boolean;
   maxLength?: string;
   searchError?: boolean;
 }
 
-export interface AppComboboxOption<ID extends string | number | symbol = string> {
-  id: ID;
-  text: string;
-  selected: boolean;
-  disabled: boolean;
-}
+export interface AppComboboxOption<ID extends string | number | symbol = string>
+  extends SelectBaseOption<ID> {}
 
 export interface AppComboboxEmits {
   focus: [];
   blur: [];
 }
 
-export interface AppComboboxSlots extends InputBaseSlots {
-  [key: `combobox-${AppComboboxOption['id']}`]: (scope: {
-    text: string;
-  }) => VNode[];
-}
+export interface AppComboboxSlots
+  extends
+  InputBaseSlots,
+  SelectBaseSlots {}

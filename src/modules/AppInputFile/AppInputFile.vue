@@ -195,7 +195,7 @@ function onClick(): void {
   &__button {
     color: var(--common-color-ui-primary);
     border-radius: var(--common-border-radius) 0 0 var(--common-border-radius);
-    background-color: var(--common-color-ui-secondary);
+    backdrop-filter: brightness(0.9);
   }
 
   &__placeholder {

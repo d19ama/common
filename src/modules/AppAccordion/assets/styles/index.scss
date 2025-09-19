@@ -1,0 +1,8 @@
+@import 'vars/vars.module';
+
+:root {
+  --app-accordion-item-border-bottom: #{$app-accordion-item-border-bottom};
+  --app-accordion-header-bg: #{$app-accordion-header-bg};
+  --app-accordion-body-bg: #{$app-accordion-body-bg};
+  --app-accordion-icon-color: #{$app-accordion-icon-color};
+}

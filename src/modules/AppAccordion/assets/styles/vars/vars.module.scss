@@ -1,0 +1,11 @@
+$app-accordion-item-border-bottom: 1px solid var(--common-color-ui-secondary);
+$app-accordion-header-bg: none;
+$app-accordion-body-bg: none;
+$app-accordion-icon-color: inherit;
+
+:export {
+  app-accordion-item-border-bottom: $app-accordion-item-border-bottom;
+  app-accordion-header-bg: $app-accordion-header-bg;
+  app-accordion-body-bg: $app-accordion-body-bg;
+  app-accordion-icon-color: $app-accordion-icon-color;
+}

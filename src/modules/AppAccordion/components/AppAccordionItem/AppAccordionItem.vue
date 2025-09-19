@@ -123,7 +123,7 @@ onMounted(() => {
 
 <style lang="scss">
 .app-accordion-item {
-  border-bottom: 1px solid var(--common-color-ui-secondary);
+  border-bottom: var(--app-accordion-item-border-bottom);
   transition: background-color var(--common-transition);
 
   &__header {
@@ -137,6 +137,7 @@ onMounted(() => {
     font-weight: 700;
     color: var(--common-color-black);
     text-decoration: none;
+    background: var(--app-accordion-header-bg);
     transition: background-color var(--common-transition), color var(--common-transition);
     user-select: none;
     cursor: pointer;
@@ -157,11 +158,13 @@ onMounted(() => {
     z-index: 1;
     font-size: 1rem;
     font-style: normal;
+    color: var(--app-accordion-icon-color);
     border-radius: 50%;
   }
 
   &__body {
     padding: 1rem;
+    background: var(--app-accordion-body-bg);
     transition: background-color var(--common-transition);
   }
 

@@ -152,9 +152,9 @@ select {
     display: flex;
     width: 100%;
     position: relative;
-    border-radius: var(--common-border-radius);
-    border: var(--common-border);
-    background-color: var(--common-color-ui-tertiary);
+    border-radius: var(--common-base-input-wrapper-border-radius);
+    border: var(--common-base-input-wrapper-border);
+    background-color: var(--common-base-input-wrapper-bg);
   }
 
   &__label,
@@ -172,38 +172,20 @@ select {
     justify-content: flex-start;
     gap: .125rem;
     width: 100%;
-    color: var(--common-color-ui-primary);
+    color: var(--common-base-input-label-color);
     user-select: none;
   }
 
   &__label-required {
-    color: var(--common-color-required);
-  }
-
-  &__placeholder {
-    display: block;
-    max-width: 100%;
-    opacity: .5;
-    overflow: hidden;
-    padding: $padding;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-weight: 400;
-    line-height: 1.5;
-    font-size: .875rem;
-    color: var(--common-color-ui-primary);
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    pointer-events: none;
+    color: var(--common-base-input-label-required-color);
   }
 
   &__hint {
-    color: var(--common-color-ui-secondary);
+    color: var(--common-base-input-hint-color);
   }
 
   &__error {
-    color: var(--common-color-error);
+    color: var(--common-base-input-error-color);
   }
 
   &--disabled {

@@ -626,7 +626,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           <div class="row">
             <div class="col-default-3">
               <AppSelect
-                v-model:selected="select"
+                v-model:value="select"
                 :options="options"
                 placeholder="Select"
                 label="Select"
@@ -635,7 +635,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             </div>
             <div class="col-default-3">
               <AppSelect
-                v-model:selected="select"
+                v-model:value="select"
                 :options="options"
                 disabled
                 placeholder="Select"
@@ -660,7 +660,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           <div class="row">
             <div class="col-default-3">
               <AppCombobox
-                v-model:selected="select"
+                v-model:value="select"
                 :options="options"
                 placeholder="Select"
                 label="Select"
@@ -669,7 +669,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             </div>
             <div class="col-default-3">
               <AppCombobox
-                v-model:selected="select"
+                v-model:value="select"
                 :options="options"
                 placeholder="Select"
                 label="Select"
