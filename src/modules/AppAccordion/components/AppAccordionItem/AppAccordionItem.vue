@@ -135,12 +135,23 @@ onMounted(() => {
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 700;
-    color: var(--common-color-black);
+    color: var(--app-accordion-header-color);
     text-decoration: none;
     background: var(--app-accordion-header-bg);
-    transition: background-color var(--common-transition), color var(--common-transition);
+    transition: background var(--common-transition), color var(--common-transition);
     user-select: none;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: var(--app-accordion-header-color-hover);
+      background: var(--app-accordion-header-bg-hover);
+    }
+
+    &--active {
+      color: var(--app-accordion-header-color-active);
+      background: var(--app-accordion-header-bg-active);
+    }
   }
 
   &__icon {
@@ -165,7 +176,11 @@ onMounted(() => {
   &__body {
     padding: 1rem;
     background: var(--app-accordion-body-bg);
-    transition: background-color var(--common-transition);
+    transition: background var(--common-transition);
+
+    &--active {
+      background: var(--app-accordion-body-bg-active);
+    }
   }
 
   &__content {

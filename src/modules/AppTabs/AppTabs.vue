@@ -78,7 +78,7 @@ function toggleItem(id: AppTabsItem['id']): void {
     border: var(--app-tabs-label-border);
     border-bottom-color: var(--app-tabs-label-border-color-active);
     background: var(--app-tabs-label-bg);
-    border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
+    border-radius: var(--app-tabs-label-border-radius);
     user-select: none;
     cursor: pointer;
 

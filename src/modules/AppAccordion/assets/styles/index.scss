@@ -2,7 +2,13 @@
 
 :root {
   --app-accordion-item-border-bottom: #{$app-accordion-item-border-bottom};
+  --app-accordion-header-color: #{$app-accordion-header-color};
+  --app-accordion-header-color-hover: #{$app-accordion-header-color-hover};
+  --app-accordion-header-color-active: #{$app-accordion-header-color-active};
   --app-accordion-header-bg: #{$app-accordion-header-bg};
+  --app-accordion-header-bg-hover: #{$app-accordion-header-bg-hover};
+  --app-accordion-header-bg-active: #{$app-accordion-header-bg-active};
   --app-accordion-body-bg: #{$app-accordion-body-bg};
+  --app-accordion-body-bg-active: #{$app-accordion-body-bg-active};
   --app-accordion-icon-color: #{$app-accordion-icon-color};
 }

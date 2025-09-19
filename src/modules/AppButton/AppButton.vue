@@ -203,7 +203,7 @@ a {
   }
 
   &:hover {
-    filter: brightness(0.9);
+    filter: saturate(1.3);
   }
 
   // THEMES
