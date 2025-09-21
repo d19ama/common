@@ -269,6 +269,11 @@ watch(
     &::-ms-clear {
       display: none;
     }
+
+    &::placeholder {
+      opacity: .5;
+      color: var(--common-color-text-main);
+    }
   }
 }
 </style>
