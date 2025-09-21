@@ -1,14 +1,14 @@
 export interface Styles {
-  'common-base-input-wrapper-bg': string;
-  'common-base-input-wrapper-border-color': string;
-  'common-base-input-wrapper-border': string;
-  'common-base-input-wrapper-border-radius': string;
-  'common-base-input-label-color': string;
-  'common-base-input-label-required-color': string;
-  'common-base-input-hint-color': string;
-  'common-base-input-error-color': string;
-  'common-base-input-button-bg': string;
-  'common-base-input-button-color': string;
+  'common-input-base-wrapper-bg': string;
+  'common-input-base-wrapper-border-color': string;
+  'common-input-base-wrapper-border': string;
+  'common-input-base-wrapper-border-radius': string;
+  'common-input-base-label-color': string;
+  'common-input-base-label-required-color': string;
+  'common-input-base-hint-color': string;
+  'common-input-base-error-color': string;
+  'common-input-base-button-bg': string;
+  'common-input-base-button-color': string;
 }
 
 export type ClassNames = keyof Styles;

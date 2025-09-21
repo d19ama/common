@@ -193,9 +193,9 @@ function onClick(): void {
   }
 
   &__button {
-    color: var(--common-base-input-button-color);
-    border-radius: var(--common-base-input-wrapper-border-radius) 0 0 var(--common-base-input-wrapper-border-radius);
-    background-color: var(--common-base-input-button-bg);
+    color: var(--common-input-base-button-color);
+    border-radius: var(--common-input-base-wrapper-border-radius) 0 0 var(--common-input-base-wrapper-border-radius);
+    background-color: var(--common-input-base-button-bg);
   }
 
   &__placeholder {

@@ -1,0 +1,9 @@
+@import 'vars/vars.module';
+
+:root {
+  --common-select-base-dropdown-bg: #{$common-select-base-dropdown-bg};
+  --common-select-base-dropdown-border: #{$common-select-base-dropdown-border};
+  --common-select-base-dropdown-border-radius: #{$common-select-base-dropdown-border-radius};
+  --common-select-base-option-icon-color: #{$common-select-base-option-icon-color};
+  --common-select-base-arrow-color: #{$common-select-base-arrow-color};
+}

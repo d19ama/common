@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { computed } from 'vue';
 import type {
   AppListItemProps,
   AppListItemSlots,
 } from './types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppListItemProps>(), {
   tag: 'ul',
@@ -11,13 +13,19 @@ const props = withDefaults(defineProps<AppListItemProps>(), {
 });
 
 defineSlots<AppListItemSlots>();
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-list-item--${props.tag}`,
+  ];
+});
 </script>
 
 <template>
   <li
     class="app-list-item"
     :data-prepend="props.prepend"
-    :class="[`app-list-item--${props.tag}`]"
+    :class="elementClass"
   >
     <slot />
   </li>

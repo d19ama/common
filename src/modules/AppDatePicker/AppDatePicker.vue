@@ -86,6 +86,7 @@ function validate(): void {
           :year-picker="props.yearPicker"
           :placeholder="props.placeholder"
           :month-picker="props.monthPicker"
+          :enable-time-picker="false"
           :offset="offset"
           @blur="onBlur"
         />
@@ -111,18 +112,22 @@ $padding: 1rem;
     display: block;
     width: 100%;
     padding: $padding 0;
+
+    .dp__input {
+      border: none;
+    }
   }
 
   .dp__theme_light {
-    --dp-background-color: var(--common-base-input-wrapper-bg);
+    --dp-background-color: var(--common-input-base-wrapper-bg);
     --dp-text-color: var(--common-color-text-main);
-    --dp-border-color: var(--common-base-input-wrapper-border-color);
-    --dp-menu-border-color: var(--common-base-input-wrapper-border-color);
+    --dp-border-color: var(--common-input-base-wrapper-border-color);
+    --dp-menu-border-color: var(--common-input-base-wrapper-border-color);
     --dp-border-color-hover: none;
     --dp-border-color-focus: none;
     --dp-icon-color: var(--common-color-ui-primary);
 
-    --dp-border-radius: var(--common-base-input-wrapper-border-radius);
+    --dp-border-radius: var(--common-input-base-wrapper-border-radius);
     --dp-font-size: .875rem;
     --dp-preview-font-size: .875rem;
     --dp-time-font-size: .875rem;

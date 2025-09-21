@@ -152,9 +152,9 @@ select {
     display: flex;
     width: 100%;
     position: relative;
-    border-radius: var(--common-base-input-wrapper-border-radius);
-    border: var(--common-base-input-wrapper-border);
-    background-color: var(--common-base-input-wrapper-bg);
+    border-radius: var(--common-input-base-wrapper-border-radius);
+    border: var(--common-input-base-wrapper-border);
+    background-color: var(--common-input-base-wrapper-bg);
   }
 
   &__label,
@@ -172,20 +172,20 @@ select {
     justify-content: flex-start;
     gap: .125rem;
     width: 100%;
-    color: var(--common-base-input-label-color);
+    color: var(--common-input-base-label-color);
     user-select: none;
   }
 
   &__label-required {
-    color: var(--common-base-input-label-required-color);
+    color: var(--common-input-base-label-required-color);
   }
 
   &__hint {
-    color: var(--common-base-input-hint-color);
+    color: var(--common-input-base-hint-color);
   }
 
   &__error {
-    color: var(--common-base-input-error-color);
+    color: var(--common-input-base-error-color);
   }
 
   &--disabled {
