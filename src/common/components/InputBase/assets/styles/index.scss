@@ -1,14 +1,14 @@
 @import 'vars/vars.module';
 
 :root {
-  --common-base-input-wrapper-bg: #{$common-base-input-wrapper-bg};
-  --common-base-input-wrapper-border-color: #{$common-base-input-wrapper-border-color};
-  --common-base-input-wrapper-border: #{$common-base-input-wrapper-border};
-  --common-base-input-wrapper-border-radius: #{$common-base-input-wrapper-border-radius};
-  --common-base-input-label-color: #{$common-base-input-label-color};
-  --common-base-input-label-required-color: #{$common-base-input-label-required-color};
-  --common-base-input-hint-color: #{$common-base-input-hint-color};
-  --common-base-input-error-color: #{$common-base-input-error-color};
-  --common-base-input-button-bg: #{$common-base-input-button-bg};
-  --common-base-input-button-color: #{$common-base-input-button-color};
+  --common-input-base-wrapper-bg: #{$common-input-base-wrapper-bg};
+  --common-input-base-wrapper-border-color: #{$common-input-base-wrapper-border-color};
+  --common-input-base-wrapper-border: #{$common-input-base-wrapper-border};
+  --common-input-base-wrapper-border-radius: #{$common-input-base-wrapper-border-radius};
+  --common-input-base-label-color: #{$common-input-base-label-color};
+  --common-input-base-label-required-color: #{$common-input-base-label-required-color};
+  --common-input-base-hint-color: #{$common-input-base-hint-color};
+  --common-input-base-error-color: #{$common-input-base-error-color};
+  --common-input-base-button-bg: #{$common-input-base-button-bg};
+  --common-input-base-button-color: #{$common-input-base-button-color};
 }

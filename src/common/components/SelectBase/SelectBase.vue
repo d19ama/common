@@ -191,7 +191,7 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.5;
     font-size: .875rem;
-    color: var(--common-color-ui-primary);
+    color: var(--common-color-text-main);
   }
 
   &__selected {
@@ -229,8 +229,8 @@ watch(opened, (value) => {
     display: block;
     width: 0;
     height: 0;
-    border: 4px solid transparent;
-    border-top: 8px solid var(--common-color-ui-primary);
+    border: 5px solid transparent;
+    border-top: 5px solid var(--common-select-base-arrow-color);
     border-bottom: 0;
   }
 
@@ -242,9 +242,9 @@ watch(opened, (value) => {
     top: calc(100% + .5rem);
     left: -1px;
     z-index: 10;
-    border: var(--common-base-input-wrapper-border);
-    border-radius: var(--common-base-input-wrapper-border-radius);
-    background-color: var(--common-base-input-wrapper-bg);
+    border: var(--common-select-base-dropdown-border);
+    border-radius: var(--common-select-base-dropdown-border-radius);
+    background-color: var(--common-select-base-dropdown-bg);
     transition: opacity var(--common-transition);
   }
 
@@ -262,7 +262,7 @@ watch(opened, (value) => {
     font-weight: 400;
     line-height: 1.4;
     font-size: .875rem;
-    color: var(--common-color-ui-primary);
+    color: var(--common-color-text-main);
     transition: background-color var(--common-transition);
     cursor: pointer;
 
@@ -292,7 +292,7 @@ watch(opened, (value) => {
     width: 1.5rem;
     height: 1.5rem;
     opacity: 0;
-    color: var(--common-color-ui-primary);
+    color: var(--common-select-base-option-icon-color);
   }
 
   &--opened {
