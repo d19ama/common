@@ -19,6 +19,7 @@ export type AppButtonTextStyle = GlobalPropsTextStyle;
 export interface AppButtonProps {
   text?: string;
   href?: string;
+  flat?: boolean;
   loading?: boolean;
   tag?: AppButtonTag;
   download?: boolean;

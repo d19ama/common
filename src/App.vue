@@ -392,6 +392,12 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 loading
               />
             </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                flat
+              />
+            </div>
           </div>
           <AppTitle
             tag="h5"

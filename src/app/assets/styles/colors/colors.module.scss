@@ -105,3 +105,58 @@ $common-color-unaccented-dark: #b6b6b6;
   common-color-unaccented-dark: $common-color-unaccented-dark;
   common-color-unaccented-light: $common-color-unaccented-light;
 }
+
+:root {
+  // BASE
+  --common-color-white: #{$common-color-white};
+  --common-color-white-10: #{$common-color-white-10};
+  --common-color-white-20: #{$common-color-white-20};
+  --common-color-white-30: #{$common-color-white-30};
+  --common-color-white-40: #{$common-color-white-40};
+  --common-color-white-50: #{$common-color-white-50};
+  --common-color-white-60: #{$common-color-white-60};
+  --common-color-white-70: #{$common-color-white-70};
+  --common-color-white-80: #{$common-color-white-80};
+  --common-color-white-90: #{$common-color-white-90};
+
+  --common-color-black: #{$common-color-black};
+  --common-color-black-10: #{$common-color-black-10};
+  --common-color-black-20: #{$common-color-black-20};
+  --common-color-black-30: #{$common-color-black-30};
+  --common-color-black-40: #{$common-color-black-40};
+  --common-color-black-50: #{$common-color-black-50};
+  --common-color-black-60: #{$common-color-black-60};
+  --common-color-black-70: #{$common-color-black-70};
+  --common-color-black-80: #{$common-color-black-80};
+  --common-color-black-90: #{$common-color-black-90};
+
+  // TEXT
+  --common-color-text-main: #{$common-color-text-main};
+  --common-color-text-inverted: #{$common-color-text-inverted};
+
+  // STATE
+  --common-color-error: #{$common-color-error};
+  --common-color-success: #{$common-color-success};
+  --common-color-warning: #{$common-color-warning};
+  --common-color-required: #{$common-color-required};
+  --common-color-info: #{$common-color-info};
+
+  // UI
+  --common-color-ui-primary: #{$common-color-ui-primary};
+  --common-color-ui-tertiary: #{$common-color-ui-tertiary};
+  --common-color-ui-secondary: #{$common-color-ui-secondary};
+
+  // THEME
+  --common-color-primary-medium: #{$common-color-primary-medium};
+  --common-color-primary-dark: #{$common-color-primary-dark};
+  --common-color-primary-light: #{$common-color-primary-light};
+  --common-color-secondary-medium: #{$common-color-secondary-medium};
+  --common-color-secondary-dark: #{$common-color-secondary-dark};
+  --common-color-secondary-light: #{$common-color-secondary-light};
+  --common-color-tertiary-medium: #{$common-color-tertiary-medium};
+  --common-color-tertiary-dark: #{$common-color-tertiary-dark};
+  --common-color-tertiary-light: #{$common-color-tertiary-light};
+  --common-color-unaccented-medium: #{$common-color-unaccented-medium};
+  --common-color-unaccented-dark: #{$common-color-unaccented-dark};
+  --common-color-unaccented-light: #{$common-color-unaccented-light};
+}

@@ -11,3 +11,11 @@ $common-breakpoint-v-mobile: 480px;
   common-breakpoint-mobile: $common-breakpoint-mobile;
   common-breakpoint-v-mobile: $common-breakpoint-v-mobile;
 }
+
+:root {
+  --common-breakpoint-default: #{$common-breakpoint-default};
+  --common-breakpoint-desktop: #{$common-breakpoint-desktop};
+  --common-breakpoint-tablet: #{$common-breakpoint-tablet};
+  --common-breakpoint-mobile: #{$common-breakpoint-mobile};
+  --common-breakpoint-v-mobile: #{$common-breakpoint-v-mobile};
+}

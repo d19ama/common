@@ -11,6 +11,7 @@ import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
   size: 'm',
+  flat: false,
   tag: 'button',
   type: 'button',
   loading: false,
@@ -33,6 +34,7 @@ const elementClass = computed<HTMLElementClass>(() => {
     `app-button--theme-${props.theme}`,
     `app-button--text-style-${props.textStyle}`,
     {
+      'app-button--flat': props.flat,
       'app-button--loading': props.loading,
       'app-button--disabled': props.disabled,
       'app-button--auto-width': props.autoWidth,
@@ -94,6 +96,7 @@ function onClick(event: Event): void {
   >
     <AppSpinner
       v-if="props.loading"
+      class="app-button__spinner"
       size="s"
     />
     <template v-else>
@@ -167,17 +170,8 @@ a {
   user-select: none;
   cursor: pointer;
 
-  &--disabled {
-    opacity: .5;
-    pointer-events: none;
-  }
-
-  &--loading {
-    pointer-events: none;
-  }
-
-  &--auto-width {
-    width: auto;
+  &__spinner {
+    filter: brightness(.8);
   }
 
   &--size-xs {
@@ -251,7 +245,6 @@ a {
 
   &--theme-transparent {
     color: var(--common-color-unaccented-medium);
-    box-shadow: inset 0 0 0 1px var(--common-color-unaccented-medium);
     background-color: transparent;
   }
 
@@ -266,6 +259,24 @@ a {
     &#{$parent}--theme-transparent {
       box-shadow: inset 0 0 0 1px var(--common-color-text-inverted);
     }
+  }
+
+  // STATES
+  &--disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &--loading {
+    pointer-events: none;
+  }
+
+  &--auto-width {
+    width: auto;
+  }
+
+  &--flat {
+    border-radius: 0;
   }
 }
 </style>
