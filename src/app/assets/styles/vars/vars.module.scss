@@ -9,3 +9,10 @@ $common-border: none;
   common-border: $common-border;
   common-border-radius: $common-border-radius;
 }
+
+:root {
+  --common-transition: #{$common-transition};
+  --common-font-family: #{$common-font-family};
+  --common-border-radius: #{$common-border-radius};
+  --common-border: #{$common-border};
+}

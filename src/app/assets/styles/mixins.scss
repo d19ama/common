@@ -1,21 +1,31 @@
 @mixin breakpoint($point) {
     @if $point == default {
-        @media only screen and (max-width: var(--common-breakpoint-default)) { @content; }
+        @media only screen and (max-width: var(--common-breakpoint-default)) {
+            @content;
+        }
     }
-    @if $point == desktop {
-        @media only screen and (max-width: var(--common-breakpoint-desktop)) { @content; }
-    }
-    @else if $point == tablet {
-        @media only screen and (max-width: var(--common-breakpoint-tablet)) { @content; }
-    }
-    @else if $point == mobile {
-        @media only screen and (max-width: var(--common-breakpoint-mobile)) { @content; }
-    }
-    @else if $point == v-mobile {
-        @media only screen and (max-width: var(--common-breakpoint-v-mobile)) { @content; }
-    }
-}
 
-@mixin box-shadow-main() {
-    box-shadow: 0 0 40px rgba(var(--color-gray-dark), .2);
+    @if $point == desktop {
+        @media only screen and (max-width: var(--common-breakpoint-desktop)) {
+            @content;
+        }
+    }
+
+    @else if $point == tablet {
+        @media only screen and (max-width: var(--common-breakpoint-tablet)) {
+            @content;
+        }
+    }
+
+    @else if $point == mobile {
+        @media only screen and (max-width: var(--common-breakpoint-mobile)) {
+            @content;
+        }
+    }
+
+    @else if $point == v-mobile {
+        @media only screen and (max-width: var(--common-breakpoint-v-mobile)) {
+            @content;
+        }
+    }
 }
