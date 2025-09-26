@@ -2,9 +2,10 @@
 import { computed } from 'vue';
 import type { HTMLElementClass } from '../../types';
 import type { AppSpinnerProps } from './types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppSpinnerProps>(), {
-  size: 'md',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const elementClass = computed<HTMLElementClass>(() => {

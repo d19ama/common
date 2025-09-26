@@ -13,6 +13,7 @@ import type {
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { InputBase } from '@/common/components/InputBase';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppTextareaProps>(), {
   hint: '',
@@ -22,6 +23,7 @@ const props = withDefaults(defineProps<AppTextareaProps>(), {
   disabled: false,
   errorText: '',
   placeholder: '',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<AppTextareaEmits>();
@@ -38,9 +40,12 @@ const error = ref<boolean>(false);
 const focus = ref<boolean>(false);
 
 const elementClass = computed<HTMLElementClass>(() => {
-  return {
-    'app-textarea--resizable': props.resize,
-  };
+  return [
+    `app-textarea--size-${props.size}`,
+    {
+      'app-textarea--resizable': props.resize,
+    },
+  ];
 });
 
 const name = computed<string>(() => {
@@ -80,6 +85,7 @@ function validate(): void {
   <InputBase
     class="app-textarea"
     :class="elementClass"
+    :size="props.size"
     :hint="props.hint"
     :label="props.label"
     :required="props.required"
@@ -100,7 +106,7 @@ function validate(): void {
           rows="10"
           :name="name"
           maxLength="999"
-          class="app-textarea__textarea"
+          class="app-textarea__field"
           :disabled="props.disabled"
           :placeholder="props.placeholder"
           @blur="onBlur"
@@ -133,12 +139,10 @@ function validate(): void {
 
   &__wrapper {
     width: 100%;
-    height: 8rem;
     position: relative;
-    padding: 1rem 1.5rem 1rem 1rem;
   }
 
-  &__textarea {
+  &__field {
     display: block;
     width: 100%;
     height: 100%;
@@ -166,9 +170,64 @@ function validate(): void {
     text-align: center;
   }
 
+  &--size-xs {
+    #{$parent}__wrapper {
+      height: 6rem;
+      padding: .75rem 1.25rem .75rem .75rem;
+    }
+
+    #{$parent}__field {
+      font-size: .625rem;
+    }
+  }
+
+  &--size-sm {
+    #{$parent}__wrapper {
+      height: 7rem;
+      padding: .875rem 1.375rem .875rem .875rem;
+    }
+
+    #{$parent}__field {
+      font-size: .75rem;
+    }
+  }
+
+  &--size-md {
+    #{$parent}__wrapper {
+      height: 8rem;
+      padding: 1rem 1.5rem 1rem 1rem;
+    }
+
+    #{$parent}__field {
+      font-size: .875rem;
+    }
+  }
+
+  &--size-lg {
+    #{$parent}__wrapper {
+      height: 9rem;
+      padding: 1.125rem 1.625rem 1.125rem 1.125rem;
+    }
+
+    #{$parent}__field {
+      font-size: 1rem;
+    }
+  }
+
+  &--size-xl {
+    #{$parent}__wrapper {
+      height: 10rem;
+      padding: 1.25rem 1.75rem 1.25rem 1.25rem;
+    }
+
+    #{$parent}__field {
+      font-size: 1.125rem;
+    }
+  }
+
   &--resizable {
 
-    #{$parent}__textarea {
+    #{$parent}__field {
       resize: both;
     }
   }

@@ -247,35 +247,46 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppLink"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Themes"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="unaccented"
-              />
-            </div>
-            <div class="col-default-2">
-              <AppLink
-                text="Link"
-                theme="transparent"
               />
             </div>
           </div>
@@ -344,30 +355,45 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppButton
                 text="Button"
                 size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppButton
                 text="Button"
                 size="sm"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
               <AppButton
                 text="Button"
                 size="md"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
               <AppButton
                 text="Button"
                 size="lg"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
               <AppButton
                 text="Button"
                 size="xl"
@@ -381,18 +407,27 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppButton
                 text="Button"
                 disabled
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LOADING
+              </p>
               <AppButton
                 text="Button"
                 loading
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                FLAT
+              </p>
               <AppButton
                 text="Button"
                 flat
@@ -406,6 +441,61 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="primary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="secondary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
+              <AppButton
+                text="Button"
+                theme="unaccented"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TRANSPARENT
+              </p>
+              <AppButton
+                text="Button"
+                theme="transparent"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="Text styles"
+            class="margin-bottom--s"
+          />
+          <p class="margin-bottom--xs">
+            THEME
+          </p>
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
               <AppButton
                 text="Button"
                 theme="primary"
@@ -436,11 +526,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
-            tag="h5"
-            text="Text styles"
-            class="margin-bottom--s"
-          />
+          <p class="margin-bottom--xs">
+            TEXT
+          </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
               <AppButton
@@ -478,6 +566,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
+          <p class="margin-bottom--xs">
+            INVERTED
+          </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
               <AppButton
@@ -566,7 +657,79 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppInput"
             class="margin-bottom--s"
           />
-          <div class="row">
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
             <div class="col-default-3">
               <AppInput
                 v-model:value="inputValue"
@@ -607,12 +770,104 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppInputFile"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
           <div class="row">
-            <div class="col-default-3">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                disabled
               />
             </div>
           </div>
@@ -695,6 +950,78 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           <AppTitle
             tag="h4"
             text="AppTextarea"
+            class="margin-bottom--s"
+          />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -1069,7 +1396,8 @@ p+p {
 .container {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 60rem;
+  min-width: 60rem;
+  max-width: 90%;
   min-height: 100%;
   padding: 2rem;
   margin: auto;

@@ -14,12 +14,13 @@ import type {
 import { AppModalTitle } from './components';
 import type { HTMLElementClass } from '@/types';
 import { useComponentId } from '@/common/composables';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppModalProps>(), {
   title: '',
-  size: 'sm',
   rounded: true,
   appendTo: 'body',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<AppModalSlots>();

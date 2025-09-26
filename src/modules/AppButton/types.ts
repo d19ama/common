@@ -4,7 +4,7 @@ import type {
   GlobalPropSize,
   GlobalPropTheme,
 } from '@/types';
-import type { GlobalPropsTextStyle } from '@/types/global-props';
+import type { GlobalPropTextStyle } from '@/types/global-props';
 
 export type AppButtonSize = GlobalPropSize;
 
@@ -14,7 +14,7 @@ export type AppButtonBlank = '_blank' | '_self';
 
 export type AppButtonTag = 'button' | 'RouterLink' | 'a';
 
-export type AppButtonTextStyle = GlobalPropsTextStyle;
+export type AppButtonTextStyle = GlobalPropTextStyle;
 
 export interface AppButtonProps {
   text?: string;

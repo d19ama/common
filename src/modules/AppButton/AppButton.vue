@@ -8,9 +8,13 @@ import type {
 } from './types';
 import { AppSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import {
+  GLOBAL_PROP_TEXT_STYLE_DEFAULT,
+  GLOBAL_PROP_THEME_DEFAULT,
+} from '@/constants/global-props';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
-  size: 'sm',
   flat: false,
   tag: 'button',
   type: 'button',
@@ -18,10 +22,11 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   disabled: false,
   download: false,
   autoWidth: false,
-  theme: 'primary',
   target: '_blank',
-  textStyle: 'theme',
   downloadName: 'file',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
+  theme: GLOBAL_PROP_THEME_DEFAULT,
+  textStyle: GLOBAL_PROP_TEXT_STYLE_DEFAULT,
 });
 
 const emit = defineEmits<AppButtonEmits>();

@@ -13,14 +13,14 @@ import type {
   AppComboboxProps,
   AppComboboxSlots,
 } from './types';
-import {
-  DEFAULT_DELAY,
-  DEFAULT_SEARCH_LENGTH,
-} from '@/common/constants';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { SelectBase } from '@/common/components/SelectBase';
 import { AppSpinner } from '@/modules';
+import {
+  COMMON_DEFAULT_DELAY,
+  COMMON_DEFAULT_SEARCH_LENGTH,
+} from '@/constants';
 
 const props = withDefaults(defineProps<AppComboboxProps>(), {
   hint: '',
@@ -65,12 +65,12 @@ const name = computed<string>(() => {
 
 const isDropdownVisible = computed<boolean>(() => {
   return opened.value
-    && search.value.length > DEFAULT_SEARCH_LENGTH;
+    && search.value.length > COMMON_DEFAULT_SEARCH_LENGTH;
 });
 
 const updateSearch = useDebounceFn((value) => {
   search.value = value;
-}, DEFAULT_DELAY);
+}, COMMON_DEFAULT_DELAY);
 
 function onFocus(): void {
   focused.value = true;
@@ -87,7 +87,7 @@ function changeSelected(option: AppComboboxOption): void {
 }
 
 watch(localSearch, (value) => {
-  const searchable = value.length > DEFAULT_SEARCH_LENGTH;
+  const searchable = value.length > COMMON_DEFAULT_SEARCH_LENGTH;
 
   opened.value = searchable;
 

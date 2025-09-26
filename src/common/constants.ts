@@ -1,5 +1,0 @@
-export const DEFAULT_DELAY: number = 500;
-
-export const DEFAULT_SEARCH_LENGTH: number = 2;
-
-export const MAX_FILE_SIZE: number = 1024 * 1024 * 50;

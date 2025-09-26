@@ -13,6 +13,8 @@ import type {
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
+import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppInputFileProps>(), {
   hint: '',
@@ -25,6 +27,7 @@ const props = withDefaults(defineProps<AppInputFileProps>(), {
   acceptType: 'image',
   acceptSize: 1048576,
   buttonText: 'Загрузить',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<AppInputFileEmits>();
@@ -45,6 +48,12 @@ const instance: ComponentInternalInstance | null = getCurrentInstance();
 
 const name = computed<string>(() => {
   return props.name || componentNameByInstance(instance);
+});
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-input-file--size-${props.size}`,
+  ];
 });
 
 const hasButton = computed<boolean>(() => {
@@ -111,7 +120,9 @@ function onClick(): void {
   <InputBase
     class="app-input-file"
     :hint="props.hint"
+    :size="props.size"
     :label="props.label"
+    :class="elementClass"
     :required="props.required"
     :disabled="props.disabled"
     :error-text="props.errorText"
@@ -135,10 +146,10 @@ function onClick(): void {
       <input
         ref="inputRef"
         type="file"
+        class="app-input-file__field"
         :name="name"
         :multiple="props.multiple"
         :accept="ACCEPT_SETTINGS[props.acceptType]"
-        class="app-input-file__input"
         @change="onChange"
       >
       <span class="app-input-file__placeholder">
@@ -170,24 +181,22 @@ function onClick(): void {
 
 // COMPONENT STYLES
 .app-input-file {
-  $padding: 1rem;
+  $parent: &;
 
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
   gap: .25rem;
 
-  &__input {
+  &__field {
     width: 0;
     overflow: hidden;
   }
 
   &__button,
   &__placeholder {
-    padding: $padding;
     font-weight: 400;
     line-height: 1.5;
-    font-size: .875rem;
     white-space: nowrap;
     cursor: pointer;
   }
@@ -206,6 +215,50 @@ function onClick(): void {
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--common-color-text-main);
+  }
+
+  &--size-xs {
+    gap: .125rem;
+
+    #{$parent}__button,
+    #{$parent}__placeholder {
+      padding: .75rem;
+      font-size: .625rem;
+    }
+  }
+
+  &--size-sm {
+    gap: .125rem;
+
+    #{$parent}__button,
+    #{$parent}__placeholder {
+      padding: .875rem;
+      font-size: .75rem;
+    }
+  }
+
+  &--size-md {
+    #{$parent}__button,
+    #{$parent}__placeholder {
+      padding: 1rem;
+      font-size: .875rem;
+    }
+  }
+
+  &--size-lg {
+    #{$parent}__button,
+    #{$parent}__placeholder {
+      padding: 1.125rem;
+      font-size: 1rem;
+    }
+  }
+
+  &--size-xl {
+    #{$parent}__button,
+    #{$parent}__placeholder {
+      padding: 1.25rem;
+      font-size: 1.125rem;
+    }
   }
 }
 </style>

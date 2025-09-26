@@ -1,5 +1,6 @@
 import type { VNode } from 'vue';
 import type { BaseValidation } from '@vuelidate/core';
+import type { GlobalPropSize } from '@/types';
 
 export interface InputBaseProps {
   label?: string;
@@ -8,6 +9,7 @@ export interface InputBaseProps {
   required?: boolean;
   errorText?: string;
   placeholder?: string;
+  size?: GlobalPropSize;
   validation?: BaseValidation;
 }
 

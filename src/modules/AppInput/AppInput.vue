@@ -20,6 +20,8 @@ import type {
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
+import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppInputProps>(), {
   hint: '',
@@ -32,6 +34,7 @@ const props = withDefaults(defineProps<AppInputProps>(), {
   placeholder: '',
   position: 'left',
   maskVisibility: 'onFocus',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<AppInputEmits>();
@@ -75,6 +78,12 @@ const instance: ComponentInternalInstance | null = getCurrentInstance();
 
 const name = computed<string>(() => {
   return props.name || componentNameByInstance(instance);
+});
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-input--size-${props.size}`,
+  ];
 });
 
 const maskParams = computed<FactoryOpts | undefined>(() => {
@@ -201,8 +210,10 @@ watch(
 <template>
   <InputBase
     class="app-input"
+    :size="props.size"
     :hint="props.hint"
     :label="props.label"
+    :class="elementClass"
     :required="props.required"
     :disabled="props.disabled"
     :error-text="props.errorText"
@@ -219,7 +230,7 @@ watch(
         v-model="value"
         :name="name"
         autocomplete="off"
-        class="app-input__input"
+        class="app-input__field"
         :type="props.type"
         :disabled="props.disabled"
         :maxlength="props.maxLength"
@@ -245,15 +256,12 @@ watch(
 <style lang="scss">
 .app-input {
   $parent: &;
-  $padding: 1rem;
 
-  &__input {
+  &__field {
     width: 100%;
     border: none;
-    padding: $padding;
     font-weight: 400;
     line-height: 1.5;
-    font-size: .875rem;
     color: var(--common-color-text-main);
     background-color: transparent;
 
@@ -273,6 +281,41 @@ watch(
     &::placeholder {
       opacity: .5;
       color: var(--common-color-text-main);
+    }
+  }
+
+  &--size-xs {
+    #{$parent}__field {
+      padding: .75rem;
+      font-size: .625rem;
+    }
+  }
+
+  &--size-sm {
+    #{$parent}__field {
+      padding: .875rem;
+      font-size: .75rem;
+    }
+  }
+
+  &--size-md {
+    #{$parent}__field {
+      padding: 1rem;
+      font-size: .875rem;
+    }
+  }
+
+  &--size-lg {
+    #{$parent}__field {
+      padding: 1.125rem;
+      font-size: 1rem;
+    }
+  }
+
+  &--size-xl {
+    #{$parent}__field {
+      padding: 1.25rem;
+      font-size: 1.125rem;
     }
   }
 }

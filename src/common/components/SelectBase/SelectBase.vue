@@ -15,13 +15,8 @@ import type {
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<SelectBaseProps>(), {
-  hint: '',
-  label: '',
-  errorText: '',
   placeholder: '',
   loading: false,
-  disabled: false,
-  required: false,
   dropdownVisible: true,
 });
 
