@@ -5,7 +5,7 @@ import {
 } from '../../';
 
 const props = withDefaults(defineProps<AppSpinnerProps>(), {
-  size: 'l',
+  size: 'lg',
 });
 </script>
 

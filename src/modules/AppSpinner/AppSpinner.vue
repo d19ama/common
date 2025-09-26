@@ -4,7 +4,7 @@ import type { HTMLElementClass } from '../../types';
 import type { AppSpinnerProps } from './types';
 
 const props = withDefaults(defineProps<AppSpinnerProps>(), {
-  size: 'm',
+  size: 'md',
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
@@ -50,17 +50,17 @@ const elementClass = computed<HTMLElementClass>(() => {
   height: auto;
   color: var(--common-color-primary-light);
 
-  &--size-s {
+  &--size-sm {
     width: 2rem;
     height: 2rem;
   }
 
-  &--size-m {
+  &--size-md {
     width: 4rem;
     height: 4rem;
   }
 
-  &--size-l {
+  &--size-lg {
     width: 6rem;
     height: 6rem;
   }

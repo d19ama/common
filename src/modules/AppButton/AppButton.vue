@@ -10,7 +10,7 @@ import { AppSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
-  size: 'm',
+  size: 'sm',
   flat: false,
   tag: 'button',
   type: 'button',
@@ -97,7 +97,7 @@ function onClick(event: Event): void {
     <AppSpinner
       v-if="props.loading"
       class="app-button__spinner"
-      size="s"
+      size="sm"
     />
     <template v-else>
       <span v-if="!!$slots.prepend">
@@ -182,7 +182,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-s {
+  &--size-sm {
     height: 1.625rem;
     padding: .25rem .5rem;
     font-size: .75rem;
@@ -190,7 +190,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-m {
+  &--size-md {
     height: 2.5rem;
     padding: .5rem .75rem;
     font-size: 1rem;
@@ -198,7 +198,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-l {
+  &--size-lg {
     height: 3.375rem;
     padding: .75rem 1rem;
     font-size: 1.25rem;

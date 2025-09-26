@@ -1,21 +1,21 @@
-$common-breakpoint-default: 1600px;
-$common-breakpoint-desktop: 1240px;
-$common-breakpoint-tablet: 1024px;
-$common-breakpoint-mobile: 768px;
-$common-breakpoint-v-mobile: 480px;
+$common-breakpoint-xl: 1920px;
+$common-breakpoint-lg: 1440px;
+$common-breakpoint-md: 1024px;
+$common-breakpoint-sm: 768px;
+$common-breakpoint-xs: 320px;
 
 :export {
-  common-breakpoint-default: $common-breakpoint-default;
-  common-breakpoint-desktop: $common-breakpoint-desktop;
-  common-breakpoint-tablet: $common-breakpoint-tablet;
-  common-breakpoint-mobile: $common-breakpoint-mobile;
-  common-breakpoint-v-mobile: $common-breakpoint-v-mobile;
+  common-breakpoint-xl: $common-breakpoint-xl;
+  common-breakpoint-lg: $common-breakpoint-lg;
+  common-breakpoint-md: $common-breakpoint-md;
+  common-breakpoint-sm: $common-breakpoint-sm;
+  common-breakpoint-xs: $common-breakpoint-xs;
 }
 
 :root {
-  --common-breakpoint-default: #{$common-breakpoint-default};
-  --common-breakpoint-desktop: #{$common-breakpoint-desktop};
-  --common-breakpoint-tablet: #{$common-breakpoint-tablet};
-  --common-breakpoint-mobile: #{$common-breakpoint-mobile};
-  --common-breakpoint-v-mobile: #{$common-breakpoint-v-mobile};
+  --common-breakpoint-xl: #{$common-breakpoint-xl};
+  --common-breakpoint-lg: #{$common-breakpoint-lg};
+  --common-breakpoint-md: #{$common-breakpoint-md};
+  --common-breakpoint-sm: #{$common-breakpoint-sm};
+  --common-breakpoint-xs: #{$common-breakpoint-xs};
 }

@@ -1,4 +1,4 @@
-export type GlobalPropSize = 'xs' | 's' | 'm' | 'l' | 'xl';
+export type GlobalPropSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type GlobalPropsTextStyle = 'theme' | 'text' | 'inverted';
 

@@ -352,19 +352,19 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             <div class="col-default-2">
               <AppButton
                 text="Button"
-                size="s"
+                size="sm"
               />
             </div>
             <div class="col-default-2">
               <AppButton
                 text="Button"
-                size="m"
+                size="md"
               />
             </div>
             <div class="col-default-2">
               <AppButton
                 text="Button"
-                size="l"
+                size="lg"
               />
             </div>
             <div class="col-default-2">
