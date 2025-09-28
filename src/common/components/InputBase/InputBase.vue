@@ -8,8 +8,13 @@ import type {
   InputBaseSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = defineProps<InputBaseProps>();
+const props = withDefaults(defineProps<InputBaseProps>(), {
+  required: false,
+  disabled: false,
+  size: GLOBAL_PROP_SIZE_DEFAULT,
+});
 
 const slots = defineSlots<InputBaseSlots>();
 
@@ -24,9 +29,12 @@ const hasHint = computed<boolean>(() => {
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
-  return {
-    'input-base--disabled': props.disabled,
-  };
+  return [
+    `input-base--size-${props.size}`,
+    {
+      'input-base--disabled': props.disabled,
+    },
+  ];
 });
 
 const errorMessage = computed<string | undefined>(() => {
@@ -160,7 +168,6 @@ select {
   &__label,
   &__error,
   &__hint {
-    font-size: .75rem;
     font-weight: 400;
     line-height: 1.4;
   }
@@ -186,6 +193,55 @@ select {
 
   &__error {
     color: var(--common-input-base-error-color);
+  }
+
+  &--size-xs {
+    gap: .125rem;
+
+    #{$parent}__label,
+    #{$parent}__error,
+    #{$parent}__hint {
+      font-size: .5rem;
+    }
+  }
+
+  &--size-sm {
+    gap: .125rem;
+
+    #{$parent}__label,
+    #{$parent}__error,
+    #{$parent}__hint {
+      font-size: .625rem;
+    }
+  }
+
+  &--size-md {
+
+    #{$parent}__label,
+    #{$parent}__error,
+    #{$parent}__hint {
+      font-size: .75rem;
+    }
+  }
+
+  &--size-lg {
+
+    #{$parent}__label,
+    #{$parent}__error,
+    #{$parent}__hint {
+      font-size: .875rem;
+    }
+  }
+
+  &--size-xl {
+
+    #{$parent}__label,
+    #{$parent}__error,
+    #{$parent}__hint {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.4;
+    }
   }
 
   &--disabled {

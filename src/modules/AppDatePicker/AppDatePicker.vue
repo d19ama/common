@@ -11,6 +11,8 @@ import type {
 } from './types';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { InputBase } from '@/common/components/InputBase';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppDatePickerProps>(), {
   hint: '',
@@ -24,6 +26,8 @@ const props = withDefaults(defineProps<AppDatePickerProps>(), {
   monthPicker: false,
   modelType: 'format',
   format: 'yyyy.MM.dd',
+  enableTimePicker: false,
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<AppDatePickerSlots>();
@@ -33,6 +37,12 @@ const date = defineModel<AppDatePickerModel>('date', {
 });
 
 const error = ref<boolean>(false);
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-date-picker--size-${props.size}`,
+  ];
+});
 
 const offset = computed<number>(() => {
   const htmlElement: HTMLElementTagNameMap['html'] | null = document.querySelector('html');
@@ -61,7 +71,9 @@ function validate(): void {
   <InputBase
     class="app-date-picker"
     :hint="props.hint"
+    :size="props.size"
     :label="props.label"
+    :class="elementClass"
     :required="props.required"
     :disabled="props.disabled"
     :error-text="props.errorText"
@@ -73,7 +85,7 @@ function validate(): void {
     </template>
 
     <template #default>
-      <div class="app-date-picker__picker">
+      <div class="app-date-picker__field">
         <VueDatePicker
           v-model="date"
           :range="props.range"
@@ -86,7 +98,7 @@ function validate(): void {
           :year-picker="props.yearPicker"
           :placeholder="props.placeholder"
           :month-picker="props.monthPicker"
-          :enable-time-picker="false"
+          :enable-time-picker="props.enableTimePicker"
           :offset="offset"
           @blur="onBlur"
         />
@@ -104,14 +116,12 @@ function validate(): void {
 </template>
 
 <style lang="scss">
-$padding: 1rem;
-
 .app-date-picker {
+  $parent: &;
 
-  &__picker  {
+  &__field  {
     display: block;
     width: 100%;
-    padding: $padding 0;
 
     .dp__input {
       border: none;
@@ -128,11 +138,6 @@ $padding: 1rem;
     --dp-icon-color: var(--common-color-ui-primary);
 
     --dp-border-radius: var(--common-input-base-wrapper-border-radius);
-    --dp-font-size: .875rem;
-    --dp-preview-font-size: .875rem;
-    --dp-time-font-size: .875rem;
-    --dp-input-padding: $padding;
-    --dp-input-icon-padding: 2.5rem;
 
     --dp-primary-color: var(--common-color-text-main);
 
@@ -143,7 +148,58 @@ $padding: 1rem;
     }
 
     .dp__input_icons {
-      padding: 0 $padding;
+      padding: 0 1rem;
+    }
+  }
+
+  // SIZES
+  &--size-xs {
+    .dp__theme_light {
+      --dp-font-size: .625rem;
+      --dp-preview-font-size: .625rem;
+      --dp-time-font-size: .625rem;
+      --dp-input-padding: .75rem;
+      --dp-input-icon-padding: 2.25rem;
+    }
+  }
+
+  &--size-sm {
+    .dp__theme_light {
+      --dp-font-size: .75rem;
+      --dp-preview-font-size: .75rem;
+      --dp-time-font-size: .75rem;
+      --dp-input-padding: .875rem;
+      --dp-input-icon-padding: 2.375rem;
+    }
+  }
+
+  &--size-md {
+    .dp__theme_light {
+      --dp-font-size: .875rem;
+      --dp-preview-font-size: .875rem;
+      --dp-time-font-size: .875rem;
+      --dp-input-padding: 1rem;
+      --dp-input-icon-padding: 2.5rem;
+    }
+  }
+
+  &--size-lg {
+    .dp__theme_light {
+      --dp-font-size: 1rem;
+      --dp-preview-font-size: 1rem;
+      --dp-time-font-size: 1rem;
+      --dp-input-padding: 1.125rem;
+      --dp-input-icon-padding: 2.625rem;
+    }
+  }
+
+  &--size-xl {
+    .dp__theme_light {
+      --dp-font-size: 1.125rem;
+      --dp-preview-font-size: 1.125rem;
+      --dp-time-font-size: 1.125rem;
+      --dp-input-padding: 1.25rem;
+      --dp-input-icon-padding: 2.75rem;
     }
   }
 }

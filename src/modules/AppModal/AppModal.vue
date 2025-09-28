@@ -14,12 +14,13 @@ import type {
 import { AppModalTitle } from './components';
 import type { HTMLElementClass } from '@/types';
 import { useComponentId } from '@/common/composables';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppModalProps>(), {
-  size: 's',
   title: '',
   rounded: true,
   appendTo: 'body',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<AppModalSlots>();
@@ -49,7 +50,7 @@ const isActive = computed<boolean>(() => {
 
 const modalClass = computed<HTMLElementClass>(() => {
   return [
-    `app-modal--${props.size}`,
+    `app-modal--size-${props.size}`,
   ];
 });
 
@@ -186,17 +187,18 @@ watch(
   z-index: 999;
   pointer-events: none;
 
-  &--s {
+  // SIZES
+  &--size-sm {
     --modal-width: 532px;
     --modal-x-padding: 20px;
   }
 
-  &--m {
+  &--size-md {
     --modal-width: 718px;
     --modal-x-padding: 20px;
   }
 
-  &--l {
+  &--size-lg {
     --modal-width: 994px;
     --modal-x-padding: 20px;
   }

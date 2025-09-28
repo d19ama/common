@@ -3,9 +3,10 @@ import {
   AppSpinner,
   type AppSpinnerProps,
 } from '../../';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppSpinnerProps>(), {
-  size: 'l',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 </script>
 

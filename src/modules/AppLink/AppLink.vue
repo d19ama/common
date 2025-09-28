@@ -6,6 +6,7 @@ import type {
   AppLinkSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_THEME_DEFAULT } from '@/constants/global-props';
 
 const props = withDefaults(defineProps<AppLinkProps>(), {
   url: '#',
@@ -13,8 +14,8 @@ const props = withDefaults(defineProps<AppLinkProps>(), {
   prevent: false,
   underline: true,
   target: '_blank',
-  theme: 'primary',
   lineThrough: false,
+  theme: GLOBAL_PROP_THEME_DEFAULT,
 });
 
 const emit = defineEmits<AppLinkEmits>();

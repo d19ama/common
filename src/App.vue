@@ -247,35 +247,46 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppLink"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Themes"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
               <AppLink
-                text="Link"
+                text="Source link"
                 theme="unaccented"
-              />
-            </div>
-            <div class="col-default-2">
-              <AppLink
-                text="Link"
-                theme="transparent"
               />
             </div>
           </div>
@@ -344,30 +355,45 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppButton
                 text="Button"
                 size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppButton
                 text="Button"
-                size="s"
+                size="sm"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
               <AppButton
                 text="Button"
-                size="m"
+                size="md"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
               <AppButton
                 text="Button"
-                size="l"
+                size="lg"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
               <AppButton
                 text="Button"
                 size="xl"
@@ -381,18 +407,27 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppButton
                 text="Button"
                 disabled
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LOADING
+              </p>
               <AppButton
                 text="Button"
                 loading
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                FLAT
+              </p>
               <AppButton
                 text="Button"
                 flat
@@ -406,6 +441,61 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="primary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="secondary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
+              <AppButton
+                text="Button"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
+              <AppButton
+                text="Button"
+                theme="unaccented"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TRANSPARENT
+              </p>
+              <AppButton
+                text="Button"
+                theme="transparent"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="Text styles"
+            class="margin-bottom--s"
+          />
+          <p class="margin-bottom--xs">
+            THEME
+          </p>
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
               <AppButton
                 text="Button"
                 theme="primary"
@@ -436,11 +526,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
-            tag="h5"
-            text="Text styles"
-            class="margin-bottom--s"
-          />
+          <p class="margin-bottom--xs">
+            TEXT
+          </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
               <AppButton
@@ -478,6 +566,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
+          <p class="margin-bottom--xs">
+            INVERTED
+          </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
               <AppButton
@@ -528,8 +619,78 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppDatePicker"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"
@@ -537,6 +698,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"
@@ -545,6 +709,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"
@@ -566,7 +733,79 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppInput"
             class="margin-bottom--s"
           />
-          <div class="row">
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
             <div class="col-default-3">
               <AppInput
                 v-model:value="inputValue"
@@ -607,12 +846,104 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppInputFile"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
           <div class="row">
-            <div class="col-default-3">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppInputFile
+                label="Upload file"
+                button-text="Upload"
+                hint="Some hint"
+                disabled
               />
             </div>
           </div>
@@ -629,8 +960,88 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppSelect"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--xs">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppSelect
                 v-model:value="select"
                 :options="optionsSelect"
@@ -640,6 +1051,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                required
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppSelect
                 v-model:value="select"
                 :options="optionsSelect"
@@ -663,8 +1090,88 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppCombobox"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
@@ -674,6 +1181,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
@@ -697,8 +1220,83 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppTextarea"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
-            <div class="col-default-4">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
@@ -706,7 +1304,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 hint="Some hint"
               />
             </div>
-            <div class="col-default-4">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
@@ -731,21 +1344,63 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <AppTitle
             tag="h5"
-            text="States"
+            text="Sizes"
             class="margin-bottom--s"
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
+                theme="form"
+                size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
-                disabled
+                theme="form"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="xl"
               />
             </div>
           </div>
@@ -756,6 +1411,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                FORM
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -763,6 +1421,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -770,6 +1431,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -777,6 +1441,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -784,10 +1451,49 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="unaccented"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                required
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                disabled
               />
             </div>
           </div>
@@ -806,23 +1512,63 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <AppTitle
             tag="h5"
-            text="States"
+            text="Sizes"
             class="margin-bottom--s"
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppRadio
                 v-model:value="radio"
                 :options="optionsRadio"
-                name="radio-1"
+                name="radio-xs"
+                size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppRadio
                 v-model:value="radio"
                 :options="optionsRadio"
-                name="radio-2"
-                disabled
+                name="radio-sm"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-md"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-lg"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-xl"
+                size="xl"
               />
             </div>
           </div>
@@ -870,6 +1616,34 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 :options="optionsRadio"
                 name="radio-7"
                 theme="unaccented"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-1"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-2"
+                disabled
               />
             </div>
           </div>
@@ -978,7 +1752,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             class="margin-bottom--s"
           />
           <div class="row">
-            <div class="col-default-4">
+            <div class="col-default-2">
               <AppButton
                 text="Open modal!"
                 @click="modal = !modal"
@@ -1069,7 +1843,8 @@ p+p {
 .container {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 60rem;
+  min-width: 60rem;
+  max-width: 90%;
   min-height: 100%;
   padding: 2rem;
   margin: auto;

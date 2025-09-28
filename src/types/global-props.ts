@@ -1,6 +1,6 @@
-export type GlobalPropSize = 'xs' | 's' | 'm' | 'l' | 'xl';
+export type GlobalPropSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type GlobalPropsTextStyle = 'theme' | 'text' | 'inverted';
+export type GlobalPropTextStyle = 'theme' | 'text' | 'inverted';
 
 export type GlobalThemeForm = 'form';
 export type GlobalThemePrimary = 'primary';

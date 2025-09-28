@@ -8,9 +8,13 @@ import type {
 } from './types';
 import { AppSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import {
+  GLOBAL_PROP_TEXT_STYLE_DEFAULT,
+  GLOBAL_PROP_THEME_DEFAULT,
+} from '@/constants/global-props';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
-  size: 'm',
   flat: false,
   tag: 'button',
   type: 'button',
@@ -18,10 +22,11 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   disabled: false,
   download: false,
   autoWidth: false,
-  theme: 'primary',
   target: '_blank',
-  textStyle: 'theme',
   downloadName: 'file',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
+  theme: GLOBAL_PROP_THEME_DEFAULT,
+  textStyle: GLOBAL_PROP_TEXT_STYLE_DEFAULT,
 });
 
 const emit = defineEmits<AppButtonEmits>();
@@ -97,7 +102,7 @@ function onClick(event: Event): void {
     <AppSpinner
       v-if="props.loading"
       class="app-button__spinner"
-      size="s"
+      size="sm"
     />
     <template v-else>
       <span v-if="!!$slots.prepend">
@@ -174,6 +179,7 @@ a {
     filter: brightness(.8);
   }
 
+  // SIZES
   &--size-xs {
     height: 1.375rem;
     padding: 0.125rem;
@@ -182,7 +188,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-s {
+  &--size-sm {
     height: 1.625rem;
     padding: .25rem .5rem;
     font-size: .75rem;
@@ -190,7 +196,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-m {
+  &--size-md {
     height: 2.5rem;
     padding: .5rem .75rem;
     font-size: 1rem;
@@ -198,7 +204,7 @@ a {
     line-height: 1.5;
   }
 
-  &--size-l {
+  &--size-lg {
     height: 3.375rem;
     padding: .75rem 1rem;
     font-size: 1.25rem;
@@ -248,7 +254,7 @@ a {
     background-color: transparent;
   }
 
-  // TEXT STYLE
+  // TEXT STYLES
   &--text-style-text {
     color: var(--common-color-text-main);
   }

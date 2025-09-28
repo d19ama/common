@@ -2,9 +2,10 @@
 import { computed } from 'vue';
 import type { HTMLElementClass } from '../../types';
 import type { AppSpinnerProps } from './types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppSpinnerProps>(), {
-  size: 'm',
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
@@ -50,17 +51,28 @@ const elementClass = computed<HTMLElementClass>(() => {
   height: auto;
   color: var(--common-color-primary-light);
 
-  &--size-s {
+  // SIZES
+  &--size-sm {
     width: 2rem;
     height: 2rem;
   }
 
-  &--size-m {
+  &--size-sm {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &--size-md {
     width: 4rem;
     height: 4rem;
   }
 
-  &--size-l {
+  &--size-lg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &--size-xl {
     width: 6rem;
     height: 6rem;
   }

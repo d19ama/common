@@ -10,6 +10,7 @@ import type {
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { SelectBase } from '@/common/components/SelectBase';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppSelectProps>(), {
   hint: '',
@@ -20,6 +21,7 @@ const props = withDefaults(defineProps<AppSelectProps>(), {
   disabled: false,
   required: false,
   options: () => [],
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<AppSelectSlots>();
@@ -45,6 +47,7 @@ watch(() => props.options, (value) => {
   <InputBase
     class="app-select"
     :hint="props.hint"
+    :size="props.size"
     :label="props.label"
     :required="props.required"
     :disabled="props.disabled"
@@ -57,6 +60,7 @@ watch(() => props.options, (value) => {
         v-model:options="localOptions"
         v-model:value="value"
         v-model:opened="opened"
+        :size="props.size"
         :placeholder="props.placeholder"
         :validation="props.validation"
         @click="toggleDropdown"

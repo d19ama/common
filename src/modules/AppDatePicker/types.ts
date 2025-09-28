@@ -17,6 +17,7 @@ export interface AppDatePickerProps extends InputBaseProps {
   modelType?: VueDatePickerProps['modelType'];
   yearPicker?: VueDatePickerProps['yearPicker'];
   monthPicker?: VueDatePickerProps['yearPicker'];
+  enableTimePicker?: VueDatePickerProps['enableTimePicker'];
 }
 
 export interface AppDatePickerSlots extends InputBaseSlots {
