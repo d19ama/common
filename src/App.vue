@@ -1660,10 +1660,55 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppSpinner"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
           <div class="row">
-            <div class="col-default-3 position-relative">
+            <div class="col-default-2 position-relative">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppSpinner
                 v-model:active="spinner"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2 position-relative">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppSpinner
+                v-model:active="spinner"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2 position-relative">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppSpinner
+                v-model:active="spinner"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2 position-relative">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppSpinner
+                v-model:active="spinner"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2 position-relative">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppSpinner
+                v-model:active="spinner"
+                size="xl"
               />
             </div>
           </div>

@@ -186,6 +186,11 @@ a {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.5;
+
+    #{$parent}__spinner {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 
   &--size-sm {
@@ -194,6 +199,11 @@ a {
     font-size: .75rem;
     font-weight: 400;
     line-height: 1.5;
+
+    #{$parent}__spinner {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 
   &--size-md {

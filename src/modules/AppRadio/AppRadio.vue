@@ -264,7 +264,7 @@ function validate(): void {
       }
     }
 
-    #{$parent}__input:checked + #{$parent}__label {
+    #{$parent}__field:checked + #{$parent}__label {
       #{$parent}__box {
         border-color: var(--common-color-ui-primary);
         background-color: var(--common-color-ui-primary);
@@ -297,7 +297,7 @@ function validate(): void {
       }
     }
 
-    #{$parent}__input:checked + #{$parent}__label {
+    #{$parent}__field:checked + #{$parent}__label {
       #{$parent}__box {
         border-color: var(--common-color-primary-light);
         background-color: var(--common-color-primary-light);
@@ -330,8 +330,8 @@ function validate(): void {
       }
     }
 
-    #{$parent}__input:checked + #{$parent}__label {
-      &::before {
+    #{$parent}__field:checked + #{$parent}__label {
+      #{$parent}__box {
         border-color: var(--common-color-secondary-light);
         background-color: var(--common-color-secondary-light);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -363,7 +363,7 @@ function validate(): void {
       }
     }
 
-    #{$parent}__input:checked + #{$parent}__label {
+    #{$parent}__field:checked + #{$parent}__label {
       #{$parent}__box {
         border-color: var(--common-color-tertiary-light);
         background-color: var(--common-color-tertiary-light);
@@ -396,7 +396,7 @@ function validate(): void {
       }
     }
 
-    #{$parent}__input:checked + #{$parent}__label {
+    #{$parent}__field:checked + #{$parent}__label {
       #{$parent}__box {
         border-color: var(--common-color-unaccented-light);
         background-color: var(--common-color-unaccented-light);
