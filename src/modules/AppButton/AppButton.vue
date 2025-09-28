@@ -179,6 +179,7 @@ a {
     filter: brightness(.8);
   }
 
+  // SIZES
   &--size-xs {
     height: 1.375rem;
     padding: 0.125rem;
@@ -253,7 +254,7 @@ a {
     background-color: transparent;
   }
 
-  // TEXT STYLE
+  // TEXT STYLES
   &--text-style-text {
     color: var(--common-color-text-main);
   }

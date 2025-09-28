@@ -619,8 +619,78 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppDatePicker"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppDatePicker
+                placeholder="Select date"
+                label="DatePicker"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"
@@ -628,6 +698,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"
@@ -636,6 +709,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppDatePicker
                 placeholder="Select date"
                 label="DatePicker"

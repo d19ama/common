@@ -51,9 +51,15 @@ const elementClass = computed<HTMLElementClass>(() => {
   height: auto;
   color: var(--common-color-primary-light);
 
+  // SIZES
   &--size-sm {
     width: 2rem;
     height: 2rem;
+  }
+
+  &--size-sm {
+    width: 3rem;
+    height: 3rem;
   }
 
   &--size-md {
@@ -62,6 +68,11 @@ const elementClass = computed<HTMLElementClass>(() => {
   }
 
   &--size-lg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &--size-xl {
     width: 6rem;
     height: 6rem;
   }

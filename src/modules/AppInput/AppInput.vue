@@ -284,6 +284,7 @@ watch(
     }
   }
 
+  // SIZES
   &--size-xs {
     #{$parent}__field {
       padding: .75rem;

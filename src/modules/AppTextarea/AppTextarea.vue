@@ -170,6 +170,7 @@ function validate(): void {
     text-align: center;
   }
 
+  // SIZES
   &--size-xs {
     #{$parent}__wrapper {
       height: 6rem;
@@ -225,6 +226,7 @@ function validate(): void {
     }
   }
 
+  // STATES
   &--resizable {
 
     #{$parent}__field {

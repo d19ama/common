@@ -217,6 +217,7 @@ function onClick(): void {
     color: var(--common-color-text-main);
   }
 
+  // SIZES
   &--size-xs {
     gap: .125rem;
 

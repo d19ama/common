@@ -187,6 +187,7 @@ watch(
   z-index: 999;
   pointer-events: none;
 
+  // SIZES
   &--size-sm {
     --modal-width: 532px;
     --modal-x-padding: 20px;
