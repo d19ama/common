@@ -52,7 +52,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   color: var(--common-color-primary-light);
 
   // SIZES
-  &--size-sm {
+  &--size-xs {
     width: 2rem;
     height: 2rem;
   }
