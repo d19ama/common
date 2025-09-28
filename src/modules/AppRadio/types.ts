@@ -1,5 +1,6 @@
 import type { VNode } from 'vue';
 import type {
+  GlobalPropSize,
   GlobalThemeForm,
   GlobalThemePrimary,
   GlobalThemeSecondary,
@@ -19,6 +20,7 @@ export interface AppRadioProps {
   name?: string;
   disabled?: boolean;
   required?: boolean;
+  size?: GlobalPropSize;
   theme?: AppRadioTheme;
   options?: AppRadioOption[];
 }

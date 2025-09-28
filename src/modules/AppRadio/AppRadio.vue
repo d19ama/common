@@ -10,12 +10,14 @@ import type {
   AppRadioSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<AppRadioProps>(), {
   theme: 'form',
   required: false,
   disabled: false,
   options: () => [],
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<AppRadioEmits>();
@@ -30,6 +32,7 @@ const error = ref<boolean>(false);
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
+    `app-radio--size-${props.size}`,
     `app-radio--theme-${props.theme}`,
     {
       'app-radio--disabled': props.disabled,
@@ -75,7 +78,7 @@ function validate(): void {
         :name="props.name"
         :value="item.id"
         type="radio"
-        class="app-radio__input"
+        class="app-radio__field"
         :checked="item.checked"
         :disabled="item.disabled"
         autocomplete="off"
@@ -86,6 +89,7 @@ function validate(): void {
         class="app-radio__label"
         :for="item.id"
       >
+        <span class="app-radio__box" />
         <span class="app-radio__text">
           <slot
             :name="`radio-${String(item.id)}`"
@@ -110,16 +114,15 @@ function validate(): void {
 .app-radio {
   $parent: &;
 
+  display: flex;
+  flex-flow: column nowrap;
+
   &__option {
     position: relative;
     user-select: none;
-
-    &+& {
-      margin-top: .5rem;
-    }
   }
 
-  &__input {
+  &__field {
     position: absolute;
     top: 0;
     left: 0;
@@ -130,52 +133,122 @@ function validate(): void {
 
   &__text {
     font-weight: 400;
+    line-height: 1.5;
     color: var(--common-color-text-main);
-    font-size: .875rem;
-    line-height: 1.5rem;
   }
 
   &__label {
     display: flex;
-    height: 1.5rem;
-    font-size: 1rem;
-    padding-left: 39px;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
     position: relative;
     color: var(--common-color-text-main);
-    line-height: 1.5rem;
     transition: color var(--common-transition);
     cursor: pointer;
+  }
 
-    &:before {
-      content: '';
-      width: 1.5rem;
-      height: 1.5rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 100%;
-      transition: border-color var(--common-transition), background-color var(--common-transition), opacity var(--common-transition);
+  &__box {
+    border-radius: 100%;
+    transition: border-color var(--common-transition), background-color var(--common-transition), opacity var(--common-transition);
+  }
+
+  // SIZES
+  &--size-xs {
+    gap: .25rem;
+
+    #{$parent}__text {
+      font-size: .625rem;
+    }
+
+    #{$parent}__box {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    #{$parent}__label {
+      gap: .75rem;
     }
   }
 
-  &--disabled {
-    opacity: .5;
-    pointer-events: none;
+  &--size-sm {
+    gap: .375rem;
+
+    #{$parent}__text {
+      font-size: .75rem;
+    }
+
+    #{$parent}__box {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    #{$parent}__label {
+      gap: .875rem;
+    }
+  }
+
+  &--size-md {
+    gap: .5rem;
+
+    #{$parent}__text {
+      font-size: .875rem;
+    }
+
+    #{$parent}__box {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+
+    #{$parent}__label {
+      gap: 1rem;
+    }
+  }
+
+  &--size-lg {
+    gap: .625rem;
+
+    #{$parent}__text {
+      font-size: 1rem;
+    }
+
+    #{$parent}__box {
+      width: 1.625rem;
+      height: 1.625rem;
+    }
+
+    #{$parent}__label {
+      gap: 1.125rem;
+    }
+  }
+
+  &--size-xl {
+    gap: .75rem;
+
+    #{$parent}__text {
+      font-size: 1.125rem;
+    }
+
+    #{$parent}__box {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    #{$parent}__label {
+      gap: 1.25rem;
+    }
   }
 
   // THEMES
   &--theme-form {
+    #{$parent}__box {
+      border: 1px solid var(--common-color-ui-primary);
+      background-color: var(--common-color-white);
+    }
 
     #{$parent}__label {
-
-      &:before {
-        border: 1px solid var(--common-color-ui-primary);
-        background-color: var(--common-color-white);
-      }
-
       &:hover {
-
-        &::before {
+        #{$parent}__box {
           border-color: var(--common-color-ui-primary);
           background-color: var(--common-color-ui-primary);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -183,8 +256,7 @@ function validate(): void {
       }
 
       &:active {
-
-        &:before {
+        #{$parent}__box {
           border-color: var(--common-color-ui-primary);
           background-color: var(--common-color-ui-primary);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -193,8 +265,7 @@ function validate(): void {
     }
 
     #{$parent}__input:checked + #{$parent}__label {
-
-      &::before {
+      #{$parent}__box {
         border-color: var(--common-color-ui-primary);
         background-color: var(--common-color-ui-primary);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -203,17 +274,14 @@ function validate(): void {
   }
 
   &--theme-primary {
+    #{$parent}__box {
+      border: 1px solid var(--common-color-primary-light);
+      background-color: var(--common-color-white);
+    }
 
     #{$parent}__label {
-
-      &:before {
-        border: 1px solid var(--common-color-primary-light);
-        background-color: var(--common-color-white);
-      }
-
       &:hover {
-
-        &::before {
+        #{$parent}__box {
           border-color: var(--common-color-primary-light);
           background-color: var(--common-color-primary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -221,8 +289,7 @@ function validate(): void {
       }
 
       &:active {
-
-        &:before {
+        #{$parent}__box {
           border-color: var(--common-color-primary-light);
           background-color: var(--common-color-primary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -231,8 +298,7 @@ function validate(): void {
     }
 
     #{$parent}__input:checked + #{$parent}__label {
-
-      &::before {
+      #{$parent}__box {
         border-color: var(--common-color-primary-light);
         background-color: var(--common-color-primary-light);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -241,17 +307,14 @@ function validate(): void {
   }
 
   &--theme-secondary {
+    #{$parent}__box {
+      border: 1px solid var(--common-color-secondary-light);
+      background-color: var(--common-color-white);
+    }
 
     #{$parent}__label {
-
-      &:before {
-        border: 1px solid var(--common-color-secondary-light);
-        background-color: var(--common-color-white);
-      }
-
       &:hover {
-
-        &::before {
+        #{$parent}__box {
           border-color: var(--common-color-secondary-light);
           background-color: var(--common-color-secondary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -259,8 +322,7 @@ function validate(): void {
       }
 
       &:active {
-
-        &:before {
+        #{$parent}__box {
           border-color: var(--common-color-secondary-light);
           background-color: var(--common-color-secondary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -269,7 +331,6 @@ function validate(): void {
     }
 
     #{$parent}__input:checked + #{$parent}__label {
-
       &::before {
         border-color: var(--common-color-secondary-light);
         background-color: var(--common-color-secondary-light);
@@ -279,17 +340,14 @@ function validate(): void {
   }
 
   &--theme-tertiary {
+    #{$parent}__box {
+      border: 1px solid var(--common-color-tertiary-light);
+      background-color: var(--common-color-white);
+    }
 
     #{$parent}__label {
-
-      &:before {
-        border: 1px solid var(--common-color-tertiary-light);
-        background-color: var(--common-color-white);
-      }
-
       &:hover {
-
-        &::before {
+        #{$parent}__box {
           border-color: var(--common-color-tertiary-light);
           background-color: var(--common-color-tertiary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -297,8 +355,7 @@ function validate(): void {
       }
 
       &:active {
-
-        &:before {
+        #{$parent}__box {
           border-color: var(--common-color-tertiary-light);
           background-color: var(--common-color-tertiary-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -307,8 +364,7 @@ function validate(): void {
     }
 
     #{$parent}__input:checked + #{$parent}__label {
-
-      &::before {
+      #{$parent}__box {
         border-color: var(--common-color-tertiary-light);
         background-color: var(--common-color-tertiary-light);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -317,17 +373,14 @@ function validate(): void {
   }
 
   &--theme-unaccented {
+    #{$parent}__box {
+      border: 1px solid var(--common-color-unaccented-light);
+      background-color: var(--common-color-white);
+    }
 
     #{$parent}__label {
-
-      &:before {
-        border: 1px solid var(--common-color-unaccented-light);
-        background-color: var(--common-color-white);
-      }
-
       &:hover {
-
-        &::before {
+        #{$parent}__box {
           border-color: var(--common-color-unaccented-light);
           background-color: var(--common-color-unaccented-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -335,8 +388,7 @@ function validate(): void {
       }
 
       &:active {
-
-        &:before {
+        #{$parent}__box {
           border-color: var(--common-color-unaccented-light);
           background-color: var(--common-color-unaccented-light);
           box-shadow: inset 0 0 0 4px var(--common-color-white);
@@ -345,13 +397,18 @@ function validate(): void {
     }
 
     #{$parent}__input:checked + #{$parent}__label {
-
-      &::before {
+      #{$parent}__box {
         border-color: var(--common-color-unaccented-light);
         background-color: var(--common-color-unaccented-light);
         box-shadow: inset 0 0 0 4px var(--common-color-white);
       }
     }
+  }
+
+  // STATES
+  &--disabled {
+    opacity: .5;
+    pointer-events: none;
   }
 }
 </style>

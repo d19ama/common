@@ -1,5 +1,6 @@
 import type { VNode } from 'vue';
 import type {
+  GlobalPropSize,
   GlobalThemeForm,
   GlobalThemePrimary,
   GlobalThemeSecondary,
@@ -17,7 +18,9 @@ export type AppCheckboxTheme =
 export interface AppCheckboxProps {
   name?: string;
   text?: string;
+  required?: boolean;
   disabled?: boolean;
+  size?: GlobalPropSize;
   theme?: AppCheckboxTheme;
 }
 

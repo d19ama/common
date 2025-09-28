@@ -1217,7 +1217,10 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             class="margin-bottom--s"
           />
           <div class="row">
-            <div class="col-default-4">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
@@ -1225,7 +1228,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 hint="Some hint"
               />
             </div>
-            <div class="col-default-4">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppTextarea
+                v-model:value="textarea"
+                placeholder="Type some"
+                label="Textarea"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
@@ -1250,21 +1268,63 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <AppTitle
             tag="h5"
-            text="States"
+            text="Sizes"
             class="margin-bottom--s"
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
+                theme="form"
+                size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
-                disabled
+                theme="form"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                theme="form"
+                size="xl"
               />
             </div>
           </div>
@@ -1275,6 +1335,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                FORM
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -1282,6 +1345,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PRIMARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -1289,6 +1355,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SECONDARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -1296,6 +1365,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                TERTIARY
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
@@ -1303,10 +1375,49 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                UNACCENTED
+              </p>
               <AppCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="unaccented"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                required
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppCheckbox
+                v-model:checked="checkbox"
+                text="Button"
+                disabled
               />
             </div>
           </div>
@@ -1325,23 +1436,63 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <AppTitle
             tag="h5"
-            text="States"
+            text="Sizes"
             class="margin-bottom--s"
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
               <AppRadio
                 v-model:value="radio"
                 :options="optionsRadio"
-                name="radio-1"
+                name="radio-xs"
+                size="xs"
               />
             </div>
             <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
               <AppRadio
                 v-model:value="radio"
                 :options="optionsRadio"
-                name="radio-2"
-                disabled
+                name="radio-sm"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-md"
+                size="md"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-lg"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-xl"
+                size="xl"
               />
             </div>
           </div>
@@ -1389,6 +1540,34 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 :options="optionsRadio"
                 name="radio-7"
                 theme="unaccented"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-1"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
+              <AppRadio
+                v-model:value="radio"
+                :options="optionsRadio"
+                name="radio-2"
+                disabled
               />
             </div>
           </div>
@@ -1497,7 +1676,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             class="margin-bottom--s"
           />
           <div class="row">
-            <div class="col-default-4">
+            <div class="col-default-2">
               <AppButton
                 text="Open modal!"
                 @click="modal = !modal"
