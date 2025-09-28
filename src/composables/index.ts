@@ -1,1 +1,1 @@
-export { useMediaQuery } from './useMediaQuery';
+export { useCommonBreakpoints } from './useCommonBreakpoints';

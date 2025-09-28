@@ -102,7 +102,7 @@ function onClick(event: Event): void {
     <AppSpinner
       v-if="props.loading"
       class="app-button__spinner"
-      size="sm"
+      size="xs"
     />
     <template v-else>
       <span v-if="!!$slots.prepend">

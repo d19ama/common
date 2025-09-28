@@ -44,7 +44,7 @@ export default defineConfig((): UserConfig => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use '@/app/assets/styles/globals.scss' as *;`,
+          additionalData: `@use '@/assets/styles/globals.scss' as *;`,
         },
       },
     },

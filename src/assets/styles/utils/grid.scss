@@ -12,16 +12,6 @@
         margin-top: 1.875rem;
     }
 
-    @include breakpoint(tablet) {
-        margin-left: -.75rem;
-        margin-right: -.75rem;
-    }
-
-    @include breakpoint(mobile) {
-        margin-left: -.5rem;
-        margin-right: -.5rem;
-    }
-
     &.reverse {
         flex-direction: row-reverse;
     }
@@ -69,16 +59,6 @@
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
     box-sizing: border-box;
-
-    @include breakpoint(tablet) {
-        padding-left: .75rem;
-        padding-right: .75rem;
-    }
-
-    @include breakpoint(mobile) {
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
 }
 
 .col-default {
