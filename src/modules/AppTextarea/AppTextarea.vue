@@ -150,14 +150,18 @@ function validate(): void {
     border: none;
     resize: none;
     font-weight: 400;
-    line-height: 1.4;
-    font-size: .875rem;
+    line-height: 1.5;
     color: var(--common-color-text-main);
     background-color: transparent;
 
     &:focus,
     &:hover {
       outline: 0 none;
+    }
+
+    &::placeholder {
+      opacity: .5;
+      color: var(--common-color-text-main);
     }
   }
 
