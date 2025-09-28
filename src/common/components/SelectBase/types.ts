@@ -1,23 +1,24 @@
 import type { VNode } from 'vue';
 import type { BaseValidation } from '@vuelidate/core';
+import type { GlobalPropSize } from '@/types';
+import type {
+  DropdownEmits,
+  DropdownItem,
+} from '@/common/components/Dropdown';
 
 export interface SelectBaseProps {
   loading?: boolean;
   placeholder?: string;
+  size?: GlobalPropSize;
   dropdownVisible?: boolean;
   validation?: BaseValidation;
 }
 
-export interface SelectBaseOption<ID extends string | number | symbol = string> {
-  id: ID;
-  text: string;
-  selected: boolean;
-  disabled: boolean;
-}
+export interface SelectBaseOption<ID extends string | number | symbol = string>
+  extends DropdownItem<ID> {}
 
-export interface SelectBaseEmits {
-  'click': [];
-  'change:selected': [value: SelectBaseOption];
+export interface SelectBaseEmits extends DropdownEmits {
+  click: [];
 }
 
 export interface SelectBaseSlots {

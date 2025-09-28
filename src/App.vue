@@ -699,7 +699,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 size="md"
               />
             </div>
-            <div class="col-default-2">
+            <div class="col-default-3">
               <p class="margin-bottom--xs">
                 LG
               </p>
@@ -711,7 +711,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 size="lg"
               />
             </div>
-            <div class="col-default-2">
+            <div class="col-default-3">
               <p class="margin-bottom--xs">
                 XL
               </p>
@@ -884,8 +884,88 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppSelect"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--xs">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppSelect
                 v-model:value="select"
                 :options="optionsSelect"
@@ -895,6 +975,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppSelect
+                v-model:value="select"
+                :options="optionsSelect"
+                required
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppSelect
                 v-model:value="select"
                 :options="optionsSelect"
@@ -918,8 +1014,88 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
             text="AppCombobox"
             class="margin-bottom--s"
           />
+          <AppTitle
+            tag="h5"
+            text="Sizes"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                XS
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xs"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                SM
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="sm"
+              />
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                MD
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="md"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                LG
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="lg"
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                XL
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                size="xl"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="States"
+            class="margin-bottom--s"
+          />
           <div class="row">
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DEFAULT
+              </p>
               <AppCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
@@ -929,6 +1105,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                REQUIRED
+              </p>
+              <AppCombobox
+                v-model:value="combobox"
+                :options="optionsCombobox"
+                placeholder="Select"
+                label="Select"
+                hint="Some hint"
+                required
+              />
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                DISABLED
+              </p>
               <AppCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"

@@ -20,7 +20,9 @@ import { AppSpinner } from '@/modules';
 import {
   COMMON_DEFAULT_DELAY,
   COMMON_DEFAULT_SEARCH_LENGTH,
+  GLOBAL_PROP_SIZE_DEFAULT,
 } from '@/constants';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<AppComboboxProps>(), {
   hint: '',
@@ -32,6 +34,7 @@ const props = withDefaults(defineProps<AppComboboxProps>(), {
   disabled: false,
   required: false,
   searchError: false,
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<AppComboboxEmits>();
@@ -68,6 +71,12 @@ const isDropdownVisible = computed<boolean>(() => {
     && search.value.length > COMMON_DEFAULT_SEARCH_LENGTH;
 });
 
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `app-combobox--size-${props.size}`,
+  ];
+});
+
 const updateSearch = useDebounceFn((value) => {
   search.value = value;
 }, COMMON_DEFAULT_DELAY);
@@ -101,7 +110,9 @@ watch(localSearch, (value) => {
   <InputBase
     class="app-combobox"
     :hint="props.hint"
+    :size="props.size"
     :label="props.label"
+    :class="elementClass"
     :required="props.required"
     :disabled="props.disabled"
     :error-text="props.errorText"
@@ -113,6 +124,7 @@ watch(localSearch, (value) => {
         v-model:options="options"
         v-model:value="value"
         v-model:opened="opened"
+        :size="props.size"
         :placeholder="props.placeholder"
         :validation="props.validation"
         :dropdown-visible="isDropdownVisible"
@@ -126,7 +138,7 @@ watch(localSearch, (value) => {
             :disabled="props.disabled"
             :placeholder="props.placeholder"
             autocomplete="off"
-            class="app-combobox__input"
+            class="app-combobox__field"
             type="text"
             @focus="onFocus"
             @blur="onBlur"
@@ -176,14 +188,16 @@ watch(localSearch, (value) => {
 
 <style lang="scss">
 .app-combobox {
-  $padding: 1rem;
   $parent: &;
 
-  &__input {
-    width: 100%;
+  &__field,
+  &__empty {
     font-weight: 400;
     line-height: 1.5rem;
-    font-size: .875rem;
+  }
+
+  &__field {
+    width: 100%;
     color: var(--common-color-text-main);
     border: none;
     background-color: transparent;
@@ -209,20 +223,99 @@ watch(localSearch, (value) => {
 
   &__empty {
     opacity: .4;
-    padding: 1rem;
-    font-weight: 400;
-    line-height: 1.4;
-    font-size: .875rem;
     color: var(--common-color-text-main);
   }
 
   &__loading {
     display: flex;
     align-self: center;
-    width: 2rem;
-    height: 2rem;
-    margin: 1rem auto;
     color: var(--common-color-ui-primary);
+  }
+
+  // SIZES
+  &--size-xs {
+    #{$parent}__field,
+    #{$parent}__empty {
+      font-size: .625rem;
+    }
+
+    #{$parent}__empty {
+      padding: .75rem;
+    }
+
+    #{$parent}__loading {
+      width: 1.75rem;
+      height: 1.75rem;
+      margin: .75rem auto;
+    }
+  }
+
+  &--size-sm {
+    #{$parent}__field,
+    #{$parent}__empty {
+      font-size: .75rem;
+    }
+
+    #{$parent}__empty {
+      padding: .875rem;
+    }
+
+    #{$parent}__loading {
+      width: 1.875rem;
+      height: 1.875rem;
+      margin: .875rem auto;
+    }
+  }
+
+  &--size-md {
+    #{$parent}__field,
+    #{$parent}__empty {
+      font-size: .875rem;
+    }
+
+    #{$parent}__empty {
+      padding: 1rem;
+    }
+
+    #{$parent}__loading {
+      width: 2rem;
+      height: 2rem;
+      margin: 1rem auto;
+    }
+  }
+
+  &--size-lg {
+    #{$parent}__field,
+    #{$parent}__empty {
+      font-size: 1rem;
+    }
+
+    #{$parent}__empty {
+      padding: 1.125rem;
+    }
+
+    #{$parent}__loading {
+      width: 2.125rem;
+      height: 2.125rem;
+      margin: 1.125rem auto;
+    }
+  }
+
+  &--size-xl {
+    #{$parent}__field,
+    #{$parent}__empty {
+      font-size: 1.125rem;
+    }
+
+    #{$parent}__empty {
+      padding: 1.25rem;
+    }
+
+    #{$parent}__loading {
+      width: 2.25rem;
+      height: 2.25rem;
+      margin: 1.25rem auto;
+    }
   }
 }
 </style>

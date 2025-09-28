@@ -13,11 +13,15 @@ import type {
   SelectBaseSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { Dropdown } from '@/common/components/Dropdown';
+import type { DropdownItem } from '@/common/components/Dropdown/types';
 
 const props = withDefaults(defineProps<SelectBaseProps>(), {
   placeholder: '',
   loading: false,
   dropdownVisible: true,
+  size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<SelectBaseEmits>();
@@ -53,22 +57,14 @@ const isDropdownVisible = computed<boolean>(() => {
     && props.dropdownVisible;
 });
 
-const hasOptions = computed<boolean>(() => {
-  return !props.loading && options.value.length > 0;
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `select-base--size-${props.size}`,
+    {
+      'select-base--opened': opened.value && props.dropdownVisible,
+    },
+  ];
 });
-
-const selectClass = computed<HTMLElementClass>(() => {
-  return {
-    'select-base--opened': opened.value && props.dropdownVisible,
-  };
-});
-
-function optionClass(item: SelectBaseOption): HTMLElementClass {
-  return {
-    'select-base__option--selected': item.selected,
-    'select-base__option--disabled': item.disabled,
-  };
-}
 
 function hideDropdown(event: MouseEvent): void {
   if (!select.value) {
@@ -83,21 +79,15 @@ function hideDropdown(event: MouseEvent): void {
   }
 }
 
-function changeSelected(option: SelectBaseOption): void {
-  options.value = options.value.map((item) => {
-    return {
-      ...item,
-      selected: item.id === option.id,
-    };
-  });
+function validate(): void {
+  props.validation?.$touch();
+}
+
+function changeSelected(option: DropdownItem): void {
   selected.value = option;
   value.value = option.text;
   opened.value = false;
   emit('change:selected', option);
-}
-
-function validate(): void {
-  props.validation?.$touch();
 }
 
 onMounted(() => {
@@ -115,7 +105,7 @@ watch(opened, (value) => {
   <div
     ref="selectRef"
     class="select-base"
-    :class="selectClass"
+    :class="elementClass"
     @click="emit('click')"
   >
     <slot>
@@ -138,46 +128,35 @@ watch(opened, (value) => {
       </div>
     </slot>
   </div>
-  <div
-    v-if="isDropdownVisible"
-    class="select-base__dropdown"
+  <Dropdown
+    v-model:visible="isDropdownVisible"
+    v-model:options="options"
+    :size="props.size"
+    :loading="props.loading"
+    @change:selected="changeSelected"
   >
-    <ul
-      v-if="hasOptions"
-      class="select-base__options"
+    <template
+      v-for="item in options"
+      #[`dropdown-item-${String(item.id)}`]
     >
-      <li
-        v-for="item in options"
-        :key="item.id"
-        class="select-base__option"
-        :class="optionClass(item)"
-        @click="changeSelected(item)"
-      >
-        <slot
-          :name="`select-item-${String(item.id)}`"
-          :text="item.text"
-        >
-          <slot name="option-text">
-            {{ item.text }}
-          </slot>
-          <slot name="option-icon">
-            <div class="select-base__option-icon icon icon-checkmark" />
-          </slot>
-        </slot>
-      </li>
-    </ul>
-    <slot name="append-dropdown" />
-  </div>
+      <slot
+        :name="`select-item-${String(item.id)}`"
+        :text="item.text"
+      />
+    </template>
+
+    <template #append>
+      <slot name="append-dropdown" />
+    </template>
+  </Dropdown>
 </template>
 
 <style lang="scss">
 .select-base {
-  $padding: 1rem;
   $parent: &;
 
   width: 100%;
   overflow: hidden;
-  padding: 1rem 2rem 1rem 1rem;
   position: relative;
   cursor: pointer;
 
@@ -185,7 +164,6 @@ watch(opened, (value) => {
   &__placeholder {
     font-weight: 400;
     line-height: 1.5;
-    font-size: .875rem;
     color: var(--common-color-text-main);
   }
 
@@ -229,67 +207,53 @@ watch(opened, (value) => {
     border-bottom: 0;
   }
 
-  &__dropdown {
-    display: block;
-    width: calc(100% + 2px);
-    overflow: auto;
-    position: absolute;
-    top: calc(100% + .5rem);
-    left: -1px;
-    z-index: 10;
-    border: var(--common-select-base-dropdown-border);
-    border-radius: var(--common-select-base-dropdown-border-radius);
-    background-color: var(--common-select-base-dropdown-bg);
-    transition: opacity var(--common-transition);
-  }
+  // SIZES
+  &--size-xs {
+    padding: .75rem 1.75rem .75rem .75rem;
 
-  &__options {
-    margin: 0;
-  }
-
-  &__option {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: .5rem;
-    padding: 1rem;
-    font-weight: 400;
-    line-height: 1.4;
-    font-size: .875rem;
-    color: var(--common-color-text-main);
-    transition: background-color var(--common-transition);
-    cursor: pointer;
-
-    &:hover {
-      backdrop-filter: brightness(.95);
-    }
-
-    &--selected {
-      position: relative;
-
-      #{$parent}__option-icon {
-        opacity: 1;
-      }
-    }
-
-    &--disabled {
-      opacity: .5;
-      pointer-events: none;
+    #{$parent}__selected,
+    #{$parent}__placeholder {
+      font-size: .625rem;
     }
   }
 
-  &__option-icon {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    opacity: 0;
-    color: var(--common-select-base-option-icon-color);
+  &--size-sm {
+    padding: .875rem 1.875rem .875rem .875rem;
+
+    #{$parent}__selected,
+    #{$parent}__placeholder {
+      font-size: .75rem;
+    }
   }
 
+  &--size-md {
+    padding: 1rem 2rem 1rem 1rem;
+
+    #{$parent}__selected,
+    #{$parent}__placeholder {
+      font-size: .875rem;
+    }
+  }
+
+  &--size-lg {
+    padding: 1.125rem 2.125rem 1.125rem 1.125rem;
+
+    #{$parent}__selected,
+    #{$parent}__placeholder {
+      font-size: 1rem;
+    }
+  }
+
+  &--size-xl {
+    padding: 1.25rem 2.25rem 1.25rem 1.25rem;
+
+    #{$parent}__selected,
+    #{$parent}__placeholder {
+      font-size: 1.125rem;
+    }
+  }
+
+  // STATES
   &--opened {
 
     #{$parent}__arrow {
