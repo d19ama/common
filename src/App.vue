@@ -606,6 +606,41 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
+          <AppTitle
+            tag="h5"
+            text="Slots"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                PREPEND
+              </p>
+              <AppButton
+                text="Button"
+                theme="primary"
+                text-style="inverted"
+              >
+                <template #prepend>
+                  <span class="icon icon-pencil" />
+                </template>
+              </AppButton>
+            </div>
+            <div class="col-default-2">
+              <p class="margin-bottom--xs">
+                APPEND
+              </p>
+              <AppButton
+                text="Button"
+                theme="primary"
+                text-style="inverted"
+              >
+                <template #append>
+                  <span class="icon icon-pencil" />
+                </template>
+              </AppButton>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -831,6 +866,43 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 hint="Some hint"
                 disabled
               />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
+            text="Slots"
+            class="margin-bottom--s"
+          />
+          <div class="row margin-bottom--s">
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                PREPEND
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+              >
+                <template #prepend>
+                  <span class="icon icon-search" />
+                </template>
+              </AppInput>
+            </div>
+            <div class="col-default-3">
+              <p class="margin-bottom--xs">
+                APPEND
+              </p>
+              <AppInput
+                v-model:value="inputValue"
+                label="Some some"
+                placeholder="Type some"
+                hint="Some hint"
+              >
+                <template #append>
+                  <span class="icon icon-search" />
+                </template>
+              </AppInput>
             </div>
           </div>
         </div>

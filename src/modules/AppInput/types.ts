@@ -4,6 +4,7 @@ import type {
   FactoryStaticOpts,
   MaskedPatternOptions,
 } from 'imask';
+import type { VNode } from 'vue';
 import type {
   InputBaseProps,
   InputBaseSlots,
@@ -35,10 +36,15 @@ export interface AppInputProps extends InputBaseProps {
 }
 
 export interface AppInputEmits {
-  input: [value: string | number];
-  change: [value: string | number];
-  focus: [];
-  blur: [];
+  'input': [value: string | number];
+  'change': [value: string | number];
+  'focus': [];
+  'blur': [];
+  'click:prepend': [];
+  'click:append': [];
 }
 
-export interface AppInputSlots extends InputBaseSlots {}
+export interface AppInputSlots extends InputBaseSlots {
+  prepend?: () => VNode[];
+  append?: () => VNode[];
+}
