@@ -225,6 +225,13 @@ watch(
     </template>
 
     <template #default>
+      <div
+        v-if="!!$slots.prepend"
+        class="app-input__prepend"
+        @click="emit('click:prepend')"
+      >
+        <slot name="prepend" />
+      </div>
       <input
         ref="inputRef"
         v-model="value"
@@ -241,6 +248,17 @@ watch(
         @change="onChange"
         @keyup.enter="onChange"
       >
+      <div
+        v-if="!!$slots.append"
+        class="app-input__append"
+        @click="emit('click:append')"
+      >
+        <slot name="append" />
+      </div>
+    </template>
+
+    <template #append>
+      <slot name="append" />
     </template>
 
     <template #error>
@@ -282,6 +300,18 @@ watch(
       opacity: .5;
       color: var(--common-color-text-main);
     }
+  }
+
+  &__prepend {
+    display: flex;
+    max-width: 2rem;
+    padding: 0 0 0 1rem;
+  }
+
+  &__append {
+    display: flex;
+    max-width: 2rem;
+    padding: 0 1rem 0 0;
   }
 
   // SIZES

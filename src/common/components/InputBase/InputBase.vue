@@ -158,6 +158,10 @@ select {
 
   &__wrapper {
     display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .25rem;
     width: 100%;
     position: relative;
     border-radius: var(--common-input-base-wrapper-border-radius);

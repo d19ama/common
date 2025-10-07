@@ -49,7 +49,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   justify-content: center;
   width: auto;
   height: auto;
-  color: var(--common-color-primary-light);
+  color: var(--app-spinner-color);
 
   // SIZES
   &--size-xs {
