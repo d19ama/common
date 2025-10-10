@@ -5,6 +5,7 @@ import type { GlobalPropSize } from '@/types';
 export interface InputBaseProps {
   label?: string;
   hint?: string;
+  maxLength?: number;
   disabled?: boolean;
   required?: boolean;
   errorText?: string;

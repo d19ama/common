@@ -11,6 +11,7 @@ import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<InputBaseProps>(), {
+  maxLength: 50,
   required: false,
   disabled: false,
   size: GLOBAL_PROP_SIZE_DEFAULT,

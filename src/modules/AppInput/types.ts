@@ -27,12 +27,11 @@ export interface AppInputMaskValues {
 
 export interface AppInputProps extends InputBaseProps {
   name?: string;
-  maxLength?: string;
+  mask?: AppInputMaskParams;
   theme?: 'text' | 'search';
+  maskVisibility?: 'always' | 'onFocus';
   position?: 'left' | 'center' | 'right';
   type?: 'text' | 'number' | 'tel' | 'email' | 'password';
-  mask?: AppInputMaskParams;
-  maskVisibility?: 'always' | 'onFocus';
 }
 
 export interface AppInputEmits {

@@ -6,6 +6,7 @@ import type {
 export interface AppTextareaProps extends InputBaseProps {
   name?: string;
   resize?: boolean;
+  enableCounter?: boolean;
 }
 
 export interface AppTextareaEmits {

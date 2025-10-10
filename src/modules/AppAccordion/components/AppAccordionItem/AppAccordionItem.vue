@@ -124,6 +124,7 @@ onMounted(() => {
 <style lang="scss">
 .app-accordion-item {
   border-bottom: var(--app-accordion-item-border-bottom);
+  border-radius: var(--app-accordion-item-border-radius);
   transition: background-color var(--common-transition);
 
   &__header {

@@ -216,17 +216,21 @@ watch(
     :class="elementClass"
     :required="props.required"
     :disabled="props.disabled"
+    :max-length="props.maxLength"
     :error-text="props.errorText"
     :validation="props.validation"
     :placeholder="props.placeholder"
   >
-    <template #label>
+    <template
+      v-if="$slots.label"
+      #label
+    >
       <slot name="label" />
     </template>
 
     <template #default>
       <div
-        v-if="!!$slots.prepend"
+        v-if="$slots.prepend"
         class="app-input__prepend"
         @click="emit('click:prepend')"
       >
@@ -249,7 +253,7 @@ watch(
         @keyup.enter="onChange"
       >
       <div
-        v-if="!!$slots.append"
+        v-if="$slots.append"
         class="app-input__append"
         @click="emit('click:append')"
       >
@@ -257,15 +261,17 @@ watch(
       </div>
     </template>
 
-    <template #append>
-      <slot name="append" />
-    </template>
-
-    <template #error>
+    <template
+      v-if="$slots.error"
+      #error
+    >
       <slot name="error" />
     </template>
 
-    <template #hint>
+    <template
+      v-if="$slots.hint"
+      #hint
+    >
       <slot name="hint" />
     </template>
   </InputBase>
@@ -302,15 +308,18 @@ watch(
     }
   }
 
-  &__prepend {
+  &__prepend,
+  &__append {
     display: flex;
     max-width: 2rem;
+    color: var(--common-color-text-main);
+  }
+
+  &__prepend {
     padding: 0 0 0 1rem;
   }
 
   &__append {
-    display: flex;
-    max-width: 2rem;
     padding: 0 1rem 0 0;
   }
 

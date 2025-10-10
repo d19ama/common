@@ -1,4 +1,5 @@
 $app-accordion-item-border-bottom: 1px solid var(--common-color-ui-secondary);
+$app-accordion-item-border-radius: none;
 $app-accordion-header-color: var(--common-color-text-main);
 $app-accordion-header-color-hover: unset;
 $app-accordion-header-color-active: unset;
@@ -11,6 +12,7 @@ $app-accordion-icon-color: inherit;
 
 :export {
   app-accordion-item-border-bottom: $app-accordion-item-border-bottom;
+  app-accordion-item-border-radius: $app-accordion-item-border-radius;
   app-accordion-header-color: $app-accordion-header-color;
   app-accordion-header-color-hover: $app-accordion-header-color-hover;
   app-accordion-header-color-active: $app-accordion-header-color-active;

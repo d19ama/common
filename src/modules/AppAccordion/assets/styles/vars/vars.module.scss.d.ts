@@ -1,5 +1,6 @@
 export interface Styles {
   'app-accordion-item-border-bottom': string;
+  'app-accordion-item-border-radius': string;
   'app-accordion-header-color': string;
   'app-accordion-header-color-hover': string;
   'app-accordion-header-color-active': string;
