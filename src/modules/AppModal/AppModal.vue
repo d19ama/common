@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<AppModalProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-defineSlots<AppModalSlots>();
+const slots = defineSlots<AppModalSlots>();
 
 const visible = defineModel<boolean>('visible', {
   required: false,
@@ -46,6 +46,14 @@ const id = ref<symbol>(Symbol('PaModal'));
 
 const isActive = computed<boolean>(() => {
   return active.value !== undefined && active.value.id === id.value;
+});
+
+const hasOverlay = computed<boolean>(() => {
+  return visible.value && props.size !== 'full-page';
+});
+
+const hasHeader = computed<boolean>(() => {
+  return !!slots.header! || props.title;
 });
 
 const modalClass = computed<HTMLElementClass>(() => {
@@ -109,10 +117,11 @@ watch(
     :to="props.appendTo"
   >
     <div
-      v-if="visible && props.size !== 'full-page'"
+      v-if="hasOverlay"
       class="app-modal__overlay"
       @click="close"
     />
+
     <div
       v-if="visible"
       class="app-modal"
@@ -135,7 +144,7 @@ watch(
         />
 
         <div
-          v-if="props.title || $slots.header"
+          v-if="hasHeader"
           class="app-modal__header app-modal__shrink"
         >
           <slot name="header">

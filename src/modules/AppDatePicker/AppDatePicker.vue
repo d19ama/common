@@ -80,7 +80,10 @@ function validate(): void {
     :validation="props.validation"
     :placeholder="props.placeholder"
   >
-    <template #label>
+    <template
+      v-if="$slots.label"
+      #label
+    >
       <slot name="label" />
     </template>
 
@@ -105,11 +108,17 @@ function validate(): void {
       </div>
     </template>
 
-    <template #error>
+    <template
+      v-if="$slots.error"
+      #error
+    >
       <slot name="error" />
     </template>
 
-    <template #hint>
+    <template
+      v-if="$slots.hint"
+      #hint
+    >
       <slot name="hint" />
     </template>
   </InputBase>

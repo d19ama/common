@@ -130,7 +130,10 @@ function onClick(): void {
     :placeholder="props.placeholder"
     @click="onClick"
   >
-    <template #label>
+    <template
+      v-if="$slots.label"
+      #label
+    >
       <slot name="label" />
     </template>
 
@@ -162,11 +165,17 @@ function onClick(): void {
       </span>
     </template>
 
-    <template #error>
+    <template
+      v-if="$slots.error"
+      #error
+    >
       <slot name="error" />
     </template>
 
-    <template #hint>
+    <template
+      v-if="$slots.hint"
+      #hint
+    >
       <slot name="hint" />
     </template>
   </InputBase>

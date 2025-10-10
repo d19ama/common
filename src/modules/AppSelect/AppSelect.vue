@@ -55,6 +55,13 @@ watch(() => props.options, (value) => {
     :validation="props.validation"
     :placeholder="props.placeholder"
   >
+    <template
+      v-if="$slots.label"
+      #label
+    >
+      <slot name="label" />
+    </template>
+
     <template #default>
       <SelectBase
         v-model:options="localOptions"
@@ -87,6 +94,20 @@ watch(() => props.options, (value) => {
           <slot name="option-icon" />
         </template>
       </SelectBase>
+    </template>
+
+    <template
+      v-if="$slots.error"
+      #error
+    >
+      <slot name="error" />
+    </template>
+
+    <template
+      v-if="$slots.hint"
+      #hint
+    >
+      <slot name="hint" />
     </template>
   </InputBase>
 </template>

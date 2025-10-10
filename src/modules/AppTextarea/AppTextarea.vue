@@ -23,6 +23,8 @@ const props = withDefaults(defineProps<AppTextareaProps>(), {
   disabled: false,
   errorText: '',
   placeholder: '',
+  maxLength: 999,
+  enableCounter: true,
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
@@ -54,6 +56,10 @@ const name = computed<string>(() => {
 
 const counter = computed<number>(() => {
   return value.value.length;
+});
+
+const hasCounter = computed<boolean>(() => {
+  return props.enableCounter && counter.value > 0;
 });
 
 function onInput(): void {
@@ -94,7 +100,10 @@ function validate(): void {
     :validation="props.validation"
     :placeholder="props.placeholder"
   >
-    <template #label>
+    <template
+      v-if="$slots.label"
+      #label
+    >
       <slot name="label" />
     </template>
 
@@ -105,7 +114,7 @@ function validate(): void {
           cols="30"
           rows="10"
           :name="name"
-          maxLength="999"
+          :maxLength="props.maxLength"
           class="app-textarea__field"
           :disabled="props.disabled"
           :placeholder="props.placeholder"
@@ -116,18 +125,24 @@ function validate(): void {
         />
       </div>
       <span
-        v-if="counter > 0"
+        v-if="hasCounter"
         class="app-textarea__counter"
       >
         {{ counter }}
       </span>
     </template>
 
-    <template #error>
+    <template
+      v-if="$slots.error"
+      #error
+    >
       <slot name="error" />
     </template>
 
-    <template #hint>
+    <template
+      v-if="$slots.hint"
+      #hint
+    >
       <slot name="hint" />
     </template>
   </InputBase>

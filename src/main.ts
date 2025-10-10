@@ -4,4 +4,6 @@ import App from './App.vue';
 
 import '@/assets/styles/index.scss';
 
-createApp(App).component('RouterLink', RouterLinkStub).mount('#app');
+createApp(App)
+  .component('RouterLink', RouterLinkStub)
+  .mount('#app');

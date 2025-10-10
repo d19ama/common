@@ -7,8 +7,11 @@ import type {
   DropdownSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
+import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = defineProps<DropdownProps>();
+const props = withDefaults(defineProps<DropdownProps>(), {
+  size: GLOBAL_PROP_SIZE_DEFAULT,
+});
 
 const emit = defineEmits<DropdownEmits>();
 
