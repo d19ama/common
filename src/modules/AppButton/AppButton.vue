@@ -251,7 +251,7 @@ a {
   }
 
   &--theme-unaccented {
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     background-color: var(--common-color-unaccented-medium);
 
     &:hover {
@@ -266,14 +266,14 @@ a {
 
   // TEXT STYLES
   &--text-style-text {
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 
   &--text-style-inverted {
-    color: var(--common-color-text-inverted);
+    color: var(--common-color-inverted);
 
     &#{$parent}--theme-transparent {
-      box-shadow: inset 0 0 0 1px var(--common-color-text-inverted);
+      box-shadow: inset 0 0 0 1px var(--common-color-inverted);
     }
   }
 

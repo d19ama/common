@@ -1,6 +1,6 @@
 {
   "name": "@d19ama/common",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Common UI components, helpers, utils, validators etc",
   "homepage": "https://github.com/d19ama/common#readme",
   "bugs": {
@@ -20,7 +20,7 @@
     "dist",
     "package.json",
     "README.md",
-    "./src/assets/styles/breakpoints/breakpoints.module.scss"
+    "src/assets/styles/breakpoints/vars.scss"
   ],
   "publishConfig": {
     "@d19ama:registry": "https://npm.pkg.github.com"

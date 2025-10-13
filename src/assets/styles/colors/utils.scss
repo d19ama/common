@@ -1,0 +1,9 @@
+@each $color, $value in $colors {
+  .text-#{$color} {
+    color: var(--common-#{$color});
+  }
+
+  .background-#{$color} {
+    background-color: var(--common-#{$color});
+  }
+}

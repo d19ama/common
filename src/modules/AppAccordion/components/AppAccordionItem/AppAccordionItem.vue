@@ -188,7 +188,7 @@ onMounted(() => {
     display: flex;
     flex-flow: column nowrap;
     gap: 1rem;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 }
 </style>

@@ -286,7 +286,7 @@ watch(
     border: none;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     background-color: transparent;
 
     &:hover,
@@ -304,7 +304,7 @@ watch(
 
     &::placeholder {
       opacity: .5;
-      color: var(--common-color-text-main);
+      color: var(--common-color-main);
     }
   }
 
@@ -312,7 +312,7 @@ watch(
   &__append {
     display: flex;
     max-width: 2rem;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 
   &__prepend {

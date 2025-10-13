@@ -1916,7 +1916,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  color: var(--common-color-text-main);
+  color: var(--common-color-main);
   font-weight: 400;
   font-family: var(--common-font-family), Arial, Helvetica, sans-serif;
   background-color: var(--common-color-black-80);
@@ -1932,7 +1932,7 @@ h6 {
 }
 
 a {
-  color: var(--common-color-text-main);
+  color: var(--common-color-main);
   text-decoration: none;
 
   &:visited,

@@ -134,7 +134,7 @@ function validate(): void {
   &__text {
     font-weight: 400;
     line-height: 1.5;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 
   &__label {
@@ -143,7 +143,7 @@ function validate(): void {
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     transition: color var(--common-transition);
     cursor: pointer;
   }

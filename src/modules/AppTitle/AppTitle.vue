@@ -47,11 +47,11 @@ const elementClass = computed<HTMLElementClass>(() => {
 <style lang="scss">
 .app-title {
   line-height: 1.25;
-  color: var(--common-color-text-main);
+  color: var(--common-color-main);
   user-select: none;
 
   &--inverted {
-    color: var(--common-color-text-inverted);
+    color: var(--common-color-inverted);
   }
 
   &--comment {

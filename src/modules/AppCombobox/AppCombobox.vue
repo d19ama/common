@@ -219,7 +219,7 @@ watch(localSearch, (value) => {
 
   &__field {
     width: 100%;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     border: none;
     background-color: transparent;
 
@@ -238,13 +238,13 @@ watch(localSearch, (value) => {
 
     &::placeholder {
       opacity: .5;
-      color: var(--common-color-text-main);
+      color: var(--common-color-main);
     }
   }
 
   &__empty {
     opacity: .4;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 
   &__loading {

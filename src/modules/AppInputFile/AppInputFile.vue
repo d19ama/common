@@ -223,7 +223,7 @@ function onClick(): void {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 
   // SIZES

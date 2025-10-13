@@ -1,0 +1,12 @@
+$vars: (
+  'transition': .3s ease-in-out,
+  'font-family': 'jb',
+  'border-radius': .5rem,
+  'border': none,
+);
+
+:root {
+  @each $var, $value in $vars {
+    --common-#{$var}: #{$value};
+  }
+}

@@ -166,7 +166,7 @@ function validate(): void {
     resize: none;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     background-color: transparent;
 
     &:focus,
@@ -176,7 +176,7 @@ function validate(): void {
 
     &::placeholder {
       opacity: .5;
-      color: var(--common-color-text-main);
+      color: var(--common-color-main-main);
     }
   }
 

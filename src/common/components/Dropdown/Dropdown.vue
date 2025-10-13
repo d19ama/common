@@ -117,7 +117,7 @@ function changeSelected(option: DropdownItem): void {
     gap: .5rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     transition: background-color var(--common-transition);
     cursor: pointer;
 

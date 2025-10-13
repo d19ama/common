@@ -115,7 +115,7 @@ a {
   }
 
   &--theme-transparent {
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
   }
 }
 </style>
