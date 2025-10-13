@@ -139,7 +139,7 @@ function validate(): void {
 
   .dp__theme_light {
     --dp-background-color: var(--common-input-base-wrapper-bg);
-    --dp-text-color: var(--common-color-text-main);
+    --dp-text-color: var(--common-color-main);
     --dp-border-color: var(--common-input-base-wrapper-border-color);
     --dp-menu-border-color: var(--common-input-base-wrapper-border-color);
     --dp-border-color-hover: none;
@@ -148,12 +148,12 @@ function validate(): void {
 
     --dp-border-radius: var(--common-input-base-wrapper-border-radius);
 
-    --dp-primary-color: var(--common-color-text-main);
+    --dp-primary-color: var(--common-color-main);
 
     --dp-font-family: var(--common-font-family), Arial, Helvetica, sans-serif;
 
     ::placeholder {
-      color: rgba(var(--common-color-text-main), .5);
+      color: rgba(var(--common-color-main), .5);
     }
 
     .dp__input_icons {

@@ -72,7 +72,7 @@ function toggleItem(id: AppTabsItem['id']): void {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.4;
-    color: var(--common-color-text-main);
+    color: var(--common-color-main);
     text-decoration: none;
     transition: color .3s, opacity .3s;
     border: var(--app-tabs-label-border);

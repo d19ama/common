@@ -1,0 +1,61 @@
+$colors: (
+  // WHITE
+  'color-white': #ffffff,
+  'color-white-10': rgba(#ffffff, 0.1),
+  'color-white-20': rgba(#ffffff, 0.2),
+  'color-white-30': rgba(#ffffff, 0.3),
+  'color-white-40': rgba(#ffffff, 0.4),
+  'color-white-50': rgba(#ffffff, 0.5),
+  'color-white-60': rgba(#ffffff, 0.6),
+  'color-white-70': rgba(#ffffff, 0.7),
+  'color-white-80': rgba(#ffffff, 0.8),
+  'color-white-90': rgba(#ffffff, 0.9),
+
+  // BLACK
+  'color-black': #212121,
+  'color-black-10': rgba(#212121, 0.1),
+  'color-black-20': rgba(#212121, 0.2),
+  'color-black-30': rgba(#212121, 0.3),
+  'color-black-40': rgba(#212121, 0.4),
+  'color-black-50': rgba(#212121, 0.5),
+  'color-black-60': rgba(#212121, 0.6),
+  'color-black-70': rgba(#212121, 0.7),
+  'color-black-80': rgba(#212121, 0.8),
+  'color-black-90': rgba(#212121, 0.9),
+
+  // TEXT
+  'color-main': #212121,
+  'color-inverted': #ffffff,
+
+  // STATE
+  'color-error': #E73121,
+  'color-success': #89F336,
+  'color-warning': #FFEE8C,
+  'color-required': #FF0038,
+  'color-info': #90D5FF,
+
+  // UI
+  'color-ui-primary': #2d2d2d,
+  'color-ui-secondary': #a3a3a3,
+  'color-ui-tertiary': #f1f1f1,
+
+  // THEME
+  'color-primary-light': #ed174b,
+  'color-primary-medium': #c20f3b,
+  'color-primary-dark': #700922,
+  'color-secondary-light': #6ac5e8,
+  'color-secondary-medium': #4392b1,
+  'color-secondary-dark': #387a94,
+  'color-tertiary-light': #ffe17f,
+  'color-tertiary-medium': #ffd54c,
+  'color-tertiary-dark': #b28800,
+  'color-unaccented-light': #eaeaea,
+  'color-unaccented-medium': #c2c2c2,
+  'color-unaccented-dark': #b6b6b6,
+);
+
+:root {
+  @each $color, $value in $colors {
+    --common-#{$color}: #{$value};
+  }
+}
