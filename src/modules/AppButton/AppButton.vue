@@ -164,10 +164,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   width: 100%;
   gap: 0 6px;
+  font-weight: 400;
+  line-height: 1.5;
   text-align: center;
   text-decoration: none;
+  text-overflow: ellipsis;
   border: 0;
   outline: 0;
   border-radius: var(--app-button-border-radius);
@@ -181,11 +185,9 @@ a {
 
   // SIZES
   &--size-xs {
-    height: 1.375rem;
-    padding: 0.125rem;
+    height: 2rem;
+    padding: 0 .125rem;
     font-size: 0.75rem;
-    font-weight: 400;
-    line-height: 1.5;
 
     #{$parent}__spinner {
       width: 1rem;
@@ -194,11 +196,9 @@ a {
   }
 
   &--size-sm {
-    height: 1.625rem;
-    padding: .25rem .5rem;
+    height: 2.5rem;
+    padding: 0 .5rem;
     font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.5;
 
     #{$parent}__spinner {
       width: 1rem;
@@ -207,27 +207,21 @@ a {
   }
 
   &--size-md {
-    height: 2.5rem;
-    padding: .5rem .75rem;
+    height: 3rem;
+    padding: 0 .75rem;
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
   }
 
   &--size-lg {
-    height: 3.375rem;
-    padding: .75rem 1rem;
+    height: 3.5rem;
+    padding: 0 1rem;
     font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.5;
   }
 
   &--size-xl {
-    height: 4.25rem;
-    padding: 1rem 1.25rem;
+    height: 4rem;
+    padding: 0 1.25rem;
     font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.5;
   }
 
   &:hover {

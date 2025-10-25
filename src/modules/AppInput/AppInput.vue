@@ -326,35 +326,40 @@ watch(
   // SIZES
   &--size-xs {
     #{$parent}__field {
-      padding: .75rem;
+      height: 2rem;
+      padding: 0 .625rem;
       font-size: .625rem;
     }
   }
 
   &--size-sm {
     #{$parent}__field {
-      padding: .875rem;
+      height: 2.5rem;
+      padding: 0 .75rem;
       font-size: .75rem;
     }
   }
 
   &--size-md {
     #{$parent}__field {
-      padding: 1rem;
+      height: 3rem;
+      padding: 0 .875rem;
       font-size: .875rem;
     }
   }
 
   &--size-lg {
     #{$parent}__field {
-      padding: 1.125rem;
+      height: 3.5rem;
+      padding: 0 1rem;
       font-size: 1rem;
     }
   }
 
   &--size-xl {
     #{$parent}__field {
-      padding: 1.25rem;
+      height: 4rem;
+      padding: 0 1.125rem;
       font-size: 1.125rem;
     }
   }

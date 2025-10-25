@@ -192,7 +192,7 @@ function validate(): void {
   // SIZES
   &--size-xs {
     #{$parent}__wrapper {
-      height: 6rem;
+      height: 4rem;
       padding: .75rem 1.25rem .75rem .75rem;
     }
 
@@ -203,7 +203,7 @@ function validate(): void {
 
   &--size-sm {
     #{$parent}__wrapper {
-      height: 7rem;
+      height: 5rem;
       padding: .875rem 1.375rem .875rem .875rem;
     }
 
@@ -214,7 +214,7 @@ function validate(): void {
 
   &--size-md {
     #{$parent}__wrapper {
-      height: 8rem;
+      height: 6rem;
       padding: 1rem 1.5rem 1rem 1rem;
     }
 
@@ -225,7 +225,7 @@ function validate(): void {
 
   &--size-lg {
     #{$parent}__wrapper {
-      height: 9rem;
+      height: 7rem;
       padding: 1.125rem 1.625rem 1.125rem 1.125rem;
     }
 
@@ -236,7 +236,7 @@ function validate(): void {
 
   &--size-xl {
     #{$parent}__wrapper {
-      height: 10rem;
+      height: 8rem;
       padding: 1.25rem 1.75rem 1.25rem 1.25rem;
     }
 
