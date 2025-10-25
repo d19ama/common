@@ -155,6 +155,10 @@ watch(opened, (value) => {
 .select-base {
   $parent: &;
 
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -209,7 +213,8 @@ watch(opened, (value) => {
 
   // SIZES
   &--size-xs {
-    padding: .75rem 1.75rem .75rem .75rem;
+    height: 2rem;
+    padding: 0 1.75rem 0 0.75rem;
 
     #{$parent}__selected,
     #{$parent}__placeholder {
@@ -218,7 +223,8 @@ watch(opened, (value) => {
   }
 
   &--size-sm {
-    padding: .875rem 1.875rem .875rem .875rem;
+    height: 2.5rem;
+    padding: 0 1.875rem 0 .875rem;
 
     #{$parent}__selected,
     #{$parent}__placeholder {
@@ -227,7 +233,8 @@ watch(opened, (value) => {
   }
 
   &--size-md {
-    padding: 1rem 2rem 1rem 1rem;
+    height: 3rem;
+    padding: 0 2rem 0 1rem;
 
     #{$parent}__selected,
     #{$parent}__placeholder {
@@ -236,7 +243,8 @@ watch(opened, (value) => {
   }
 
   &--size-lg {
-    padding: 1.125rem 2.125rem 1.125rem 1.125rem;
+    height: 3.5rem;
+    padding: 0 2.125rem 0 1.125rem;
 
     #{$parent}__selected,
     #{$parent}__placeholder {
@@ -245,7 +253,8 @@ watch(opened, (value) => {
   }
 
   &--size-xl {
-    padding: 1.25rem 2.25rem 1.25rem 1.25rem;
+    height: 4rem;
+    padding: 0 2.25rem 0 1.25rem;
 
     #{$parent}__selected,
     #{$parent}__placeholder {

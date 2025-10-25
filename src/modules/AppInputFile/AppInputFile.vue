@@ -204,8 +204,11 @@ function onClick(): void {
 
   &__button,
   &__placeholder {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
     font-weight: 400;
-    line-height: 1.5;
     white-space: nowrap;
     cursor: pointer;
   }
@@ -232,8 +235,10 @@ function onClick(): void {
 
     #{$parent}__button,
     #{$parent}__placeholder {
-      padding: .75rem;
+      height: 2rem;
+      padding: 0 .75rem;
       font-size: .625rem;
+      line-height: 2rem;
     }
   }
 
@@ -242,32 +247,40 @@ function onClick(): void {
 
     #{$parent}__button,
     #{$parent}__placeholder {
-      padding: .875rem;
+      height: 2.5rem;
+      padding: 0 .875rem;
       font-size: .75rem;
+      line-height: 2.5rem;
     }
   }
 
   &--size-md {
     #{$parent}__button,
     #{$parent}__placeholder {
-      padding: 1rem;
+      height: 3rem;
+      padding: 0 1rem;
       font-size: .875rem;
+      line-height: 3rem;
     }
   }
 
   &--size-lg {
     #{$parent}__button,
     #{$parent}__placeholder {
-      padding: 1.125rem;
+      height: 3.5rem;
+      padding: 0 1.125rem;
       font-size: 1rem;
+      line-height: 3.5rem;
     }
   }
 
   &--size-xl {
     #{$parent}__button,
     #{$parent}__placeholder {
-      padding: 1.25rem;
+      height: 4rem;
+      padding: 0 1.25rem;
       font-size: 1.125rem;
+      line-height: 4rem;
     }
   }
 }

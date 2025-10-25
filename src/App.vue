@@ -195,6 +195,13 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
 
 <template>
   <div class="container">
+    <AppTitle
+      class="margin-bottom--s"
+      inverted
+    >
+      STYLEGUIDE
+    </AppTitle>
+
     <!--    AppAccordion    -->
     <div class="container__block margin-bottom--s">
       <div class="row">

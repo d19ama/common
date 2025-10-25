@@ -163,52 +163,72 @@ function validate(): void {
 
   // SIZES
   &--size-xs {
-    .dp__theme_light {
+    .dp__main {
       --dp-font-size: .625rem;
       --dp-preview-font-size: .625rem;
       --dp-time-font-size: .625rem;
-      --dp-input-padding: .75rem;
+      --dp-input-padding: 0 .75rem;
       --dp-input-icon-padding: 2.25rem;
+    }
+
+    .dp__input {
+      height: 2rem;
     }
   }
 
   &--size-sm {
-    .dp__theme_light {
+    .dp__main {
       --dp-font-size: .75rem;
       --dp-preview-font-size: .75rem;
       --dp-time-font-size: .75rem;
-      --dp-input-padding: .875rem;
+      --dp-input-padding: 0 .875rem;
       --dp-input-icon-padding: 2.375rem;
+    }
+
+    .dp__input {
+      height: 2.5rem;
     }
   }
 
   &--size-md {
-    .dp__theme_light {
+    .dp__main {
       --dp-font-size: .875rem;
       --dp-preview-font-size: .875rem;
       --dp-time-font-size: .875rem;
-      --dp-input-padding: 1rem;
+      --dp-input-padding: 0 1rem;
       --dp-input-icon-padding: 2.5rem;
+    }
+
+    .dp__input {
+      height: 3rem;
     }
   }
 
   &--size-lg {
-    .dp__theme_light {
+    .dp__main {
       --dp-font-size: 1rem;
       --dp-preview-font-size: 1rem;
       --dp-time-font-size: 1rem;
-      --dp-input-padding: 1.125rem;
+      --dp-input-padding: 0 1.125rem;
       --dp-input-icon-padding: 2.625rem;
+    }
+
+    .dp__input {
+      height: 3.5rem;
     }
   }
 
   &--size-xl {
-    .dp__theme_light {
+    .dp__main {
       --dp-font-size: 1.125rem;
       --dp-preview-font-size: 1.125rem;
       --dp-time-font-size: 1.125rem;
-      --dp-input-padding: 1.25rem;
+      --dp-input-padding: 0 1.25rem;
       --dp-input-icon-padding: 2.75rem;
+    }
+
+    .dp__input {
+      height: 4rem;
     }
   }
 }
