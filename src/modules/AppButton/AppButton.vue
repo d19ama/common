@@ -187,7 +187,7 @@ a {
   &--size-xs {
     height: 2rem;
     padding: 0 .125rem;
-    font-size: 0.75rem;
+    font-size: .625rem;
 
     #{$parent}__spinner {
       width: 1rem;
@@ -209,19 +209,19 @@ a {
   &--size-md {
     height: 3rem;
     padding: 0 .75rem;
-    font-size: 1rem;
+    font-size: .875rem;
   }
 
   &--size-lg {
     height: 3.5rem;
     padding: 0 1rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   &--size-xl {
     height: 4rem;
     padding: 0 1.25rem;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
   }
 
   &:hover {
