@@ -130,12 +130,17 @@ watch(
       <div class="app-modal__container">
         <div class="app-modal__control">
           <slot name="control" />
-          <AppButton
-            class="app-modal__button-close icon icon-cross"
-            auto-width
-            theme="transparent"
-            @click="close"
-          />
+          <slot
+            name="close"
+            :close="close"
+          >
+            <AppButton
+              class="app-modal__button-close icon icon-cross"
+              auto-width
+              theme="transparent"
+              @click="close"
+            />
+          </slot>
         </div>
         <div
           v-if="hasHeader"
