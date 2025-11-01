@@ -1881,8 +1881,22 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 text="Open modal!"
                 @click="modal = !modal"
               />
-              <AppModal v-model:visible="modal">
-                Modal content!
+              <AppModal
+                v-model:visible="modal"
+                size="full-page"
+                title="Modal title"
+              >
+                <template #control>
+                  Modal control
+                </template>
+
+                <template #default>
+                  Modal content
+                </template>
+
+                <template #footer>
+                  Modal footer
+                </template>
               </AppModal>
             </div>
           </div>

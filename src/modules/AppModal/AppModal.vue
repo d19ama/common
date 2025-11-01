@@ -5,13 +5,15 @@ import {
   watch,
 } from 'vue';
 import { useMagicKeys } from '@vueuse/core';
-import { AppButton } from '../';
+import {
+  AppButton,
+  AppTitle,
+} from '../';
 import { useModalStore } from './composables';
 import type {
   AppModalProps,
   AppModalSlots,
 } from './types';
-import { AppModalTitle } from './components';
 import type { HTMLElementClass } from '@/types';
 import { useComponentId } from '@/common/composables';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
@@ -56,17 +58,11 @@ const hasHeader = computed<boolean>(() => {
   return !!slots.header! || props.title;
 });
 
-const modalClass = computed<HTMLElementClass>(() => {
+const elementClass = computed<HTMLElementClass>(() => {
   return [
     `app-modal--size-${props.size}`,
-  ];
-});
-
-const containerClass = computed<HTMLElementClass>(() => {
-  return [
     {
-      'app-modal__container--full-page': props.size === 'full-page',
-      'app-modal__container--rounded': props.rounded,
+      'app-modal--rounded': props.rounded && props.size !== 'full-page',
     },
   ];
 });
@@ -125,32 +121,38 @@ watch(
     <div
       v-if="visible"
       class="app-modal"
-      :class="modalClass"
+      :class="elementClass"
       role="dialog"
       :aria-labelledby="props.title ?? titleId"
       aria-modal="true"
       v-bind="$attrs"
     >
-      <div
-        class="app-modal__container"
-        :class="containerClass"
-        data-testid="dialog-container"
-      >
-        <AppButton
-          class="app-modal__button-close icon icon-cross"
-          auto-width
-          theme="transparent"
-          @click="close"
-        />
-
+      <div class="app-modal__container">
+        <div class="app-modal__control">
+          <slot name="control" />
+          <slot
+            name="close"
+            :close="close"
+          >
+            <AppButton
+              class="app-modal__button-close icon icon-cross"
+              auto-width
+              theme="transparent"
+              @click="close"
+            />
+          </slot>
+        </div>
         <div
           v-if="hasHeader"
-          class="app-modal__header app-modal__shrink"
+          class="app-modal__header"
         >
           <slot name="header">
-            <AppModalTitle>
+            <AppTitle
+              tag="h4"
+              role="heading"
+            >
               {{ title }}
-            </AppModalTitle>
+            </AppTitle>
           </slot>
         </div>
 
@@ -163,7 +165,7 @@ watch(
 
         <div
           v-if="$slots.footer"
-          class="app-modal__footer app-modal__shrink"
+          class="app-modal__footer"
         >
           <slot
             name="footer"
@@ -177,51 +179,25 @@ watch(
 
 <style lang="scss">
 .app-modal {
-  --modal-width: inherit;
-  --modal-x-padding: inherit;
-  --modal-height: auto;
-  --modal-content-padding: 2rem;
+  $parent: &;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-left: var(--modal-x-padding);
-  padding-right: var(--modal-x-padding);
+  padding-left: .25rem;
+  padding-right: .25rem;
   z-index: 999;
   pointer-events: none;
 
-  // SIZES
-  &--size-sm {
-    --modal-width: 532px;
-    --modal-x-padding: 20px;
-  }
-
-  &--size-md {
-    --modal-width: 718px;
-    --modal-x-padding: 20px;
-  }
-
-  &--size-lg {
-    --modal-width: 994px;
-    --modal-x-padding: 20px;
-  }
-
-  &--full-width {
-    --modal-width: 100%;
-    --modal-x-padding: 0;
-  }
-
-  &--full-page {
-    --modal-width: 100%;
-    --modal-height: 100%;
-    --modal-x-padding: 0;
-    display: block;
+  @media only screen and (min-width: $common-breakpoint-sm) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   &__overlay {
@@ -237,54 +213,152 @@ watch(
     backdrop-filter: blur(2px);
   }
 
+  &__control {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-right: .5rem;
+    padding-left: 2rem;
+  }
+
+  &__button-close {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
-    width: var(--modal-width);
-    height: var(--modal-height);
-    max-width: 100%;
-    max-height: 96vh;
-    padding-bottom: var(--modal-content-padding);
-    padding-top: var(--modal-content-padding);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: inherit;
+    height: auto;
+    padding-bottom: 2rem;
     position: relative;
     overflow: hidden;
     background-color: var(--common-color-white);
     pointer-events: auto;
-
-    &--full-page {
-      max-height: 100vh;
-    }
-
-    &--rounded {
-      border-radius: var(--common-border-radius);
-    }
-  }
-
-  &__button-close {
-    z-index: 1;
-    position: absolute;
-    right: 12px;
-    top: 12px;
   }
 
   &__header {
-    padding-right: var(--modal-content-padding);
-    padding-left: var(--modal-content-padding);
+    display: flex;
+    flex-flow: row nowrap;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   &__body {
     flex-grow: 1;
-    padding: var(--modal-content-padding);
+    padding: 2rem;
     white-space: pre-line;
   }
 
   &__footer {
-    padding-right: var(--modal-content-padding);
-    padding-left: var(--modal-content-padding);
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
-  &__shrink {
-    flex-shrink: 1;
+  // SIZES
+  &--size-xs {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    #{$parent}__control {
+      padding-left: 1rem;
+    }
+
+    #{$parent}__header,
+    #{$parent}__footer {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    #{$parent}__body {
+      padding: 1rem;
+    }
+
+    #{$parent}__container {
+      width: 22rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &--size-sm {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    #{$parent}__container {
+      width: 33.25rem;
+    }
+  }
+
+  &--size-md {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    #{$parent}__container {
+      width: 44.875rem;
+    }
+  }
+
+  &--size-lg {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    #{$parent}__container {
+      width: 62.125rem;
+    }
+  }
+
+  &--size-xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    #{$parent}__container {
+      width: 100%;
+    }
+  }
+
+  &--size-full-width {
+    padding-left: 0;
+    padding-right: 0;
+
+    #{$parent}__container {
+      max-width: 100vw;
+      width: 100vw;
+    }
+  }
+
+  &--size-full-page {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 0;
+    padding-right: 0;
+
+    #{$parent}__container {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+
+  @media only screen and (max-width: $common-breakpoint-md) {
+    &--size-xs,
+    &--size-sm,
+    &--size-md,
+    &--size-lg,
+    &--size-xl {}
+  }
+
+  // STYLES
+  &--rounded {
+
+    #{$parent}__container {
+      border-radius: var(--common-border-radius);
+    }
   }
 }
 </style>

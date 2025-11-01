@@ -11,6 +11,10 @@ export interface AppModalProps {
 }
 
 export interface AppModalSlots {
+  control?: () => VNode[];
+  close?: (props: {
+    close: () => void;
+  }) => VNode[];
   header?: () => VNode[];
   default?: () => VNode[];
   footer?: (props: {
