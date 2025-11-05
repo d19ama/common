@@ -8,7 +8,7 @@ import type { GlobalPropTextStyle } from '@/types/global-props';
 
 export type AppButtonSize = GlobalPropSize;
 
-export type AppButtonTheme = GlobalPropTheme;
+export type AppButtonTheme = GlobalPropTheme | 'icon';
 
 export type AppButtonBlank = '_blank' | '_self';
 

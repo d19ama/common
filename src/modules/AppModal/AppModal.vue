@@ -137,7 +137,8 @@ watch(
             <AppButton
               class="app-modal__button-close icon icon-cross"
               auto-width
-              theme="transparent"
+              size="sm"
+              theme="icon"
               @click="close"
             />
           </slot>
@@ -213,14 +214,21 @@ watch(
     backdrop-filter: blur(2px);
   }
 
+  &__control,
+  &__header,
+  &__footer {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
   &__control {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
-    padding-right: .5rem;
-    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -248,8 +256,6 @@ watch(
   &__header {
     display: flex;
     flex-flow: row nowrap;
-    padding-right: 2rem;
-    padding-left: 2rem;
     padding-bottom: 2rem;
   }
 
@@ -263,8 +269,6 @@ watch(
 
   &__footer {
     padding-top: 2rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
   }
 
   // SIZES
@@ -272,10 +276,7 @@ watch(
     padding-left: 1rem;
     padding-right: 1rem;
 
-    #{$parent}__control {
-      padding-left: 1rem;
-    }
-
+    #{$parent}__control,
     #{$parent}__header,
     #{$parent}__footer {
       padding-left: 1rem;
@@ -360,10 +361,7 @@ watch(
   &--size-full-width,
   &--size-full-page {
     @media only screen and (max-width: $common-breakpoint-sm) {
-      #{$parent}__control {
-        padding-left: 1rem;
-      }
-
+      #{$parent}__control,
       #{$parent}__header,
       #{$parent}__footer {
         padding-left: 1rem;
