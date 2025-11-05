@@ -221,6 +221,9 @@ watch(
     gap: 1rem;
     padding-right: .5rem;
     padding-left: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   &__button-close {
@@ -247,15 +250,19 @@ watch(
     flex-flow: row nowrap;
     padding-right: 2rem;
     padding-left: 2rem;
+    padding-bottom: 2rem;
   }
 
   &__body {
     flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
     padding: 2rem;
     white-space: pre-line;
   }
 
   &__footer {
+    padding-top: 2rem;
     padding-right: 2rem;
     padding-left: 2rem;
   }
@@ -345,12 +352,40 @@ watch(
     }
   }
 
-  @media only screen and (max-width: $common-breakpoint-md) {
-    &--size-xs,
-    &--size-sm,
-    &--size-md,
-    &--size-lg,
-    &--size-xl {}
+  &--size-xs,
+  &--size-sm,
+  &--size-md,
+  &--size-lg,
+  &--size-xl,
+  &--size-full-width,
+  &--size-full-page {
+    @media only screen and (max-width: $common-breakpoint-sm) {
+      #{$parent}__control {
+        padding-left: 1rem;
+      }
+
+      #{$parent}__header,
+      #{$parent}__footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      #{$parent}__header {
+        padding-bottom: 1rem;
+      }
+
+      #{$parent}__footer {
+        padding-top: 1rem;
+      }
+
+      #{$parent}__body {
+        padding: 1rem;
+      }
+
+      #{$parent}__container {
+        padding-bottom: 1rem;
+      }
+    }
   }
 
   // STYLES
