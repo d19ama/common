@@ -258,6 +258,12 @@ a {
     background-color: transparent;
   }
 
+  &--theme-icon {
+    padding: 0;
+    color: var(--common-color-unaccented-medium);
+    background-color: transparent;
+  }
+
   // TEXT STYLES
   &--text-style-text {
     color: var(--common-color-main);
