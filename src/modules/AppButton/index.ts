@@ -6,4 +6,9 @@ export type {
   AppButtonProps,
   AppButtonTheme,
   AppButtonSlots,
+  AppButtonTag,
+  AppButtonBlank,
+  AppButtonSize,
+  AppButtonTextStyle,
+  AppButtonEmits,
 } from './types';

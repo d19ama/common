@@ -4,4 +4,6 @@ export type {
   AppTableRow,
   AppTableHeader,
   AppTableProps,
+  AppTableHeaderWidth,
+  AppTableSlots,
 } from './types';

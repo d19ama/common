@@ -5,4 +5,5 @@ export type {
   AppRadioSlots,
   AppRadioEmits,
   AppRadioOption,
+  AppRadioTheme,
 } from './types';
