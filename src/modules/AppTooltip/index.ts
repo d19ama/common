@@ -4,4 +4,5 @@ export type {
   AppTooltipProps,
   AppTooltipTippyProps,
   AppTooltipSlots,
+  AppTooltipActions,
 } from './types';

@@ -14,7 +14,6 @@ export interface AppComboboxProps
   SelectBaseProps {
   name?: string;
   loading?: boolean;
-  maxLength?: string;
   searchError?: boolean;
 }
 

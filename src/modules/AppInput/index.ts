@@ -4,4 +4,6 @@ export type {
   AppInputProps,
   AppInputEmits,
   AppInputSlots,
+  AppInputMaskValues,
+  AppInputMaskParams,
 } from './types';
