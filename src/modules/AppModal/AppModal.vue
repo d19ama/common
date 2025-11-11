@@ -263,7 +263,7 @@ watch(
     flex-grow: 1;
     overflow: hidden;
     overflow-y: auto;
-    padding: 2rem;
+    padding: 0 2rem 2rem;
     white-space: pre-line;
   }
 
@@ -284,7 +284,7 @@ watch(
     }
 
     #{$parent}__body {
-      padding: 1rem;
+      padding: 0 1rem 1rem;
     }
 
     #{$parent}__container {
@@ -377,7 +377,7 @@ watch(
       }
 
       #{$parent}__body {
-        padding: 1rem;
+        padding: 0 1rem 1rem;
       }
 
       #{$parent}__container {
