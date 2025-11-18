@@ -2,6 +2,8 @@ export type GlobalPropSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type GlobalPropTextStyle = 'theme' | 'text' | 'inverted';
 
+export type GlobalPropThemeStyle = 'fill' | 'outline';
+
 export type GlobalThemeForm = 'form';
 export type GlobalThemePrimary = 'primary';
 export type GlobalThemeSecondary = 'secondary';

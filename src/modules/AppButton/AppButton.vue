@@ -12,6 +12,7 @@ import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import {
   GLOBAL_PROP_TEXT_STYLE_DEFAULT,
   GLOBAL_PROP_THEME_DEFAULT,
+  GLOBAL_PROP_THEME_STYLE_DEFAULT,
 } from '@/constants/global-props';
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
   theme: GLOBAL_PROP_THEME_DEFAULT,
   textStyle: GLOBAL_PROP_TEXT_STYLE_DEFAULT,
+  themeStyle: GLOBAL_PROP_THEME_STYLE_DEFAULT,
 });
 
 const emit = defineEmits<AppButtonEmits>();
@@ -38,6 +40,7 @@ const elementClass = computed<HTMLElementClass>(() => {
     `app-button--size-${props.size}`,
     `app-button--theme-${props.theme}`,
     `app-button--text-style-${props.textStyle}`,
+    `app-button--theme-style-${props.themeStyle}`,
     {
       'app-button--flat': props.flat,
       'app-button--loading': props.loading,
@@ -231,25 +234,61 @@ a {
   // THEMES
   &--theme-primary {
     color: var(--common-color-primary-dark);
-    background-color: var(--common-color-primary-light);
+
+    &#{$parent}--theme-style-fill {
+      background-color: var(--common-color-primary-light);
+    }
+
+    &#{$parent}--theme-style-outline {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 .125rem var(--common-color-primary-light);
+    }
   }
 
   &--theme-secondary {
     color: var(--common-color-secondary-dark);
-    background-color: var(--common-color-secondary-light);
+
+    &#{$parent}--theme-style-fill {
+      background-color: var(--common-color-secondary-light);
+    }
+
+    &#{$parent}--theme-style-outline {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 .125rem var(--common-color-secondary-light);
+    }
   }
 
   &--theme-tertiary {
     color: var(--common-color-tertiary-dark);
-    background-color: var(--common-color-tertiary-light);
+
+    &#{$parent}--theme-style-fill {
+      background-color: var(--common-color-tertiary-light);
+    }
+
+    &#{$parent}--theme-style-outline {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 .125rem var(--common-color-tertiary-light);
+    }
   }
 
   &--theme-unaccented {
     color: var(--common-color-main);
-    background-color: var(--common-color-unaccented-medium);
 
-    &:hover {
-      background-color: var(--common-color-unaccented-dark);
+    &#{$parent}--theme-style-fill {
+      background-color: var(--common-color-unaccented-medium);
+
+      &:hover {
+        background-color: var(--common-color-unaccented-dark);
+      }
+    }
+
+    &#{$parent}--theme-style-outline {
+      background-color: transparent;
+      box-shadow: inset 0 0 0 .125rem var(--common-color-unaccented-medium);
+
+      &:hover {
+        box-shadow: inset 0 0 0 .125rem var(--common-color-unaccented-dark);
+      }
     }
   }
 
