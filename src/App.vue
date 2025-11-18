@@ -615,6 +615,86 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </div>
           <AppTitle
             tag="h5"
+            text="Theme styles"
+            class="margin-bottom--s"
+          />
+          <p class="margin-bottom--xs">
+            FILL
+          </p>
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="primary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="secondary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="tertiary"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="unaccented"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="transparent"
+              />
+            </div>
+          </div>
+          <p class="margin-bottom--xs">
+            OUTLINE
+          </p>
+          <div class="row margin-bottom--s">
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="primary"
+                theme-style="outline"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="secondary"
+                theme-style="outline"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="tertiary"
+                theme-style="outline"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="unaccented"
+                theme-style="outline"
+              />
+            </div>
+            <div class="col-default-2">
+              <AppButton
+                text="Button"
+                theme="transparent"
+                theme-style="outline"
+              />
+            </div>
+          </div>
+          <AppTitle
+            tag="h5"
             text="Slots"
             class="margin-bottom--s"
           />

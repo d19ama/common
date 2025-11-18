@@ -10,6 +10,8 @@ export type AppButtonSize = GlobalPropSize;
 
 export type AppButtonTheme = GlobalPropTheme | 'icon';
 
+export type AppButtonThemeStyle = 'fill' | 'outline';
+
 export type AppButtonBlank = '_blank' | '_self';
 
 export type AppButtonTag = 'button' | 'RouterLink' | 'a';
@@ -31,6 +33,7 @@ export interface AppButtonProps {
   theme?: AppButtonTheme;
   target?: AppButtonBlank;
   textStyle?: AppButtonTextStyle;
+  themeStyle?: AppButtonThemeStyle;
   type?: HTMLButtonElement['type'];
 }
 
