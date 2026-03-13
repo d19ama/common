@@ -26,9 +26,9 @@ import {
   type AppTabsItem,
   AppTextarea,
   AppTitle,
-  type AppTitleTags,
   CommonAccordion,
   CommonAccordionItem,
+  type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
 
@@ -39,7 +39,7 @@ interface TableData {
   three: string;
 }
 
-const tags = ref<AppTitleTags[]>([
+const tags = ref<CommonTitleTags[]>([
   'h1',
   'h2',
   'h3',
@@ -331,7 +331,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTitle    -->
+    <!--    CommonTitle    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">

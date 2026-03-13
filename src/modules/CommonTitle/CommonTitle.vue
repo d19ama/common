@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import type {
-  AppTitleProps,
-  AppTitleSlots,
+  CommonTitleProps,
+  CommonTitleSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppTitleProps>(), {
+const props = withDefaults(defineProps<CommonTitleProps>(), {
   text: '',
   tag: 'h1',
   weight: 'bold',
@@ -16,17 +16,17 @@ const props = withDefaults(defineProps<AppTitleProps>(), {
   uppercase: false,
 });
 
-defineSlots<AppTitleSlots>();
+defineSlots<CommonTitleSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-title--${props.tag}`,
-    `app-title--${props.weight}`,
+    `common-title--${props.tag}`,
+    `common-title--${props.weight}`,
     {
-      'app-title--comment': props.comment,
-      'app-title--inverted': props.inverted,
-      'app-title--bordered': props.bordered,
-      'app-title--uppercase': props.uppercase,
+      'common-title--comment': props.comment,
+      'common-title--inverted': props.inverted,
+      'common-title--bordered': props.bordered,
+      'common-title--uppercase': props.uppercase,
     },
   ];
 });
@@ -35,7 +35,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 <template>
   <component
     :is="props.tag"
-    class="app-title"
+    class="common-title"
     :class="elementClass"
   >
     <slot>
@@ -45,7 +45,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 </template>
 
 <style lang="scss">
-.app-title {
+.common-title {
   line-height: 1.25;
   color: var(--common-color-main);
   user-select: none;

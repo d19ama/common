@@ -3,7 +3,7 @@ export * from './AppTabs';
 export * from './AppList';
 export * from './AppRadio';
 export * from './AppInput';
-export * from './AppTitle';
+export * from './CommonTitle';
 export * from './AppTable';
 export * from './AppImage';
 export * from './AppModal';
