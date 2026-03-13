@@ -6,16 +6,16 @@ import {
   ref,
 } from 'vue';
 import type {
-  AppTextareaEmits,
-  AppTextareaProps,
-  AppTextareaSlots,
+  CommonTextareaEmits,
+  CommonTextareaProps,
+  CommonTextareaSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { InputBase } from '@/common/components/InputBase';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppTextareaProps>(), {
+const props = withDefaults(defineProps<CommonTextareaProps>(), {
   hint: '',
   label: '',
   resize: false,
@@ -28,9 +28,9 @@ const props = withDefaults(defineProps<AppTextareaProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<AppTextareaEmits>();
+const emit = defineEmits<CommonTextareaEmits>();
 
-defineSlots<AppTextareaSlots>();
+defineSlots<CommonTextareaSlots>();
 
 const value = defineModel<string>('value', {
   required: true,
@@ -43,9 +43,9 @@ const focus = ref<boolean>(false);
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-textarea--size-${props.size}`,
+    `common-textarea--size-${props.size}`,
     {
-      'app-textarea--resizable': props.resize,
+      'common-textarea--resizable': props.resize,
     },
   ];
 });
@@ -89,7 +89,7 @@ function validate(): void {
 
 <template>
   <InputBase
-    class="app-textarea"
+    class="common-textarea"
     :class="elementClass"
     :size="props.size"
     :hint="props.hint"
@@ -108,14 +108,14 @@ function validate(): void {
     </template>
 
     <template #default>
-      <div class="app-textarea__wrapper">
+      <div class="common-textarea__wrapper">
         <textarea
           v-model="value"
           cols="30"
           rows="10"
           :name="name"
           :maxLength="props.maxLength"
-          class="app-textarea__field"
+          class="common-textarea__field"
           :disabled="props.disabled"
           :placeholder="props.placeholder"
           @blur="onBlur"
@@ -126,7 +126,7 @@ function validate(): void {
       </div>
       <span
         v-if="hasCounter"
-        class="app-textarea__counter"
+        class="common-textarea__counter"
       >
         {{ counter }}
       </span>
@@ -149,7 +149,7 @@ function validate(): void {
 </template>
 
 <style lang="scss">
-.app-textarea {
+.common-textarea {
   $parent: &;
 
   &__wrapper {

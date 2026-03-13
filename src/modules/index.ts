@@ -13,7 +13,7 @@ export * from './CommonTooltip';
 export * from './CommonSpinner';
 export * from './CommonDivider';
 export * from './CommonCombobox';
-export * from './AppTextarea';
+export * from './CommonTextarea';
 export * from './CommonCheckbox';
 export * from './CommonInputFile';
 export * from './CommonAccordion';

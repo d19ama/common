@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppTextarea,
   AppTitle,
   CommonAccordion,
   CommonAccordionItem,
@@ -28,6 +27,7 @@ import {
   type CommonTableRow,
   CommonTabs,
   type CommonTabsItem,
+  CommonTextarea,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -1370,7 +1370,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTextarea    -->
+    <!--    CommonTextarea    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1389,7 +1389,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1401,7 +1401,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1413,7 +1413,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1425,7 +1425,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1437,7 +1437,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1456,7 +1456,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1467,7 +1467,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1479,7 +1479,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
