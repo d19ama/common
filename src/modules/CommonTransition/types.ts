@@ -1,9 +1,9 @@
 import type { VNode } from 'vue';
 
-export interface AppTransitionProps {
+export interface CommonTransitionProps {
   name?: 'fade';
 }
 
-export interface AppTransitionSlots {
+export interface CommonTransitionSlots {
   default?: () => VNode[];
 }

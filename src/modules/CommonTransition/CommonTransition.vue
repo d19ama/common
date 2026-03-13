@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type {
-  AppTransitionProps,
-  AppTransitionSlots,
+  CommonTransitionProps,
+  CommonTransitionSlots,
 } from './types';
 
-const props = withDefaults(defineProps<AppTransitionProps>(), {
+const props = withDefaults(defineProps<CommonTransitionProps>(), {
   name: 'fade',
 });
 
-defineSlots<AppTransitionSlots>();
+defineSlots<CommonTransitionSlots>();
 </script>
 
 <template>

@@ -17,5 +17,5 @@ export * from './AppTextarea';
 export * from './AppCheckbox';
 export * from './AppInputFile';
 export * from './CommonAccordion';
-export * from './AppTransition';
+export * from './CommonTransition';
 export * from './AppDatePicker';
