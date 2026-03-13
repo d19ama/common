@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import {
-  AppSpinner,
-  type AppSpinnerProps,
+  CommonSpinner,
+  type CommonSpinnerProps,
 } from '../../';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppSpinnerProps>(), {
+const props = withDefaults(defineProps<CommonSpinnerProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 </script>
 
 <template>
-  <div class="app-spinner-overlay">
-    <AppSpinner
+  <div class="common-spinner-overlay">
+    <CommonSpinner
       :size="props.size"
     />
   </div>
 </template>
 
 <style lang="scss">
-.app-spinner-overlay {
+.common-spinner-overlay {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -10,7 +10,7 @@ export * from './AppModal';
 export * from './AppSelect';
 export * from './CommonButton';
 export * from './CommonTooltip';
-export * from './AppSpinner';
+export * from './CommonSpinner';
 export * from './AppDivider';
 export * from './AppCombobox';
 export * from './AppTextarea';

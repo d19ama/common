@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import type { HTMLElementClass } from '../../types';
-import type { AppSpinnerProps } from './types';
+import type { CommonSpinnerProps } from './types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppSpinnerProps>(), {
+const props = withDefaults(defineProps<CommonSpinnerProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-spinner--size-${props.size}`,
+    `common-spinner--size-${props.size}`,
   ];
 });
 </script>
 
 <template>
   <div
-    class="app-spinner"
+    class="common-spinner"
     :class="elementClass"
   >
     <svg
@@ -43,13 +43,13 @@ const elementClass = computed<HTMLElementClass>(() => {
 </template>
 
 <style lang="scss">
-.app-spinner {
+.common-spinner {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
   height: auto;
-  color: var(--app-spinner-color);
+  color: var(--common-spinner-color);
 
   // SIZES
   &--size-xs {

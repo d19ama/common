@@ -17,7 +17,6 @@ import {
   type AppRadioOption,
   AppSelect,
   type AppSelectOption,
-  AppSpinner,
   AppTable,
   type AppTableHeader,
   type AppTableRow,
@@ -28,6 +27,7 @@ import {
   CommonAccordion,
   CommonAccordionItem,
   CommonButton,
+  CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -1810,7 +1810,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppSpinner    -->
+    <!--    CommonSpinner    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1829,7 +1829,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="xs"
               />
@@ -1838,7 +1838,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="sm"
               />
@@ -1847,7 +1847,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="md"
               />
@@ -1856,7 +1856,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="lg"
               />
@@ -1865,7 +1865,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="xl"
               />

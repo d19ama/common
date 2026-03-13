@@ -16,7 +16,7 @@ import type {
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { SelectBase } from '@/common/components/SelectBase';
-import { AppSpinner } from '@/modules';
+import { CommonSpinner } from '@/modules';
 import {
   COMMON_DEFAULT_DELAY,
   COMMON_DEFAULT_SEARCH_LENGTH,
@@ -153,7 +153,7 @@ watch(localSearch, (value) => {
         </template>
 
         <template #append-dropdown>
-          <AppSpinner
+          <CommonSpinner
             v-if="props.loading && !options.length"
             :active="props.loading"
             class="app-combobox__loading"

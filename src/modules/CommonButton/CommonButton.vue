@@ -6,7 +6,7 @@ import type {
   CommonButtonSlots,
   CommonButtonTag,
 } from './types';
-import { AppSpinner } from '@/modules';
+import { CommonSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import {
@@ -102,7 +102,7 @@ function onClick(event: Event): void {
     :class="elementClass"
     @click="onClick"
   >
-    <AppSpinner
+    <CommonSpinner
       v-if="props.loading"
       class="common-button__spinner"
       size="xs"

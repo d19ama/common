@@ -1,5 +1,5 @@
 export interface Styles {
-  'app-spinner-color': string;
+  'common-spinner-color': string;
 }
 
 export type ClassNames = keyof Styles;
