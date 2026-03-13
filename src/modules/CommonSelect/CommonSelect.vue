@@ -4,15 +4,15 @@ import {
   watch,
 } from 'vue';
 import type {
-  AppSelectOption,
-  AppSelectProps,
-  AppSelectSlots,
+  CommonSelectOption,
+  CommonSelectProps,
+  CommonSelectSlots,
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { SelectBase } from '@/common/components/SelectBase';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppSelectProps>(), {
+const props = withDefaults(defineProps<CommonSelectProps>(), {
   hint: '',
   label: '',
   errorText: '',
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<AppSelectProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-defineSlots<AppSelectSlots>();
+defineSlots<CommonSelectSlots>();
 
 const value = defineModel<string>('value', {
   required: false,
@@ -32,7 +32,7 @@ const value = defineModel<string>('value', {
 });
 
 const opened = ref<boolean>(false);
-const localOptions = ref<AppSelectOption[]>(props.options);
+const localOptions = ref<CommonSelectOption[]>(props.options);
 
 function toggleDropdown(): void {
   opened.value = !opened.value;
@@ -45,7 +45,7 @@ watch(() => props.options, (value) => {
 
 <template>
   <InputBase
-    class="app-select"
+    class="common-select"
     :hint="props.hint"
     :size="props.size"
     :label="props.label"

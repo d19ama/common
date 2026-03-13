@@ -7,7 +7,7 @@ export * from './CommonTitle';
 export * from './AppTable';
 export * from './CommonImage';
 export * from './CommonModal';
-export * from './AppSelect';
+export * from './CommonSelect';
 export * from './CommonButton';
 export * from './CommonTooltip';
 export * from './CommonSpinner';

@@ -4,8 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppSelect,
-  type AppSelectOption,
   AppTable,
   type AppTableHeader,
   type AppTableRow,
@@ -27,6 +25,8 @@ import {
   CommonModal,
   CommonRadio,
   type CommonRadioOption,
+  CommonSelect,
+  type CommonSelectOption,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -48,7 +48,7 @@ const tags = ref<CommonTitleTags[]>([
   'h6',
 ]);
 
-const optionsSelect = ref<AppSelectOption[]>([
+const optionsSelect = ref<CommonSelectOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -1110,7 +1110,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppSelect    -->
+    <!--    CommonSelect    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1129,7 +1129,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1142,7 +1142,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1155,7 +1155,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1168,7 +1168,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1181,7 +1181,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1201,7 +1201,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1213,7 +1213,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 required
@@ -1226,7 +1226,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 disabled
