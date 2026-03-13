@@ -8,37 +8,37 @@ import type {
   GlobalThemeUnaccented,
 } from '@/types/global-props';
 
-export type AppRadioTheme =
+export type CommonRadioTheme =
   | GlobalThemePrimary
   | GlobalThemeSecondary
   | GlobalThemeTertiary
   | GlobalThemeUnaccented
   | GlobalThemeForm;
 
-export interface AppRadioProps {
+export interface CommonRadioProps {
   id?: string;
   name?: string;
   disabled?: boolean;
   required?: boolean;
   size?: GlobalPropSize;
-  theme?: AppRadioTheme;
-  options?: AppRadioOption[];
+  theme?: CommonRadioTheme;
+  options?: CommonRadioOption[];
 }
 
-export interface AppRadioEmits {
+export interface CommonRadioEmits {
   input: [value: string];
   change: [value: string];
 }
 
-export interface AppRadioOption {
+export interface CommonRadioOption {
   id: string;
   text: string;
   checked: boolean;
   disabled: boolean;
 }
 
-export interface AppRadioSlots {
-  [key: `radio-${AppRadioOption['id']}`]: (scope: {
-    text: AppRadioOption['text'];
+export interface CommonRadioSlots {
+  [key: `radio-${CommonRadioOption['id']}`]: (scope: {
+    text: CommonRadioOption['text'];
   }) => VNode[];
 }

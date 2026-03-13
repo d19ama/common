@@ -4,8 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppRadio,
-  type AppRadioOption,
   AppSelect,
   type AppSelectOption,
   AppTable,
@@ -27,6 +25,8 @@ import {
   CommonLink,
   CommonList,
   CommonModal,
+  CommonRadio,
+  type CommonRadioOption,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -102,7 +102,7 @@ const optionsCombobox = ref<CommonComboboxOption[]>([
   },
 ]);
 
-const optionsRadio = ref<AppRadioOption[]>([
+const optionsRadio = ref<CommonRadioOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -1660,7 +1660,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppRadio    -->
+    <!--    CommonRadio    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1679,7 +1679,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-xs"
@@ -1690,7 +1690,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-sm"
@@ -1701,7 +1701,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-md"
@@ -1712,7 +1712,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-lg"
@@ -1723,7 +1723,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-xl"
@@ -1738,7 +1738,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-3"
@@ -1746,7 +1746,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-4"
@@ -1754,7 +1754,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-5"
@@ -1762,7 +1762,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-6"
@@ -1770,7 +1770,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-7"
@@ -1788,7 +1788,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-1"
@@ -1798,7 +1798,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-2"

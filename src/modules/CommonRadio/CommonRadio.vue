@@ -4,15 +4,15 @@ import {
   ref,
 } from 'vue';
 import type {
-  AppRadioEmits,
-  AppRadioOption,
-  AppRadioProps,
-  AppRadioSlots,
+  CommonRadioEmits,
+  CommonRadioOption,
+  CommonRadioProps,
+  CommonRadioSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppRadioProps>(), {
+const props = withDefaults(defineProps<CommonRadioProps>(), {
   theme: 'form',
   required: false,
   disabled: false,
@@ -20,9 +20,9 @@ const props = withDefaults(defineProps<AppRadioProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<AppRadioEmits>();
+const emit = defineEmits<CommonRadioEmits>();
 
-defineSlots<AppRadioSlots>();
+defineSlots<CommonRadioSlots>();
 
 const value = defineModel<string>('value', {
   required: true,
@@ -32,17 +32,17 @@ const error = ref<boolean>(false);
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-radio--size-${props.size}`,
-    `app-radio--theme-${props.theme}`,
+    `common-radio--size-${props.size}`,
+    `common-radio--theme-${props.theme}`,
     {
-      'app-radio--disabled': props.disabled,
+      'common-radio--disabled': props.disabled,
     },
   ];
 });
 
-function optionClass(option: AppRadioOption): HTMLElementClass {
+function optionClass(option: CommonRadioOption): HTMLElementClass {
   return {
-    'app-radio__option--disabled': option.disabled,
+    'common-radio__option--disabled': option.disabled,
   };
 }
 
@@ -63,13 +63,13 @@ function validate(): void {
 
 <template>
   <div
-    class="app-radio"
+    class="common-radio"
     :class="elementClass"
   >
     <div
       v-for="item in props.options"
       :key="item.id"
-      class="app-radio__option"
+      class="common-radio__option"
       :class="optionClass(item)"
     >
       <input
@@ -78,7 +78,7 @@ function validate(): void {
         :name="props.name"
         :value="item.id"
         type="radio"
-        class="app-radio__field"
+        class="common-radio__field"
         :checked="item.checked"
         :disabled="item.disabled"
         autocomplete="off"
@@ -86,11 +86,11 @@ function validate(): void {
         @change="onChange"
       >
       <label
-        class="app-radio__label"
+        class="common-radio__label"
         :for="item.id"
       >
-        <span class="app-radio__box" />
-        <span class="app-radio__text">
+        <span class="common-radio__box" />
+        <span class="common-radio__text">
           <slot
             :name="`radio-${String(item.id)}`"
             :text="item.text"
@@ -111,7 +111,7 @@ function validate(): void {
 }
 
 // COMPONENT STYLES
-.app-radio {
+.common-radio {
   $parent: &;
 
   display: flex;
