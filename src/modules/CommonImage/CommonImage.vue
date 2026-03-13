@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { AppImageProps } from './types';
+import type { CommonImageProps } from './types';
 
-const props = withDefaults(defineProps<AppImageProps>(), {
+const props = withDefaults(defineProps<CommonImageProps>(), {
   src: '',
   alt: '',
   loading: false,
@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<AppImageProps>(), {
 </script>
 
 <template>
-  <div class="app-image">
+  <div class="common-image">
     <img
       :src="props.src"
       :alt="props.alt"
@@ -24,7 +24,7 @@ img {
 }
 
 // COMPONENT STYLES
-.app-image {
+.common-image {
   width: auto;
   height: auto;
   max-width: 100%;
