@@ -1,9 +1,9 @@
 <template>
-  <div class="app-divider" />
+  <div class="common-divider" />
 </template>
 
 <style lang="scss">
-.app-divider {
+.common-divider {
   width: 100%;
   height: .125rem;
   margin: .5rem 0;

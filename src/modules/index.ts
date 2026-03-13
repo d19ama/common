@@ -11,7 +11,7 @@ export * from './AppSelect';
 export * from './CommonButton';
 export * from './CommonTooltip';
 export * from './CommonSpinner';
-export * from './AppDivider';
+export * from './CommonDivider';
 export * from './CommonCombobox';
 export * from './AppTextarea';
 export * from './CommonCheckbox';
