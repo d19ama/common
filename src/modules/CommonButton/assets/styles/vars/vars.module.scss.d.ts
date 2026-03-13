@@ -1,5 +1,5 @@
 export interface Styles {
-  'app-button-border-radius': string;
+  'common-button-border-radius': string;
 }
 
 export type ClassNames = keyof Styles;

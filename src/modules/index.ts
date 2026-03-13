@@ -8,7 +8,7 @@ export * from './AppTable';
 export * from './AppImage';
 export * from './AppModal';
 export * from './AppSelect';
-export * from './AppButton';
+export * from './CommonButton';
 export * from './CommonTooltip';
 export * from './AppSpinner';
 export * from './AppDivider';

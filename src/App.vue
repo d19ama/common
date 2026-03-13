@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppButton,
   AppCheckbox,
   AppCombobox,
   type AppComboboxOption,
@@ -28,6 +27,7 @@ import {
   AppTitle,
   CommonAccordion,
   CommonAccordionItem,
+  CommonButton,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -346,7 +346,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppButton    -->
+    <!--    CommonButton    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -365,7 +365,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="xs"
               />
@@ -374,7 +374,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="sm"
               />
@@ -383,7 +383,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="md"
               />
@@ -392,7 +392,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="lg"
               />
@@ -401,7 +401,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="xl"
               />
@@ -417,7 +417,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 disabled
               />
@@ -426,7 +426,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LOADING
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 loading
               />
@@ -435,7 +435,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 FLAT
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 flat
               />
@@ -451,7 +451,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
@@ -460,7 +460,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
@@ -469,7 +469,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
@@ -478,7 +478,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
@@ -487,7 +487,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TRANSPARENT
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -503,31 +503,31 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -538,35 +538,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 text-style="text"
@@ -578,35 +578,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 text-style="inverted"
@@ -623,31 +623,31 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -658,35 +658,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 theme-style="outline"
@@ -703,7 +703,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PREPEND
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
@@ -711,13 +711,13 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #prepend>
                   <span class="icon icon-pencil" />
                 </template>
-              </AppButton>
+              </CommonButton>
             </div>
             <div class="col-default-2">
               <p class="margin-bottom--xs">
                 APPEND
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
@@ -725,7 +725,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #append>
                   <span class="icon icon-pencil" />
                 </template>
-              </AppButton>
+              </CommonButton>
             </div>
           </div>
         </div>
@@ -1957,7 +1957,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Open modal!"
                 @click="modal = !modal"
               />

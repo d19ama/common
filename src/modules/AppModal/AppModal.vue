@@ -6,8 +6,8 @@ import {
 } from 'vue';
 import { useMagicKeys } from '@vueuse/core';
 import {
-  AppButton,
   AppTitle,
+  CommonButton,
 } from '../';
 import { useModalStore } from './composables';
 import type {
@@ -134,7 +134,7 @@ watch(
             name="close"
             :close="close"
           >
-            <AppButton
+            <CommonButton
               class="app-modal__button-close icon icon-cross"
               auto-width
               size="sm"

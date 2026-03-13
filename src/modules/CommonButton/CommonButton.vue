@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type {
-  AppButtonEmits,
-  AppButtonProps,
-  AppButtonSlots,
-  AppButtonTag,
+  CommonButtonEmits,
+  CommonButtonProps,
+  CommonButtonSlots,
+  CommonButtonTag,
 } from './types';
 import { AppSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
@@ -15,7 +15,7 @@ import {
   GLOBAL_PROP_THEME_STYLE_DEFAULT,
 } from '@/constants/global-props';
 
-const props = withDefaults(defineProps<AppButtonProps>(), {
+const props = withDefaults(defineProps<CommonButtonProps>(), {
   flat: false,
   tag: 'button',
   type: 'button',
@@ -31,26 +31,26 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   themeStyle: GLOBAL_PROP_THEME_STYLE_DEFAULT,
 });
 
-const emit = defineEmits<AppButtonEmits>();
+const emit = defineEmits<CommonButtonEmits>();
 
-defineSlots<AppButtonSlots>();
+defineSlots<CommonButtonSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-button--size-${props.size}`,
-    `app-button--theme-${props.theme}`,
-    `app-button--text-style-${props.textStyle}`,
-    `app-button--theme-style-${props.themeStyle}`,
+    `common-button--size-${props.size}`,
+    `common-button--theme-${props.theme}`,
+    `common-button--text-style-${props.textStyle}`,
+    `common-button--theme-style-${props.themeStyle}`,
     {
-      'app-button--flat': props.flat,
-      'app-button--loading': props.loading,
-      'app-button--disabled': props.disabled,
-      'app-button--auto-width': props.autoWidth,
+      'common-button--flat': props.flat,
+      'common-button--loading': props.loading,
+      'common-button--disabled': props.disabled,
+      'common-button--auto-width': props.autoWidth,
     },
   ];
 });
 
-const componentTag = computed<AppButtonTag>(() => {
+const componentTag = computed<CommonButtonTag>(() => {
   if (props.to || props.tag === 'RouterLink') {
     return 'RouterLink';
   }
@@ -62,7 +62,7 @@ const componentTag = computed<AppButtonTag>(() => {
   return 'button';
 });
 
-const attrs = computed<AppButtonProps>(() => {
+const attrs = computed<CommonButtonProps>(() => {
   if (props.to || props.tag === 'RouterLink') {
     return {
       to: props.to,
@@ -98,13 +98,13 @@ function onClick(event: Event): void {
   <Component
     :is="componentTag"
     v-bind="attrs"
-    class="app-button"
+    class="common-button"
     :class="elementClass"
     @click="onClick"
   >
     <AppSpinner
       v-if="props.loading"
-      class="app-button__spinner"
+      class="common-button__spinner"
       size="xs"
     />
     <template v-else>
@@ -161,7 +161,7 @@ a {
 }
 
 // COMPONENT STYLES
-.app-button {
+.common-button {
   $parent: &;
 
   display: flex;
@@ -177,7 +177,7 @@ a {
   text-overflow: ellipsis;
   border: 0;
   outline: 0;
-  border-radius: var(--app-button-border-radius);
+  border-radius: var(--common-button-border-radius);
   transition: filter var(--common-transition), color var(--common-transition), background-color var(--common-transition);
   user-select: none;
   cursor: pointer;
