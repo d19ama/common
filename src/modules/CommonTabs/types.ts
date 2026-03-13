@@ -1,6 +1,6 @@
 import type { VNode } from 'vue';
 
-export interface AppTabsItem<T extends string = string> {
+export interface CommonTabsItem<T extends string = string> {
   id: T;
   label?: string;
   active: boolean;
@@ -8,8 +8,8 @@ export interface AppTabsItem<T extends string = string> {
   align?: 'left' | 'right';
 }
 
-export interface AppTabsSlots {
-  [key: `tab-${AppTabsItem['id']}`]: (scope: {
+export interface CommonTabsSlots {
+  [key: `tab-${CommonTabsItem['id']}`]: (scope: {
     text?: string;
   }) => VNode[];
 }

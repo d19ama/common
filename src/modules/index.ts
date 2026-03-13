@@ -1,5 +1,5 @@
 export * from './CommonLink';
-export * from './AppTabs';
+export * from './CommonTabs';
 export * from './CommonList';
 export * from './CommonRadio';
 export * from './CommonInput';

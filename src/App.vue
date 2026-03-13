@@ -4,8 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppTabs,
-  type AppTabsItem,
   AppTextarea,
   AppTitle,
   CommonAccordion,
@@ -28,6 +26,8 @@ import {
   CommonTable,
   type CommonTableHeader,
   type CommonTableRow,
+  CommonTabs,
+  type CommonTabsItem,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -117,7 +117,7 @@ const optionsRadio = ref<CommonRadioOption[]>([
   },
 ]);
 
-const tabs = ref<AppTabsItem[]>([
+const tabs = ref<CommonTabsItem[]>([
   {
     id: '1',
     active: true,
@@ -1875,7 +1875,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTabs    -->
+    <!--    CommonTabs    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1886,7 +1886,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-6">
-              <AppTabs
+              <CommonTabs
                 v-model:items="tabs"
               />
             </div>

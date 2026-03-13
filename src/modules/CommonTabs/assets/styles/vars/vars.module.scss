@@ -1,0 +1,15 @@
+$common-tabs-header-bg: none;
+$common-tabs-label-bg: none;
+$common-tabs-label-bg-active: none;
+$common-tabs-label-border: 1px dashed transparent;
+$common-tabs-label-border-radius: var(--common-border-radius) var(--common-border-radius) 0 0;
+$common-tabs-label-border-color-active: var(--common-color-ui-primary);
+
+:export {
+  common-tabs-header-bg: $common-tabs-header-bg;
+  common-tabs-label-bg: $common-tabs-label-bg;
+  common-tabs-label-bg-active: $common-tabs-label-bg-active;
+  common-tabs-label-border: $common-tabs-label-border;
+  common-tabs-label-border-radius: $common-tabs-label-border-radius;
+  common-tabs-label-border-color-active: $common-tabs-label-border-color-active;
+}

@@ -1,25 +1,25 @@
 <script lang="ts" setup>
 import type {
-  AppTabsItem,
-  AppTabsSlots,
+  CommonTabsItem,
+  CommonTabsSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-defineSlots<AppTabsSlots>();
+defineSlots<CommonTabsSlots>();
 
-const items = defineModel<AppTabsItem[]>('items', {
+const items = defineModel<CommonTabsItem[]>('items', {
   required: true,
 });
 
-function labelClass(item: AppTabsItem): HTMLElementClass {
+function labelClass(item: CommonTabsItem): HTMLElementClass {
   return {
-    'app-tabs__label--active': item.active,
-    'app-tabs__label--disabled': !!item.disabled,
+    'common-tabs__label--active': item.active,
+    'common-tabs__label--disabled': !!item.disabled,
   };
 }
 
-function toggleItem(id: AppTabsItem['id']): void {
-  items.value = items.value.map((item: AppTabsItem) => {
+function toggleItem(id: CommonTabsItem['id']): void {
+  items.value = items.value.map((item: CommonTabsItem) => {
     return {
       ...item,
       active: item.id === id,
@@ -29,12 +29,12 @@ function toggleItem(id: AppTabsItem['id']): void {
 </script>
 
 <template>
-  <div class="app-tabs">
-    <div class="app-tabs__header">
+  <div class="common-tabs">
+    <div class="common-tabs__header">
       <div
         v-for="item in items"
         :key="item.id"
-        class="app-tabs__label"
+        class="common-tabs__label"
         :class="labelClass(item)"
         @click="toggleItem(item.id)"
       >
@@ -50,7 +50,7 @@ function toggleItem(id: AppTabsItem['id']): void {
 </template>
 
 <style lang="scss">
-.app-tabs {
+.common-tabs {
   display: flex;
   overflow: hidden;
   overflow-x: auto;
@@ -62,7 +62,7 @@ function toggleItem(id: AppTabsItem['id']): void {
     align-items: flex-start;
     justify-content: flex-start;
     flex: 1 1 100%;
-    background: var(--app-tabs-header-bg);
+    background: var(--common-tabs-header-bg);
   }
 
   &__label {
@@ -75,10 +75,10 @@ function toggleItem(id: AppTabsItem['id']): void {
     color: var(--common-color-main);
     text-decoration: none;
     transition: color .3s, opacity .3s;
-    border: var(--app-tabs-label-border);
-    border-bottom-color: var(--app-tabs-label-border-color-active);
-    background: var(--app-tabs-label-bg);
-    border-radius: var(--app-tabs-label-border-radius);
+    border: var(--common-tabs-label-border);
+    border-bottom-color: var(--common-tabs-label-border-color-active);
+    background: var(--common-tabs-label-bg);
+    border-radius: var(--common-tabs-label-border-radius);
     user-select: none;
     cursor: pointer;
 
@@ -91,11 +91,11 @@ function toggleItem(id: AppTabsItem['id']): void {
     }
 
     &--active {
-      border-left-color: var(--app-tabs-label-border-color-active);
-      border-top-color: var(--app-tabs-label-border-color-active);
-      border-right-color: var(--app-tabs-label-border-color-active);
+      border-left-color: var(--common-tabs-label-border-color-active);
+      border-top-color: var(--common-tabs-label-border-color-active);
+      border-right-color: var(--common-tabs-label-border-color-active);
       border-bottom-color: transparent;
-      background: var(--app-tabs-label-bg-active);
+      background: var(--common-tabs-label-bg-active);
     }
 
     &--disabled {
