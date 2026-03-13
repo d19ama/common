@@ -1,3 +1,25 @@
+import { version } from '../package.json';
+import * as modules from './modules';
+
+export function install(app: any, options = {}): void {
+  Object.entries(modules).forEach(([
+    name,
+    component,
+  ]) => {
+    app.component(name, component);
+  });
+
+  app.config.globalProperties.$d19amaCommon = {
+    version,
+    options,
+  };
+
+  app.provide('d19amaCommon', {
+    version,
+    options,
+  });
+}
+
 export * from './modules';
 export * from './composables';
 
