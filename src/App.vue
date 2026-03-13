@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppInput,
   AppInputFile,
   AppLink,
   AppList,
@@ -27,6 +26,7 @@ import {
   CommonCombobox,
   type CommonComboboxOption,
   CommonDatePicker,
+  CommonInput,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -846,7 +846,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppInput    -->
+    <!--    CommonInput    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -865,7 +865,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -877,7 +877,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -889,7 +889,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -901,7 +901,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -913,7 +913,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -929,7 +929,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -937,7 +937,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -946,7 +946,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -965,7 +965,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PREPEND
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -974,13 +974,13 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #prepend>
                   <span class="icon icon-search" />
                 </template>
-              </AppInput>
+              </CommonInput>
             </div>
             <div class="col-default-3">
               <p class="margin-bottom--xs">
                 APPEND
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -989,7 +989,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #append>
                   <span class="icon icon-search" />
                 </template>
-              </AppInput>
+              </CommonInput>
             </div>
           </div>
         </div>

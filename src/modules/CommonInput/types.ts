@@ -14,27 +14,27 @@ type FactoryStaticOptionsWithoutLazy =
   | Exclude<FactoryStaticOpts, 'MaskedPatternOptions'>
   | Omit<Extract<FactoryStaticOpts, MaskedPatternOptions>, 'lazy' | 'eager'>;
 
-export type AppInputMaskParams =
+export type CommonInputMaskParams =
   | FactoryConstructorOpts
   | FactoryInstanceOpts
   | FactoryStaticOptionsWithoutLazy;
 
-export interface AppInputMaskValues {
+export interface CommonInputMaskValues {
   typedValue: string;
   maskedValue: string;
   unmaskedValue: string;
 }
 
-export interface AppInputProps extends InputBaseProps {
+export interface CommonInputProps extends InputBaseProps {
   name?: string;
-  mask?: AppInputMaskParams;
+  mask?: CommonInputMaskParams;
   theme?: 'text' | 'search';
   maskVisibility?: 'always' | 'onFocus';
   position?: 'left' | 'center' | 'right';
   type?: 'text' | 'number' | 'tel' | 'email' | 'password';
 }
 
-export interface AppInputEmits {
+export interface CommonInputEmits {
   'input': [value: string | number];
   'change': [value: string | number];
   'focus': [];
@@ -43,7 +43,7 @@ export interface AppInputEmits {
   'click:append': [];
 }
 
-export interface AppInputSlots extends InputBaseSlots {
+export interface CommonInputSlots extends InputBaseSlots {
   prepend?: () => VNode[];
   append?: () => VNode[];
 }

@@ -2,7 +2,7 @@ export * from './AppLink';
 export * from './AppTabs';
 export * from './AppList';
 export * from './AppRadio';
-export * from './AppInput';
+export * from './CommonInput';
 export * from './CommonTitle';
 export * from './AppTable';
 export * from './CommonImage';

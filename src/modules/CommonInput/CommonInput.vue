@@ -13,17 +13,17 @@ import iMask, {
   type InputMask,
 } from 'imask';
 import type {
-  AppInputEmits,
-  AppInputMaskValues,
-  AppInputProps,
-  AppInputSlots,
+  CommonInputEmits,
+  CommonInputMaskValues,
+  CommonInputProps,
+  CommonInputSlots,
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppInputProps>(), {
+const props = withDefaults(defineProps<CommonInputProps>(), {
   hint: '',
   label: '',
   type: 'text',
@@ -37,9 +37,9 @@ const props = withDefaults(defineProps<AppInputProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<AppInputEmits>();
+const emit = defineEmits<CommonInputEmits>();
 
-defineSlots<AppInputSlots>();
+defineSlots<CommonInputSlots>();
 
 const [
   value,
@@ -82,7 +82,7 @@ const name = computed<string>(() => {
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-input--size-${props.size}`,
+    `common-input--size-${props.size}`,
   ];
 });
 
@@ -155,7 +155,7 @@ function destroyMask(): void {
   maskRef.value?.destroy();
 }
 
-function getValues(): AppInputMaskValues {
+function getValues(): CommonInputMaskValues {
   const typedValue = maskRef.value!.typedValue;
   const unmaskedValue = maskRef.value!.unmaskedValue;
   const maskedValue = maskRef.value!.value;
@@ -172,7 +172,7 @@ function onMaskAccept(): void {
     typedValue,
     maskedValue,
     unmaskedValue,
-  }: AppInputMaskValues = getValues();
+  }: CommonInputMaskValues = getValues();
 
   value.value = maskedValue;
   typed.value = typedValue;
@@ -209,7 +209,7 @@ watch(
 
 <template>
   <InputBase
-    class="app-input"
+    class="common-input"
     :size="props.size"
     :hint="props.hint"
     :label="props.label"
@@ -231,7 +231,7 @@ watch(
     <template #default>
       <div
         v-if="$slots.prepend"
-        class="app-input__prepend"
+        class="common-input__prepend"
         @click="emit('click:prepend')"
       >
         <slot name="prepend" />
@@ -241,7 +241,7 @@ watch(
         v-model="value"
         :name="name"
         autocomplete="off"
-        class="app-input__field"
+        class="common-input__field"
         :type="props.type"
         :disabled="props.disabled"
         :maxlength="props.maxLength"
@@ -254,7 +254,7 @@ watch(
       >
       <div
         v-if="$slots.append"
-        class="app-input__append"
+        class="common-input__append"
         @click="emit('click:append')"
       >
         <slot name="append" />
@@ -278,7 +278,7 @@ watch(
 </template>
 
 <style lang="scss">
-.app-input {
+.common-input {
   $parent: &;
 
   &__field {
