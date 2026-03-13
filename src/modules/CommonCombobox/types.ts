@@ -8,7 +8,7 @@ import type {
   SelectBaseSlots,
 } from '@/common/components/SelectBase';
 
-export interface AppComboboxProps
+export interface CommonComboboxProps
   extends
   InputBaseProps,
   SelectBaseProps {
@@ -17,15 +17,15 @@ export interface AppComboboxProps
   searchError?: boolean;
 }
 
-export interface AppComboboxOption<ID extends string | number | symbol = string>
+export interface CommonComboboxOption<ID extends string | number | symbol = string>
   extends SelectBaseOption<ID> {}
 
-export interface AppComboboxEmits {
+export interface CommonComboboxEmits {
   focus: [];
   blur: [];
 }
 
-export interface AppComboboxSlots
+export interface CommonComboboxSlots
   extends
   InputBaseSlots,
   SelectBaseSlots {}

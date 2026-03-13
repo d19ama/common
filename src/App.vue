@@ -4,8 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppCombobox,
-  type AppComboboxOption,
   AppDatePicker,
   AppInput,
   AppInputFile,
@@ -27,6 +25,8 @@ import {
   CommonAccordionItem,
   CommonButton,
   CommonCheckbox,
+  CommonCombobox,
+  type CommonComboboxOption,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -75,7 +75,7 @@ const optionsSelect = ref<AppSelectOption[]>([
   },
 ]);
 
-const optionsCombobox = ref<AppComboboxOption[]>([
+const optionsCombobox = ref<CommonComboboxOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -1240,7 +1240,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppCombobox  -->
+    <!--    CommonCombobox  -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1259,7 +1259,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1272,7 +1272,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1285,7 +1285,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1298,7 +1298,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1311,7 +1311,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1331,7 +1331,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1343,7 +1343,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1356,7 +1356,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"

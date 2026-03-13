@@ -8,10 +8,10 @@ import {
 } from 'vue';
 import { useDebounceFn } from '@vueuse/core';
 import type {
-  AppComboboxEmits,
-  AppComboboxOption,
-  AppComboboxProps,
-  AppComboboxSlots,
+  CommonComboboxEmits,
+  CommonComboboxOption,
+  CommonComboboxProps,
+  CommonComboboxSlots,
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
@@ -24,7 +24,7 @@ import {
 } from '@/constants';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppComboboxProps>(), {
+const props = withDefaults(defineProps<CommonComboboxProps>(), {
   hint: '',
   label: '',
   errorText: '',
@@ -37,16 +37,16 @@ const props = withDefaults(defineProps<AppComboboxProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<AppComboboxEmits>();
+const emit = defineEmits<CommonComboboxEmits>();
 
-defineSlots<AppComboboxSlots>();
+defineSlots<CommonComboboxSlots>();
 
 const value = defineModel<string>('value', {
   required: false,
   default: '',
 });
 
-const options = defineModel<AppComboboxOption[]>('options', {
+const options = defineModel<CommonComboboxOption[]>('options', {
   required: false,
   default: () => [],
 });
@@ -73,7 +73,7 @@ const isDropdownVisible = computed<boolean>(() => {
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-combobox--size-${props.size}`,
+    `common-combobox--size-${props.size}`,
   ];
 });
 
@@ -91,7 +91,7 @@ function onBlur(): void {
   emit('blur');
 }
 
-function changeSelected(option: AppComboboxOption): void {
+function changeSelected(option: CommonComboboxOption): void {
   localSearch.value = option.text;
 }
 
@@ -108,7 +108,7 @@ watch(localSearch, (value) => {
 
 <template>
   <InputBase
-    class="app-combobox"
+    class="common-combobox"
     :hint="props.hint"
     :size="props.size"
     :label="props.label"
@@ -145,7 +145,7 @@ watch(localSearch, (value) => {
             :disabled="props.disabled"
             :placeholder="props.placeholder"
             autocomplete="off"
-            class="app-combobox__field"
+            class="common-combobox__field"
             type="text"
             @focus="onFocus"
             @blur="onBlur"
@@ -156,12 +156,12 @@ watch(localSearch, (value) => {
           <CommonSpinner
             v-if="props.loading && !options.length"
             :active="props.loading"
-            class="app-combobox__loading"
+            class="common-combobox__loading"
             auto-width
           />
           <div
             v-else-if="props.searchError"
-            class="app-combobox__empty"
+            class="common-combobox__empty"
           >
             Не удалось загрузить данные.<br>Проверьте подключение к интернету и попробуйте еще раз.
           </div>
@@ -208,7 +208,7 @@ watch(localSearch, (value) => {
 </template>
 
 <style lang="scss">
-.app-combobox {
+.common-combobox {
   $parent: &;
 
   &__field,
