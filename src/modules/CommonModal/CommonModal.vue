@@ -6,8 +6,8 @@ import {
 } from 'vue';
 import { useMagicKeys } from '@vueuse/core';
 import {
-  AppTitle,
   CommonButton,
+  CommonTitle,
 } from '../';
 import { useCommonModalStore } from './composables';
 import type {
@@ -148,12 +148,12 @@ watch(
           class="common-modal__header"
         >
           <slot name="header">
-            <AppTitle
+            <CommonTitle
               tag="h4"
               role="heading"
             >
               {{ title }}
-            </AppTitle>
+            </CommonTitle>
           </slot>
         </div>
 

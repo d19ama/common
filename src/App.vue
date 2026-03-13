@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppTitle,
   CommonAccordion,
   CommonAccordionItem,
   CommonButton,
@@ -28,6 +27,7 @@ import {
   CommonTabs,
   type CommonTabsItem,
   CommonTextarea,
+  CommonTitle,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -195,20 +195,20 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
 
 <template>
   <div class="container">
-    <AppTitle
+    <CommonTitle
       class="margin-bottom--s"
       inverted
     >
       STYLEGUIDE
-    </AppTitle>
+    </CommonTitle>
 
     <!--    CommonAccordion    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppAccordion"
+            text="CommonAccordion"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -249,12 +249,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppLink"
+            text="CommonLink"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Themes"
             class="margin-bottom--s"
@@ -305,9 +305,9 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppList"
+            text="CommonList"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -335,11 +335,11 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             v-for="item in tags"
             :key="item"
             :tag="item"
-            :text="`AppTitle ${item}`"
+            :text="`CommonTitle ${item}`"
             class="margin-bottom--s"
           />
         </div>
@@ -350,12 +350,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppButton"
+            text="CommonButton"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -407,7 +407,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -441,7 +441,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Themes"
             class="margin-bottom--s"
@@ -493,7 +493,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Text styles"
             class="margin-bottom--s"
@@ -613,7 +613,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Theme styles"
             class="margin-bottom--s"
@@ -693,7 +693,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Slots"
             class="margin-bottom--s"
@@ -736,12 +736,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppDatePicker"
+            text="CommonDatePicker"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -803,7 +803,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -850,12 +850,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppInput"
+            text="CommonInput"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -922,7 +922,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -955,7 +955,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Slots"
             class="margin-bottom--s"
@@ -1000,12 +1000,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppInputFile"
+            text="CommonInputFile"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1067,7 +1067,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1114,12 +1114,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppSelect"
+            text="CommonSelect"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1191,7 +1191,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1244,12 +1244,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppCombobox"
+            text="CommonCombobox"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1321,7 +1321,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1374,12 +1374,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppTextarea"
+            text="CommonTextarea"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1446,7 +1446,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1496,12 +1496,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppCheckbox"
+            text="CommonCheckbox"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1563,7 +1563,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Themes"
             class="margin-bottom--s"
@@ -1620,7 +1620,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1664,12 +1664,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppRadio"
+            text="CommonRadio"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1731,7 +1731,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Themes"
             class="margin-bottom--s"
@@ -1778,7 +1778,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="States"
             class="margin-bottom--s"
@@ -1814,12 +1814,12 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppSpinner"
+            text="CommonSpinner"
             class="margin-bottom--s"
           />
-          <AppTitle
+          <CommonTitle
             tag="h5"
             text="Sizes"
             class="margin-bottom--s"
@@ -1879,9 +1879,9 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppTabs"
+            text="CommonTabs"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -1899,9 +1899,9 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppTooltip"
+            text="CommonTooltip"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -1919,9 +1919,9 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppTable"
+            text="CommonTable"
             class="margin-bottom--s"
           />
           <div class="row">
@@ -1950,9 +1950,9 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
-          <AppTitle
+          <CommonTitle
             tag="h4"
-            text="AppModal"
+            text="CommonModal"
             class="margin-bottom--s"
           />
           <div class="row">
