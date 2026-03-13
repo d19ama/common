@@ -4,32 +4,32 @@ import {
   ref,
 } from 'vue';
 import {
-  AppAccordion,
-  AppAccordionItem,
-  AppButton,
-  AppCheckbox,
-  AppCombobox,
-  type AppComboboxOption,
-  AppDatePicker,
-  AppInput,
-  AppInputFile,
-  AppLink,
-  AppList,
-  AppModal,
-  AppRadio,
-  type AppRadioOption,
-  AppSelect,
-  type AppSelectOption,
-  AppSpinner,
-  AppTable,
-  type AppTableHeader,
-  type AppTableRow,
-  AppTabs,
-  type AppTabsItem,
-  AppTextarea,
   AppTitle,
-  type AppTitleTags,
-  AppTooltip,
+  CommonAccordion,
+  CommonAccordionItem,
+  CommonButton,
+  CommonCheckbox,
+  CommonCombobox,
+  type CommonComboboxOption,
+  CommonDatePicker,
+  CommonInput,
+  CommonInputFile,
+  CommonLink,
+  CommonList,
+  CommonModal,
+  CommonRadio,
+  type CommonRadioOption,
+  CommonSelect,
+  type CommonSelectOption,
+  CommonSpinner,
+  CommonTable,
+  type CommonTableHeader,
+  type CommonTableRow,
+  CommonTabs,
+  type CommonTabsItem,
+  CommonTextarea,
+  type CommonTitleTags,
+  CommonTooltip,
 } from '@/modules';
 
 interface TableData {
@@ -39,7 +39,7 @@ interface TableData {
   three: string;
 }
 
-const tags = ref<AppTitleTags[]>([
+const tags = ref<CommonTitleTags[]>([
   'h1',
   'h2',
   'h3',
@@ -48,7 +48,7 @@ const tags = ref<AppTitleTags[]>([
   'h6',
 ]);
 
-const optionsSelect = ref<AppSelectOption[]>([
+const optionsSelect = ref<CommonSelectOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -75,7 +75,7 @@ const optionsSelect = ref<AppSelectOption[]>([
   },
 ]);
 
-const optionsCombobox = ref<AppComboboxOption[]>([
+const optionsCombobox = ref<CommonComboboxOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -102,7 +102,7 @@ const optionsCombobox = ref<AppComboboxOption[]>([
   },
 ]);
 
-const optionsRadio = ref<AppRadioOption[]>([
+const optionsRadio = ref<CommonRadioOption[]>([
   {
     id: '1',
     text: 'Radio 1',
@@ -117,7 +117,7 @@ const optionsRadio = ref<AppRadioOption[]>([
   },
 ]);
 
-const tabs = ref<AppTabsItem[]>([
+const tabs = ref<CommonTabsItem[]>([
   {
     id: '1',
     active: true,
@@ -141,7 +141,7 @@ const tabs = ref<AppTabsItem[]>([
   },
 ]);
 
-const headers = ref<AppTableHeader<TableData>[]>([
+const headers = ref<CommonTableHeader<TableData>[]>([
   {
     id: '1',
     name: 'one',
@@ -168,7 +168,7 @@ const spinner = ref<boolean>(true);
 const inputValue = ref<string>('');
 const checkbox = ref<boolean>(false);
 
-const rows = computed<AppTableRow<TableData>[]>(() => {
+const rows = computed<CommonTableRow<TableData>[]>(() => {
   return [
     {
       id: '1',
@@ -202,7 +202,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       STYLEGUIDE
     </AppTitle>
 
-    <!--    AppAccordion    -->
+    <!--    CommonAccordion    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -213,39 +213,39 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-12">
-              <AppAccordion>
-                <AppAccordionItem>
+              <CommonAccordion>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 1
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-                <AppAccordionItem>
+                </CommonAccordionItem>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 2
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-                <AppAccordionItem>
+                </CommonAccordionItem>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 3
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-              </AppAccordion>
+                </CommonAccordionItem>
+              </CommonAccordion>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--    AppLink    -->
+    <!--    CommonLink    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -264,7 +264,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="primary"
               />
@@ -273,7 +273,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="secondary"
               />
@@ -282,7 +282,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="tertiary"
               />
@@ -291,7 +291,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="unaccented"
               />
@@ -301,7 +301,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppList    -->
+    <!--    CommonList    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -312,7 +312,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-12">
-              <AppList
+              <CommonList
                 text="Link"
                 :items="[
                   {
@@ -331,7 +331,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTitle    -->
+    <!--    CommonTitle    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -346,7 +346,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppButton    -->
+    <!--    CommonButton    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -365,7 +365,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="xs"
               />
@@ -374,7 +374,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="sm"
               />
@@ -383,7 +383,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="md"
               />
@@ -392,7 +392,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="lg"
               />
@@ -401,7 +401,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 size="xl"
               />
@@ -417,7 +417,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 disabled
               />
@@ -426,7 +426,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LOADING
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 loading
               />
@@ -435,7 +435,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 FLAT
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 flat
               />
@@ -451,7 +451,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
@@ -460,7 +460,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
@@ -469,7 +469,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
@@ -478,7 +478,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
@@ -487,7 +487,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TRANSPARENT
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -503,31 +503,31 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -538,35 +538,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 text-style="text"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 text-style="text"
@@ -578,35 +578,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 text-style="inverted"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 text-style="inverted"
@@ -623,31 +623,31 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
               />
@@ -658,35 +658,35 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           </p>
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="secondary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="tertiary"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="unaccented"
                 theme-style="outline"
               />
             </div>
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="transparent"
                 theme-style="outline"
@@ -703,7 +703,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PREPEND
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
@@ -711,13 +711,13 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #prepend>
                   <span class="icon icon-pencil" />
                 </template>
-              </AppButton>
+              </CommonButton>
             </div>
             <div class="col-default-2">
               <p class="margin-bottom--xs">
                 APPEND
               </p>
-              <AppButton
+              <CommonButton
                 text="Button"
                 theme="primary"
                 text-style="inverted"
@@ -725,14 +725,14 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #append>
                   <span class="icon icon-pencil" />
                 </template>
-              </AppButton>
+              </CommonButton>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--    AppDatePicker    -->
+    <!--    CommonDatePicker    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -751,7 +751,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -762,7 +762,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -773,7 +773,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -784,7 +784,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -795,7 +795,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -813,7 +813,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -823,7 +823,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -834,7 +834,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -846,7 +846,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppInput    -->
+    <!--    CommonInput    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -865,7 +865,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -877,7 +877,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -889,7 +889,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -901,7 +901,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -913,7 +913,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -929,7 +929,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -937,7 +937,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -946,7 +946,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-3">
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -965,7 +965,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PREPEND
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -974,13 +974,13 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #prepend>
                   <span class="icon icon-search" />
                 </template>
-              </AppInput>
+              </CommonInput>
             </div>
             <div class="col-default-3">
               <p class="margin-bottom--xs">
                 APPEND
               </p>
-              <AppInput
+              <CommonInput
                 v-model:value="inputValue"
                 label="Some some"
                 placeholder="Type some"
@@ -989,14 +989,14 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #append>
                   <span class="icon icon-search" />
                 </template>
-              </AppInput>
+              </CommonInput>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--    AppInputFile    -->
+    <!--    CommonInputFile    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1015,7 +1015,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1026,7 +1026,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1037,7 +1037,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1048,7 +1048,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1059,7 +1059,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1077,7 +1077,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1087,7 +1087,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1098,7 +1098,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1110,7 +1110,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppSelect    -->
+    <!--    CommonSelect    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1129,7 +1129,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1142,7 +1142,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1155,7 +1155,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1168,7 +1168,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1181,7 +1181,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1201,7 +1201,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 placeholder="Select"
@@ -1213,7 +1213,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 required
@@ -1226,7 +1226,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppSelect
+              <CommonSelect
                 v-model:value="select"
                 :options="optionsSelect"
                 disabled
@@ -1240,7 +1240,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppCombobox  -->
+    <!--    CommonCombobox  -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1259,7 +1259,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1272,7 +1272,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1285,7 +1285,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1298,7 +1298,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1311,7 +1311,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1331,7 +1331,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1343,7 +1343,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1356,7 +1356,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppCombobox
+              <CommonCombobox
                 v-model:value="combobox"
                 :options="optionsCombobox"
                 placeholder="Select"
@@ -1370,7 +1370,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTextarea    -->
+    <!--    CommonTextarea    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1389,7 +1389,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1401,7 +1401,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1413,7 +1413,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1425,7 +1425,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1437,7 +1437,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1456,7 +1456,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1467,7 +1467,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1479,7 +1479,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppTextarea
+              <CommonTextarea
                 v-model:value="textarea"
                 placeholder="Type some"
                 label="Textarea"
@@ -1492,7 +1492,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppCheckbox    -->
+    <!--    CommonCheckbox    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1511,7 +1511,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1522,7 +1522,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1533,7 +1533,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1544,7 +1544,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1555,7 +1555,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1573,7 +1573,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 FORM
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1583,7 +1583,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="primary"
@@ -1593,7 +1593,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="secondary"
@@ -1603,7 +1603,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="tertiary"
@@ -1613,7 +1613,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="unaccented"
@@ -1630,7 +1630,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
               />
@@ -1639,7 +1639,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 required
@@ -1649,7 +1649,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 disabled
@@ -1660,7 +1660,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppRadio    -->
+    <!--    CommonRadio    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1679,7 +1679,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-xs"
@@ -1690,7 +1690,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-sm"
@@ -1701,7 +1701,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-md"
@@ -1712,7 +1712,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-lg"
@@ -1723,7 +1723,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-xl"
@@ -1738,7 +1738,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row margin-bottom--s">
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-3"
@@ -1746,7 +1746,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-4"
@@ -1754,7 +1754,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-5"
@@ -1762,7 +1762,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-6"
@@ -1770,7 +1770,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               />
             </div>
             <div class="col-default-2">
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-7"
@@ -1788,7 +1788,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-1"
@@ -1798,7 +1798,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppRadio
+              <CommonRadio
                 v-model:value="radio"
                 :options="optionsRadio"
                 name="radio-2"
@@ -1810,7 +1810,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppSpinner    -->
+    <!--    CommonSpinner    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1829,7 +1829,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="xs"
               />
@@ -1838,7 +1838,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="sm"
               />
@@ -1847,7 +1847,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="md"
               />
@@ -1856,7 +1856,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="lg"
               />
@@ -1865,7 +1865,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppSpinner
+              <CommonSpinner
                 v-model:active="spinner"
                 size="xl"
               />
@@ -1875,7 +1875,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTabs    -->
+    <!--    CommonTabs    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1886,7 +1886,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-6">
-              <AppTabs
+              <CommonTabs
                 v-model:items="tabs"
               />
             </div>
@@ -1895,7 +1895,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTooltip    -->
+    <!--    CommonTooltip    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1906,16 +1906,16 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-4">
-              <AppTooltip>
+              <CommonTooltip>
                 tooltip
-              </AppTooltip>
+              </CommonTooltip>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--    AppTable    -->
+    <!--    CommonTable    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1926,27 +1926,27 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-6">
-              <AppTable
+              <CommonTable
                 :headers="headers"
                 :rows="rows"
               />
             </div>
             <div class="col-default-6">
-              <AppTable
+              <CommonTable
                 :headers="headers"
                 :rows="rows"
               >
                 <template #td-one="{ data }">
                   {{ data.one }}
                 </template>
-              </AppTable>
+              </CommonTable>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--    AppModal    -->
+    <!--    CommonModal    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1957,11 +1957,11 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-2">
-              <AppButton
+              <CommonButton
                 text="Open modal!"
                 @click="modal = !modal"
               />
-              <AppModal
+              <CommonModal
                 v-model:visible="modal"
                 size="full-page"
                 title="Modal title"
@@ -1977,7 +1977,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #footer>
                   Modal footer
                 </template>
-              </AppModal>
+              </CommonModal>
             </div>
           </div>
         </div>

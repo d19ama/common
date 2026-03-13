@@ -1,0 +1,25 @@
+$common-accordion-item-border-bottom: 1px solid var(--common-color-ui-secondary);
+$common-accordion-item-border-radius: none;
+$common-accordion-header-color: var(--common-color-main);
+$common-accordion-header-color-hover: unset;
+$common-accordion-header-color-active: unset;
+$common-accordion-header-bg: none;
+$common-accordion-header-bg-hover: none;
+$common-accordion-header-bg-active: none;
+$common-accordion-body-bg: none;
+$common-accordion-body-bg-active: none;
+$common-accordion-icon-color: inherit;
+
+:export {
+  common-accordion-item-border-bottom: $common-accordion-item-border-bottom;
+  common-accordion-item-border-radius: $common-accordion-item-border-radius;
+  common-accordion-header-color: $common-accordion-header-color;
+  common-accordion-header-color-hover: $common-accordion-header-color-hover;
+  common-accordion-header-color-active: $common-accordion-header-color-active;
+  common-accordion-header-bg: $common-accordion-header-bg;
+  common-accordion-header-bg-hover: $common-accordion-header-bg-hover;
+  common-accordion-header-bg-active: $common-accordion-header-bg-active;
+  common-accordion-body-bg: $common-accordion-body-bg;
+  common-accordion-body-bg-active: $common-accordion-body-bg-active;
+  common-accordion-icon-color: $common-accordion-icon-color;
+}

@@ -1,0 +1,10 @@
+@import 'vars/vars.module';
+
+:root {
+  --common-tabs-header-bg: #{$common-tabs-header-bg};
+  --common-tabs-label-bg: #{$common-tabs-label-bg};
+  --common-tabs-label-bg-active: #{$common-tabs-label-bg-active};
+  --common-tabs-label-border: #{$common-tabs-label-border};
+  --common-tabs-label-border-radius: #{$common-tabs-label-border-radius};
+  --common-tabs-label-border-color-active: #{$common-tabs-label-border-color-active};
+}

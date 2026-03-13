@@ -1,0 +1,1 @@
+export { useCommonAccordion } from './useCommonAccordion';

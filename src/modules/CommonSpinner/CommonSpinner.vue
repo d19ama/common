@@ -1,0 +1,80 @@
+<script lang="ts" setup>
+import { computed } from 'vue';
+import type { HTMLElementClass } from '../../types';
+import type { CommonSpinnerProps } from './types';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+
+const props = withDefaults(defineProps<CommonSpinnerProps>(), {
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
+});
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return [
+    `common-spinner--size-${props.size}`,
+  ];
+});
+</script>
+
+<template>
+  <div
+    class="common-spinner"
+    :class="elementClass"
+  >
+    <svg
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+        opacity=".25"
+      />
+      <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          dur="0.75s"
+          values="0 12 12;360 12 12"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+  </div>
+</template>
+
+<style lang="scss">
+.common-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  color: var(--common-spinner-color);
+
+  // SIZES
+  &--size-xs {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &--size-sm {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &--size-md {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &--size-lg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &--size-xl {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+</style>
