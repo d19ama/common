@@ -51,7 +51,9 @@ const offset = computed<number>(() => {
     return 0;
   }
 
-  const fontSize: string = window.getComputedStyle(htmlElement, null).fontSize;
+  const fontSize: string = window
+    ? window.getComputedStyle(htmlElement, null).fontSize
+    : '16px';
   const fontSizeNumber: string = fontSize.replace(/[^\d-]/g, '');
 
   return Number(fontSizeNumber) * 1.5;
