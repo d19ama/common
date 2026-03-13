@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppDatePicker,
   AppInput,
   AppInputFile,
   AppLink,
@@ -27,6 +26,7 @@ import {
   CommonCheckbox,
   CommonCombobox,
   type CommonComboboxOption,
+  CommonDatePicker,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -732,7 +732,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppDatePicker    -->
+    <!--    CommonDatePicker    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -751,7 +751,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -762,7 +762,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -773,7 +773,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -784,7 +784,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -795,7 +795,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -813,7 +813,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -823,7 +823,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"
@@ -834,7 +834,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppDatePicker
+              <CommonDatePicker
                 placeholder="Select date"
                 label="DatePicker"
                 hint="Some hint"

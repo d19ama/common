@@ -18,4 +18,4 @@ export * from './CommonCheckbox';
 export * from './AppInputFile';
 export * from './CommonAccordion';
 export * from './CommonTransition';
-export * from './AppDatePicker';
+export * from './CommonDatePicker';

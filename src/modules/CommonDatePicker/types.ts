@@ -5,9 +5,9 @@ import type {
   InputBaseSlots,
 } from '@/common/components/InputBase';
 
-export type AppDatePickerModel = Date | number | string | string[];
+export type CommonDatePickerModel = Date | number | string | string[];
 
-export interface AppDatePickerProps extends InputBaseProps {
+export interface CommonDatePickerProps extends InputBaseProps {
   range?: VueDatePickerProps['range'];
   format?: VueDatePickerProps['format'];
   minDate?: VueDatePickerProps['minDate'];
@@ -20,7 +20,7 @@ export interface AppDatePickerProps extends InputBaseProps {
   enableTimePicker?: VueDatePickerProps['enableTimePicker'];
 }
 
-export interface AppDatePickerSlots extends InputBaseSlots {
+export interface CommonDatePickerSlots extends InputBaseSlots {
   hint?: () => VNode[];
   label?: () => VNode[];
   error?: () => VNode[];

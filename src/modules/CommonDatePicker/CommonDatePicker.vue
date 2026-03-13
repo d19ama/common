@@ -5,16 +5,16 @@ import {
 } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import type {
-  AppDatePickerModel,
-  AppDatePickerProps,
-  AppDatePickerSlots,
+  CommonDatePickerModel,
+  CommonDatePickerProps,
+  CommonDatePickerSlots,
 } from './types';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { InputBase } from '@/common/components/InputBase';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppDatePickerProps>(), {
+const props = withDefaults(defineProps<CommonDatePickerProps>(), {
   hint: '',
   range: false,
   errorText: '',
@@ -30,9 +30,9 @@ const props = withDefaults(defineProps<AppDatePickerProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-defineSlots<AppDatePickerSlots>();
+defineSlots<CommonDatePickerSlots>();
 
-const date = defineModel<AppDatePickerModel>('date', {
+const date = defineModel<CommonDatePickerModel>('date', {
   required: false,
 });
 
@@ -40,7 +40,7 @@ const error = ref<boolean>(false);
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-date-picker--size-${props.size}`,
+    `common-date-picker--size-${props.size}`,
   ];
 });
 
@@ -69,7 +69,7 @@ function validate(): void {
 
 <template>
   <InputBase
-    class="app-date-picker"
+    class="common-date-picker"
     :hint="props.hint"
     :size="props.size"
     :label="props.label"
@@ -88,7 +88,7 @@ function validate(): void {
     </template>
 
     <template #default>
-      <div class="app-date-picker__field">
+      <div class="common-date-picker__field">
         <VueDatePicker
           v-model="date"
           :range="props.range"
@@ -125,7 +125,7 @@ function validate(): void {
 </template>
 
 <style lang="scss">
-.app-date-picker {
+.common-date-picker {
   $parent: &;
 
   &__field  {
