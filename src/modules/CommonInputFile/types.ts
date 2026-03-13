@@ -4,25 +4,25 @@ import type {
   InputBaseSlots,
 } from '@/common/components/InputBase';
 
-export type AppInputFileType = 'base64' | 'file';
+export type CommonInputFileType = 'base64' | 'file';
 
-export type AppInputFileAcceptType = 'image' | 'json';
+export type CommonInputFileAcceptType = 'image' | 'json';
 
-export interface AppInputFileProps extends InputBaseProps {
+export interface CommonInputFileProps extends InputBaseProps {
   name?: string;
   multiple?: boolean;
   acceptSize?: number;
   buttonText?: string;
-  type?: AppInputFileType;
-  acceptType?: AppInputFileAcceptType;
+  type?: CommonInputFileType;
+  acceptType?: CommonInputFileAcceptType;
 }
 
-export interface AppInputFileEmits {
+export interface CommonInputFileEmits {
   'update:file': [value: File];
   'update:base64': [value: string];
 }
 
-export interface AppInputFileSlots extends InputBaseSlots {
+export interface CommonInputFileSlots extends InputBaseSlots {
   file?: (scope: {
     file?: File;
   }) => VNode[];

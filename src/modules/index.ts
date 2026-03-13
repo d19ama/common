@@ -15,7 +15,7 @@ export * from './CommonDivider';
 export * from './CommonCombobox';
 export * from './AppTextarea';
 export * from './CommonCheckbox';
-export * from './AppInputFile';
+export * from './CommonInputFile';
 export * from './CommonAccordion';
 export * from './CommonTransition';
 export * from './CommonDatePicker';

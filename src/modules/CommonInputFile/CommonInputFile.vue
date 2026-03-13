@@ -7,16 +7,16 @@ import {
   useTemplateRef,
 } from 'vue';
 import type {
-  AppInputFileEmits,
-  AppInputFileProps,
-  AppInputFileSlots,
+  CommonInputFileEmits,
+  CommonInputFileProps,
+  CommonInputFileSlots,
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppInputFileProps>(), {
+const props = withDefaults(defineProps<CommonInputFileProps>(), {
   hint: '',
   label: '',
   errorText: '',
@@ -30,9 +30,9 @@ const props = withDefaults(defineProps<AppInputFileProps>(), {
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<AppInputFileEmits>();
+const emit = defineEmits<CommonInputFileEmits>();
 
-const slots = defineSlots<AppInputFileSlots>();
+const slots = defineSlots<CommonInputFileSlots>();
 
 const ACCEPT_SETTINGS = {
   image: '.jpg, .jpeg, .png, .gif, .svg',
@@ -52,7 +52,7 @@ const name = computed<string>(() => {
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-input-file--size-${props.size}`,
+    `common-input-file--size-${props.size}`,
   ];
 });
 
@@ -118,7 +118,7 @@ function onClick(): void {
 
 <template>
   <InputBase
-    class="app-input-file"
+    class="common-input-file"
     :hint="props.hint"
     :size="props.size"
     :label="props.label"
@@ -140,7 +140,7 @@ function onClick(): void {
     <template #default>
       <span
         v-if="hasButton"
-        class="app-input-file__button"
+        class="common-input-file__button"
       >
         <slot name="button">
           {{ props.buttonText }}
@@ -149,13 +149,13 @@ function onClick(): void {
       <input
         ref="inputRef"
         type="file"
-        class="app-input-file__field"
+        class="common-input-file__field"
         :name="name"
         :multiple="props.multiple"
         :accept="ACCEPT_SETTINGS[props.acceptType]"
         @change="onChange"
       >
-      <span class="app-input-file__placeholder">
+      <span class="common-input-file__placeholder">
         <slot
           name="file"
           :file="currentFile"
@@ -189,7 +189,7 @@ function onClick(): void {
 }
 
 // COMPONENT STYLES
-.app-input-file {
+.common-input-file {
   $parent: &;
 
   display: flex;

@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppInputFile,
   AppLink,
   AppList,
   AppModal,
@@ -27,6 +26,7 @@ import {
   type CommonComboboxOption,
   CommonDatePicker,
   CommonInput,
+  CommonInputFile,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -996,7 +996,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppInputFile    -->
+    <!--    CommonInputFile    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1015,7 +1015,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1026,7 +1026,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1037,7 +1037,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1048,7 +1048,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1059,7 +1059,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1077,7 +1077,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1087,7 +1087,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
@@ -1098,7 +1098,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppInputFile
+              <CommonInputFile
                 label="Upload file"
                 button-text="Upload"
                 hint="Some hint"
