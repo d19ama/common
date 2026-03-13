@@ -5,21 +5,21 @@ import {
   getCurrentInstance,
 } from 'vue';
 import type {
-  AppCheckboxProps,
-  AppCheckboxSlots,
+  CommonCheckboxProps,
+  CommonCheckboxSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppCheckboxProps>(), {
+const props = withDefaults(defineProps<CommonCheckboxProps>(), {
   theme: 'form',
   disabled: false,
   required: false,
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-defineSlots<AppCheckboxSlots>();
+defineSlots<CommonCheckboxSlots>();
 
 const checked = defineModel<boolean>('checked', {
   required: true,
@@ -33,12 +33,12 @@ const name = computed<string>(() => {
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-checkbox--size-${props.size}`,
-    `app-checkbox--theme-${props.theme}`,
+    `common-checkbox--size-${props.size}`,
+    `common-checkbox--theme-${props.theme}`,
     {
-      'app-checkbox--checked': checked.value,
-      'app-checkbox--disabled': props.disabled,
-      'app-checkbox--required': props.required,
+      'common-checkbox--checked': checked.value,
+      'common-checkbox--disabled': props.disabled,
+      'common-checkbox--required': props.required,
     },
   ];
 });
@@ -47,7 +47,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 <template>
   <label
     :for="name"
-    class="app-checkbox"
+    class="common-checkbox"
     :class="elementClass"
   >
     <input
@@ -56,17 +56,17 @@ const elementClass = computed<HTMLElementClass>(() => {
       :name="name"
       :disabled="props.disabled"
       type="checkbox"
-      class="app-checkbox__field"
+      class="common-checkbox__field"
       autocomplete="off"
     >
-    <span class="app-checkbox__box" />
-    <span class="app-checkbox__text">
+    <span class="common-checkbox__box" />
+    <span class="common-checkbox__text">
       <slot>
         {{ props.text }}
       </slot>
       <sup
         v-if="props.required"
-        class="app-checkbox__text-required"
+        class="common-checkbox__text-required"
       >*</sup>
     </span>
   </label>
@@ -80,7 +80,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 }
 
 // COMPONENT STYLES
-.app-checkbox {
+.common-checkbox {
   $parent: &;
 
   display: flex;

@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppCheckbox,
   AppCombobox,
   type AppComboboxOption,
   AppDatePicker,
@@ -27,6 +26,7 @@ import {
   CommonAccordion,
   CommonAccordionItem,
   CommonButton,
+  CommonCheckbox,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -1492,7 +1492,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppCheckbox    -->
+    <!--    CommonCheckbox    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1511,7 +1511,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XS
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1522,7 +1522,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SM
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1533,7 +1533,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 MD
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1544,7 +1544,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 LG
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1555,7 +1555,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 XL
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1573,7 +1573,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 FORM
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="form"
@@ -1583,7 +1583,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="primary"
@@ -1593,7 +1593,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="secondary"
@@ -1603,7 +1603,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="tertiary"
@@ -1613,7 +1613,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 theme="unaccented"
@@ -1630,7 +1630,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DEFAULT
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
               />
@@ -1639,7 +1639,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 REQUIRED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 required
@@ -1649,7 +1649,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 DISABLED
               </p>
-              <AppCheckbox
+              <CommonCheckbox
                 v-model:checked="checkbox"
                 text="Button"
                 disabled

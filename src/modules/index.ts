@@ -14,7 +14,7 @@ export * from './CommonSpinner';
 export * from './AppDivider';
 export * from './AppCombobox';
 export * from './AppTextarea';
-export * from './AppCheckbox';
+export * from './CommonCheckbox';
 export * from './AppInputFile';
 export * from './CommonAccordion';
 export * from './CommonTransition';

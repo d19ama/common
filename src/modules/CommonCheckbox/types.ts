@@ -8,22 +8,22 @@ import type {
   GlobalThemeUnaccented,
 } from '@/types/global-props';
 
-export type AppCheckboxTheme =
+export type CommonCheckboxTheme =
   | GlobalThemePrimary
   | GlobalThemeSecondary
   | GlobalThemeTertiary
   | GlobalThemeUnaccented
   | GlobalThemeForm;
 
-export interface AppCheckboxProps {
+export interface CommonCheckboxProps {
   name?: string;
   text?: string;
   required?: boolean;
   disabled?: boolean;
   size?: GlobalPropSize;
-  theme?: AppCheckboxTheme;
+  theme?: CommonCheckboxTheme;
 }
 
-export interface AppCheckboxSlots {
+export interface CommonCheckboxSlots {
   default?: () => VNode[];
 }
