@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppLink,
   AppList,
   AppModal,
   AppRadio,
@@ -27,6 +26,7 @@ import {
   CommonDatePicker,
   CommonInput,
   CommonInputFile,
+  CommonLink,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -245,7 +245,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppLink    -->
+    <!--    CommonLink    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -264,7 +264,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 PRIMARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="primary"
               />
@@ -273,7 +273,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 SECONDARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="secondary"
               />
@@ -282,7 +282,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 TERTIARY
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="tertiary"
               />
@@ -291,7 +291,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
               <p class="margin-bottom--xs">
                 UNACCENTED
               </p>
-              <AppLink
+              <CommonLink
                 text="Source link"
                 theme="unaccented"
               />

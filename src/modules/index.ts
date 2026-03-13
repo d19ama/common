@@ -1,4 +1,4 @@
-export * from './AppLink';
+export * from './CommonLink';
 export * from './AppTabs';
 export * from './AppList';
 export * from './AppRadio';

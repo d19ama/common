@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import type {
-  AppLinkEmits,
-  AppLinkProps,
-  AppLinkSlots,
+  CommonLinkEmits,
+  CommonLinkProps,
+  CommonLinkSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { GLOBAL_PROP_THEME_DEFAULT } from '@/constants/global-props';
 
-const props = withDefaults(defineProps<AppLinkProps>(), {
+const props = withDefaults(defineProps<CommonLinkProps>(), {
   url: '#',
   text: '',
   prevent: false,
@@ -18,16 +18,16 @@ const props = withDefaults(defineProps<AppLinkProps>(), {
   theme: GLOBAL_PROP_THEME_DEFAULT,
 });
 
-const emit = defineEmits<AppLinkEmits>();
+const emit = defineEmits<CommonLinkEmits>();
 
-defineSlots<AppLinkSlots>();
+defineSlots<CommonLinkSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-link--theme-${props.theme}`,
+    `common-link--theme-${props.theme}`,
     {
-      'app-link--underline': props.underline && !props.lineThrough,
-      'app-link--line-through': !props.underline && props.lineThrough,
+      'common-link--underline': props.underline && !props.lineThrough,
+      'common-link--line-through': !props.underline && props.lineThrough,
     },
   ];
 });
@@ -43,7 +43,7 @@ function onClick(event: Event): void {
 
 <template>
   <a
-    class="app-link"
+    class="common-link"
     :href="props.url"
     :class="elementClass"
     :target="props.target"
@@ -62,7 +62,7 @@ a {
 }
 
 // COMPONENT STYLES
-.app-link {
+.common-link {
   color: var(--common-color-black);
   transition: color var(--common-transition);
 
