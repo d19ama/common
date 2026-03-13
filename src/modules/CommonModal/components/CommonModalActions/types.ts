@@ -1,9 +1,9 @@
 import type { VNode } from 'vue';
 
-export interface AppModalActionsProps {
+export interface CommonModalActionsProps {
   layout?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 }
 
-export interface AppModalActionsSlots {
+export interface CommonModalActionsSlots {
   default?: () => VNode[];
 }

@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import type {
-  AppModalActionsProps,
-  AppModalActionsSlots,
+  CommonModalActionsProps,
+  CommonModalActionsSlots,
 } from './types';
 
-withDefaults(defineProps<AppModalActionsProps>(), {
+withDefaults(defineProps<CommonModalActionsProps>(), {
   layout: 'row',
 });
 
-defineSlots<AppModalActionsSlots>();
+defineSlots<CommonModalActionsSlots>();
 </script>
 
 <template>
   <div
-    class="app-modal-actions"
+    class="common-modal-actions"
     :style="{
       flexDirection: layout,
     }"
@@ -23,7 +23,7 @@ defineSlots<AppModalActionsSlots>();
 </template>
 
 <style lang="scss">
-.app-modal-actions {
+.common-modal-actions {
   display: flex;
   gap: 2rem;
 }

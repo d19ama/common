@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppModal,
   AppRadio,
   type AppRadioOption,
   AppSelect,
@@ -27,6 +26,7 @@ import {
   CommonInputFile,
   CommonLink,
   CommonList,
+  CommonModal,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -1946,7 +1946,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppModal    -->
+    <!--    CommonModal    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1961,7 +1961,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 text="Open modal!"
                 @click="modal = !modal"
               />
-              <AppModal
+              <CommonModal
                 v-model:visible="modal"
                 size="full-page"
                 title="Modal title"
@@ -1977,7 +1977,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
                 <template #footer>
                   Modal footer
                 </template>
-              </AppModal>
+              </CommonModal>
             </div>
           </div>
         </div>

@@ -9,23 +9,23 @@ import {
   AppTitle,
   CommonButton,
 } from '../';
-import { useModalStore } from './composables';
+import { useCommonModalStore } from './composables';
 import type {
-  AppModalProps,
-  AppModalSlots,
+  CommonModalProps,
+  CommonModalSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { useComponentId } from '@/common/composables';
 import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
-const props = withDefaults(defineProps<AppModalProps>(), {
+const props = withDefaults(defineProps<CommonModalProps>(), {
   title: '',
   rounded: true,
   appendTo: 'body',
   size: GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const slots = defineSlots<AppModalSlots>();
+const slots = defineSlots<CommonModalSlots>();
 
 const visible = defineModel<boolean>('visible', {
   required: false,
@@ -40,7 +40,7 @@ const {
   add,
   remove,
   active,
-} = useModalStore();
+} = useCommonModalStore();
 
 const titleId = useComponentId('modal-title');
 
@@ -60,9 +60,9 @@ const hasHeader = computed<boolean>(() => {
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-modal--size-${props.size}`,
+    `common-modal--size-${props.size}`,
     {
-      'app-modal--rounded': props.rounded && props.size !== 'full-page',
+      'common-modal--rounded': props.rounded && props.size !== 'full-page',
     },
   ];
 });
@@ -114,28 +114,28 @@ watch(
   >
     <div
       v-if="hasOverlay"
-      class="app-modal__overlay"
+      class="common-modal__overlay"
       @click="close"
     />
 
     <div
       v-if="visible"
-      class="app-modal"
+      class="common-modal"
       :class="elementClass"
       role="dialog"
       :aria-labelledby="props.title ?? titleId"
       aria-modal="true"
       v-bind="$attrs"
     >
-      <div class="app-modal__container">
-        <div class="app-modal__control">
+      <div class="common-modal__container">
+        <div class="common-modal__control">
           <slot name="control" />
           <slot
             name="close"
             :close="close"
           >
             <CommonButton
-              class="app-modal__button-close icon icon-cross"
+              class="common-modal__button-close icon icon-cross"
               auto-width
               size="sm"
               theme="icon"
@@ -145,7 +145,7 @@ watch(
         </div>
         <div
           v-if="hasHeader"
-          class="app-modal__header"
+          class="common-modal__header"
         >
           <slot name="header">
             <AppTitle
@@ -159,14 +159,14 @@ watch(
 
         <div
           v-if="$slots.default"
-          class="app-modal__body"
+          class="common-modal__body"
         >
           <slot />
         </div>
 
         <div
           v-if="$slots.footer"
-          class="app-modal__footer"
+          class="common-modal__footer"
         >
           <slot
             name="footer"
@@ -179,7 +179,7 @@ watch(
 </template>
 
 <style lang="scss">
-.app-modal {
+.common-modal {
   $parent: &;
 
   display: flex;

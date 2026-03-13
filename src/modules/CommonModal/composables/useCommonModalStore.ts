@@ -3,29 +3,29 @@ import {
   ref,
 } from 'vue';
 
-interface IDialog {
+interface CommonModal {
   id: symbol;
 }
 
-const _items = ref<IDialog[]>([]);
+const _items = ref<CommonModal[]>([]);
 
-export function useModalStore() {
-  const items = computed<IDialog[]>(() => {
+export function useCommonModalStore() {
+  const items = computed<CommonModal[]>(() => {
     return _items.value;
   });
 
-  function add(payload: IDialog): void {
+  function add(payload: CommonModal): void {
     _items.value = [
       ..._items.value.filter((dialog) => dialog.id !== payload.id),
       payload,
     ];
   }
 
-  function remove<T extends Pick<IDialog, 'id'>>(payload: T): void {
+  function remove<T extends Pick<CommonModal, 'id'>>(payload: T): void {
     _items.value = _items.value.filter((dialog) => dialog.id !== payload.id);
   }
 
-  const active = computed<IDialog | undefined>(() => {
+  const active = computed<CommonModal | undefined>(() => {
     return _items.value[_items.value.length - 1];
   });
 

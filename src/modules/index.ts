@@ -6,7 +6,7 @@ export * from './CommonInput';
 export * from './CommonTitle';
 export * from './AppTable';
 export * from './CommonImage';
-export * from './AppModal';
+export * from './CommonModal';
 export * from './AppSelect';
 export * from './CommonButton';
 export * from './CommonTooltip';
