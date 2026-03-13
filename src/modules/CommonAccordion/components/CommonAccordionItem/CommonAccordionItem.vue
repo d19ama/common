@@ -4,20 +4,20 @@ import {
   onMounted,
 } from 'vue';
 import Velocity from 'velocity-animate';
-import { useAppAccordion } from '../../composables';
+import { useCommonAccordion } from '../../composables';
 import type {
-  AppAccordionItemProps,
-  AppAccordionItemSlots,
+  CommonAccordionItemProps,
+  CommonAccordionItemSlots,
 } from './types';
 import { componentName } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppAccordionItemProps>(), {
+const props = withDefaults(defineProps<CommonAccordionItemProps>(), {
   headerText: '',
   bodyText: '',
 });
 
-defineSlots<AppAccordionItemSlots>();
+defineSlots<CommonAccordionItemSlots>();
 
 const DURATION: number = 300;
 
@@ -25,9 +25,9 @@ const {
   state,
   add,
   toggle,
-} = useAppAccordion();
+} = useCommonAccordion();
 
-const name = componentName('app-accordion-item');
+const name = componentName('common-accordion-item');
 
 const currentState = computed<boolean>(() => {
   return !!state.value.get(name);
@@ -35,7 +35,7 @@ const currentState = computed<boolean>(() => {
 
 const headerClass = computed<HTMLElementClass>(() => {
   return {
-    'app-accordion-item__header--active': currentState.value,
+    'common-accordion-item__header--active': currentState.value,
   };
 });
 
@@ -47,7 +47,7 @@ const iconClass = computed<HTMLElementClass>(() => {
 
 const bodyClass = computed<HTMLElementClass>(() => {
   return {
-    'app-accordion-item__body--active': currentState.value,
+    'common-accordion-item__body--active': currentState.value,
   };
 });
 
@@ -84,9 +84,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app-accordion-item">
+  <div class="common-accordion-item">
     <div
-      class="app-accordion-item__header"
+      class="common-accordion-item__header"
       :class="headerClass"
       @click="toggleItem"
     >
@@ -96,7 +96,7 @@ onMounted(() => {
         </slot>
         <slot name="icon">
           <span
-            class="app-accordion-item__icon icon icon-folder"
+            class="common-accordion-item__icon icon icon-folder"
             :class="iconClass"
           />
         </slot>
@@ -108,10 +108,10 @@ onMounted(() => {
     >
       <div
         v-if="currentState"
-        class="app-accordion-item__body"
+        class="common-accordion-item__body"
         :class="bodyClass"
       >
-        <div class="app-accordion-item__content">
+        <div class="common-accordion-item__content">
           <slot name="body">
             {{ props.bodyText }}
           </slot>
@@ -122,9 +122,9 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-.app-accordion-item {
-  border-bottom: var(--app-accordion-item-border-bottom);
-  border-radius: var(--app-accordion-item-border-radius);
+.common-accordion-item {
+  border-bottom: var(--common-accordion-item-border-bottom);
+  border-radius: var(--common-accordion-item-border-radius);
   transition: background-color var(--common-transition);
 
   &__header {
@@ -136,22 +136,22 @@ onMounted(() => {
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 700;
-    color: var(--app-accordion-header-color);
+    color: var(--common-accordion-header-color);
     text-decoration: none;
-    background: var(--app-accordion-header-bg);
+    background: var(--common-accordion-header-bg);
     transition: background var(--common-transition), color var(--common-transition);
     user-select: none;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      color: var(--app-accordion-header-color-hover);
-      background: var(--app-accordion-header-bg-hover);
+      color: var(--common-accordion-header-color-hover);
+      background: var(--common-accordion-header-bg-hover);
     }
 
     &--active {
-      color: var(--app-accordion-header-color-active);
-      background: var(--app-accordion-header-bg-active);
+      color: var(--common-accordion-header-color-active);
+      background: var(--common-accordion-header-bg-active);
     }
   }
 
@@ -170,17 +170,17 @@ onMounted(() => {
     z-index: 1;
     font-size: 1rem;
     font-style: normal;
-    color: var(--app-accordion-icon-color);
+    color: var(--common-accordion-icon-color);
     border-radius: 50%;
   }
 
   &__body {
     padding: 1rem;
-    background: var(--app-accordion-body-bg);
+    background: var(--common-accordion-body-bg);
     transition: background var(--common-transition);
 
     &--active {
-      background: var(--app-accordion-body-bg-active);
+      background: var(--common-accordion-body-bg-active);
     }
   }
 

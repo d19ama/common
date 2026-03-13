@@ -1,0 +1,15 @@
+@import 'vars/vars.module';
+
+:root {
+  --common-accordion-item-border-bottom: #{$common-accordion-item-border-bottom};
+  --common-accordion-item-border-radius: #{$common-accordion-item-border-radius};
+  --common-accordion-header-color: #{$common-accordion-header-color};
+  --common-accordion-header-color-hover: #{$common-accordion-header-color-hover};
+  --common-accordion-header-color-active: #{$common-accordion-header-color-active};
+  --common-accordion-header-bg: #{$common-accordion-header-bg};
+  --common-accordion-header-bg-hover: #{$common-accordion-header-bg-hover};
+  --common-accordion-header-bg-active: #{$common-accordion-header-bg-active};
+  --common-accordion-body-bg: #{$common-accordion-body-bg};
+  --common-accordion-body-bg-active: #{$common-accordion-body-bg-active};
+  --common-accordion-icon-color: #{$common-accordion-icon-color};
+}

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import type { AppAccordionSlots } from './types';
+import type { CommonAccordionSlots } from './types';
 
-defineSlots<AppAccordionSlots>();
+defineSlots<CommonAccordionSlots>();
 </script>
 
 <template>
-  <div class="app-accordion">
+  <div class="common-accordion">
     <slot />
   </div>
 </template>
 
 <style lang="scss">
-.app-accordion {
+.common-accordion {
   display: flex;
   flex-flow: column nowrap;
 }

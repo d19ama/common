@@ -4,8 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppAccordion,
-  AppAccordionItem,
   AppButton,
   AppCheckbox,
   AppCombobox,
@@ -30,6 +28,8 @@ import {
   AppTitle,
   type AppTitleTags,
   AppTooltip,
+  CommonAccordion,
+  CommonAccordionItem,
 } from '@/modules';
 
 interface TableData {
@@ -202,7 +202,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       STYLEGUIDE
     </AppTitle>
 
-    <!--    AppAccordion    -->
+    <!--    CommonAccordion    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -213,32 +213,32 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-12">
-              <AppAccordion>
-                <AppAccordionItem>
+              <CommonAccordion>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 1
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-                <AppAccordionItem>
+                </CommonAccordionItem>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 2
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-                <AppAccordionItem>
+                </CommonAccordionItem>
+                <CommonAccordionItem>
                   <template #header-text>
                     Accordion 3
                   </template>
                   <template #body>
                     Whoa!
                   </template>
-                </AppAccordionItem>
-              </AppAccordion>
+                </CommonAccordionItem>
+              </CommonAccordion>
             </div>
           </div>
         </div>
