@@ -4,7 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppList,
   AppModal,
   AppRadio,
   type AppRadioOption,
@@ -27,6 +26,7 @@ import {
   CommonInput,
   CommonInputFile,
   CommonLink,
+  CommonList,
   CommonSpinner,
   type CommonTitleTags,
   CommonTooltip,
@@ -301,7 +301,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppList    -->
+    <!--    CommonList    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -312,7 +312,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-12">
-              <AppList
+              <CommonList
                 text="Link"
                 :items="[
                   {

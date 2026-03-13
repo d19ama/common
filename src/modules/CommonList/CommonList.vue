@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import { AppListItem } from './components';
+import { CommonListItem } from './components';
 import type {
-  AppListProps,
-  AppListSlots,
+  CommonListProps,
+  CommonListSlots,
 } from './types';
 
-const props = withDefaults(defineProps<AppListProps>(), {
+const props = withDefaults(defineProps<CommonListProps>(), {
   tag: 'ul',
   items: () => [],
   noMarkers: false,
 });
 
-defineSlots<AppListSlots>();
+defineSlots<CommonListSlots>();
 </script>
 
 <template>
@@ -19,7 +19,7 @@ defineSlots<AppListSlots>();
     :is="tag"
     class="list"
   >
-    <AppListItem
+    <CommonListItem
       v-for="item in items"
       :key="item.id"
       :tag="props.tag"
@@ -31,6 +31,6 @@ defineSlots<AppListSlots>();
       >
         {{ item.label }}
       </slot>
-    </AppListItem>
+    </CommonListItem>
   </Component>
 </template>

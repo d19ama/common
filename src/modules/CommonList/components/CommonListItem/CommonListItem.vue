@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import type {
-  AppListItemProps,
-  AppListItemSlots,
+  CommonListItemProps,
+  CommonListItemSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppListItemProps>(), {
+const props = withDefaults(defineProps<CommonListItemProps>(), {
   tag: 'ul',
   prepend: '//',
   noMarkers: false,
 });
 
-defineSlots<AppListItemSlots>();
+defineSlots<CommonListItemSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
