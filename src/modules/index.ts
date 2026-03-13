@@ -4,7 +4,7 @@ export * from './CommonList';
 export * from './CommonRadio';
 export * from './CommonInput';
 export * from './CommonTitle';
-export * from './AppTable';
+export * from './CommonTable';
 export * from './CommonImage';
 export * from './CommonModal';
 export * from './CommonSelect';

@@ -4,9 +4,6 @@ import {
   ref,
 } from 'vue';
 import {
-  AppTable,
-  type AppTableHeader,
-  type AppTableRow,
   AppTabs,
   type AppTabsItem,
   AppTextarea,
@@ -28,6 +25,9 @@ import {
   CommonSelect,
   type CommonSelectOption,
   CommonSpinner,
+  CommonTable,
+  type CommonTableHeader,
+  type CommonTableRow,
   type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
@@ -141,7 +141,7 @@ const tabs = ref<AppTabsItem[]>([
   },
 ]);
 
-const headers = ref<AppTableHeader<TableData>[]>([
+const headers = ref<CommonTableHeader<TableData>[]>([
   {
     id: '1',
     name: 'one',
@@ -168,7 +168,7 @@ const spinner = ref<boolean>(true);
 const inputValue = ref<string>('');
 const checkbox = ref<boolean>(false);
 
-const rows = computed<AppTableRow<TableData>[]>(() => {
+const rows = computed<CommonTableRow<TableData>[]>(() => {
   return [
     {
       id: '1',
@@ -1915,7 +1915,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTable    -->
+    <!--    CommonTable    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1926,20 +1926,20 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-6">
-              <AppTable
+              <CommonTable
                 :headers="headers"
                 :rows="rows"
               />
             </div>
             <div class="col-default-6">
-              <AppTable
+              <CommonTable
                 :headers="headers"
                 :rows="rows"
               >
                 <template #td-one="{ data }">
                   {{ data.one }}
                 </template>
-              </AppTable>
+              </CommonTable>
             </div>
           </div>
         </div>

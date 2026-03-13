@@ -4,25 +4,25 @@ import {
   computed,
 } from 'vue';
 import type {
-  AppTableHeader,
-  AppTableProps,
-  AppTableSlots,
+  CommonTableHeader,
+  CommonTableProps,
+  CommonTableSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-const props = withDefaults(defineProps<AppTableProps<T>>(), {
+const props = withDefaults(defineProps<CommonTableProps<T>>(), {
   rows: () => [],
   headers: () => [],
   hideHeader: false,
 });
 
-defineSlots<AppTableSlots<T>>();
+defineSlots<CommonTableSlots<T>>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return {};
 });
 
-function cellWidth(cell: AppTableHeader<T>): StyleValue {
+function cellWidth(cell: CommonTableHeader<T>): StyleValue {
   return cell.width
     ? {
         width: `${cell.width}`,
@@ -33,20 +33,20 @@ function cellWidth(cell: AppTableHeader<T>): StyleValue {
 
 <template>
   <div
-    class="app-table"
+    class="common-table"
     :class="elementClass"
   >
-    <table class="app-table__content">
+    <table class="common-table__content">
       <thead
         v-if="!props.hideHeader"
-        class="app-table__thead"
+        class="common-table__thead"
       >
-        <tr class="app-table__tr">
+        <tr class="common-table__tr">
           <th
             v-for="cell in props.headers"
             :key="cell.id"
             :style="cellWidth(cell)"
-            class="app-table__th"
+            class="common-table__th"
           >
             <slot
               :name="`th-${String(cell.name)}`"
@@ -57,16 +57,16 @@ function cellWidth(cell: AppTableHeader<T>): StyleValue {
           </th>
         </tr>
       </thead>
-      <tbody class="app-table__tbody">
+      <tbody class="common-table__tbody">
         <tr
           v-for="row in props.rows"
           :key="row.id"
-          class="app-table__tr"
+          class="common-table__tr"
         >
           <td
             v-for="cell in props.headers"
             :key="cell.id"
-            class="app-table__td"
+            class="common-table__td"
             :style="cellWidth(cell)"
           >
             <slot
@@ -83,7 +83,7 @@ function cellWidth(cell: AppTableHeader<T>): StyleValue {
 </template>
 
 <style lang="scss">
-.app-table {
+.common-table {
   $parent: &;
 
   border: 1px solid var(--common-color-ui-primary);
