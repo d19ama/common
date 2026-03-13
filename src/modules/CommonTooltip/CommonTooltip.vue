@@ -8,20 +8,20 @@ import {
   type TippyComponent,
 } from 'vue-tippy';
 import type {
-  AppTooltipActions,
-  AppTooltipProps,
-  AppTooltipSlots,
+  CommonTooltipActions,
+  CommonTooltipProps,
+  CommonTooltipSlots,
 } from './types';
 
 import 'tippy.js/dist/tippy.css';
 
-const props = withDefaults(defineProps<AppTooltipProps>(), {
+const props = withDefaults(defineProps<CommonTooltipProps>(), {
   title: '',
   visible: true,
   placement: 'top',
 });
 
-defineSlots<AppTooltipSlots>();
+defineSlots<CommonTooltipSlots>();
 
 const OFFSET: [number, number] = [
   0,
@@ -30,7 +30,7 @@ const OFFSET: [number, number] = [
 
 const instance = ref<TippyComponent>();
 
-const actions = computed<AppTooltipActions>(() => ({
+const actions = computed<CommonTooltipActions>(() => ({
   close: instance.value?.hide,
 }));
 
@@ -44,8 +44,8 @@ const trigger = computed<TippyComponent['trigger']>(() => {
 <template>
   <Tippy
     ref="instance"
-    class="app-tooltip"
-    content-class="app-tooltip__content"
+    class="common-tooltip"
+    content-class="common-tooltip__content"
     :placement="props.placement"
     :offset="OFFSET"
     :trigger="trigger"
@@ -55,7 +55,7 @@ const trigger = computed<TippyComponent['trigger']>(() => {
     <template #default>
       <slot name="activator">
         <div
-          class="app-tooltip__info icon icon-info"
+          class="common-tooltip__info icon icon-info"
         />
       </slot>
     </template>
@@ -63,7 +63,7 @@ const trigger = computed<TippyComponent['trigger']>(() => {
     <template #content>
       <div
         v-if="!!$slots.default"
-        class="app-tooltip__content"
+        class="common-tooltip__content"
       >
         <slot
           name="default"
@@ -75,7 +75,7 @@ const trigger = computed<TippyComponent['trigger']>(() => {
 </template>
 
 <style lang="scss">
-.app-tooltip {
+.common-tooltip {
   display: inline-flex;
   width: fit-content;
   height: fit-content;

@@ -27,9 +27,9 @@ import {
   AppTextarea,
   AppTitle,
   type AppTitleTags,
-  AppTooltip,
   CommonAccordion,
   CommonAccordionItem,
+  CommonTooltip,
 } from '@/modules';
 
 interface TableData {
@@ -1895,7 +1895,7 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
       </div>
     </div>
 
-    <!--    AppTooltip    -->
+    <!--    CommonTooltip    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
         <div class="col-default-12">
@@ -1906,9 +1906,9 @@ const rows = computed<AppTableRow<TableData>[]>(() => {
           />
           <div class="row">
             <div class="col-default-4">
-              <AppTooltip>
+              <CommonTooltip>
                 tooltip
-              </AppTooltip>
+              </CommonTooltip>
             </div>
           </div>
         </div>

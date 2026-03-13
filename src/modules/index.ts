@@ -9,7 +9,7 @@ export * from './AppImage';
 export * from './AppModal';
 export * from './AppSelect';
 export * from './AppButton';
-export * from './AppTooltip';
+export * from './CommonTooltip';
 export * from './AppSpinner';
 export * from './AppDivider';
 export * from './AppCombobox';
