@@ -13,7 +13,7 @@ import type {
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
 import { InputBase } from '@/common/components/InputBase';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonTextareaProps>(), {
   hint: '',
@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<CommonTextareaProps>(), {
   placeholder: '',
   maxLength: 999,
   enableCounter: true,
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<CommonTextareaEmits>();

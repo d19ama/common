@@ -10,7 +10,7 @@ import type {
 } from './types';
 import { InputBase } from '@/common/components/InputBase';
 import { SelectBase } from '@/common/components/SelectBase';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonSelectProps>(), {
   hint: '',
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<CommonSelectProps>(), {
   disabled: false,
   required: false,
   options: () => [],
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<CommonSelectSlots>();

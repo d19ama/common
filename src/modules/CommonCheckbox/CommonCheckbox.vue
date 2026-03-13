@@ -10,13 +10,13 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { componentNameByInstance } from '@/helpers/component-name';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonCheckboxProps>(), {
   theme: 'form',
   disabled: false,
   required: false,
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<CommonCheckboxSlots>();

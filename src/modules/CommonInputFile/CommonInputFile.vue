@@ -14,7 +14,7 @@ import type {
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonInputFileProps>(), {
   hint: '',
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<CommonInputFileProps>(), {
   acceptType: 'image',
   acceptSize: 1048576,
   buttonText: 'Загрузить',
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<CommonInputFileEmits>();

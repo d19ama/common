@@ -21,7 +21,7 @@ import type {
 import { InputBase } from '@/common/components/InputBase';
 import { componentNameByInstance } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonInputProps>(), {
   hint: '',
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<CommonInputProps>(), {
   placeholder: '',
   position: 'left',
   maskVisibility: 'onFocus',
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<CommonInputEmits>();

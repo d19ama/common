@@ -20,7 +20,7 @@ import { CommonSpinner } from '@/modules';
 import {
   COMMON_DEFAULT_DELAY,
   COMMON_DEFAULT_SEARCH_LENGTH,
-  GLOBAL_PROP_SIZE_DEFAULT,
+  COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 } from '@/constants';
 import type { HTMLElementClass } from '@/types';
 
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<CommonComboboxProps>(), {
   disabled: false,
   required: false,
   searchError: false,
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<CommonComboboxEmits>();

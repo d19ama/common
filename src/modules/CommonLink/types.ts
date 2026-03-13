@@ -1,7 +1,7 @@
 import type { VNode } from 'vue';
-import type { GlobalPropTheme } from '@/types';
+import type { CommonGlobalPropTheme } from '@/types';
 
-export type CommonLinkTheme = GlobalPropTheme;
+export type CommonLinkTheme = CommonGlobalPropTheme;
 
 export type CommonLinkTarget = '_blank' | '_self';
 

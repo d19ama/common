@@ -16,13 +16,13 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { useComponentId } from '@/common/composables';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonModalProps>(), {
   title: '',
   rounded: true,
   appendTo: 'body',
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const slots = defineSlots<CommonModalSlots>();

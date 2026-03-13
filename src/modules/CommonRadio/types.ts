@@ -1,26 +1,26 @@
 import type { VNode } from 'vue';
 import type {
-  GlobalPropSize,
-  GlobalThemeForm,
-  GlobalThemePrimary,
-  GlobalThemeSecondary,
-  GlobalThemeTertiary,
-  GlobalThemeUnaccented,
+  CommonGlobalPropSize,
+  CommonGlobalThemeForm,
+  CommonGlobalThemePrimary,
+  CommonGlobalThemeSecondary,
+  CommonGlobalThemeTertiary,
+  CommonGlobalThemeUnaccented,
 } from '@/types/global-props';
 
 export type CommonRadioTheme =
-  | GlobalThemePrimary
-  | GlobalThemeSecondary
-  | GlobalThemeTertiary
-  | GlobalThemeUnaccented
-  | GlobalThemeForm;
+  | CommonGlobalThemePrimary
+  | CommonGlobalThemeSecondary
+  | CommonGlobalThemeTertiary
+  | CommonGlobalThemeUnaccented
+  | CommonGlobalThemeForm;
 
 export interface CommonRadioProps {
   id?: string;
   name?: string;
   disabled?: boolean;
   required?: boolean;
-  size?: GlobalPropSize;
+  size?: CommonGlobalPropSize;
   theme?: CommonRadioTheme;
   options?: CommonRadioOption[];
 }

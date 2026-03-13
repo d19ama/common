@@ -8,13 +8,13 @@ import type {
   InputBaseSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<InputBaseProps>(), {
   maxLength: 50,
   required: false,
   disabled: false,
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const slots = defineSlots<InputBaseSlots>();

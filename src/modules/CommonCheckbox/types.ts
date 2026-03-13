@@ -1,26 +1,26 @@
 import type { VNode } from 'vue';
 import type {
-  GlobalPropSize,
-  GlobalThemeForm,
-  GlobalThemePrimary,
-  GlobalThemeSecondary,
-  GlobalThemeTertiary,
-  GlobalThemeUnaccented,
+  CommonGlobalPropSize,
+  CommonGlobalThemeForm,
+  CommonGlobalThemePrimary,
+  CommonGlobalThemeSecondary,
+  CommonGlobalThemeTertiary,
+  CommonGlobalThemeUnaccented,
 } from '@/types/global-props';
 
 export type CommonCheckboxTheme =
-  | GlobalThemePrimary
-  | GlobalThemeSecondary
-  | GlobalThemeTertiary
-  | GlobalThemeUnaccented
-  | GlobalThemeForm;
+  | CommonGlobalThemePrimary
+  | CommonGlobalThemeSecondary
+  | CommonGlobalThemeTertiary
+  | CommonGlobalThemeUnaccented
+  | CommonGlobalThemeForm;
 
 export interface CommonCheckboxProps {
   name?: string;
   text?: string;
   required?: boolean;
   disabled?: boolean;
-  size?: GlobalPropSize;
+  size?: CommonGlobalPropSize;
   theme?: CommonCheckboxTheme;
 }
 

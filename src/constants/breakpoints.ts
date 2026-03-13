@@ -1,6 +1,6 @@
-import type { GlobalPropSize } from '@/types';
+import type { CommonGlobalPropSize } from '@/types';
 
-export const BREAKPOINT_KEYS: Record<GlobalPropSize, GlobalPropSize> = {
+export const COMMON_BREAKPOINT_KEYS: Record<CommonGlobalPropSize, CommonGlobalPropSize> = {
   xs: 'xs',
   sm: 'sm',
   md: 'md',
@@ -8,7 +8,7 @@ export const BREAKPOINT_KEYS: Record<GlobalPropSize, GlobalPropSize> = {
   xl: 'xl',
 };
 
-export const BREAKPOINTS: Record<GlobalPropSize, number> = {
+export const COMMON_BREAKPOINTS: Record<CommonGlobalPropSize, number> = {
   xs: 320,
   sm: 768,
   md: 1024,

@@ -1,6 +1,6 @@
 import type { VNode } from 'vue';
 import type { BaseValidation } from '@vuelidate/core';
-import type { GlobalPropSize } from '@/types';
+import type { CommonGlobalPropSize } from '@/types';
 import type {
   DropdownEmits,
   DropdownItem,
@@ -9,7 +9,7 @@ import type {
 export interface SelectBaseProps {
   loading?: boolean;
   placeholder?: string;
-  size?: GlobalPropSize;
+  size?: CommonGlobalPropSize;
   dropdownVisible?: boolean;
   validation?: BaseValidation;
 }

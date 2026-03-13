@@ -11,7 +11,7 @@ import type {
 } from './types';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { InputBase } from '@/common/components/InputBase';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<CommonDatePickerProps>(), {
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<CommonDatePickerProps>(), {
   modelType: 'format',
   format: 'yyyy.MM.dd',
   enableTimePicker: false,
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<CommonDatePickerSlots>();

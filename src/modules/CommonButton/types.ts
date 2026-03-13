@@ -1,14 +1,14 @@
 import type { VNode } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
 import type {
-  GlobalPropSize,
-  GlobalPropTheme,
+  CommonGlobalPropSize,
+  CommonGlobalPropTheme,
 } from '@/types';
-import type { GlobalPropTextStyle } from '@/types/global-props';
+import type { CommonGlobalPropTextStyle } from '@/types/global-props';
 
-export type CommonButtonSize = GlobalPropSize;
+export type CommonButtonSize = CommonGlobalPropSize;
 
-export type CommonButtonTheme = GlobalPropTheme | 'icon';
+export type CommonButtonTheme = CommonGlobalPropTheme | 'icon';
 
 export type CommonButtonThemeStyle = 'fill' | 'outline';
 
@@ -16,7 +16,7 @@ export type CommonButtonBlank = '_blank' | '_self';
 
 export type CommonButtonTag = 'button' | 'RouterLink' | 'a';
 
-export type CommonButtonTextStyle = GlobalPropTextStyle;
+export type CommonButtonTextStyle = CommonGlobalPropTextStyle;
 
 export interface CommonButtonProps {
   text?: string;

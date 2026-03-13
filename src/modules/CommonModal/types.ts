@@ -1,7 +1,7 @@
 import type { VNode } from 'vue';
-import type { GlobalPropSize } from '@/types';
+import type { CommonGlobalPropSize } from '@/types';
 
-export type CommonModalSize = GlobalPropSize | 'full-width' | 'full-page';
+export type CommonModalSize = CommonGlobalPropSize | 'full-width' | 'full-page';
 
 export interface CommonModalProps {
   title?: string;

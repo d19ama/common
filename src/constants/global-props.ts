@@ -1,16 +1,16 @@
 import type {
-  GlobalPropSize,
-  GlobalPropTheme,
+  CommonGlobalPropSize,
+  CommonGlobalPropTheme,
 } from '@/types';
 import type {
-  GlobalPropTextStyle,
-  GlobalPropThemeStyle,
+  CommonGlobalPropTextStyle,
+  CommonGlobalPropThemeStyle,
 } from '@/types/global-props';
 
-export const GLOBAL_PROP_SIZE_DEFAULT: GlobalPropSize = 'md';
+export const COMMON_GLOBAL_PROP_SIZE_DEFAULT: CommonGlobalPropSize = 'md';
 
-export const GLOBAL_PROP_THEME_DEFAULT: GlobalPropTheme = 'primary';
+export const COMMON_GLOBAL_PROP_THEME_DEFAULT: CommonGlobalPropTheme = 'primary';
 
-export const GLOBAL_PROP_TEXT_STYLE_DEFAULT: GlobalPropTextStyle = 'theme';
+export const COMMON_GLOBAL_PROP_TEXT_STYLE_DEFAULT: CommonGlobalPropTextStyle = 'theme';
 
-export const GLOBAL_PROP_THEME_STYLE_DEFAULT: GlobalPropThemeStyle = 'fill';
+export const COMMON_GLOBAL_PROP_THEME_STYLE_DEFAULT: CommonGlobalPropThemeStyle = 'fill';

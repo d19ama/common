@@ -6,7 +6,7 @@ import type {
   CommonLinkSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_THEME_DEFAULT } from '@/constants/global-props';
+import { COMMON_GLOBAL_PROP_THEME_DEFAULT } from '@/constants/global-props';
 
 const props = withDefaults(defineProps<CommonLinkProps>(), {
   url: '#',
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<CommonLinkProps>(), {
   underline: true,
   target: '_blank',
   lineThrough: false,
-  theme: GLOBAL_PROP_THEME_DEFAULT,
+  theme: COMMON_GLOBAL_PROP_THEME_DEFAULT,
 });
 
 const emit = defineEmits<CommonLinkEmits>();

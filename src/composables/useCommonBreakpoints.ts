@@ -3,9 +3,9 @@ import {
   computed,
 } from 'vue';
 import { useWindowSize } from '@vueuse/core';
-import type { GlobalPropSize } from '@/types';
-import { BREAKPOINTS } from '@/constants';
-import { BREAKPOINT_KEYS } from '@/constants/breakpoints';
+import type { CommonGlobalPropSize } from '@/types';
+import { COMMON_BREAKPOINTS } from '@/constants';
+import { COMMON_BREAKPOINT_KEYS } from '@/constants/breakpoints';
 
 interface UseBreakpointsReturn {
   isXs: ComputedRef<boolean>;
@@ -13,7 +13,7 @@ interface UseBreakpointsReturn {
   isMd: ComputedRef<boolean>;
   isLg: ComputedRef<boolean>;
   isXl: ComputedRef<boolean>;
-  currentBreakpoint: ComputedRef<GlobalPropSize>;
+  currentBreakpoint: ComputedRef<CommonGlobalPropSize>;
 }
 
 export function useCommonBreakpoints(): UseBreakpointsReturn {
@@ -21,44 +21,44 @@ export function useCommonBreakpoints(): UseBreakpointsReturn {
     width,
   } = useWindowSize();
 
-  const currentBreakpoint = computed<GlobalPropSize>(() => {
-    if (width.value <= BREAKPOINTS.xs) {
-      return BREAKPOINT_KEYS.xs;
+  const currentBreakpoint = computed<CommonGlobalPropSize>(() => {
+    if (width.value <= COMMON_BREAKPOINTS.xs) {
+      return COMMON_BREAKPOINT_KEYS.xs;
     }
 
-    if (width.value <= BREAKPOINTS.sm) {
-      return BREAKPOINT_KEYS.sm;
+    if (width.value <= COMMON_BREAKPOINTS.sm) {
+      return COMMON_BREAKPOINT_KEYS.sm;
     }
 
-    if (width.value <= BREAKPOINTS.md) {
-      return BREAKPOINT_KEYS.md;
+    if (width.value <= COMMON_BREAKPOINTS.md) {
+      return COMMON_BREAKPOINT_KEYS.md;
     }
 
-    if (width.value <= BREAKPOINTS.lg) {
-      return BREAKPOINT_KEYS.lg;
+    if (width.value <= COMMON_BREAKPOINTS.lg) {
+      return COMMON_BREAKPOINT_KEYS.lg;
     }
 
-    return BREAKPOINT_KEYS.xl;
+    return COMMON_BREAKPOINT_KEYS.xl;
   });
 
   const isXs = computed<boolean>(() => {
-    return currentBreakpoint.value === BREAKPOINT_KEYS.xs;
+    return currentBreakpoint.value === COMMON_BREAKPOINT_KEYS.xs;
   });
 
   const isSm = computed<boolean>(() => {
-    return currentBreakpoint.value === BREAKPOINT_KEYS.sm;
+    return currentBreakpoint.value === COMMON_BREAKPOINT_KEYS.sm;
   });
 
   const isMd = computed<boolean>(() => {
-    return currentBreakpoint.value === BREAKPOINT_KEYS.md;
+    return currentBreakpoint.value === COMMON_BREAKPOINT_KEYS.md;
   });
 
   const isLg = computed<boolean>(() => {
-    return currentBreakpoint.value === BREAKPOINT_KEYS.lg;
+    return currentBreakpoint.value === COMMON_BREAKPOINT_KEYS.lg;
   });
 
   const isXl = computed<boolean>(() => {
-    return currentBreakpoint.value === BREAKPOINT_KEYS.xl;
+    return currentBreakpoint.value === COMMON_BREAKPOINT_KEYS.xl;
   });
 
   return {

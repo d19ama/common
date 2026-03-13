@@ -1,9 +1,9 @@
 import type { VNode } from 'vue';
-import type { GlobalPropSize } from '@/types';
+import type { CommonGlobalPropSize } from '@/types';
 
 export interface DropdownProps {
   loading?: boolean;
-  size?: GlobalPropSize;
+  size?: CommonGlobalPropSize;
 }
 
 export interface DropdownItem<ID extends string | number | symbol = string> {

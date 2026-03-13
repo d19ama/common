@@ -10,14 +10,14 @@ import type {
   CommonRadioSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<CommonRadioProps>(), {
   theme: 'form',
   required: false,
   disabled: false,
   options: () => [],
-  size: GLOBAL_PROP_SIZE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 const emit = defineEmits<CommonRadioEmits>();

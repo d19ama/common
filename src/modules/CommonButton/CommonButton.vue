@@ -8,11 +8,11 @@ import type {
 } from './types';
 import { CommonSpinner } from '@/modules';
 import type { HTMLElementClass } from '@/types';
-import { GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import {
-  GLOBAL_PROP_TEXT_STYLE_DEFAULT,
-  GLOBAL_PROP_THEME_DEFAULT,
-  GLOBAL_PROP_THEME_STYLE_DEFAULT,
+  COMMON_GLOBAL_PROP_TEXT_STYLE_DEFAULT,
+  COMMON_GLOBAL_PROP_THEME_DEFAULT,
+  COMMON_GLOBAL_PROP_THEME_STYLE_DEFAULT,
 } from '@/constants/global-props';
 
 const props = withDefaults(defineProps<CommonButtonProps>(), {
@@ -25,10 +25,10 @@ const props = withDefaults(defineProps<CommonButtonProps>(), {
   autoWidth: false,
   target: '_blank',
   downloadName: 'file',
-  size: GLOBAL_PROP_SIZE_DEFAULT,
-  theme: GLOBAL_PROP_THEME_DEFAULT,
-  textStyle: GLOBAL_PROP_TEXT_STYLE_DEFAULT,
-  themeStyle: GLOBAL_PROP_THEME_STYLE_DEFAULT,
+  size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
+  theme: COMMON_GLOBAL_PROP_THEME_DEFAULT,
+  textStyle: COMMON_GLOBAL_PROP_TEXT_STYLE_DEFAULT,
+  themeStyle: COMMON_GLOBAL_PROP_THEME_STYLE_DEFAULT,
 });
 
 const emit = defineEmits<CommonButtonEmits>();
