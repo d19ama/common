@@ -1,4 +1,4 @@
-export { default as AppTitle } from './CommonTitle.vue';
+export { default as CommonTitle } from './CommonTitle.vue';
 
 export type {
   CommonTitleProps,
