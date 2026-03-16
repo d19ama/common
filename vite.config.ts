@@ -25,14 +25,23 @@ export default defineConfig((): UserConfig => {
     },
 
     build: {
-      target: ['chrome98', 'edge98', 'firefox97', 'safari15'],
+      target: [
+        'chrome98',
+        'edge98',
+        'firefox97',
+        'safari15',
+      ],
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
         name: 'Common',
         fileName: format => `common.${format}.js`,
       },
       rollupOptions: {
-        external: ['vue', '@vueuse/core', 'dayjs'],
+        external: [
+          'vue',
+          '@vueuse/core',
+          'dayjs',
+        ],
         output: {
           globals: {
             vue: 'Vue',
