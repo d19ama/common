@@ -2,19 +2,19 @@ import type { VNode } from 'vue';
 
 export type CommonListTags = 'ul' | 'ol';
 
-export interface CommonListItemType {
+export type CommonListItemType = {
   id: string;
   label: string;
-}
+};
 
-export interface CommonListProps {
+export type CommonListProps = {
   tag?: CommonListTags;
   noMarkers?: boolean;
   items?: CommonListItemType[];
-}
+};
 
-export interface CommonListSlots {
+export type CommonListSlots = {
   [key: `list-item-${CommonListItemType['id']}`]: (scope: {
     data: CommonListItemType;
   }) => VNode[];
-}
+};

@@ -2,7 +2,7 @@ import type { VNode } from 'vue';
 import type { BaseValidation } from '@vuelidate/core';
 import type { CommonGlobalPropSize } from '@/types';
 
-export interface InputBaseProps {
+export type InputBaseProps = {
   label?: string;
   hint?: string;
   maxLength?: number;
@@ -12,11 +12,11 @@ export interface InputBaseProps {
   placeholder?: string;
   size?: CommonGlobalPropSize;
   validation?: BaseValidation;
-}
+};
 
-export interface InputBaseSlots {
+export type InputBaseSlots = {
   hint?: () => VNode[];
   label?: () => VNode[];
   error?: () => VNode[];
   default?: () => VNode[];
-}
+};

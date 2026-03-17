@@ -15,15 +15,15 @@ export type CommonCheckboxTheme =
   | CommonGlobalThemeUnaccented
   | CommonGlobalThemeForm;
 
-export interface CommonCheckboxProps {
+export type CommonCheckboxProps = {
   name?: string;
   text?: string;
   required?: boolean;
   disabled?: boolean;
   size?: CommonGlobalPropSize;
   theme?: CommonCheckboxTheme;
-}
+};
 
-export interface CommonCheckboxSlots {
+export type CommonCheckboxSlots = {
   default?: () => VNode[];
-}
+};

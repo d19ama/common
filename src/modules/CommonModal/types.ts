@@ -3,14 +3,14 @@ import type { CommonGlobalPropSize } from '@/types';
 
 export type CommonModalSize = CommonGlobalPropSize | 'full-width' | 'full-page';
 
-export interface CommonModalProps {
+export type CommonModalProps = {
   title?: string;
   appendTo?: string;
   rounded?: boolean;
   size?: CommonModalSize;
-}
+};
 
-export interface CommonModalSlots {
+export type CommonModalSlots = {
   control?: () => VNode[];
   close?: (props: {
     close: () => void;
@@ -20,4 +20,4 @@ export interface CommonModalSlots {
   footer?: (props: {
     close: () => void;
   }) => VNode[];
-}
+};

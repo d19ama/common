@@ -3,9 +3,9 @@ import {
   ref,
 } from 'vue';
 
-interface CommonModal {
+type CommonModal = {
   id: symbol;
-}
+};
 
 const _items = ref<CommonModal[]>([]);
 

@@ -8,17 +8,13 @@ import type {
   SelectBaseSlots,
 } from '@/common/components/SelectBase';
 
-export interface CommonSelectProps
-  extends
-  InputBaseProps,
-  SelectBaseProps {
-  options?: CommonSelectOption[];
-}
+export type CommonSelectProps = InputBaseProps
+  & SelectBaseProps
+  & {
+    options?: CommonSelectOption[];
+  };
 
-export interface CommonSelectOption<ID extends string | number | symbol = string>
-  extends SelectBaseOption<ID> {}
+export type CommonSelectOption<ID extends string | number | symbol = string> = SelectBaseOption<ID>;
 
-export interface CommonSelectSlots
-  extends
-  InputBaseSlots,
-  SelectBaseSlots {}
+export type CommonSelectSlots = InputBaseSlots
+  & SelectBaseSlots;

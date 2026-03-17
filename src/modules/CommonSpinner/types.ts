@@ -1,5 +1,5 @@
 import type { CommonGlobalPropSize } from '@/types';
 
-export interface CommonSpinnerProps {
+export type CommonSpinnerProps = {
   size?: CommonGlobalPropSize;
-}
+};

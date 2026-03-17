@@ -7,14 +7,14 @@ import type { CommonGlobalPropSize } from '@/types';
 import { COMMON_BREAKPOINTS } from '@/constants';
 import { COMMON_BREAKPOINT_KEYS } from '@/constants/breakpoints';
 
-interface UseBreakpointsReturn {
+type UseBreakpointsReturn = {
   isXs: ComputedRef<boolean>;
   isSm: ComputedRef<boolean>;
   isMd: ComputedRef<boolean>;
   isLg: ComputedRef<boolean>;
   isXl: ComputedRef<boolean>;
   currentBreakpoint: ComputedRef<CommonGlobalPropSize>;
-}
+};
 
 export function useCommonBreakpoints(): UseBreakpointsReturn {
   const {

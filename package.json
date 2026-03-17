@@ -1,25 +1,25 @@
 {
   "name": "@d19ama/common",
-  "version": "2.0.5",
+  "type": "module",
+  "version": "2.0.6",
   "description": "Common UI components, helpers, utils, validators etc",
+  "author": "Artem Anpilov",
+  "license": "ISC",
   "homepage": "https://github.com/d19ama/common#readme",
-  "bugs": {
-    "url": "https://github.com/d19ama/common/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/d19ama/common.git"
   },
-  "license": "ISC",
-  "author": "Artem Anpilov",
-  "type": "module",
+  "bugs": {
+    "url": "https://github.com/d19ama/common/issues"
+  },
   "main": "./dist/common.umd.js",
   "module": "./dist/common.es.js",
   "types": "./dist/src/index.d.ts",
   "files": [
+    "README.md",
     "dist",
     "package.json",
-    "README.md",
     "src/assets/styles/breakpoints/vars.scss"
   ],
   "publishConfig": {

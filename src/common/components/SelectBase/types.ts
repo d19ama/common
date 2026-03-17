@@ -6,22 +6,22 @@ import type {
   DropdownItem,
 } from '@/common/components/Dropdown';
 
-export interface SelectBaseProps {
+export type SelectBaseProps = {
   loading?: boolean;
   placeholder?: string;
   size?: CommonGlobalPropSize;
   dropdownVisible?: boolean;
   validation?: BaseValidation;
-}
+};
 
-export interface SelectBaseOption<ID extends string | number | symbol = string>
-  extends DropdownItem<ID> {}
+export type SelectBaseOption<ID extends string | number | symbol = string> = DropdownItem<ID>;
 
-export interface SelectBaseEmits extends DropdownEmits {
-  click: [];
-}
+export type SelectBaseEmits = DropdownEmits
+  & {
+    click: [];
+  };
 
-export interface SelectBaseSlots {
+export type SelectBaseSlots = {
   [key: `select-item-${SelectBaseOption['id']}`]: (scope: {
     text: string;
   }) => VNode[];
@@ -30,4 +30,4 @@ export interface SelectBaseSlots {
   'option-text'?: () => VNode[];
   'option-icon'?: () => VNode[];
   'append-dropdown'?: () => VNode[];
-}
+};

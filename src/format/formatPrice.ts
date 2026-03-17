@@ -4,7 +4,7 @@ import { numeric } from './numeric';
  * Формат числа для цены
  * @deprecated Используй format.currency
  * @param value
- * @returns
+ * @returns {string | undefined}
  */
 export function formatPrice(value: string): string | undefined {
   const num = numeric(+value);

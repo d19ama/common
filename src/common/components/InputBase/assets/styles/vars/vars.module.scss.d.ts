@@ -1,4 +1,4 @@
-export interface Styles {
+export type Styles = {
   'common-input-base-wrapper-bg': string;
   'common-input-base-wrapper-border-color': string;
   'common-input-base-wrapper-border': string;
@@ -9,7 +9,7 @@ export interface Styles {
   'common-input-base-error-color': string;
   'common-input-base-button-bg': string;
   'common-input-base-button-color': string;
-}
+};
 
 export type ClassNames = keyof Styles;
 

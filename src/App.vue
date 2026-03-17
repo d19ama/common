@@ -32,12 +32,12 @@ import {
   CommonTooltip,
 } from '@/modules';
 
-interface TableData {
+type TableData = {
   id: string;
   one: string;
   two: string;
   three: string;
-}
+};
 
 const tags = ref<CommonTitleTags[]>([
   'h1',

@@ -19,15 +19,15 @@ type Variant = 'Long' | 'Short' | 'Numeric';
 /**
  * @deprecated
  */
-interface Options {
+type Options = {
   variant?: Variant;
-}
+};
 
-interface DateDestructured {
+type DateDestructured = {
   day: string;
   month: string;
   year: string;
-}
+};
 
 /**
  * Переводит дату в представление соответствующее дизайн-системе

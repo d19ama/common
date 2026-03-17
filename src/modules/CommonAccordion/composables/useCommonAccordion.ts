@@ -6,11 +6,11 @@ import type { CommonAccordionItemType } from '../components/CommonAccordionItem/
 
 type State = Map<string, boolean>;
 
-interface UseCommonAccordionReturn {
+type UseCommonAccordionReturn = {
   state: Ref<State>;
   add: (item: CommonAccordionItemType) => void;
   toggle: (name: CommonAccordionItemType['name']) => void;
-}
+};
 
 const state = ref<State>(new Map());
 

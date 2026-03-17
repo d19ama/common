@@ -8,14 +8,14 @@ import {
   unbreakable,
 } from './index';
 
-interface Duration {
+type Duration = {
   years?: number;
   days?: number;
   hours?: number;
   minutes?: number;
   seconds?: number;
   milliseconds?: number;
-}
+};
 
 type Milliseconds = number;
 
