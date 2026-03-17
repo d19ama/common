@@ -11,6 +11,7 @@ import {
   CommonCombobox,
   type CommonComboboxOption,
   CommonDatePicker,
+  CommonImage,
   CommonInput,
   CommonInputFile,
   CommonLink,
@@ -1978,6 +1979,41 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
                   Modal footer
                 </template>
               </CommonModal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    CommonImage    -->
+    <div class="container__block margin-bottom--s">
+      <div class="row">
+        <div class="col-default-12">
+          <CommonTitle
+            tag="h4"
+            text="CommonImage"
+            class="margin-bottom--s"
+          />
+          <div class="row">
+            <div class="col-default-4">
+              <CommonImage
+                src="https://i1.sndcdn.com/artworks-000125697915-3ok8i4-t500x500.jpg"
+                alt="Alt text"
+              />
+            </div>
+            <div class="col-default-4">
+              <CommonImage
+                src="https://i1.sndcdn.com/artworks-000125697915-3ok8i4-t500x500.jpg"
+                alt="Alt text"
+                flat
+              />
+            </div>
+            <div class="col-default-4">
+              <CommonImage
+                src=""
+                alt="Alt text"
+                loading
+              />
             </div>
           </div>
         </div>
