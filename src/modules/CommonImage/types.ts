@@ -1,5 +1,13 @@
 export type CommonImageProps = {
   src?: string;
   alt?: string;
-  loading?: boolean;
+  flat?: boolean;
+};
+
+export type CommonImageEmits = {
+  loaded: [];
+};
+
+export type CommonImageSlots = {
+  default: [];
 };

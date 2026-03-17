@@ -1,19 +1,49 @@
 <script setup lang="ts">
-import type { CommonImageProps } from './types';
+import { computed } from 'vue';
+import type {
+  CommonImageEmits,
+  CommonImageProps,
+  CommonImageSlots,
+} from './types';
+import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<CommonImageProps>(), {
   src: '',
   alt: '',
-  loading: false,
 });
+
+const emit = defineEmits<CommonImageEmits>();
+
+defineSlots<CommonImageSlots>();
+
+const elementClass = computed<HTMLElementClass>(() => {
+  return {
+    'common-image--flat': props.flat,
+  };
+});
+
+function onLoadHandler(): void {
+  emit('loaded');
+}
 </script>
 
 <template>
-  <div class="common-image">
+  <div
+    class="common-image"
+    :class="elementClass"
+  >
     <img
+      v-if="props.src"
       :src="props.src"
       :alt="props.alt"
+      class="common-image__img"
+      @load="onLoadHandler"
     >
+    <template v-else>
+      <slot>
+        <span>{{ props.alt }}</span>
+      </slot>
+    </template>
   </div>
 </template>
 
@@ -25,11 +55,22 @@ img {
 
 // COMPONENT STYLES
 .common-image {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: var(--common-border-radius);
+  background-color: var(--common-color-black-10);
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &--flat {
+    border-radius: 0;
+  }
 }
 </style>
