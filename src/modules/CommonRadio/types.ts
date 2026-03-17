@@ -15,7 +15,7 @@ export type CommonRadioTheme =
   | CommonGlobalThemeUnaccented
   | CommonGlobalThemeForm;
 
-export interface CommonRadioProps {
+export type CommonRadioProps = {
   id?: string;
   name?: string;
   disabled?: boolean;
@@ -23,22 +23,22 @@ export interface CommonRadioProps {
   size?: CommonGlobalPropSize;
   theme?: CommonRadioTheme;
   options?: CommonRadioOption[];
-}
+};
 
-export interface CommonRadioEmits {
+export type CommonRadioEmits = {
   input: [value: string];
   change: [value: string];
-}
+};
 
-export interface CommonRadioOption {
+export type CommonRadioOption = {
   id: string;
   text: string;
   checked: boolean;
   disabled: boolean;
-}
+};
 
-export interface CommonRadioSlots {
+export type CommonRadioSlots = {
   [key: `radio-${CommonRadioOption['id']}`]: (scope: {
     text: CommonRadioOption['text'];
   }) => VNode[];
-}
+};

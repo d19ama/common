@@ -5,7 +5,7 @@ export type CommonLinkTheme = CommonGlobalPropTheme;
 
 export type CommonLinkTarget = '_blank' | '_self';
 
-export interface CommonLinkProps {
+export type CommonLinkProps = {
   url?: string;
   text?: string;
   prevent?: boolean;
@@ -13,12 +13,12 @@ export interface CommonLinkProps {
   lineThrough?: boolean;
   theme?: CommonLinkTheme;
   target?: CommonLinkTarget;
-}
+};
 
-export interface CommonLinkEmits {
+export type CommonLinkEmits = {
   click: [event: Event];
-}
+};
 
-export interface CommonLinkSlots {
+export type CommonLinkSlots = {
   default?: () => VNode[];
-}
+};

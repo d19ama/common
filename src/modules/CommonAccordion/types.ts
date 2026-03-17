@@ -1,5 +1,5 @@
 import type { VNode } from 'vue';
 
-export interface CommonAccordionSlots {
+export type CommonAccordionSlots = {
   default?: () => VNode[];
-}
+};

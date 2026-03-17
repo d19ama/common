@@ -1,11 +1,11 @@
 import type { VNode } from 'vue';
 import type { CommonListProps } from '../../';
 
-export interface CommonListItemProps
-  extends Omit<CommonListProps, 'items'> {
-  prepend?: string;
-}
+export type CommonListItemProps = Omit<CommonListProps, 'items'>
+  & {
+    prepend?: string;
+  };
 
-export interface CommonListItemSlots {
+export type CommonListItemSlots = {
   default?: () => VNode[];
-}
+};

@@ -1,27 +1,27 @@
 import type { VNode } from 'vue';
 import type { CommonGlobalPropSize } from '@/types';
 
-export interface DropdownProps {
+export type DropdownProps = {
   loading?: boolean;
   size?: CommonGlobalPropSize;
-}
+};
 
-export interface DropdownItem<ID extends string | number | symbol = string> {
+export type DropdownItem<ID extends string | number | symbol = string> = {
   id: ID;
   text: string;
   selected: boolean;
   disabled: boolean;
-}
+};
 
-export interface DropdownEmits {
+export type DropdownEmits = {
   'change:selected': [value: DropdownItem];
-}
+};
 
-export interface DropdownSlots {
+export type DropdownSlots = {
   [key: `dropdown-item-${DropdownItem['id']}`]: (scope: {
     text: string;
   }) => VNode[];
   'item-text'?: () => VNode[];
   'item-icon'?: () => VNode[];
   'append'?: () => VNode[];
-}
+};

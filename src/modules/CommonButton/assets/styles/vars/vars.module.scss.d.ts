@@ -1,6 +1,6 @@
-export interface Styles {
+export type Styles = {
   'common-button-border-radius': string;
-}
+};
 
 export type ClassNames = keyof Styles;
 

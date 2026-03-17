@@ -18,7 +18,7 @@ export type CommonButtonTag = 'button' | 'RouterLink' | 'a';
 
 export type CommonButtonTextStyle = CommonGlobalPropTextStyle;
 
-export interface CommonButtonProps {
+export type CommonButtonProps = {
   text?: string;
   href?: string;
   flat?: boolean;
@@ -35,14 +35,14 @@ export interface CommonButtonProps {
   textStyle?: CommonButtonTextStyle;
   themeStyle?: CommonButtonThemeStyle;
   type?: HTMLButtonElement['type'];
-}
+};
 
-export interface CommonButtonEmits {
+export type CommonButtonEmits = {
   click: [event: Event];
-}
+};
 
-export interface CommonButtonSlots {
+export type CommonButtonSlots = {
   default?: () => VNode[];
   prepend?: () => VNode[];
   append?: () => VNode[];
-}
+};

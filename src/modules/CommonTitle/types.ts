@@ -4,7 +4,7 @@ export type CommonTitleWeight = 'bold' | 'normal' | 'thin';
 
 export type CommonTitleTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface CommonTitleProps {
+export type CommonTitleProps = {
   text?: string;
   comment?: boolean;
   inverted?: boolean;
@@ -12,8 +12,8 @@ export interface CommonTitleProps {
   uppercase?: boolean;
   tag?: CommonTitleTags;
   weight?: CommonTitleWeight;
-}
+};
 
-export interface CommonTitleSlots {
+export type CommonTitleSlots = {
   default?: () => VNode[];
-}
+};

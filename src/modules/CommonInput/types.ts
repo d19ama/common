@@ -19,31 +19,33 @@ export type CommonInputMaskParams =
   | FactoryInstanceOpts
   | FactoryStaticOptionsWithoutLazy;
 
-export interface CommonInputMaskValues {
+export type CommonInputMaskValues = {
   typedValue: string;
   maskedValue: string;
   unmaskedValue: string;
-}
+};
 
-export interface CommonInputProps extends InputBaseProps {
-  name?: string;
-  mask?: CommonInputMaskParams;
-  theme?: 'text' | 'search';
-  maskVisibility?: 'always' | 'onFocus';
-  position?: 'left' | 'center' | 'right';
-  type?: 'text' | 'number' | 'tel' | 'email' | 'password';
-}
+export type CommonInputProps = InputBaseProps
+  & {
+    name?: string;
+    mask?: CommonInputMaskParams;
+    theme?: 'text' | 'search';
+    maskVisibility?: 'always' | 'onFocus';
+    position?: 'left' | 'center' | 'right';
+    type?: 'text' | 'number' | 'tel' | 'email' | 'password';
+  };
 
-export interface CommonInputEmits {
+export type CommonInputEmits = {
   'input': [value: string | number];
   'change': [value: string | number];
   'focus': [];
   'blur': [];
   'click:prepend': [];
   'click:append': [];
-}
+};
 
-export interface CommonInputSlots extends InputBaseSlots {
-  prepend?: () => VNode[];
-  append?: () => VNode[];
-}
+export type CommonInputSlots = InputBaseSlots
+  & {
+    prepend?: () => VNode[];
+    append?: () => VNode[];
+  };

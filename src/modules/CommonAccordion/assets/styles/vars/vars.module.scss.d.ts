@@ -1,4 +1,4 @@
-export interface Styles {
+export type Styles = {
   'common-accordion-item-border-bottom': string;
   'common-accordion-item-border-radius': string;
   'common-accordion-header-color': string;
@@ -10,7 +10,7 @@ export interface Styles {
   'common-accordion-body-bg': string;
   'common-accordion-body-bg-active': string;
   'common-accordion-icon-color': string;
-}
+};
 
 export type ClassNames = keyof Styles;
 

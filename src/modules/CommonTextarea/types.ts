@@ -3,17 +3,18 @@ import type {
   InputBaseSlots,
 } from '@/common/components/InputBase';
 
-export interface CommonTextareaProps extends InputBaseProps {
-  name?: string;
-  resize?: boolean;
-  enableCounter?: boolean;
-}
+export type CommonTextareaProps = InputBaseProps
+  & {
+    name?: string;
+    resize?: boolean;
+    enableCounter?: boolean;
+  };
 
-export interface CommonTextareaEmits {
+export type CommonTextareaEmits = {
   blur: [];
   focus: [];
   input: [value: string];
   change: [value: string];
-}
+};
 
-export interface CommonTextareaSlots extends InputBaseSlots {}
+export type CommonTextareaSlots = InputBaseSlots;

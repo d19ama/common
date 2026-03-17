@@ -55,6 +55,10 @@ export default antfu(
           fixStyle: 'inline-type-imports',
         },
       ],
+      'ts/consistent-type-definitions': [
+        'error',
+        'type',
+      ],
 
       /**
        * Imports

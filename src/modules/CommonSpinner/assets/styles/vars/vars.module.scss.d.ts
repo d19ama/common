@@ -1,6 +1,6 @@
-export interface Styles {
+export type Styles = {
   'common-spinner-color': string;
-}
+};
 
 export type ClassNames = keyof Styles;
 

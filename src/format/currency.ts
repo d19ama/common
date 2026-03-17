@@ -10,9 +10,9 @@ import type {
 type Currency = 'RUB'; // Расширь кодом валюты, который тебе нужен (USD, KZT и так далее)
 
 // Расширь этот Options, но не добавляй новых параметров в функцию!
-interface Options {
+type Options = {
   currency?: Currency;
-}
+};
 
 /**
  * Перевод из числа в валютное значение

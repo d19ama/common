@@ -1,15 +1,15 @@
 import type { Props } from 'tippy.js';
 import type { VNode } from 'vue';
 
-export interface CommonTooltipActions {
+export type CommonTooltipActions = {
   close?: (() => void);
-}
+};
 
-export interface CommonTooltipProps {
+export type CommonTooltipProps = {
   title?: string;
   visible?: boolean;
   placement?: Props['placement'];
-}
+};
 
 export type CommonTooltipTippyProps = Pick<
   Props,
@@ -20,7 +20,7 @@ export type CommonTooltipTippyProps = Pick<
   | 'trigger'
 >;
 
-export interface CommonTooltipSlots {
+export type CommonTooltipSlots = {
   activator?: () => VNode[];
   default?: (scope: { close?: Function }) => VNode[];
-}
+};

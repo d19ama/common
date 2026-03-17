@@ -1,5 +1,5 @@
-export interface CommonImageProps {
+export type CommonImageProps = {
   src?: string;
   alt?: string;
   loading?: boolean;
-}
+};

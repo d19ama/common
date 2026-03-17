@@ -14,10 +14,10 @@ type Value = RawValue<number>;
 type Words = Required<Record<Extract<Intl.LDMLPluralRule, 'one' | 'few' | 'many'>, string>> &
   Partial<Record<Extract<Intl.LDMLPluralRule, 'zero' | 'two' | 'other'>, string>>; // Для обратной совместимости
 
-interface PluralDestructured {
+type PluralDestructured = {
   count: string; // не value чтобы не пересекаться с ключами Vue, там кругом value
   word: string;
-}
+};
 
 /**
  * Выбрать слово согласно правилам плюрализации в русском языке
