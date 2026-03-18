@@ -85,7 +85,7 @@ function validate(): void {
 
 function changeSelected(option: DropdownItem): void {
   selected.value = option;
-  value.value = option.text;
+  value.value = option.id;
   opened.value = false;
   emit('change:selected', option);
 }
