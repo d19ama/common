@@ -1,30 +1,34 @@
 <script lang="ts" setup>
 import type {
+  CommonTabsEmits,
   CommonTabsItem,
   CommonTabsSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
+const emit = defineEmits<CommonTabsEmits>();
+
 defineSlots<CommonTabsSlots>();
 
-const items = defineModel<CommonTabsItem[]>('items', {
+const tabs = defineModel<CommonTabsItem[]>('tabs', {
   required: true,
 });
 
-function labelClass(item: CommonTabsItem): HTMLElementClass {
+function labelClass(tab: CommonTabsItem): HTMLElementClass {
   return {
-    'common-tabs__label--active': item.active,
-    'common-tabs__label--disabled': !!item.disabled,
+    'common-tabs__label--active': tab.active,
+    'common-tabs__label--disabled': !!tab.disabled,
   };
 }
 
-function toggleItem(id: CommonTabsItem['id']): void {
-  items.value = items.value.map((item: CommonTabsItem) => {
+function toggleTabs(tabId: CommonTabsItem['id']): void {
+  tabs.value = tabs.value.map((item: CommonTabsItem) => {
     return {
       ...item,
-      active: item.id === id,
+      active: item.id === tabId,
     };
   });
+  emit('change:tab', tabId);
 }
 </script>
 
@@ -32,17 +36,17 @@ function toggleItem(id: CommonTabsItem['id']): void {
   <div class="common-tabs">
     <div class="common-tabs__header">
       <div
-        v-for="item in items"
-        :key="item.id"
+        v-for="tab in tabs"
+        :key="tab.id"
         class="common-tabs__label"
-        :class="labelClass(item)"
-        @click="toggleItem(item.id)"
+        :class="labelClass(tab)"
+        @click="toggleTabs(tab.id)"
       >
         <slot
-          :name="`tab-${String(item.id)}`"
-          :text="item.label"
+          :name="`tab-${String(tab.id)}`"
+          :text="tab.label"
         >
-          {{ item.label }}
+          {{ tab.label }}
         </slot>
       </div>
     </div>

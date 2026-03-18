@@ -1888,7 +1888,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
           <div class="row">
             <div class="col-default-6">
               <CommonTabs
-                v-model:items="tabs"
+                v-model:tabs="tabs"
               />
             </div>
           </div>
