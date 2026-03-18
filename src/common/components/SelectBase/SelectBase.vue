@@ -91,6 +91,14 @@ function changeSelected(option: DropdownItem): void {
 }
 
 onMounted(() => {
+  const alreadySelectedOption = options.value.find((option) => {
+    return option.selected;
+  });
+
+  if (alreadySelectedOption) {
+    changeSelected(alreadySelectedOption);
+  }
+
   document.addEventListener('click', hideDropdown);
 });
 
