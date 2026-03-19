@@ -83,10 +83,14 @@ function validate(): void {
   props.validation?.$touch();
 }
 
-function changeSelected(option: DropdownItem): void {
+function updateActiveOption(option: DropdownItem): void {
   selected.value = option;
   value.value = option.id;
   opened.value = false;
+}
+
+function changeSelected(option: DropdownItem): void {
+  updateActiveOption(option);
   emit('change:selected', option);
 }
 
@@ -96,7 +100,7 @@ onMounted(() => {
   });
 
   if (alreadySelectedOption) {
-    changeSelected(alreadySelectedOption);
+    updateActiveOption(alreadySelectedOption);
   }
 
   document.addEventListener('click', hideDropdown);

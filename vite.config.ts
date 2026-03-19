@@ -9,11 +9,7 @@ import dtsPlugin from 'vite-plugin-dts';
 export default defineConfig((): UserConfig => {
   return {
     plugins: [
-      vue({
-        exclude: [
-          'src/App.vue',
-        ],
-      }),
+      vue(),
       VueDevTools(),
       dtsPlugin({
         tsconfigPath: 'tsconfig.app.json',
