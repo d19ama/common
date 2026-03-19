@@ -67,10 +67,20 @@ function toggleTabs(tabId: CommonTabsItem['id']): void {
     justify-content: flex-start;
     flex: 1 1 100%;
     background: var(--common-tabs-header-bg);
+
+    &:after {
+      content: '';
+      display: block;
+      align-self: flex-end;
+      width: 100%;
+      border-bottom: var(--common-tabs-label-border);
+      border-bottom-color: var(--common-tabs-label-border-color-active);
+    }
   }
 
   &__label {
     display: block;
+    flex-shrink: 0;
     position: relative;
     padding: 1rem;
     font-size: 1rem;
