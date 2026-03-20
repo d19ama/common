@@ -58,7 +58,6 @@ const isExternalLink = computed<boolean>(() => {
   </a>
   <RouterLink
     v-else
-    v-bind="$attrs"
     :class="elementClass"
     :to="props.to"
   >
