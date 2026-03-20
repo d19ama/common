@@ -1,29 +1,35 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import {
+  computed,
+  resolveComponent,
+} from 'vue';
 import type {
-  CommonLinkEmits,
   CommonLinkProps,
   CommonLinkSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_THEME_DEFAULT } from '@/constants/global-props';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = withDefaults(defineProps<CommonLinkProps>(), {
-  url: '#',
+  to: '',
   text: '',
   prevent: false,
   underline: true,
-  target: '_blank',
   lineThrough: false,
   theme: COMMON_GLOBAL_PROP_THEME_DEFAULT,
 });
 
-const emit = defineEmits<CommonLinkEmits>();
-
 defineSlots<CommonLinkSlots>();
+
+const RouterLink = resolveComponent('RouterLink');
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
+    'common-link',
     `common-link--theme-${props.theme}`,
     {
       'common-link--underline': props.underline && !props.lineThrough,
@@ -32,27 +38,34 @@ const elementClass = computed<HTMLElementClass>(() => {
   ];
 });
 
-function onClick(event: Event): void {
-  if (props.prevent) {
-    event.preventDefault();
-  }
-
-  emit('click', event);
-}
+const isExternalLink = computed<boolean>(() => {
+  return typeof props.to === 'string'
+    && props.to.startsWith('http');
+});
 </script>
 
 <template>
   <a
-    class="common-link"
-    :href="props.url"
+    v-if="isExternalLink"
+    v-bind="$attrs"
     :class="elementClass"
-    :target="props.target"
-    @click="onClick"
+    :href="props.to as string"
+    target="_blank"
   >
     <slot>
       {{ props.text }}
     </slot>
   </a>
+  <RouterLink
+    v-else
+    v-bind="$attrs"
+    :class="elementClass"
+    :to="props.to"
+  >
+    <slot>
+      {{ props.text }}
+    </slot>
+  </RouterLink>
 </template>
 
 <style lang="scss">
