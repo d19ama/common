@@ -12,7 +12,6 @@ import {
   CommonImage,
   CommonInput,
   CommonInputFile,
-  CommonLink,
   CommonList,
   CommonModal,
   CommonRadio,
@@ -203,66 +202,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
       STYLEGUIDE
     </CommonTitle>
 
-    <!--    CommonLink    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonLink"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Themes"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                PRIMARY
-              </p>
-              <CommonLink
-                text="Source link"
-                theme="primary"
-                to="/home"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SECONDARY
-              </p>
-              <CommonLink
-                text="Source link"
-                theme="secondary"
-                to="/"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                TERTIARY
-              </p>
-              <CommonLink
-                text="Source link"
-                theme="tertiary"
-                to="/"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                UNACCENTED
-              </p>
-              <CommonLink
-                text="Source link"
-                theme="unaccented"
-                to="/"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!--    CommonList    -->
     <div class="container__block margin-bottom--s">
       <div class="row">
@@ -289,21 +228,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    CommonTitle    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            v-for="item in tags"
-            :key="item"
-            :tag="item"
-            :text="`CommonTitle ${item}`"
-            class="margin-bottom--s"
-          />
         </div>
       </div>
     </div>
