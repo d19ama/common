@@ -14,6 +14,9 @@ const meta = {
   title: 'Actions/CommonButton',
   component: CommonButton,
   argTypes: {
+    disabled: {
+      control: 'boolean',
+    },
     autoWidth: {
       control: 'boolean',
     },
@@ -54,6 +57,7 @@ const meta = {
     },
   },
   args: {
+    disabled: false,
     autoWidth: true,
     theme: 'primary',
     themeStyle: 'fill',
@@ -65,6 +69,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {},
   render(args) {
     return {
       components: {
@@ -77,10 +82,9 @@ export const Default: Story = {
       },
       template: `
         <CommonButton v-bind="args">
-          Button
+          {{ args.text || 'Button' }}
         </CommonButton>
       `,
     };
   },
-  args: {},
 };

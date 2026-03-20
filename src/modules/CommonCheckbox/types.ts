@@ -1,4 +1,3 @@
-import type { VNode } from 'vue';
 import type {
   CommonGlobalPropSize,
   CommonGlobalThemeForm,
@@ -25,5 +24,5 @@ export type CommonCheckboxProps = {
 };
 
 export type CommonCheckboxSlots = {
-  default?: () => VNode[];
+  default?: [];
 };

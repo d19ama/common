@@ -26,7 +26,6 @@ import {
   type CommonTabsItem,
   CommonTextarea,
   CommonTitle,
-  type CommonTitleTags,
   CommonTooltip,
 } from '@/modules';
 
@@ -38,15 +37,6 @@ type TableData = {
   two: string;
   three: string;
 };
-
-const tags = ref<CommonTitleTags[]>([
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-]);
 
 const optionsSelect = ref<CommonSelectOption[]>([
   {

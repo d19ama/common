@@ -12,6 +12,18 @@ const meta = {
   title: 'Layout/CommonTitle',
   component: CommonTitle,
   argTypes: {
+    comment: {
+      control: 'boolean',
+    },
+    inverted: {
+      control: 'boolean',
+    },
+    bordered: {
+      control: 'boolean',
+    },
+    uppercase: {
+      control: 'boolean',
+    },
     tag: {
       control: 'select',
       options: [
@@ -32,7 +44,12 @@ const meta = {
       ] satisfies CommonTitleWeight[],
     },
   },
-  args: {},
+  args: {
+    comment: false,
+    inverted: false,
+    bordered: false,
+    uppercase: false,
+  },
 } satisfies Meta<typeof CommonTitle>;
 
 export default meta;
@@ -51,7 +68,7 @@ export const Default: Story = {
       },
       template: `
         <CommonTitle v-bind="args">
-          Common title
+          {{ args.text || 'Common title' }}
         </CommonTitle>
       `,
     };

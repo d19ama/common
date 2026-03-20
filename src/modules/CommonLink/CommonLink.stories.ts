@@ -11,6 +11,15 @@ const meta = {
   title: 'Actions/CommonLink',
   component: CommonLink,
   argTypes: {
+    prevent: {
+      control: 'boolean',
+    },
+    underline: {
+      control: 'boolean',
+    },
+    lineThrough: {
+      control: 'boolean',
+    },
     theme: {
       control: 'select',
       options: [
@@ -24,6 +33,9 @@ const meta = {
   },
   args: {
     theme: 'primary',
+    prevent: false,
+    underline: true,
+    lineThrough: false,
   },
 } satisfies Meta<typeof CommonLink>;
 
@@ -31,6 +43,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {},
   render(args) {
     return {
       components: {
@@ -43,10 +56,9 @@ export const Default: Story = {
       },
       template: `
         <CommonLink v-bind="args">
-          link to source
+          {{ args.text || 'link to source' }}
         </CommonLink>
       `,
     };
   },
-  args: {},
 };
