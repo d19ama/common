@@ -20,9 +20,10 @@ const preview: Preview = {
       storySort: {
         method: 'alphabetical',
         order: [
-          'Data Display',
+          'Data',
           'Form',
           'Actions',
+          'Layout',
         ],
       },
     },

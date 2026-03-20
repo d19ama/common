@@ -2,15 +2,20 @@
 import { computed } from 'vue';
 import type { HTMLElementClass } from '../../types';
 import type { CommonSpinnerProps } from './types';
-import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import {
+  COMMON_GLOBAL_PROP_SIZE_DEFAULT,
+  COMMON_GLOBAL_PROP_THEME_DEFAULT,
+} from '@/constants';
 
 const props = withDefaults(defineProps<CommonSpinnerProps>(), {
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
+  theme: COMMON_GLOBAL_PROP_THEME_DEFAULT,
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
     `common-spinner--size-${props.size}`,
+    `common-spinner--theme-${props.theme}`,
   ];
 });
 </script>
@@ -75,6 +80,27 @@ const elementClass = computed<HTMLElementClass>(() => {
   &--size-xl {
     width: 6rem;
     height: 6rem;
+  }
+
+  // THEMES
+  &--theme-primary {
+    color: var(--common-color-primary-light);
+  }
+
+  &--theme-secondary {
+    color: var(--common-color-secondary-light);
+  }
+
+  &--theme-tertiary {
+    color: var(--common-color-tertiary-light);
+  }
+
+  &--theme-unaccented {
+    color: var(--common-color-unaccented-medium);
+  }
+
+  &--theme-transparent {
+    color: var(--common-color-main);
   }
 }
 </style>
