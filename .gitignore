@@ -28,3 +28,6 @@ coverage
 *.sln
 *.sw?
 .eslintcache
+
+*storybook.log
+storybook-static
