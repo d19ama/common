@@ -268,6 +268,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <CommonLink
                 text="Source link"
                 theme="primary"
+                to="/home"
               />
             </div>
             <div class="col-default-2">
@@ -277,6 +278,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <CommonLink
                 text="Source link"
                 theme="secondary"
+                to="/"
               />
             </div>
             <div class="col-default-2">
@@ -286,6 +288,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <CommonLink
                 text="Source link"
                 theme="tertiary"
+                to="/"
               />
             </div>
             <div class="col-default-2">
@@ -295,6 +298,7 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <CommonLink
                 text="Source link"
                 theme="unaccented"
+                to="/"
               />
             </div>
           </div>
