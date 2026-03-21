@@ -5,10 +5,12 @@ export type CommonTooltipActions = {
   close?: (() => void);
 };
 
+export type CommonTooltipPlacement = Props['placement'];
+
 export type CommonTooltipProps = {
   title?: string;
   visible?: boolean;
-  placement?: Props['placement'];
+  placement?: CommonTooltipPlacement;
 };
 
 export type CommonTooltipTippyProps = Pick<
