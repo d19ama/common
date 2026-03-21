@@ -3,7 +3,7 @@ import type { CommonListProps } from '../../';
 
 export type CommonListItemProps = Omit<CommonListProps, 'items'>
   & {
-    prepend?: string;
+    marker?: string;
   };
 
 export type CommonListItemSlots = {

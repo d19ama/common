@@ -1,5 +1,3 @@
-import type { VNode } from 'vue';
-
 export type CommonListTags = 'ul' | 'ol';
 
 export type CommonListItemType = {
@@ -9,12 +7,11 @@ export type CommonListItemType = {
 
 export type CommonListProps = {
   tag?: CommonListTags;
+  marker?: string;
   noMarkers?: boolean;
   items?: CommonListItemType[];
 };
 
 export type CommonListSlots = {
-  [key: `list-item-${CommonListItemType['id']}`]: (scope: {
-    data: CommonListItemType;
-  }) => VNode[];
+  [key: `list-item-${CommonListItemType['id']}`]: [data: CommonListItemType];
 };

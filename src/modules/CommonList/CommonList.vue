@@ -12,17 +12,26 @@ const props = withDefaults(defineProps<CommonListProps>(), {
 });
 
 defineSlots<CommonListSlots>();
+
+function marker(index: number): string | undefined {
+  if (props.tag === 'ol') {
+    return `${index + 1}.`;
+  }
+
+  return props.marker;
+}
 </script>
 
 <template>
   <Component
     :is="tag"
-    class="list"
+    class="common-list"
   >
     <CommonListItem
-      v-for="item in items"
+      v-for="(item, index) in items"
       :key="item.id"
       :tag="props.tag"
+      :marker="marker(index)"
       :no-markers="props.noMarkers"
     >
       <slot
@@ -34,3 +43,11 @@ defineSlots<CommonListSlots>();
     </CommonListItem>
   </Component>
 </template>
+
+<style lang="scss">
+.common-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</style>
