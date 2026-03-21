@@ -7,14 +7,11 @@ import {
   CommonButton,
   CommonImage,
   CommonModal,
-  CommonRadio,
-  type CommonRadioOption,
   CommonTable,
   type CommonTableHeader,
   type CommonTableRow,
   CommonTabs,
   type CommonTabsItem,
-  CommonTextarea,
   CommonTitle,
   CommonTooltip,
 } from '@/modules';
@@ -27,21 +24,6 @@ type TableData = {
   two: string;
   three: string;
 };
-
-const optionsRadio = ref<CommonRadioOption[]>([
-  {
-    id: '1',
-    text: 'Radio 1',
-    checked: true,
-    disabled: false,
-  },
-  {
-    id: '2',
-    text: 'Radio 2',
-    checked: false,
-    disabled: false,
-  },
-]);
 
 const tabs = ref<CommonTabsItem[]>([
   {
@@ -85,8 +67,6 @@ const headers = ref<CommonTableHeader<TableData>[]>([
   },
 ]);
 
-const radio = ref<string>('1');
-const textarea = ref<string>('');
 const modal = ref<boolean>(false);
 
 const rows = computed<CommonTableRow<TableData>[]>(() => {
@@ -122,278 +102,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonTextarea    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonTextarea"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Sizes"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XS
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                size="xs"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SM
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                size="sm"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                MD
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                size="md"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                LG
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                size="lg"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                XL
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                size="xl"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="States"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DEFAULT
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                REQUIRED
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                required
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DISABLED
-              </p>
-              <CommonTextarea
-                v-model:value="textarea"
-                placeholder="Type some"
-                label="Textarea"
-                hint="Some hint"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    CommonRadio    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonRadio"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Sizes"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XS
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-xs"
-                size="xs"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SM
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-sm"
-                size="sm"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                MD
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-md"
-                size="md"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                LG
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-lg"
-                size="lg"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XL
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-xl"
-                size="xl"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="Themes"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-3"
-                theme="form"
-              />
-            </div>
-            <div class="col-default-2">
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-4"
-                theme="primary"
-              />
-            </div>
-            <div class="col-default-2">
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-5"
-                theme="secondary"
-              />
-            </div>
-            <div class="col-default-2">
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-6"
-                theme="tertiary"
-              />
-            </div>
-            <div class="col-default-2">
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-7"
-                theme="unaccented"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="States"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                DEFAULT
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-1"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                DISABLED
-              </p>
-              <CommonRadio
-                v-model:value="radio"
-                :options="optionsRadio"
-                name="radio-2"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonTabs    -->
     <div class="container__block margin-bottom--s">
