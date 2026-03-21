@@ -2,7 +2,6 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { ref } from 'vue';
 import { CommonCombobox } from './';
 import type { CommonGlobalPropSize } from '@/types';
 
@@ -54,6 +53,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    value: '',
     options: [
       {
         id: '1',
@@ -93,16 +93,13 @@ export const Default: Story = {
         CommonCombobox,
       },
       setup() {
-        const combobox = ref<string>('');
-
         return {
           args,
-          combobox,
         };
       },
       template: `
         <CommonCombobox
-          v-model:value="combobox"
+          v-model:value="args.value"
           v-bind="args"
         />
       `,

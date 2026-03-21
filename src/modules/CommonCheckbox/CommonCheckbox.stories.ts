@@ -2,7 +2,6 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { ref } from 'vue';
 import {
   CommonCheckbox,
   type CommonCheckboxProps,
@@ -60,17 +59,14 @@ export const Default: Story = {
         CommonCheckbox,
       },
       setup() {
-        const checked = ref<boolean>(false);
-
         return {
           args,
-          checked,
         };
       },
       template: `
         <CommonCheckbox
+          v-model:checked="args.checked"
           v-bind="args"
-          v-model:checked="checked"
         >
           {{ args.text || 'Typical checkbox' }}
         </CommonCheckbox>

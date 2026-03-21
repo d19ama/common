@@ -55,7 +55,7 @@ const options = defineModel<CommonComboboxOption[]>('options', {
   default: () => [],
   get(value) {
     return value.filter((item) => {
-      return item.text.includes(search.value);
+      return item.text.trim().toLowerCase().includes(search.value.trim().toLowerCase());
     });
   },
 });

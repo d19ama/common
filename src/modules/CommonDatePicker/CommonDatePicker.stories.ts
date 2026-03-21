@@ -52,7 +52,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    date: '',
+  },
   render(args) {
     return {
       components: {
@@ -64,7 +66,10 @@ export const Default: Story = {
         };
       },
       template: `
-        <CommonDatePicker v-bind="args" />
+        <CommonDatePicker
+          v-model:date="args.date"
+          v-bind="args"
+        />
       `,
     };
   },

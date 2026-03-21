@@ -96,7 +96,6 @@ export const Default: Story = {
       },
       template: `
         <CommonInputFile
-          v-model:value=""
           v-bind="args"
         />
       `,

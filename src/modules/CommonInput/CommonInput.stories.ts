@@ -2,7 +2,6 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { ref } from 'vue';
 import {
   CommonInput,
   type CommonInputType,
@@ -67,23 +66,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    value: '',
+  },
   render(args) {
     return {
       components: {
         CommonInput,
       },
       setup() {
-        const input = ref<string>('');
-
         return {
           args,
-          input,
         };
       },
       template: `
         <CommonInput
-          v-model:value="input"
+          v-model:value="args.value"
           v-bind="args"
         />
       `,

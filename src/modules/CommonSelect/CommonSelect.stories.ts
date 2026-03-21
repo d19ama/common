@@ -2,7 +2,6 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { ref } from 'vue';
 import { CommonSelect } from './';
 import type { CommonGlobalPropSize } from '@/types';
 
@@ -54,6 +53,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    value: '',
     options: [
       {
         id: '1',
@@ -87,16 +87,13 @@ export const Default: Story = {
         CommonSelect,
       },
       setup() {
-        const select = ref<string>('');
-
         return {
           args,
-          select,
         };
       },
       template: `
         <CommonSelect
-          v-model:value="select"
+          v-model:value="args.value"
           v-bind="args"
         />
       `,
