@@ -4,6 +4,9 @@ export type {
   CommonInputProps,
   CommonInputEmits,
   CommonInputSlots,
+  CommonInputType,
+  CommonInputPosition,
+  CommonInputMaskVisibility,
   CommonInputMaskValues,
   CommonInputMaskParams,
 } from './types';

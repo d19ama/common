@@ -8,7 +8,7 @@ import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<CommonListItemProps>(), {
   tag: 'ul',
-  prepend: '//',
+  marker: '//',
   noMarkers: false,
 });
 
@@ -16,24 +16,31 @@ defineSlots<CommonListItemSlots>();
 
 const elementClass = computed<HTMLElementClass>(() => {
   return [
-    `app-list-item--${props.tag}`,
+    `common-list-item--${props.tag}`,
   ];
 });
 </script>
 
 <template>
   <li
-    class="app-list-item"
-    :data-prepend="props.prepend"
+    class="common-list-item"
     :class="elementClass"
   >
+    <span
+      v-if="!props.noMarkers"
+      class="common-list-item__marker"
+    >
+      {{ props.marker }}
+    </span>
     <slot />
   </li>
 </template>
 
 <style lang="scss">
-.app-list-item {
-  padding-left: 2rem;
+.common-list-item {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: .5rem;
   position: relative;
   line-height: 1.5;
   font-size: .875rem;
@@ -42,36 +49,10 @@ const elementClass = computed<HTMLElementClass>(() => {
     margin: .5rem 0 0;
   }
 
-  &--ul {
-
-    &:before {
-      content: attr(data-prepend);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      font-weight: 700;
-      color: var(--common-color-ui-secondary);
-    }
-  }
-
-  &--ol {
-
-    &:before {
-      counter-increment: list;
-      content: counter(list);
-      width: 1.25rem;
-      text-align: left;
-      font-weight: 500;
-      color: var(--common-color-ui-secondary);
-    }
-  }
-
-  &--no-markers {
-
-    &:before {
-      display: none;
-    }
+  &__marker {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--common-color-ui-secondary);
   }
 }
 </style>

@@ -4,7 +4,6 @@ import type {
   FactoryStaticOpts,
   MaskedPatternOptions,
 } from 'imask';
-import type { VNode } from 'vue';
 import type {
   InputBaseProps,
   InputBaseSlots,
@@ -25,14 +24,29 @@ export type CommonInputMaskValues = {
   unmaskedValue: string;
 };
 
+export type CommonInputPosition =
+  | 'left'
+  | 'center'
+  | 'right';
+
+export type CommonInputMaskVisibility =
+  | 'always'
+  | 'onFocus';
+
+export type CommonInputType =
+  | 'text'
+  | 'number'
+  | 'tel'
+  | 'email'
+  | 'password';
+
 export type CommonInputProps = InputBaseProps
   & {
     name?: string;
+    type?: CommonInputType;
     mask?: CommonInputMaskParams;
-    theme?: 'text' | 'search';
-    maskVisibility?: 'always' | 'onFocus';
-    position?: 'left' | 'center' | 'right';
-    type?: 'text' | 'number' | 'tel' | 'email' | 'password';
+    position?: CommonInputPosition;
+    maskVisibility?: CommonInputMaskVisibility;
   };
 
 export type CommonInputEmits = {
@@ -46,6 +60,6 @@ export type CommonInputEmits = {
 
 export type CommonInputSlots = InputBaseSlots
   & {
-    prepend?: () => VNode[];
-    append?: () => VNode[];
+    prepend?: [];
+    append?: [];
   };

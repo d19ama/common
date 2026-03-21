@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import {
+  computed,
+  ref,
+} from 'vue';
 import type {
   CommonImageEmits,
   CommonImageProps,
@@ -16,6 +19,8 @@ const emit = defineEmits<CommonImageEmits>();
 
 defineSlots<CommonImageSlots>();
 
+const loaded = ref<boolean>(false);
+
 const elementClass = computed<HTMLElementClass>(() => {
   return {
     'common-image--flat': props.flat,
@@ -23,6 +28,7 @@ const elementClass = computed<HTMLElementClass>(() => {
 });
 
 function onLoadHandler(): void {
+  loaded.value = true;
   emit('loaded');
 }
 </script>
@@ -33,14 +39,14 @@ function onLoadHandler(): void {
     :class="elementClass"
   >
     <img
-      v-if="props.src"
+      v-if="loaded"
       :src="props.src"
       :alt="props.alt"
       class="common-image__img"
       @load="onLoadHandler"
     >
     <template v-else>
-      <slot>
+      <slot name="no-image">
         <span>{{ props.alt }}</span>
       </slot>
     </template>

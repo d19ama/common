@@ -1,4 +1,3 @@
-import type { VNode } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
 import type { CommonGlobalPropTheme } from '@/types';
 
@@ -14,5 +13,5 @@ export type CommonLinkProps = {
 };
 
 export type CommonLinkSlots = {
-  default?: () => VNode[];
+  default?: [];
 };

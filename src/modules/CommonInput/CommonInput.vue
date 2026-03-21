@@ -27,7 +27,6 @@ const props = withDefaults(defineProps<CommonInputProps>(), {
   hint: '',
   label: '',
   type: 'text',
-  theme: 'text',
   errorText: '',
   disabled: false,
   required: false,

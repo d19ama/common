@@ -5,4 +5,5 @@ export type {
   CommonTooltipTippyProps,
   CommonTooltipSlots,
   CommonTooltipActions,
+  CommonTooltipPlacement,
 } from './types';
