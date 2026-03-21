@@ -8,7 +8,6 @@ import {
   CommonCheckbox,
   CommonCombobox,
   type CommonComboboxOption,
-  CommonDatePicker,
   CommonImage,
   CommonInput,
   CommonInputFile,
@@ -190,120 +189,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonDatePicker    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonDatePicker"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Sizes"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XS
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                size="xs"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SM
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                size="sm"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                MD
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                size="md"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                LG
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                size="lg"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                XL
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                size="xl"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="States"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DEFAULT
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                REQUIRED
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                required
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DISABLED
-              </p>
-              <CommonDatePicker
-                placeholder="Select date"
-                label="DatePicker"
-                hint="Some hint"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonInput    -->
     <div class="container__block margin-bottom--s">

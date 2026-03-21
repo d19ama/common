@@ -30,7 +30,6 @@ const props = withDefaults(defineProps<CommonComboboxProps>(), {
   errorText: '',
   loading: false,
   placeholder: '',
-  multiple: false,
   disabled: false,
   required: false,
   searchError: false,
@@ -46,14 +45,19 @@ const value = defineModel<string>('value', {
   default: '',
 });
 
-const options = defineModel<CommonComboboxOption[]>('options', {
-  required: false,
-  default: () => [],
-});
-
 const search = defineModel<string>('search', {
   required: false,
   default: '',
+});
+
+const options = defineModel<CommonComboboxOption[]>('options', {
+  required: false,
+  default: () => [],
+  get(value) {
+    return value.filter((item) => {
+      return item.text.includes(search.value);
+    });
+  },
 });
 
 const opened = ref<boolean>(false);
