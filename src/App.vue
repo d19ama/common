@@ -10,8 +10,6 @@ import {
   CommonTable,
   type CommonTableHeader,
   type CommonTableRow,
-  CommonTabs,
-  type CommonTabsItem,
   CommonTitle,
   CommonTooltip,
 } from '@/modules';
@@ -24,30 +22,6 @@ type TableData = {
   two: string;
   three: string;
 };
-
-const tabs = ref<CommonTabsItem[]>([
-  {
-    id: '1',
-    active: true,
-    label: 'Tab 1',
-  },
-  {
-    id: '2',
-    active: false,
-    label: 'Tab 2',
-  },
-  {
-    id: '3',
-    active: false,
-    label: 'Tab 3',
-  },
-  {
-    id: '4',
-    active: false,
-    disabled: true,
-    label: 'Tab 4',
-  },
-]);
 
 const headers = ref<CommonTableHeader<TableData>[]>([
   {
@@ -102,26 +76,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonTabs    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonTabs"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-12">
-              <CommonTabs
-                v-model:tabs="tabs"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonTooltip    -->
     <div class="container__block margin-bottom--s">
