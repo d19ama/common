@@ -17,6 +17,7 @@ type TableData = {
 
 const meta = {
   title: 'Data Display/CommonTable',
+  // @ts-expect-error TODO: Исправить типизацию
   component: CommonTable,
   argTypes: {
     hideHeader: {
@@ -33,6 +34,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    // @ts-expect-error TODO: Исправить типизацию
     headers: [
       {
         id: '1',
@@ -72,6 +74,7 @@ export const Default: Story = {
       };
     }) satisfies CommonTableRow<TableData>[],
   },
+  // @ts-expect-error TODO: Исправить типизацию
   render(args) {
     return {
       components: {
