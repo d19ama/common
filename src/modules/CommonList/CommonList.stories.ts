@@ -8,7 +8,7 @@ import {
 } from './';
 
 const meta = {
-  title: 'Layout/CommonList',
+  title: 'Data Display/CommonList',
   component: CommonList,
   argTypes: {
     marker: {

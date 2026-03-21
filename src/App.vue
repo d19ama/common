@@ -12,7 +12,6 @@ import {
   CommonImage,
   CommonInput,
   CommonInputFile,
-  CommonList,
   CommonModal,
   CommonRadio,
   type CommonRadioOption,
@@ -191,36 +190,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonList    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonList"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-12">
-              <CommonList
-                text="Link"
-                :items="[
-                  {
-                    id: '1',
-                    label: 'Label 1',
-                  },
-                  {
-                    id: '2',
-                    label: 'Label 2',
-                  },
-                ]"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonDatePicker    -->
     <div class="container__block margin-bottom--s">
