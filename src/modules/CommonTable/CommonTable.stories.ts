@@ -87,6 +87,12 @@ export const Default: Story = {
       },
       template: `
         <CommonTable v-bind="args" />
+        <br />
+        <CommonTable v-bind="args">
+          <template #td-one="{ data }">
+            Custom {{ data.one }}
+          </template>
+        </CommonTable>
       `,
     };
   },

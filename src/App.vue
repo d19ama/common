@@ -1,71 +1,16 @@
 <script setup lang="ts">
-import {
-  computed,
-  ref,
-} from 'vue';
+import { ref } from 'vue';
 import {
   CommonButton,
   CommonImage,
   CommonModal,
-  CommonTable,
-  type CommonTableHeader,
-  type CommonTableRow,
   CommonTitle,
   CommonTooltip,
 } from '@/modules';
 
 import '@/assets/styles/main.scss';
 
-type TableData = {
-  id: string;
-  one: string;
-  two: string;
-  three: string;
-};
-
-const headers = ref<CommonTableHeader<TableData>[]>([
-  {
-    id: '1',
-    name: 'one',
-    label: 'Column one',
-  },
-  {
-    id: '2',
-    name: 'two',
-    label: 'Column two',
-  },
-  {
-    id: '3',
-    name: 'three',
-    label: 'Column three',
-  },
-]);
-
 const modal = ref<boolean>(false);
-
-const rows = computed<CommonTableRow<TableData>[]>(() => {
-  return [
-    {
-      id: '1',
-      one: 'one 1',
-      two: 'two 1',
-      three: 'three 1',
-    },
-    {
-      id: '2',
-      one: 'one 2',
-      two: 'two 2',
-      three: 'three 2',
-    },
-  ].map((item) => {
-    return {
-      id: item.id,
-      data: {
-        ...item,
-      },
-    };
-  });
-});
 </script>
 
 <template>
@@ -91,37 +36,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
               <CommonTooltip>
                 tooltip
               </CommonTooltip>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--    CommonTable    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonTable"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-6">
-              <CommonTable
-                :headers="headers"
-                :rows="rows"
-              />
-            </div>
-            <div class="col-default-6">
-              <CommonTable
-                :headers="headers"
-                :rows="rows"
-              >
-                <template #td-one="{ data }">
-                  {{ data.one }}
-                </template>
-              </CommonTable>
             </div>
           </div>
         </div>

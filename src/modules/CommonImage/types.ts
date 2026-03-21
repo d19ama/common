@@ -9,5 +9,5 @@ export type CommonImageEmits = {
 };
 
 export type CommonImageSlots = {
-  default: [];
+  'no-image': [];
 };
