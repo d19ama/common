@@ -6,7 +6,6 @@ import {
 import {
   CommonButton,
   CommonImage,
-  CommonInput,
   CommonInputFile,
   CommonModal,
   CommonRadio,
@@ -90,7 +89,6 @@ const headers = ref<CommonTableHeader<TableData>[]>([
 const radio = ref<string>('1');
 const textarea = ref<string>('');
 const modal = ref<boolean>(false);
-const inputValue = ref<string>('');
 
 const rows = computed<CommonTableRow<TableData>[]>(() => {
   return [
@@ -125,156 +123,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonInput    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonInput"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Sizes"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XS
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                size="xs"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SM
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                size="sm"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                MD
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                size="md"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                LG
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                size="lg"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                XL
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                size="xl"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="States"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-3">
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-              />
-            </div>
-            <div class="col-default-3">
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                required
-              />
-            </div>
-            <div class="col-default-3">
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-                disabled
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="Slots"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                PREPEND
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-              >
-                <template #prepend>
-                  <span class="icon icon-search" />
-                </template>
-              </CommonInput>
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                APPEND
-              </p>
-              <CommonInput
-                v-model:value="inputValue"
-                label="Some some"
-                placeholder="Type some"
-                hint="Some hint"
-              >
-                <template #append>
-                  <span class="icon icon-search" />
-                </template>
-              </CommonInput>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonInputFile    -->
     <div class="container__block margin-bottom--s">
