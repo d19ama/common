@@ -6,7 +6,6 @@ import {
 import {
   CommonButton,
   CommonImage,
-  CommonInputFile,
   CommonModal,
   CommonRadio,
   type CommonRadioOption,
@@ -123,120 +122,6 @@ const rows = computed<CommonTableRow<TableData>[]>(() => {
     >
       STYLEGUIDE
     </CommonTitle>
-
-    <!--    CommonInputFile    -->
-    <div class="container__block margin-bottom--s">
-      <div class="row">
-        <div class="col-default-12">
-          <CommonTitle
-            tag="h4"
-            text="CommonInputFile"
-            class="margin-bottom--s"
-          />
-          <CommonTitle
-            tag="h5"
-            text="Sizes"
-            class="margin-bottom--s"
-          />
-          <div class="row">
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                XS
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                size="xs"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                SM
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                size="sm"
-              />
-            </div>
-            <div class="col-default-2">
-              <p class="margin-bottom--xs">
-                MD
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                size="md"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                LG
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                size="lg"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                XL
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                size="xl"
-              />
-            </div>
-          </div>
-          <CommonTitle
-            tag="h5"
-            text="States"
-            class="margin-bottom--s"
-          />
-          <div class="row margin-bottom--s">
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DEFAULT
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                REQUIRED
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                required
-              />
-            </div>
-            <div class="col-default-3">
-              <p class="margin-bottom--xs">
-                DISABLED
-              </p>
-              <CommonInputFile
-                label="Upload file"
-                button-text="Upload"
-                hint="Some hint"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--    CommonTextarea    -->
     <div class="container__block margin-bottom--s">
