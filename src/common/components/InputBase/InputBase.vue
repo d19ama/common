@@ -109,45 +109,46 @@ const isErrorVisible = computed<boolean>(() => {
 </template>
 
 <style lang="scss">
-// RESET
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-input {
-  overflow: visible;
-}
-
-textarea {
-  overflow: auto;
-}
-
-select {
-  text-transform: none;
-}
-
-[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-[type='search'] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
-  height: auto;
-}
-
-// COMPONENT STYLES
 .input-base {
+  // RESET
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  input {
+    overflow: visible;
+  }
+
+  textarea {
+    overflow: auto;
+  }
+
+  select {
+    text-transform: none;
+  }
+
+  [type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  [type='search'] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+  }
+
+  [type='number']::-webkit-inner-spin-button,
+  [type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  // COMPONENT STYLES
   $parent: &;
   $padding: 1rem;
 
@@ -189,6 +190,12 @@ select {
   }
 
   &__label-required {
+    font-size: inherit;
+    font-weight: 400;
+    line-height: .5;
+    position: relative;
+    top: 0;
+    vertical-align: baseline;
     color: var(--common-input-base-label-required-color);
   }
 
