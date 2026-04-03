@@ -111,26 +111,12 @@ const isErrorVisible = computed<boolean>(() => {
 <style lang="scss">
 .input-base {
   // RESET
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-  }
-
   input {
     overflow: visible;
   }
 
   textarea {
     overflow: auto;
-  }
-
-  select {
-    text-transform: none;
   }
 
   [type='search']::-webkit-search-decoration {
