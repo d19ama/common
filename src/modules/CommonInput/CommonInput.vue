@@ -43,10 +43,14 @@ defineSlots<CommonInputSlots>();
 const [
   value,
   modifiers,
-] = defineModel<string>('value', {
+] = defineModel<string | number>('value', {
   required: false,
   default: '',
   set(value) {
+    if (typeof value === 'number') {
+      return value;
+    }
+
     if (modifiers.trim) {
       return value.trim();
     }
@@ -85,7 +89,15 @@ const elementClass = computed<HTMLElementClass>(() => {
   ];
 });
 
+const isNumberType = computed<boolean>(() => {
+  return props.type === 'number';
+});
+
 const maskParams = computed<FactoryOpts | undefined>(() => {
+  if (isNumberType.value) {
+    return undefined;
+  }
+
   if (props.mask) {
     return {
       ...props.mask,
@@ -101,7 +113,22 @@ function onChange(): void {
   emit('change', value.value);
 }
 
-function onInput(): void {
+function onStringInput(): void {
+  emit('input', value.value);
+}
+
+function onNumberInput(event: Event): void {
+  const target = event.target as HTMLInputElement;
+  const numericValue = target.valueAsNumber;
+  const stringValue = target.value;
+
+  typed.value = Number.isNaN(numericValue)
+    ? ''
+    : String(numericValue);
+  unmasked.value = Number.isNaN(numericValue)
+    ? ''
+    : String(numericValue);
+  value.value = stringValue;
   emit('input', value.value);
 }
 
@@ -178,10 +205,27 @@ function onMaskAccept(): void {
   unmasked.value = unmaskedValue;
 }
 
-onMounted(initMask);
-onUnmounted(destroyMask);
+onMounted(() => {
+  if (isNumberType.value) {
+    return;
+  }
+
+  initMask();
+});
+
+onUnmounted(() => {
+  if (isNumberType.value) {
+    return;
+  }
+
+  destroyMask();
+});
 
 watch(unmasked, (value) => {
+  if (isNumberType.value) {
+    return;
+  }
+
   if (maskRef.value) {
     maskRef.value.unmaskedValue = value || '';
   }
@@ -190,6 +234,10 @@ watch(unmasked, (value) => {
 watch(
   maskParams,
   (params) => {
+    if (isNumberType.value) {
+      return;
+    }
+
     if (params) {
       if (!maskRef.value) {
         initMask();
@@ -247,9 +295,9 @@ watch(
         :placeholder="props.placeholder"
         @blur="onBlur"
         @focus="onFocus"
-        @input="onInput"
         @change="onChange"
         @keyup.enter="onChange"
+        @input="isNumberType ? onNumberInput : onStringInput"
       >
       <div
         v-if="$slots.append"
