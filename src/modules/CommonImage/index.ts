@@ -4,4 +4,5 @@ export type {
   CommonImageProps,
   CommonImageSlots,
   CommonImageEmits,
+  CommonImageObjectFit,
 } from './types';
