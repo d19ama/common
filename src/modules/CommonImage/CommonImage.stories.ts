@@ -2,7 +2,10 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { CommonImage } from './';
+import {
+  CommonImage,
+  type CommonImageObjectFit,
+} from './';
 
 const meta = {
   title: 'Data Display/CommonImage',
@@ -17,9 +20,20 @@ const meta = {
     flat: {
       control: 'boolean',
     },
+    objectFit: {
+      control: 'select',
+      options: [
+        'fill',
+        'cover',
+        'contain',
+        'scale-down',
+        'none',
+      ] satisfies CommonImageObjectFit[],
+    },
   },
   args: {
     flat: false,
+    objectFit: 'cover',
   },
 } satisfies Meta<typeof CommonImage>;
 
