@@ -108,17 +108,13 @@ function onClick(event: Event): void {
       size="xs"
     />
     <template v-else>
-      <span v-if="!!$slots.prepend">
-        <slot name="prepend" />
-      </span>
+      <slot name="prepend" />
 
       <slot>
         {{ props.text }}
       </slot>
 
-      <span v-if="!!$slots.append">
-        <slot name="append" />
-      </span>
+      <slot name="append" />
     </template>
   </Component>
 </template>
