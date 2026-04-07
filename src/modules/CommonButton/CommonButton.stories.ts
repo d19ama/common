@@ -14,6 +14,9 @@ const meta = {
   title: 'Actions/CommonButton',
   component: CommonButton,
   argTypes: {
+    text: {
+      control: 'text',
+    },
     disabled: {
       control: 'boolean',
     },
@@ -57,6 +60,7 @@ const meta = {
     },
   },
   args: {
+    text: 'Button',
     disabled: false,
     autoWidth: true,
     theme: 'primary',
@@ -69,6 +73,49 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  render(args) {
+    return {
+      components: {
+        CommonButton,
+      },
+      setup() {
+        return {
+          args,
+        };
+      },
+      template: `
+        <CommonButton v-bind="args">
+          {{ args.text || 'Button' }}
+        </CommonButton>
+      `,
+    };
+  },
+};
+
+export const SlotPrepend: Story = {
+  render(args) {
+    return {
+      components: {
+        CommonButton,
+      },
+      setup() {
+        return {
+          args,
+        };
+      },
+      template: `
+        <CommonButton v-bind="args">
+          <template #prepend>
+            Prepended to
+          </template>
+          {{ args.text || 'Button' }}
+        </CommonButton>
+      `,
+    };
+  },
+};
+
+export const SlotAppend: Story = {
   args: {},
   render(args) {
     return {
@@ -83,6 +130,9 @@ export const Default: Story = {
       template: `
         <CommonButton v-bind="args">
           {{ args.text || 'Button' }}
+          <template #append>
+            with appended
+          </template>
         </CommonButton>
       `,
     };
