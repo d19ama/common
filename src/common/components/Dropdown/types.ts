@@ -6,7 +6,7 @@ export type DropdownProps = {
   size?: CommonGlobalPropSize;
 };
 
-export type DropdownItem<ID extends string | number | symbol = string> = {
+export type DropdownItem<ID extends string | number | symbol | undefined = string> = {
   id: ID;
   text: string;
   selected: boolean;
