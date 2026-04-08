@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup generic="T extends string">
 import type {
   CommonTabsEmits,
   CommonTabsItem,
@@ -6,23 +6,25 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-const emit = defineEmits<CommonTabsEmits>();
+type Item = CommonTabsItem<T>;
+
+const emit = defineEmits<CommonTabsEmits<T>>();
 
 defineSlots<CommonTabsSlots>();
 
-const tabs = defineModel<CommonTabsItem[]>('tabs', {
+const tabs = defineModel<Item[]>('tabs', {
   required: true,
 });
 
-function labelClass(tab: CommonTabsItem): HTMLElementClass {
+function labelClass(tab: Item): HTMLElementClass {
   return {
     'common-tabs__label--active': tab.active,
     'common-tabs__label--disabled': !!tab.disabled,
   };
 }
 
-function toggleTabs(tabId: CommonTabsItem['id']): void {
-  tabs.value = tabs.value.map((item: CommonTabsItem) => {
+function toggleTabs(tabId: Item['id']): void {
+  tabs.value = tabs.value.map((item: Item) => {
     return {
       ...item,
       active: item.id === tabId,

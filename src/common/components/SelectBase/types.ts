@@ -14,7 +14,7 @@ export type SelectBaseProps = {
   validation?: BaseValidation;
 };
 
-export type SelectBaseOption<ID extends string | number | symbol = string> = DropdownItem<ID>;
+export type SelectBaseOption<ID extends string | number | symbol | undefined = string> = DropdownItem<ID>;
 
 export type SelectBaseEmits = DropdownEmits
   & {

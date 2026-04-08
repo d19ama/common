@@ -7,7 +7,7 @@ import { CommonTabs } from './';
 
 const meta = {
   title: 'Data Display/CommonTabs',
-  component: CommonTabs,
+  component: CommonTabs as unknown as Record<string, any>,
   argTypes: {},
   args: {},
 } satisfies Meta<typeof CommonTabs>;
@@ -44,7 +44,7 @@ export const Default: Story = {
   render(args) {
     return {
       components: {
-        CommonTabs,
+        CommonTabs: CommonTabs as unknown as Record<string, any>,
       },
       setup() {
         const activeTab = ref('1');
