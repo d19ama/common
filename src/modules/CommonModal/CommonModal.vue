@@ -129,18 +129,22 @@ watch(
     >
       <div class="common-modal__container">
         <div class="common-modal__control">
-          <slot name="control" />
+          <slot name="control">
+            &nbsp;
+          </slot>
           <slot
             name="close"
             :close="close"
           >
             <CommonButton
-              class="common-modal__button-close icon icon-cross"
+              class="common-modal__button-close"
               auto-width
-              size="sm"
+              size="xs"
               theme="icon"
               @click="close"
-            />
+            >
+              <span class="common-modal__button-close-icon icon icon-cross" />
+            </CommonButton>
           </slot>
         </div>
         <div
@@ -225,9 +229,8 @@ watch(
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 1rem;
-    padding-top: 1rem;
     padding-bottom: 1rem;
     position: sticky;
     top: 0;
@@ -239,6 +242,10 @@ watch(
     margin-left: auto;
   }
 
+  &__button-close-icon {
+    font-size: 1rem;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -246,6 +253,7 @@ watch(
     max-height: 90vh;
     width: inherit;
     height: auto;
+    padding-top: 1rem;
     padding-bottom: 2rem;
     position: relative;
     overflow: hidden;
@@ -256,19 +264,19 @@ watch(
   &__header {
     display: flex;
     flex-flow: row nowrap;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 
   &__body {
     flex-grow: 1;
     overflow: hidden;
     overflow-y: auto;
-    padding: 0 2rem 2rem;
+    padding: 0 2rem;
     white-space: pre-line;
   }
 
   &__footer {
-    padding-top: 2rem;
+    padding-top: 1rem;
   }
 
   // SIZES

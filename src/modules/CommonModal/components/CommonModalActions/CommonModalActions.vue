@@ -15,7 +15,7 @@ defineSlots<CommonModalActionsSlots>();
   <div
     class="common-modal-actions"
     :style="{
-      flexDirection: layout,
+      flexDirection: $props.layout,
     }"
   >
     <slot />
@@ -25,6 +25,6 @@ defineSlots<CommonModalActionsSlots>();
 <style lang="scss">
 .common-modal-actions {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 </style>
