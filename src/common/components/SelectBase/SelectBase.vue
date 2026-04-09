@@ -94,15 +94,18 @@ function changeSelected(option: DropdownItem): void {
   emit('change:selected', option);
 }
 
-onMounted(() => {
-  const alreadySelectedOption = options.value.find((option) => {
+function setSelected(options: DropdownItem[]): void {
+  const alreadySelectedOption = options.find((option) => {
     return option.selected;
   });
 
   if (alreadySelectedOption) {
     updateActiveOption(alreadySelectedOption);
   }
+}
 
+onMounted(() => {
+  setSelected(options.value);
   document.addEventListener('click', hideDropdown);
 });
 
@@ -111,6 +114,8 @@ watch(opened, (value) => {
     validate();
   }
 });
+
+watch(options, setSelected);
 </script>
 
 <template>
