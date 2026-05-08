@@ -38,9 +38,15 @@ function toggleDropdown(): void {
   opened.value = !opened.value;
 }
 
-watch(() => props.options, (value) => {
-  localOptions.value = value;
-});
+watch(
+  () => props.options,
+  (value) => {
+    localOptions.value = value;
+  },
+  {
+    deep: true,
+  },
+);
 </script>
 
 <template>
