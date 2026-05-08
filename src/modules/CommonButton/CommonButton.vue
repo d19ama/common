@@ -161,7 +161,11 @@ function onClick(event: Event): void {
   border: 0;
   outline: 0;
   border-radius: var(--common-button-border-radius);
-  transition: filter var(--common-transition), color var(--common-transition), background-color var(--common-transition);
+  transition:
+    filter var(--common-transition),
+    color var(--common-transition),
+    border var(--common-transition),
+    background-color var(--common-transition);
   user-select: none;
   cursor: pointer;
 
@@ -219,12 +223,13 @@ function onClick(event: Event): void {
     color: var(--common-color-primary-dark);
 
     &#{$parent}--theme-style-fill {
+      border: var(--common-button-border-width) solid var(--common-color-primary-light);
       background-color: var(--common-color-primary-light);
     }
 
     &#{$parent}--theme-style-outline {
+      border: var(--common-button-border-width) solid var(--common-color-primary-light);
       background-color: transparent;
-      box-shadow: inset 0 0 0 .125rem var(--common-color-primary-light);
     }
   }
 
@@ -232,12 +237,13 @@ function onClick(event: Event): void {
     color: var(--common-color-secondary-dark);
 
     &#{$parent}--theme-style-fill {
+      border: var(--common-button-border-width) solid var(--common-color-secondary-light);
       background-color: var(--common-color-secondary-light);
     }
 
     &#{$parent}--theme-style-outline {
+      border: var(--common-button-border-width) solid var(--common-color-secondary-light);
       background-color: transparent;
-      box-shadow: inset 0 0 0 .125rem var(--common-color-secondary-light);
     }
   }
 
@@ -245,12 +251,13 @@ function onClick(event: Event): void {
     color: var(--common-color-tertiary-dark);
 
     &#{$parent}--theme-style-fill {
+      border: var(--common-button-border-width) solid var(--common-color-tertiary-light);
       background-color: var(--common-color-tertiary-light);
     }
 
     &#{$parent}--theme-style-outline {
+      border: var(--common-button-border-width) solid var(--common-color-tertiary-light);
       background-color: transparent;
-      box-shadow: inset 0 0 0 .125rem var(--common-color-tertiary-light);
     }
   }
 
@@ -258,31 +265,35 @@ function onClick(event: Event): void {
     color: var(--common-color-main);
 
     &#{$parent}--theme-style-fill {
+      border: var(--common-button-border-width) solid var(--common-color-unaccented-medium);
       background-color: var(--common-color-unaccented-medium);
 
       &:hover {
+        border: var(--common-button-border-width) solid var(--common-color-unaccented-dark);
         background-color: var(--common-color-unaccented-dark);
       }
     }
 
     &#{$parent}--theme-style-outline {
+      border: var(--common-button-border-width) solid var(--common-color-unaccented-medium);
       background-color: transparent;
-      box-shadow: inset 0 0 0 .125rem var(--common-color-unaccented-medium);
 
       &:hover {
-        box-shadow: inset 0 0 0 .125rem var(--common-color-unaccented-dark);
+        border: var(--common-button-border-width) solid var(--common-color-unaccented-dark);
       }
     }
   }
 
   &--theme-transparent {
     color: var(--common-color-unaccented-medium);
+    border: var(--common-button-border-width) solid transparent;
     background-color: transparent;
   }
 
   &--theme-icon {
     padding: 0;
     color: var(--common-color-unaccented-medium);
+    border: var(--common-button-border-width) solid transparent;
     background-color: transparent;
   }
 
@@ -295,7 +306,7 @@ function onClick(event: Event): void {
     color: var(--common-color-inverted);
 
     &#{$parent}--theme-transparent {
-      box-shadow: inset 0 0 0 1px var(--common-color-inverted);
+      border: var(--common-button-border-width) solid var(--common-color-inverted);
     }
   }
 

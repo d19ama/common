@@ -1,4 +1,5 @@
 export type Styles = {
+  'common-button-border-width': string;
   'common-button-border-radius': string;
 };
 

@@ -1,5 +1,7 @@
+$common-button-border-width: 1px;
 $common-button-border-radius: var(--common-border-radius);
 
 :export {
+  common-button-border-width: $common-button-border-width;
   common-button-border-radius: $common-button-border-radius;
 }
