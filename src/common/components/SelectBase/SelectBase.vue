@@ -2,6 +2,7 @@
 import {
   computed,
   onMounted,
+  onUnmounted,
   ref,
   useTemplateRef,
   watch,
@@ -89,24 +90,36 @@ function updateActiveOption(option: DropdownItem): void {
   opened.value = false;
 }
 
+function resetActiveOption(): void {
+  selected.value = undefined;
+  value.value = '';
+  opened.value = false;
+}
+
 function changeSelected(option: DropdownItem): void {
   updateActiveOption(option);
   emit('change:selected', option);
 }
 
-function setSelected(options: DropdownItem[]): void {
+function updateSelected(options: DropdownItem[]): void {
   const alreadySelectedOption = options.find((option) => {
     return option.selected;
   });
 
   if (alreadySelectedOption) {
     updateActiveOption(alreadySelectedOption);
+  } else {
+    resetActiveOption();
   }
 }
 
 onMounted(() => {
-  setSelected(options.value);
+  updateSelected(options.value);
   document.addEventListener('click', hideDropdown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', hideDropdown);
 });
 
 watch(opened, (value) => {
@@ -115,7 +128,7 @@ watch(opened, (value) => {
   }
 });
 
-watch(options, setSelected);
+watch(options, updateSelected);
 </script>
 
 <template>
