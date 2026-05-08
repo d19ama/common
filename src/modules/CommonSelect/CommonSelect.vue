@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import {
+  onMounted,
   ref,
   watch,
 } from 'vue';
@@ -32,21 +33,19 @@ const value = defineModel<string>('value', {
 });
 
 const opened = ref<boolean>(false);
-const localOptions = ref<CommonSelectOption[]>(props.options);
+const localOptions = ref<CommonSelectOption[]>([]);
+
+onMounted(() => {
+  localOptions.value = props.options;
+});
+
+watch(() => props.options, (value) => {
+  localOptions.value = value;
+});
 
 function toggleDropdown(): void {
   opened.value = !opened.value;
 }
-
-watch(
-  () => props.options,
-  (value) => {
-    localOptions.value = value;
-  },
-  {
-    deep: true,
-  },
-);
 </script>
 
 <template>
