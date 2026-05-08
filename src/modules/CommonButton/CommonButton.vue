@@ -108,13 +108,15 @@ function onClick(event: Event): void {
       size="xs"
     />
     <template v-else>
-      <slot name="prepend" />
+      <span class="common-button__inner">
+        <slot name="prepend" />
 
-      <slot>
-        {{ props.text }}
-      </slot>
+        <slot>
+          {{ props.text }}
+        </slot>
 
-      <slot name="append" />
+        <slot name="append" />
+      </span>
     </template>
   </Component>
 </template>
@@ -150,14 +152,8 @@ function onClick(event: Event): void {
   overflow: hidden;
   width: 100%;
   gap: 0 6px;
+  padding: 0;
   margin: 0;
-  font-weight: 400;
-  font-family: inherit;
-  line-height: 1.5;
-  text-transform: none;
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
   border: 0;
   outline: 0;
   border-radius: var(--common-button-border-radius);
@@ -169,15 +165,32 @@ function onClick(event: Event): void {
   user-select: none;
   cursor: pointer;
 
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-weight: 400;
+    font-family: inherit;
+    line-height: 1.5;
+    text-transform: none;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+  }
+
   &__spinner {
     filter: brightness(.8);
   }
 
   // SIZES
   &--size-xs {
-    height: 2rem;
-    padding: 0 .125rem;
     font-size: .625rem;
+
+    #{$parent}__inner {
+      height: 2rem;
+      padding: 0 .25rem;
+    }
 
     #{$parent}__spinner {
       width: 1rem;
@@ -186,9 +199,12 @@ function onClick(event: Event): void {
   }
 
   &--size-sm {
-    height: 2.5rem;
-    padding: 0 .5rem;
     font-size: .75rem;
+
+    #{$parent}__inner {
+      height: 2.5rem;
+      padding: 0 .5rem;
+    }
 
     #{$parent}__spinner {
       width: 1rem;
@@ -197,21 +213,30 @@ function onClick(event: Event): void {
   }
 
   &--size-md {
-    height: 3rem;
-    padding: 0 .75rem;
     font-size: .875rem;
+
+    #{$parent}__inner {
+      height: 3rem;
+      padding: 0 .75rem;
+    }
   }
 
   &--size-lg {
-    height: 3.5rem;
-    padding: 0 1rem;
     font-size: 1rem;
+
+    #{$parent}__inner {
+      height: 3.5rem;
+      padding: 0 1rem;
+    }
   }
 
   &--size-xl {
-    height: 4rem;
-    padding: 0 1.25rem;
     font-size: 1.125rem;
+
+    #{$parent}__inner {
+      height: 4rem;
+      padding: 0 1.25rem;
+    }
   }
 
   &:hover {
