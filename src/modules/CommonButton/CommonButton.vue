@@ -170,6 +170,7 @@ function onClick(event: Event): void {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    gap: 0 .375rem;
     font-weight: 400;
     font-family: inherit;
     line-height: 1.5;
