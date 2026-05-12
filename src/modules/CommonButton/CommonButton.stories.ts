@@ -106,7 +106,7 @@ export const SlotPrepend: Story = {
       template: `
         <CommonButton v-bind="args">
           <template #prepend>
-            Prepended to
+            <span class="icon icon-search"></span>
           </template>
           {{ args.text || 'Button' }}
         </CommonButton>
@@ -131,7 +131,7 @@ export const SlotAppend: Story = {
         <CommonButton v-bind="args">
           {{ args.text || 'Button' }}
           <template #append>
-            with appended
+            <span class="icon icon-folder"></span>
           </template>
         </CommonButton>
       `,
