@@ -317,10 +317,13 @@ function onClick(event: Event): void {
   }
 
   &--theme-icon {
-    padding: 0;
     color: var(--common-color-unaccented-medium);
     border: var(--common-button-border-width) solid transparent;
     background-color: transparent;
+
+    #{$parent}__inner {
+      padding: 0;
+    }
   }
 
   // TEXT STYLES
