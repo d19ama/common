@@ -19,3 +19,4 @@ export * from './CommonInputFile';
 export * from './CommonAccordion';
 export * from './CommonTransition';
 export * from './CommonDatePicker';
+export * from './CommonLineClamp';
