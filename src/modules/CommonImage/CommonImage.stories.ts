@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    src: 'https://i1.sndcdn.com/artworks-000125697915-3ok8i4-t500x500.jpg',
+    src: 'https://avatars.mds.yandex.net/i?id=c224fff1a5154f100f7ab72bb7bfdf04_l-4255244-images-thumbs&n=13',
     alt: 'Image',
   },
   render(args) {
