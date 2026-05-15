@@ -6,4 +6,3 @@ export type {
   CommonGlobalPropTheme,
   CommonGlobalPropSize,
 } from './global-props';
-export { CacheStrategy } from './cache';
