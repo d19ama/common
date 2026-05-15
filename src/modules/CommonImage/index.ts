@@ -6,3 +6,5 @@ export type {
   CommonImageEmits,
   CommonImageObjectFit,
 } from './types';
+
+export { imagePreloader } from './utils';
