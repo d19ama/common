@@ -13,6 +13,19 @@
   "bugs": {
     "url": "https://github.com/d19ama/common/issues"
   },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/common.es.js",
+      "require": "./dist/common.umd.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./assets/styles/*": "./src/assets/styles/*"
+  },
   "main": "./dist/common.umd.js",
   "module": "./dist/common.es.js",
   "types": "./dist/src/index.d.ts",
@@ -20,7 +33,7 @@
     "README.md",
     "dist",
     "package.json",
-    "src/assets/styles/breakpoints/vars.scss"
+    "src/assets/styles"
   ],
   "publishConfig": {
     "@d19ama:registry": "https://npm.pkg.github.com"
@@ -35,29 +48,26 @@
     "type-check:watch": "vue-tsc --build --force --watch",
     "lint": "eslint . --fix"
   },
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "vue-router": "^4.4.0"
+  },
   "dependencies": {
     "@sniptt/guards": "^0.2.0",
     "@vuepic/vue-datepicker": "^11.0.2",
     "@vueuse/core": "10.11.0",
     "dayjs": "1.11.12",
     "imask": "^7.6.1",
-    "lodash.debounce": "^4.0.8",
-    "lodash.isempty": "^4.4.0",
-    "lodash.isequal": "^4.5.0",
-    "lodash.uniqueid": "^4.0.1",
-    "openapi-fetch": "0.7.6",
-    "pinia": "^2.1.7",
-    "velocity-animate": "^1.5.2",
-    "vue": "^3.4.34",
-    "vue-router": "^4.4.0",
     "vue-tippy": "^6.7.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.12.1",
     "@rushstack/eslint-patch": "^1.8.0",
+    "@storybook/addon-a11y": "^10.3.1",
+    "@storybook/addon-docs": "^10.3.1",
+    "@storybook/vue3-vite": "^10.3.1",
     "@tsconfig/node18": "^18.2.4",
     "@types/jsdom": "^21.1.7",
-    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.14.5",
     "@types/sanitize-html": "^2.13.0",
     "@vitejs/plugin-vue": "^5.0.5",
@@ -73,16 +83,15 @@
     "jsdom": "^24.1.0",
     "npm-run-all2": "^6.2.0",
     "sass": "^1.69.4",
+    "storybook": "^10.3.1",
     "ts-toolbelt": "^9.6.0",
     "typescript": "~5.4.0",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^2.1.5",
-    "vue-tsc": "^2.0.21",
-    "storybook": "^10.3.1",
-    "@storybook/vue3-vite": "^10.3.1",
-    "@storybook/addon-a11y": "^10.3.1",
-    "@storybook/addon-docs": "^10.3.1"
+    "vue": "^3.5.21",
+    "vue-router": "^4.4.0",
+    "vue-tsc": "^2.0.21"
   },
   "browserslist": [
     "chrome >= 98",

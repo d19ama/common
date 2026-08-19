@@ -3,7 +3,6 @@ import {
   computed,
   onMounted,
 } from 'vue';
-import Velocity from 'velocity-animate';
 import { useCommonAccordion } from '../../composables';
 import type {
   CommonAccordionItemProps,
@@ -18,8 +17,6 @@ const props = withDefaults(defineProps<CommonAccordionItemProps>(), {
 });
 
 defineSlots<CommonAccordionItemSlots>();
-
-const DURATION: number = 300;
 
 const {
   state,
@@ -55,24 +52,36 @@ function toggleItem(): void {
   toggle(name);
 }
 
-function animationEnter(el: Element): void {
-  Velocity(
-    el,
-    'slideDown',
-    {
-      duration: DURATION,
-    },
-  );
+// Форсирует reflow элемента, чтобы браузер зафиксировал текущее значение
+// стиля до последующего его изменения — это необходимо для корректного
+// запуска CSS-transition при переключении высоты.
+function forceReflow(element: HTMLElement): void {
+  void element.offsetHeight;
 }
 
-function animationLeave(el: Element): void {
-  Velocity(
-    el,
-    'slideUp',
-    {
-      duration: DURATION,
-    },
-  );
+// Раскрытие/скрытие реализовано на нативных CSS‑transition через управление
+// высотой элемента, чтобы не тянуть в бандл сторонние библиотеки анимации
+// и не иметь побочных эффектов при серверном рендеринге (SSR).
+function animationEnter(element: Element): void {
+  const htmlElement = element as HTMLElement;
+
+  htmlElement.style.height = '0';
+  forceReflow(htmlElement);
+  htmlElement.style.height = `${htmlElement.scrollHeight}px`;
+}
+
+function animationAfterEnter(element: Element): void {
+  const htmlElement = element as HTMLElement;
+
+  htmlElement.style.height = '';
+}
+
+function animationLeave(element: Element): void {
+  const htmlElement = element as HTMLElement;
+
+  htmlElement.style.height = `${htmlElement.scrollHeight}px`;
+  forceReflow(htmlElement);
+  htmlElement.style.height = '0';
 }
 
 onMounted(() => {
@@ -104,6 +113,7 @@ onMounted(() => {
     </div>
     <Transition
       @enter="animationEnter"
+      @after-enter="animationAfterEnter"
       @leave="animationLeave"
     >
       <div
@@ -175,9 +185,9 @@ onMounted(() => {
   }
 
   &__body {
-    padding: 1rem;
+    overflow: hidden;
     background: var(--common-accordion-body-bg);
-    transition: background var(--common-transition);
+    transition: background var(--common-transition), height var(--common-transition);
 
     &--active {
       background: var(--common-accordion-body-bg-active);
@@ -188,6 +198,7 @@ onMounted(() => {
     display: flex;
     flex-flow: column nowrap;
     gap: 1rem;
+    padding: 1rem;
     color: var(--common-color-main);
   }
 }

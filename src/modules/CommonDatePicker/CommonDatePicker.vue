@@ -45,15 +45,17 @@ const elementClass = computed<HTMLElementClass>(() => {
 });
 
 const offset = computed<number>(() => {
+  if (typeof document === 'undefined' || typeof window === 'undefined') {
+    return 24; // 1.5rem при базовом размере шрифта 16px, используется как SSR‑фолбэк
+  }
+
   const htmlElement: HTMLElementTagNameMap['html'] | null = document.querySelector('html');
 
   if (!htmlElement) {
     return 0;
   }
 
-  const fontSize: string = window
-    ? window.getComputedStyle(htmlElement, null).fontSize
-    : '16px';
+  const fontSize: string = window.getComputedStyle(htmlElement, null).fontSize;
   const fontSizeNumber: string = fontSize.replace(/[^\d-]/g, '');
 
   return Number(fontSizeNumber) * 1.5;

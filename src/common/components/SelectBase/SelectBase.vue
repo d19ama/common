@@ -115,11 +115,16 @@ function updateSelected(options: DropdownItem[]): void {
 
 onMounted(() => {
   updateSelected(options.value);
-  document.addEventListener('click', hideDropdown);
+
+  if (typeof document !== 'undefined') {
+    document.addEventListener('click', hideDropdown);
+  }
 });
 
 onUnmounted(() => {
-  document.removeEventListener('click', hideDropdown);
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('click', hideDropdown);
+  }
 });
 
 watch(opened, (value) => {

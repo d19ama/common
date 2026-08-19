@@ -42,6 +42,13 @@ function loadImage(): void {
     return;
   }
 
+  // На сервере нет доступа к Image API — считаем изображение отрисованным,
+  // фактическая предзагрузка и обработка ошибок произойдёт на клиенте.
+  if (typeof window === 'undefined') {
+    loading.value = false;
+    return;
+  }
+
   loading.value = true;
   error.value = false;
 

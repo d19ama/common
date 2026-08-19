@@ -1,6 +1,3 @@
-declare module 'lodash.uniqueid';
-declare module 'velocity-animate';
-
 declare module '*.svg' {
   import type {
     Vue,

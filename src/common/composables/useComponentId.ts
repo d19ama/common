@@ -1,9 +1,18 @@
-import { getCurrentInstance } from 'vue';
+import { useId } from 'vue';
 
+/**
+ * Генерирует уникальный идентификатор компонента, стабильный между
+ * серверным рендерингом (SSR) и последующей гидратацией на клиенте.
+ *
+ * Использует нативный Vue `useId()` (доступен с Vue 3.5), гарантирующий
+ * совпадение идентификаторов на сервере и клиенте — в отличие от
+ * `getCurrentInstance()?.uid`, значение которого зависит от порядка
+ * инициализации компонентов и может расходиться при гидратации.
+ */
 export function useComponentId(prefix?: string): string {
-  const uid = getCurrentInstance()?.uid as number;
+  const id = useId();
 
   return prefix
-    ? `${prefix}-${uid}`
-    : uid.toString();
+    ? `${prefix}-${id}`
+    : id;
 }

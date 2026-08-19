@@ -96,6 +96,10 @@ watch(() => escape?.value, () => {
 watch(
   active,
   (value) => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     document.body.style.overflow = value !== undefined
       ? 'hidden'
       : '';
