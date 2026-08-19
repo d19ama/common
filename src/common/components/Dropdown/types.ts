@@ -3,6 +3,7 @@ import type { CommonGlobalPropSize } from '@/types';
 
 export type DropdownProps = {
   loading?: boolean;
+  multiple?: boolean;
   size?: CommonGlobalPropSize;
 };
 
@@ -14,7 +15,7 @@ export type DropdownItem<ID extends string | number | symbol | undefined = strin
 };
 
 export type DropdownEmits = {
-  'change:selected': [value: DropdownItem];
+  'change:selected': [option: DropdownItem, options: DropdownItem[]];
 };
 
 export type DropdownSlots = {

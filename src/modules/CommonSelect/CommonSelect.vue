@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import {
-  onMounted,
-  ref,
-  watch,
-} from 'vue';
+import { ref } from 'vue';
 import type {
   CommonSelectOption,
   CommonSelectProps,
@@ -18,34 +14,28 @@ const props = withDefaults(defineProps<CommonSelectProps>(), {
   label: '',
   errorText: '',
   placeholder: '',
+  loading: false,
   multiple: false,
   disabled: false,
   required: false,
+  dropdownVisible: true,
   options: () => [],
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
 defineSlots<CommonSelectSlots>();
 
-const value = defineModel<string>('value', {
+const value = defineModel<string | string[]>('value', {
   required: false,
   default: '',
 });
 
+const options = defineModel<CommonSelectOption[]>('options', {
+  required: false,
+  default: () => [],
+});
+
 const opened = ref<boolean>(false);
-const localOptions = ref<CommonSelectOption[]>([]);
-
-onMounted(() => {
-  localOptions.value = props.options;
-});
-
-watch(() => props.options, (value) => {
-  localOptions.value = value;
-});
-
-function toggleDropdown(): void {
-  opened.value = !opened.value;
-}
 </script>
 
 <template>
@@ -69,20 +59,23 @@ function toggleDropdown(): void {
 
     <template #default>
       <SelectBase
-        v-model:options="localOptions"
+        v-model:options="options"
         v-model:value="value"
         v-model:opened="opened"
         :size="props.size"
+        :loading="props.loading"
+        :multiple="props.multiple"
+        :disabled="props.disabled"
         :placeholder="props.placeholder"
         :validation="props.validation"
-        @click="toggleDropdown"
+        :dropdown-visible="props.dropdownVisible"
       >
         <template #icon>
           <slot name="icon" />
         </template>
 
         <template
-          v-for="item in localOptions"
+          v-for="item in options"
           #[`select-item-${String(item.id)}`]
         >
           <slot
@@ -97,6 +90,10 @@ function toggleDropdown(): void {
 
         <template #option-icon>
           <slot name="option-icon" />
+        </template>
+
+        <template #append-dropdown>
+          <slot name="append-dropdown" />
         </template>
       </SelectBase>
     </template>

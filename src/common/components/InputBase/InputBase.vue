@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  computed,
-  ref,
-} from 'vue';
+import { computed } from 'vue';
 import type {
   InputBaseProps,
   InputBaseSlots,
@@ -18,8 +15,6 @@ const props = withDefaults(defineProps<InputBaseProps>(), {
 });
 
 const slots = defineSlots<InputBaseSlots>();
-
-const error = ref<boolean>(false);
 
 const hasLabel = computed<boolean>(() => {
   return !!slots.label! || props.label;
@@ -61,9 +56,7 @@ const errorMessage = computed<string | undefined>(() => {
 });
 
 const isErrorVisible = computed<boolean>(() => {
-  return props.required
-    && error.value
-    && !!errorMessage.value;
+  return !!errorMessage.value;
 });
 </script>
 

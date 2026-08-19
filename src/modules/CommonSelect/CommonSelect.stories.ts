@@ -44,7 +44,6 @@ const meta = {
     hint: 'Just a hint, nothing to watch',
     disabled: false,
     required: false,
-    errorText: 'Oops :(',
   },
 } satisfies Meta<typeof CommonSelect>;
 

@@ -8,6 +8,8 @@ import type {
 
 export type SelectBaseProps = {
   loading?: boolean;
+  multiple?: boolean;
+  disabled?: boolean;
   placeholder?: string;
   size?: CommonGlobalPropSize;
   dropdownVisible?: boolean;

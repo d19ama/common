@@ -10,6 +10,8 @@ import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 
 const props = withDefaults(defineProps<DropdownProps>(), {
+  loading: false,
+  multiple: false,
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
@@ -44,14 +46,47 @@ function optionClass(item: DropdownItem): HTMLElementClass {
   };
 }
 
-function changeSelected(option: DropdownItem): void {
-  options.value = options.value.map((item) => {
-    return {
-      ...item,
-      selected: item.id === option.id,
-    };
+function selectOption(option: DropdownItem): void {
+  if (option.disabled) {
+    return;
+  }
+
+  const newOptions: DropdownItem[] = props.multiple
+    ? options.value.map((item) => {
+      return item.id === option.id
+        ? {
+            ...item,
+            selected: !item.selected,
+          }
+        : item;
+    })
+    : options.value.map((item) => {
+      return {
+        ...item,
+        selected: item.id === option.id,
+      };
+    });
+
+  options.value = newOptions;
+
+  const changed = newOptions.find((item) => {
+    return item.id === option.id;
   });
-  emit('change:selected', option);
+
+  if (changed) {
+    emit(
+      'change:selected',
+      changed,
+      newOptions,
+    );
+  }
+}
+
+function onOptionKeydown(event: KeyboardEvent, option: DropdownItem): void {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    selectOption(option);
+  }
 }
 </script>
 
@@ -60,6 +95,8 @@ function changeSelected(option: DropdownItem): void {
     v-if="visible"
     class="dropdown"
     :class="elementClass"
+    role="listbox"
+    :aria-multiselectable="props.multiple"
   >
     <ul
       v-if="hasOptions"
@@ -70,7 +107,12 @@ function changeSelected(option: DropdownItem): void {
         :key="item.id"
         class="dropdown__item"
         :class="optionClass(item)"
-        @click="changeSelected(item)"
+        role="option"
+        :aria-selected="item.selected"
+        :aria-disabled="item.disabled"
+        :tabindex="item.disabled ? -1 : 0"
+        @click="selectOption(item)"
+        @keydown="onOptionKeydown($event, item)"
       >
         <slot
           :name="`dropdown-item-${String(item.id)}`"
