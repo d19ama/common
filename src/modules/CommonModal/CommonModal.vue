@@ -68,6 +68,11 @@ const elementClass = computed<HTMLElementClass>(() => {
 });
 
 function close(): void {
+  if (props.close !== undefined) {
+    props.close();
+    return;
+  }
+
   visible.value = false;
 }
 

@@ -8,6 +8,7 @@ export type CommonModalProps = {
   appendTo?: string;
   rounded?: boolean;
   size?: CommonModalSize;
+  close?: () => void;
 };
 
 export type CommonModalSlots = {
