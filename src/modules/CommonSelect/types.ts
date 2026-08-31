@@ -14,7 +14,7 @@ export type CommonSelectProps = InputBaseProps
     options?: CommonSelectOption[];
   };
 
-export type CommonSelectOption<ID extends string | number | symbol = string> = SelectBaseOption<ID>;
+export type CommonSelectOption<ID extends string | number | symbol | undefined = string> = SelectBaseOption<ID>;
 
 export type CommonSelectSlots = InputBaseSlots
   & SelectBaseSlots;
