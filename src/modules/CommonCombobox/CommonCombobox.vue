@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup generic="ID extends OptionId">
 import {
   type ComponentInternalInstance,
   computed,
@@ -23,6 +23,7 @@ import {
   COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 } from '@/constants';
 import type { HTMLElementClass } from '@/types';
+import type { OptionId } from '@/common/types/option-id';
 
 const props = withDefaults(defineProps<CommonComboboxProps>(), {
   hint: '',
@@ -50,7 +51,7 @@ const search = defineModel<string>('search', {
   default: '',
 });
 
-const options = defineModel<CommonComboboxOption[]>('options', {
+const options = defineModel<CommonComboboxOption<ID>[]>('options', {
   required: false,
   default: () => [],
   get(value) {
@@ -95,7 +96,7 @@ function onBlur(): void {
   emit('blur');
 }
 
-function changeSelected(option: CommonComboboxOption): void {
+function changeSelected(option: CommonComboboxOption<ID>): void {
   localSearch.value = option.text;
 }
 

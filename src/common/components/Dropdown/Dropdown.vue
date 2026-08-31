@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="ID extends OptionId">
 import { computed } from 'vue';
 import type {
   DropdownEmits,
@@ -8,6 +8,7 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import type { OptionId } from '@/common/types/option-id';
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   loading: false,
@@ -15,7 +16,7 @@ const props = withDefaults(defineProps<DropdownProps>(), {
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<DropdownEmits>();
+const emit = defineEmits<DropdownEmits<ID>>();
 
 defineSlots<DropdownSlots>();
 
@@ -24,7 +25,7 @@ const visible = defineModel<boolean>('visible', {
   default: false,
 });
 
-const options = defineModel<DropdownItem[]>('options', {
+const options = defineModel<DropdownItem<ID>[]>('options', {
   required: false,
   default: () => [],
 });
@@ -39,19 +40,19 @@ const elementClass = computed<HTMLElementClass>(() => {
   ];
 });
 
-function optionClass(item: DropdownItem): HTMLElementClass {
+function optionClass(item: DropdownItem<ID>): HTMLElementClass {
   return {
     'dropdown__item--selected': item.selected,
     'dropdown__item--disabled': item.disabled,
   };
 }
 
-function selectOption(option: DropdownItem): void {
+function selectOption(option: DropdownItem<ID>): void {
   if (option.disabled) {
     return;
   }
 
-  const newOptions: DropdownItem[] = props.multiple
+  const newOptions: DropdownItem<ID>[] = props.multiple
     ? options.value.map((item) => {
       return item.id === option.id
         ? {
@@ -82,7 +83,7 @@ function selectOption(option: DropdownItem): void {
   }
 }
 
-function onOptionKeydown(event: KeyboardEvent, option: DropdownItem): void {
+function onOptionKeydown(event: KeyboardEvent, option: DropdownItem<ID>): void {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault();
     selectOption(option);

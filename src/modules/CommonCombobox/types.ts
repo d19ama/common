@@ -7,6 +7,7 @@ import type {
   SelectBaseProps,
   SelectBaseSlots,
 } from '@/common/components/SelectBase';
+import type { OptionId } from '@/common/types/option-id';
 
 export type CommonComboboxProps = InputBaseProps
   & SelectBaseProps
@@ -16,7 +17,7 @@ export type CommonComboboxProps = InputBaseProps
     searchError?: boolean;
   };
 
-export type CommonComboboxOption<ID extends string | number | symbol | undefined = string> = SelectBaseOption<ID>;
+export type CommonComboboxOption<ID extends OptionId = string> = SelectBaseOption<ID>;
 
 export type CommonComboboxEmits = {
   focus: [];

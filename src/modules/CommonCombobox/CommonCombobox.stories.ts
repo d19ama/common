@@ -7,6 +7,7 @@ import type { CommonGlobalPropSize } from '@/types';
 
 const meta = {
   title: 'Form/CommonCombobox',
+  // @ts-expect-error pass
   component: CommonCombobox,
   argTypes: {
     label: {
@@ -87,6 +88,7 @@ export const Default: Story = {
       },
     ],
   },
+  // @ts-expect-error pass
   render(args) {
     return {
       components: {

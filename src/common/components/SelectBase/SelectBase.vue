@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="ID extends OptionId">
 import {
   computed,
   onMounted,
@@ -16,6 +16,7 @@ import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import { Dropdown } from '@/common/components/Dropdown';
 import type { DropdownItem } from '@/common/components/Dropdown/types';
+import type { OptionId } from '@/common/types/option-id';
 
 const props = withDefaults(defineProps<SelectBaseProps>(), {
   placeholder: '',
@@ -26,7 +27,7 @@ const props = withDefaults(defineProps<SelectBaseProps>(), {
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<SelectBaseEmits>();
+const emit = defineEmits<SelectBaseEmits<ID>>();
 
 defineSlots<SelectBaseSlots>();
 
@@ -40,14 +41,14 @@ const value = defineModel<string | string[]>('value', {
   default: '',
 });
 
-const options = defineModel<SelectBaseOption[]>('options', {
+const options = defineModel<SelectBaseOption<ID>[]>('options', {
   required: false,
   default: () => [],
 });
 
 const root = useTemplateRef<HTMLElement>('rootRef');
 
-const selectedOptions = computed<SelectBaseOption[]>(() => {
+const selectedOptions = computed<SelectBaseOption<ID>[]>(() => {
   return options.value.filter((option) => {
     return option.selected;
   });
@@ -85,7 +86,7 @@ const elementClass = computed<HTMLElementClass>(() => {
   ];
 });
 
-function syncValueFromOptions(currentOptions: SelectBaseOption[]): void {
+function syncValueFromOptions(currentOptions: SelectBaseOption<ID>[]): void {
   const selected = currentOptions.filter((option) => {
     return option.selected;
   });
@@ -169,7 +170,7 @@ function onKeydown(event: KeyboardEvent): void {
   }
 }
 
-function changeSelected(option: DropdownItem, currentOptions: DropdownItem[]): void {
+function changeSelected(option: DropdownItem<ID>, currentOptions: DropdownItem<ID>[]): void {
   syncValueFromOptions(currentOptions);
 
   if (!props.multiple) {

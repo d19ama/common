@@ -5,6 +5,7 @@ import type {
   DropdownEmits,
   DropdownItem,
 } from '@/common/components/Dropdown';
+import type { OptionId } from '@/common/types/option-id';
 
 export type SelectBaseProps = {
   loading?: boolean;
@@ -16,15 +17,15 @@ export type SelectBaseProps = {
   validation?: BaseValidation;
 };
 
-export type SelectBaseOption<ID extends string | number | symbol | undefined = string> = DropdownItem<ID>;
+export type SelectBaseOption<ID extends OptionId = string> = DropdownItem<ID>;
 
-export type SelectBaseEmits = DropdownEmits
+export type SelectBaseEmits<ID extends OptionId = string> = DropdownEmits<ID>
   & {
     click: [];
   };
 
 export type SelectBaseSlots = {
-  [key: `select-item-${SelectBaseOption['id']}`]: (scope: {
+  [key: `select-item-${string}`]: (scope: {
     text: string;
   }) => VNode[];
   'default'?: () => VNode[];

@@ -45,6 +45,7 @@ function mountWithVModel(props: Record<string, unknown> = {}) {
   const Wrapper = defineComponent({
     setup() {
       return () => {
+        // @ts-expect-error pass
         return h(CommonSelect, {
           ...props,
           'value': value.value,

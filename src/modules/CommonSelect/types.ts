@@ -7,14 +7,15 @@ import type {
   SelectBaseProps,
   SelectBaseSlots,
 } from '@/common/components/SelectBase';
+import type { OptionId } from '@/common/types/option-id';
 
-export type CommonSelectProps = InputBaseProps
+export type CommonSelectProps<ID extends OptionId = string> = InputBaseProps
   & SelectBaseProps
   & {
-    options?: CommonSelectOption[];
+    options?: CommonSelectOption<ID>[];
   };
 
-export type CommonSelectOption<ID extends string | number | symbol | undefined = string> = SelectBaseOption<ID>;
+export type CommonSelectOption<ID extends OptionId = string> = SelectBaseOption<ID>;
 
 export type CommonSelectSlots = InputBaseSlots
   & SelectBaseSlots;
