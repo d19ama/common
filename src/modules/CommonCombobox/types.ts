@@ -16,7 +16,7 @@ export type CommonComboboxProps = InputBaseProps
     searchError?: boolean;
   };
 
-export type CommonComboboxOption<ID extends string | number | symbol = string> = SelectBaseOption<ID>;
+export type CommonComboboxOption<ID extends string | number | symbol | undefined = string> = SelectBaseOption<ID>;
 
 export type CommonComboboxEmits = {
   focus: [];
