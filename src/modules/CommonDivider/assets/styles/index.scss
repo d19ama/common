@@ -1,0 +1,6 @@
+@import 'vars/vars.module';
+
+:root {
+  --common-divider-width: #{$common-divider-width};
+  --common-divider-background: #{$common-divider-background};
+}

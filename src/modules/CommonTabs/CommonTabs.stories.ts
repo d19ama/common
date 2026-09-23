@@ -7,7 +7,7 @@ import { CommonTabs } from './';
 
 const meta = {
   title: 'Data Display/CommonTabs',
-  component: CommonTabs as unknown as Record<string, any>,
+  component: CommonTabs as Record<keyof typeof CommonTabs, unknown>,
   argTypes: {},
   args: {},
 } satisfies Meta<typeof CommonTabs>;

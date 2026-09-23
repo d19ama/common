@@ -7,8 +7,7 @@ import type { CommonGlobalPropSize } from '@/types';
 
 const meta = {
   title: 'Form/CommonSelect',
-  // @ts-expect-error pass
-  component: CommonSelect,
+  component: CommonSelect as Record<keyof typeof CommonSelect, unknown>,
   argTypes: {
     label: {
       control: 'text',

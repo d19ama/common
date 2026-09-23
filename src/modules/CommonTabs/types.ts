@@ -8,6 +8,11 @@ export type CommonTabsItem<T extends string = string> = {
   align?: 'left' | 'right';
 };
 
+export type CommonTabsProps<T extends string = string> = {
+  activeTab?: CommonTabsItem<T>;
+  tabs: CommonTabsItem<T>[];
+};
+
 export type CommonTabsEmits<T extends string = string> = {
   'change:tab': [value: T];
 };

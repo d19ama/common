@@ -1,30 +1,47 @@
-<script lang="ts" setup generic="T extends string">
+<script lang="ts" setup generic="T extends string = string">
+import {
+  ref,
+  watch,
+} from 'vue';
 import type {
   CommonTabsEmits,
   CommonTabsItem,
+  CommonTabsProps,
   CommonTabsSlots,
 } from './types';
 import type { HTMLElementClass } from '@/types';
 
-type Item = CommonTabsItem<T>;
+const props = defineProps<CommonTabsProps<T>>();
 
 const emit = defineEmits<CommonTabsEmits<T>>();
 
 defineSlots<CommonTabsSlots>();
 
-const tabs = defineModel<Item[]>('tabs', {
-  required: true,
-});
+const _tabs = ref<CommonTabsItem<T>[]>([
+  ...props.tabs,
+]);
 
-function labelClass(tab: Item): HTMLElementClass {
+watch(
+  () => props.tabs,
+  (newVal) => {
+    _tabs.value = [
+      ...newVal,
+    ];
+  },
+  {
+    deep: true,
+  },
+);
+
+function labelClass(tab: CommonTabsItem<T>): HTMLElementClass {
   return {
     'common-tabs__label--active': tab.active,
     'common-tabs__label--disabled': !!tab.disabled,
   };
 }
 
-function toggleTabs(tabId: Item['id']): void {
-  tabs.value = tabs.value.map((item: Item) => {
+function toggleTabs(tabId: CommonTabsItem<T>['id']): void {
+  _tabs.value = props.tabs.map((item: CommonTabsItem<T>) => {
     return {
       ...item,
       active: item.id === tabId,
@@ -38,11 +55,11 @@ function toggleTabs(tabId: Item['id']): void {
   <div class="common-tabs">
     <div class="common-tabs__header">
       <div
-        v-for="tab in tabs"
+        v-for="tab in _tabs"
         :key="tab.id"
         class="common-tabs__label"
-        :class="labelClass(tab)"
-        @click="toggleTabs(tab.id)"
+        :class="labelClass(tab as CommonTabsItem<T>)"
+        @click="toggleTabs(tab.id as CommonTabsItem<T>['id'])"
       >
         <slot
           :name="`tab-${String(tab.id)}`"

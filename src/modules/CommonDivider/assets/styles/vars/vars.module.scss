@@ -1,0 +1,7 @@
+$common-divider-width: .125rem;
+$common-divider-background: var(--common-color-black-10);
+
+:export {
+  common-divider-width: $common-divider-width;
+  common-divider-background: $common-divider-background;
+}

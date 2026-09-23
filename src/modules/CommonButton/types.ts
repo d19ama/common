@@ -45,4 +45,5 @@ export type CommonButtonSlots = {
   default?: () => VNode[];
   prepend?: () => VNode[];
   append?: () => VNode[];
+  custom?: () => VNode[];
 };

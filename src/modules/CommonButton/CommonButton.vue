@@ -102,22 +102,24 @@ function onClick(event: Event): void {
     :class="elementClass"
     @click="onClick"
   >
-    <CommonSpinner
-      v-if="props.loading"
-      class="common-button__spinner"
-      size="xs"
-    />
-    <template v-else>
-      <span class="common-button__inner">
-        <slot name="prepend" />
+    <slot name="custom">
+      <CommonSpinner
+        v-if="props.loading"
+        class="common-button__spinner"
+        size="xs"
+      />
+      <template v-else>
+        <span class="common-button__inner">
+          <slot name="prepend" />
 
-        <slot>
-          {{ props.text }}
-        </slot>
+          <slot>
+            {{ props.text }}
+          </slot>
 
-        <slot name="append" />
-      </span>
-    </template>
+          <slot name="append" />
+        </span>
+      </template>
+    </slot>
   </Component>
 </template>
 
