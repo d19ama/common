@@ -1,7 +1,7 @@
 {
   "name": "@d19ama/common",
   "type": "module",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "Common UI components, helpers, utils, validators etc",
   "author": "Artem Anpilov",
   "license": "ISC",
@@ -23,7 +23,7 @@
       "import": "./dist/common.es.js",
       "require": "./dist/common.umd.js"
     },
-    "./style.css": "./dist/style.css",
+    "./common.css": "./dist/common.css",
     "./assets/styles/*": "./src/assets/styles/*"
   },
   "main": "./dist/common.umd.js",
