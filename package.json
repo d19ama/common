@@ -1,7 +1,7 @@
 {
   "name": "@d19ama/common",
   "type": "module",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Common UI components, helpers, utils, validators etc",
   "author": "Artem Anpilov",
   "license": "ISC",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "vue": "^3.5.0",
-    "vue-router": "^4.4.0"
+    "vue-router": "^5.3.1"
   },
   "dependencies": {
     "@sniptt/guards": "^0.2.0",
@@ -70,7 +70,7 @@
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
     "@types/sanitize-html": "^2.13.0",
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue": "^6.0.9",
     "@vitest/coverage-v8": "^2.1.5",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
@@ -86,11 +86,11 @@
     "storybook": "^10.3.1",
     "ts-toolbelt": "^9.6.0",
     "typescript": "~5.4.0",
-    "vite": "^5.4.11",
+    "vite": "^8.3.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^2.1.5",
     "vue": "^3.5.21",
-    "vue-router": "^4.4.0",
+    "vue-router": "^5.3.1",
     "vue-tsc": "^2.0.21"
   },
   "browserslist": [
