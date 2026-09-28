@@ -73,6 +73,8 @@ function toggleTabs(tabId: CommonTabsItem<T>['id']): void {
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .common-tabs {
   display: flex;
   overflow: hidden;

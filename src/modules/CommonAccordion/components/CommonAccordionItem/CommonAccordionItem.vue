@@ -132,6 +132,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@import '../../assets/styles/index.scss';
+
 .common-accordion-item {
   border-bottom: var(--common-accordion-item-border-bottom);
   border-radius: var(--common-accordion-item-border-radius);

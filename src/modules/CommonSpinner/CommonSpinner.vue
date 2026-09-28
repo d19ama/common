@@ -48,6 +48,8 @@ const elementClass = computed<HTMLElementClass>(() => {
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .common-spinner {
   display: inline-flex;
   align-items: center;

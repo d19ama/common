@@ -124,6 +124,8 @@ function onClick(event: Event): void {
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .common-button {
   $parent: &;
 

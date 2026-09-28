@@ -102,6 +102,8 @@ const isErrorVisible = computed<boolean>(() => {
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .input-base {
   // RESET
   input {

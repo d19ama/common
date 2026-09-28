@@ -16,6 +16,8 @@ withDefaults(defineProps<CommonDividerProps>(), {
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .common-divider {
   background-size: cover;
   background-position: center;

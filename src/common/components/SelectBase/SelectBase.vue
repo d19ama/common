@@ -31,7 +31,7 @@ const emit = defineEmits<SelectBaseEmits<ID>>();
 
 defineSlots<SelectBaseSlots>();
 
-const opened = defineModel('opened', {
+const opened = defineModel<boolean>('opened', {
   required: false,
   default: false,
 });
@@ -277,6 +277,8 @@ watch(value, syncOptionsFromValue);
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .select-base {
   $parent: &;
 
