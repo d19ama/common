@@ -8,10 +8,10 @@ import type {
   CommonAccordionItemProps,
   CommonAccordionItemSlots,
 } from './types';
-import { componentName } from '@/helpers/component-name';
 import type { HTMLElementClass } from '@/types';
 
 const props = withDefaults(defineProps<CommonAccordionItemProps>(), {
+  active: false,
   headerText: '',
   bodyText: '',
 });
@@ -24,10 +24,8 @@ const {
   toggle,
 } = useCommonAccordion();
 
-const name = componentName('common-accordion-item');
-
 const currentState = computed<boolean>(() => {
-  return !!state.value.get(name);
+  return !!state.value.get(props.name);
 });
 
 const headerClass = computed<HTMLElementClass>(() => {
@@ -49,7 +47,7 @@ const bodyClass = computed<HTMLElementClass>(() => {
 });
 
 function toggleItem(): void {
-  toggle(name);
+  toggle(props.name);
 }
 
 // Форсирует reflow элемента, чтобы браузер зафиксировал текущее значение
@@ -86,8 +84,8 @@ function animationLeave(element: Element): void {
 
 onMounted(() => {
   add({
-    name,
-    active: false,
+    name: props.name,
+    active: props.active,
   });
 });
 </script>
@@ -121,11 +119,13 @@ onMounted(() => {
         class="common-accordion-item__body"
         :class="bodyClass"
       >
-        <div class="common-accordion-item__content">
-          <slot name="body">
-            {{ props.bodyText }}
-          </slot>
-        </div>
+        <slot name="body">
+          <div class="common-accordion-item__content">
+            <slot name="content">
+              {{ props.bodyText }}
+            </slot>
+          </div>
+        </slot>
       </div>
     </Transition>
   </div>

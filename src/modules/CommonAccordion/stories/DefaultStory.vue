@@ -7,28 +7,31 @@ import {
 
 <template>
   <CommonAccordion>
-    <CommonAccordionItem>
+    <CommonAccordionItem
+      name="one"
+      active
+    >
       <template #header-text>
         Accordion 1
       </template>
       <template #body>
-        Whoa!
+        Body slot used
       </template>
     </CommonAccordionItem>
-    <CommonAccordionItem>
+    <CommonAccordionItem name="two">
       <template #header-text>
         Accordion 2
       </template>
-      <template #body>
-        Whoa!
+      <template #content>
+        Content slot used
       </template>
     </CommonAccordionItem>
-    <CommonAccordionItem>
+    <CommonAccordionItem name="three">
       <template #header-text>
         Accordion 3
       </template>
       <template #body>
-        Whoa!
+        Body slot used
       </template>
     </CommonAccordionItem>
   </CommonAccordion>

@@ -1,18 +1,21 @@
 import type { VNode } from 'vue';
 
-export type CommonAccordionItemProps = {
-  headerText?: string;
-  bodyText?: string;
-};
-
 export type CommonAccordionItemType = {
   name: string;
   active: boolean;
 };
 
+export type CommonAccordionItemProps = Pick<CommonAccordionItemType, 'name'>
+  & Partial<Pick<CommonAccordionItemType, 'active'>>
+  & {
+    headerText?: string;
+    bodyText?: string;
+  };
+
 export type CommonAccordionItemSlots = {
-  'icon'?: () => VNode[];
-  'body'?: () => VNode[];
   'header'?: () => VNode[];
   'header-text'?: () => VNode[];
+  'icon'?: () => VNode[];
+  'body'?: () => VNode[];
+  'content'?: () => VNode[];
 };
