@@ -9,4 +9,7 @@ export {
 
 export { default as CommonAccordion } from './CommonAccordion.vue';
 
-export type { CommonAccordionSlots } from './types';
+export type {
+  CommonAccordionSlots,
+  CommonAccordionProps,
+} from './types';

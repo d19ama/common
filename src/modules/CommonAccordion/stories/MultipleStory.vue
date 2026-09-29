@@ -6,29 +6,38 @@ import {
 </script>
 
 <template>
-  <CommonAccordion>
-    <CommonAccordionItem name="one">
+  <CommonAccordion multiple>
+    <CommonAccordionItem
+      name="one"
+      active
+    >
       <template #header-text>
         Accordion 1
       </template>
-      <template #body>
-        Body slot used
+      <template #content>
+        Content slot
       </template>
     </CommonAccordionItem>
-    <CommonAccordionItem name="two">
+    <CommonAccordionItem
+      name="two"
+      active
+    >
       <template #header-text>
         Accordion 2
       </template>
       <template #content>
-        Content slot used
+        Content slot
       </template>
     </CommonAccordionItem>
-    <CommonAccordionItem name="three">
+    <CommonAccordionItem
+      name="three"
+      active
+    >
       <template #header-text>
         Accordion 3
       </template>
-      <template #body>
-        Body slot used
+      <template #content>
+        Content slot
       </template>
     </CommonAccordionItem>
   </CommonAccordion>

@@ -2,7 +2,10 @@ import type {
   Meta,
   StoryObj,
 } from '@storybook/vue3-vite';
-import { DefaultStory } from './stories';
+import {
+  DefaultStory,
+  MultipleStory,
+} from './stories';
 import { CommonAccordion } from './';
 
 const meta = {
@@ -26,6 +29,23 @@ export const Default: Story = {
         };
       },
       template: '<DefaultStory v-bind="args" />',
+    };
+  },
+};
+
+export const Multiple: Story = {
+  args: {},
+  render(args) {
+    return {
+      components: {
+        MultipleStory,
+      },
+      setup() {
+        return {
+          args,
+        };
+      },
+      template: '<MultipleStory v-bind="args" />',
     };
   },
 };

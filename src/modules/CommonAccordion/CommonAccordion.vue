@@ -1,7 +1,17 @@
 <script lang="ts" setup>
-import type { CommonAccordionSlots } from './types';
+import { provide } from 'vue';
+import type {
+  CommonAccordionProps,
+  CommonAccordionSlots,
+} from './types';
+
+const props = withDefaults(defineProps<CommonAccordionProps>(), {
+  multiple: false,
+});
 
 defineSlots<CommonAccordionSlots>();
+
+provide<boolean>('multiple', props.multiple);
 </script>
 
 <template>

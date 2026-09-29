@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {
   computed,
+  inject,
   onMounted,
 } from 'vue';
 import { useCommonAccordion } from '../../composables';
@@ -18,10 +19,13 @@ const props = withDefaults(defineProps<CommonAccordionItemProps>(), {
 
 defineSlots<CommonAccordionItemSlots>();
 
+const multiple = inject<boolean>('multiple');
+
 const {
   state,
   add,
   toggle,
+  toggleAll,
 } = useCommonAccordion();
 
 const currentState = computed<boolean>(() => {
@@ -47,7 +51,12 @@ const bodyClass = computed<HTMLElementClass>(() => {
 });
 
 function toggleItem(): void {
-  toggle(props.name);
+  if (multiple) {
+    toggle(props.name);
+    return;
+  }
+
+  toggleAll(props.name);
 }
 
 // Форсирует reflow элемента, чтобы браузер зафиксировал текущее значение
