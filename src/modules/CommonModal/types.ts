@@ -1,7 +1,6 @@
-import type { VNode } from 'vue';
 import type { CommonGlobalPropSize } from '@/types';
 
-export type CommonModalSize = CommonGlobalPropSize | 'full-width' | 'full-page';
+export type CommonModalSize = CommonGlobalPropSize | 'full-width' | 'full-container' | 'full-page';
 
 export type CommonModalProps = {
   title?: string;
@@ -9,16 +8,19 @@ export type CommonModalProps = {
   rounded?: boolean;
   size?: CommonModalSize;
   close?: () => void;
+  important?: boolean;
 };
 
 export type CommonModalSlots = {
-  control?: () => VNode[];
-  close?: (props: {
+  'control'?: [];
+  'close'?: [props: {
     close: () => void;
-  }) => VNode[];
-  header?: () => VNode[];
-  default?: () => VNode[];
-  footer?: (props: {
+  }];
+  'header'?: [];
+  'default'?: [];
+  'footer'?: [props: {
     close: () => void;
-  }) => VNode[];
+  }];
+  'close-icon': [];
+  'container': [];
 };

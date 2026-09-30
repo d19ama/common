@@ -1,0 +1,11 @@
+$common-modal-overlay-background: var(--common-color-black-50);
+$common-modal-overlay-backdrop-filter: blur(2px);
+
+$common-modal-container-background: var(--common-color-white);
+
+:export {
+  common-modal-overlay-background: $common-modal-overlay-background;
+  common-modal-overlay-backdrop-filter: $common-modal-overlay-backdrop-filter;
+
+  common-modal-container-background: $common-modal-container-background;
+}

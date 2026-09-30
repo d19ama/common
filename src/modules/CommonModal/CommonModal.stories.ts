@@ -19,6 +19,9 @@ const meta = {
     rounded: {
       control: 'boolean',
     },
+    important: {
+      control: 'boolean',
+    },
     size: {
       control: 'select',
       options: [
@@ -28,6 +31,7 @@ const meta = {
         'lg',
         'xl',
         'full-width',
+        'full-container',
         'full-page',
       ] satisfies CommonModalSize[],
     },

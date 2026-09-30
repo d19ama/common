@@ -1,6 +1,8 @@
 export type Styles = {
-  'common-divider-width': string;
-  'common-divider-background': string;
+  'common-modal-overlay-background': string;
+  'common-modal-overlay-backdrop-filter': string;
+
+  'common-modal-container-background': string;
 };
 
 export type ClassNames = keyof Styles;

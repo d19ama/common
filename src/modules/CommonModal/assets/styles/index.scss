@@ -1,0 +1,8 @@
+@import 'vars/vars.module';
+
+:root {
+  --common-modal-overlay-background: #{$common-modal-overlay-background};
+  --common-modal-overlay-backdrop-filter: #{$common-modal-overlay-backdrop-filter};
+
+  --common-modal-container-background: #{$common-modal-container-background};
+}

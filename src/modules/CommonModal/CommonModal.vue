@@ -22,6 +22,7 @@ const props = withDefaults(defineProps<CommonModalProps>(), {
   title: '',
   rounded: true,
   appendTo: 'body',
+  important: false,
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
@@ -51,7 +52,9 @@ const isActive = computed<boolean>(() => {
 });
 
 const hasOverlay = computed<boolean>(() => {
-  return visible.value && props.size !== 'full-page';
+  return visible.value
+    && props.size !== 'full-page'
+    && props.size !== 'full-container';
 });
 
 const hasHeader = computed<boolean>(() => {
@@ -59,15 +62,26 @@ const hasHeader = computed<boolean>(() => {
 });
 
 const elementClass = computed<HTMLElementClass>(() => {
+  const isNotFullSize: boolean = props.size !== 'full-page'
+    && props.size !== 'full-container';
+
   return [
     `common-modal--size-${props.size}`,
     {
-      'common-modal--rounded': props.rounded && props.size !== 'full-page',
+      'common-modal--rounded': props.rounded && isNotFullSize,
     },
   ];
 });
 
 function close(): void {
+  if (props.important) {
+    return;
+  }
+
+  if (slots.container) {
+    return;
+  }
+
   if (props.close !== undefined) {
     props.close();
     return;
@@ -137,61 +151,68 @@ watch(
       v-bind="$attrs"
     >
       <div class="common-modal__container">
-        <div class="common-modal__control">
-          <slot name="control">
-            &nbsp;
-          </slot>
-          <slot
-            name="close"
-            :close="close"
+        <slot name="container">
+          <div class="common-modal__control">
+            <slot name="control">
+              &nbsp;
+            </slot>
+            <slot
+              name="close"
+              :close="close"
+            >
+              <CommonButton
+                v-if="!props.important"
+                class="common-modal__button-close"
+                auto-width
+                size="xs"
+                theme="icon"
+                @click="close"
+              >
+                <slot name="close-icon">
+                  <span class="common-modal__button-close-icon icon icon-cross" />
+                </slot>
+              </CommonButton>
+            </slot>
+          </div>
+          <div
+            v-if="hasHeader"
+            class="common-modal__header"
           >
-            <CommonButton
-              class="common-modal__button-close"
-              auto-width
-              size="xs"
-              theme="icon"
-              @click="close"
-            >
-              <span class="common-modal__button-close-icon icon icon-cross" />
-            </CommonButton>
-          </slot>
-        </div>
-        <div
-          v-if="hasHeader"
-          class="common-modal__header"
-        >
-          <slot name="header">
-            <CommonTitle
-              tag="h4"
-              role="heading"
-            >
-              {{ title }}
-            </CommonTitle>
-          </slot>
-        </div>
+            <slot name="header">
+              <CommonTitle
+                tag="h4"
+                role="heading"
+              >
+                {{ title }}
+              </CommonTitle>
+            </slot>
+          </div>
 
-        <div
-          v-if="$slots.default"
-          class="common-modal__body"
-        >
-          <slot />
-        </div>
+          <div
+            v-if="$slots.default"
+            class="common-modal__body"
+          >
+            <slot />
+          </div>
 
-        <div
-          v-if="$slots.footer"
-          class="common-modal__footer"
-        >
-          <slot
-            name="footer"
-            :close="close"
-          />
-        </div>
+          <div
+            v-if="$slots.footer"
+            class="common-modal__footer"
+          >
+            <slot
+              name="footer"
+              :close="close"
+            />
+          </div>
+        </slot>
       </div>
     </div>
   </Teleport>
 </template>
 
 <style lang="scss">
+@import './assets/styles/index.scss';
+
 .common-modal {
   $parent: &;
 
@@ -199,13 +220,13 @@ watch(
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: .25rem;
+  padding-right: .25rem;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding-left: .25rem;
-  padding-right: .25rem;
   z-index: 999;
   pointer-events: none;
 
@@ -223,8 +244,8 @@ watch(
     top: 0;
     bottom: 0;
     z-index: 999;
-    background-color: var(--common-color-black-50);
-    backdrop-filter: blur(2px);
+    background-color: var(--common-modal-overlay-background);
+    backdrop-filter: var(--common-modal-overlay-backdrop-filter);
   }
 
   &__control,
@@ -266,7 +287,7 @@ watch(
     padding-bottom: 2rem;
     position: relative;
     overflow: hidden;
-    background-color: var(--common-color-white);
+    background-color: var(--common-modal-container-background);
     pointer-events: auto;
   }
 
@@ -356,6 +377,19 @@ watch(
     }
   }
 
+  &--size-full-container {
+    padding-left: 0;
+    padding-right: 0;
+    position: absolute;
+
+    #{$parent}__container {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   &--size-full-page {
     width: 100vw;
     height: 100vh;
@@ -376,6 +410,7 @@ watch(
   &--size-lg,
   &--size-xl,
   &--size-full-width,
+  &--size-full-container,
   &--size-full-page {
     @media only screen and (max-width: $common-breakpoint-sm) {
       #{$parent}__control,
