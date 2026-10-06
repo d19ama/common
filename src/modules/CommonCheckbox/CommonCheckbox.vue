@@ -5,6 +5,7 @@ import {
   getCurrentInstance,
 } from 'vue';
 import type {
+  CommonCheckboxChecked,
   CommonCheckboxProps,
   CommonCheckboxSlots,
 } from './types';
@@ -21,7 +22,7 @@ const props = withDefaults(defineProps<CommonCheckboxProps>(), {
 
 defineSlots<CommonCheckboxSlots>();
 
-const checked = defineModel<boolean>('checked', {
+const checked = defineModel<CommonCheckboxChecked>('checked', {
   required: true,
 });
 
@@ -31,17 +32,30 @@ const name = computed<string>(() => {
   return props.name || componentNameByInstance(instance);
 });
 
+/**
+ * Приведённое к boolean значение для UI и CSS-классов.
+ */
+const isChecked = computed<boolean>(() => {
+  return Boolean(checked.value);
+});
+
 const elementClass = computed<HTMLElementClass>(() => {
   return [
     `common-checkbox--size-${props.size}`,
     `common-checkbox--theme-${props.theme}`,
     {
-      'common-checkbox--checked': checked.value,
+      'common-checkbox--checked': isChecked.value,
       'common-checkbox--disabled': props.disabled,
       'common-checkbox--required': props.required,
     },
   ];
 });
+
+function handleChange(event: Event): void {
+  const target = event.target as HTMLInputElement;
+
+  checked.value = target.checked;
+}
 </script>
 
 <template>
@@ -52,12 +66,13 @@ const elementClass = computed<HTMLElementClass>(() => {
   >
     <input
       :id="name"
-      v-model="checked"
+      :checked="isChecked"
       :name="name"
       :disabled="props.disabled"
       type="checkbox"
       class="common-checkbox__field"
       autocomplete="off"
+      @change="handleChange"
     >
     <span class="common-checkbox__box" />
     <span class="common-checkbox__text">
