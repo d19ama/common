@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<CommonInputProps>(), {
   position: 'left',
   maskVisibility: 'onFocus',
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
+  step: 'any',
 });
 
 const emit = defineEmits<CommonInputEmits>();
@@ -109,6 +110,64 @@ const maskParams = computed<FactoryOpts | undefined>(() => {
   return undefined;
 });
 
+/**
+ * Парсит строку в число. Возвращает undefined, если парсинг невозможен.
+ * Поддерживает int и float (с точкой и с запятой).
+ */
+function parseNumber(raw: string): number | undefined {
+  if (raw === '') {
+    return undefined;
+  }
+
+  // Приводим запятую к точке — пользователи часто вводят '12,34'
+  const normalized = raw.replace(',', '.');
+  const parsed = Number(normalized);
+
+  return Number.isFinite(parsed)
+    ? parsed
+    : undefined;
+}
+
+/**
+ * Ограничивает число диапазоном [min, max], если границы заданы.
+ */
+function clampNumber(value: number): number {
+  let result = value;
+
+  if (typeof props.min === 'number' && result < props.min) {
+    result = props.min;
+  }
+
+  if (typeof props.max === 'number' && result > props.max) {
+    result = props.max;
+  }
+
+  return result;
+}
+
+/**
+ * Применяет ограничения min/max к текущему значению.
+ * Вызывается на blur и при изменении границ.
+ */
+function applyNumberBounds(): void {
+  const parsed = parseNumber(String(value.value));
+
+  if (parsed === undefined) {
+    return;
+  }
+
+  const clamped = clampNumber(parsed);
+
+  if (clamped === parsed) {
+    return;
+  }
+
+  value.value = clamped;
+  typed.value = String(clamped);
+  unmasked.value = String(clamped);
+  emit('input', value.value);
+}
+
 function onChange(): void {
   emit('change', value.value);
 }
@@ -119,15 +178,11 @@ function onStringInput(): void {
 
 function onNumberInput(event: Event): void {
   const target = event.target as HTMLInputElement;
-  const numericValue = target.valueAsNumber;
   const stringValue = target.value;
 
-  typed.value = Number.isNaN(numericValue)
-    ? ''
-    : String(numericValue);
-  unmasked.value = Number.isNaN(numericValue)
-    ? ''
-    : String(numericValue);
+  // Сохраняем как введено — иначе нельзя набрать '12.', '-', '1e'
+  typed.value = stringValue;
+  unmasked.value = stringValue;
   value.value = stringValue;
   emit('input', value.value);
 }
@@ -138,6 +193,10 @@ function onFocus(): void {
 }
 
 function onBlur(): void {
+  if (isNumberType.value) {
+    applyNumberBounds();
+  }
+
   validate();
   focus.value = false;
   emit('blur');
@@ -252,6 +311,16 @@ watch(
     deep: true,
   },
 );
+
+// При изменении границ подрезаем текущее значение, если оно вне диапазона
+watch(() => [
+  props.min,
+  props.max,
+], () => {
+  if (isNumberType.value) {
+    applyNumberBounds();
+  }
+});
 </script>
 
 <template>
@@ -292,6 +361,9 @@ watch(
         :type="props.type"
         :disabled="props.disabled"
         :maxlength="props.maxLength"
+        :min="isNumberType ? props.min : undefined"
+        :max="isNumberType ? props.max : undefined"
+        :step="isNumberType ? props.step : undefined"
         :placeholder="props.placeholder"
         @blur="onBlur"
         @focus="onFocus"

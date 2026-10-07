@@ -49,6 +49,12 @@ const meta = {
         'password',
       ] satisfies CommonInputType[],
     },
+    min: {
+      control: 'number',
+    },
+    max: {
+      control: 'number',
+    },
   },
   args: {
     type: 'text',

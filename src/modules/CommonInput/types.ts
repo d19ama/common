@@ -47,6 +47,12 @@ export type CommonInputProps = InputBaseProps
     mask?: CommonInputMaskParams;
     position?: CommonInputPosition;
     maskVisibility?: CommonInputMaskVisibility;
+    /** Минимальное значение для type="number" */
+    min?: number;
+    /** Максимальное значение для type="number" */
+    max?: number;
+    /** Шаг для type="number". По умолчанию 'any' (поддержка float) */
+    step?: number | 'any';
   };
 
 export type CommonInputEmits = {
