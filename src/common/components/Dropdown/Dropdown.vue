@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="ID extends OptionId">
+<script setup lang="ts" generic="ID extends ItemId">
 import { computed } from 'vue';
 import type {
   DropdownEmits,
@@ -8,7 +8,7 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   loading: false,

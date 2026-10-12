@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="ID extends OptionId">
+<script setup lang="ts" generic="ID extends ItemId">
 import {
   computed,
   onMounted,
@@ -16,7 +16,7 @@ import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
 import { Dropdown } from '@/common/components/Dropdown';
 import type { DropdownItem } from '@/common/components/Dropdown/types';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 const props = withDefaults(defineProps<SelectBaseProps>(), {
   placeholder: '',

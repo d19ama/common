@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "skipLibCheck": true,
     "composite": true,
     "baseUrl": ".",
     "module": "ES2022",

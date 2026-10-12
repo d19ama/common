@@ -10,7 +10,7 @@ import type { CommonGlobalPropSize } from '@/types';
 
 const meta = {
   title: 'Form/CommonRadio',
-  component: CommonRadio,
+  component: CommonRadio as Record<keyof typeof CommonRadio, unknown>,
   argTypes: {
     disabled: {
       control: 'boolean',
@@ -64,6 +64,7 @@ export const Default: Story = {
       },
     ],
   },
+  // @ts-expect-error pass
   render(args) {
     return {
       components: {

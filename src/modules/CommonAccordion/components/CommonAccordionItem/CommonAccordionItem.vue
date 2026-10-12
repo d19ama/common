@@ -107,10 +107,16 @@ onMounted(() => {
       @click="toggleItem"
     >
       <slot name="header">
-        <slot name="header-text">
+        <slot
+          name="header-text"
+          :text="props.headerText"
+        >
           {{ props.headerText }}
         </slot>
-        <slot name="icon">
+        <slot
+          name="icon"
+          :active="currentState"
+        >
           <span
             class="common-accordion-item__icon icon icon-folder"
             :class="iconClass"
@@ -130,7 +136,10 @@ onMounted(() => {
       >
         <slot name="body">
           <div class="common-accordion-item__content">
-            <slot name="content">
+            <slot
+              name="body-text"
+              :text="props.bodyText"
+            >
               {{ props.bodyText }}
             </slot>
           </div>
@@ -152,7 +161,7 @@ onMounted(() => {
     display: flex;
     flex-flow: row nowrap;
     gap: 0 .5rem;
-    padding: 1rem 2rem 1rem 1rem;
+    padding: var(--common-accordion-header-padding);
     position: relative;
     font-size: 1rem;
     line-height: 1.4;
@@ -191,7 +200,7 @@ onMounted(() => {
     z-index: 1;
     font-size: 1rem;
     font-style: normal;
-    color: var(--common-accordion-icon-color);
+    color: var(--common-accordion-header-icon-color);
     border-radius: 50%;
   }
 

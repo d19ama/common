@@ -7,6 +7,7 @@ import type {
   CommonGlobalThemeTertiary,
   CommonGlobalThemeUnaccented,
 } from '@/types/global-props';
+import type { ItemId } from '@/common/types/item-id';
 
 export type CommonRadioTheme =
   | CommonGlobalThemePrimary
@@ -14,6 +15,13 @@ export type CommonRadioTheme =
   | CommonGlobalThemeTertiary
   | CommonGlobalThemeUnaccented
   | CommonGlobalThemeForm;
+
+export type CommonRadioOption<T extends ItemId = string> = {
+  id: T;
+  text: string;
+  checked: boolean;
+  disabled: boolean;
+};
 
 export type CommonRadioProps = {
   id?: string;
@@ -25,16 +33,9 @@ export type CommonRadioProps = {
   options?: CommonRadioOption[];
 };
 
-export type CommonRadioEmits = {
-  input: [value: string];
-  change: [value: string];
-};
-
-export type CommonRadioOption = {
-  id: string;
-  text: string;
-  checked: boolean;
-  disabled: boolean;
+export type CommonRadioEmits<T extends ItemId = string> = {
+  change: [value: T];
+  input: [value: T];
 };
 
 export type CommonRadioSlots = {

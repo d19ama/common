@@ -1,4 +1,4 @@
-<script lang="ts" setup generic="ID extends OptionId">
+<script lang="ts" setup generic="ID extends ItemId">
 import {
   type ComponentInternalInstance,
   computed,
@@ -23,7 +23,7 @@ import {
   COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 } from '@/constants';
 import type { HTMLElementClass } from '@/types';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 const props = withDefaults(defineProps<CommonComboboxProps>(), {
   hint: '',

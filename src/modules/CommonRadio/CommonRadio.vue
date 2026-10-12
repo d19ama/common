@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="ts" setup generic="T extends ItemId">
 import {
   computed,
   ref,
@@ -11,6 +11,7 @@ import type {
 } from './types';
 import type { HTMLElementClass } from '@/types';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
+import type { ItemId } from '@/common/types/item-id';
 
 const props = withDefaults(defineProps<CommonRadioProps>(), {
   theme: 'form',
@@ -20,11 +21,11 @@ const props = withDefaults(defineProps<CommonRadioProps>(), {
   size: COMMON_GLOBAL_PROP_SIZE_DEFAULT,
 });
 
-const emit = defineEmits<CommonRadioEmits>();
+const emit = defineEmits<CommonRadioEmits<T>>();
 
 defineSlots<CommonRadioSlots>();
 
-const value = defineModel<string>('value', {
+const value = defineModel<T>('value', {
   required: true,
 });
 
@@ -48,7 +49,7 @@ function optionClass(option: CommonRadioOption): HTMLElementClass {
 
 function onChange(): void {
   validate();
-  emit('input', value.value);
+  emit('change', value.value);
 }
 
 function onInput(): void {

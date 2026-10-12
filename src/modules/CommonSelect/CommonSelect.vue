@@ -1,4 +1,4 @@
-<script lang="ts" setup generic="ID extends OptionId">
+<script lang="ts" setup generic="ID extends ItemId">
 import { ref } from 'vue';
 import type {
   CommonSelectOption,
@@ -8,7 +8,7 @@ import type {
 import { InputBase } from '@/common/components/InputBase';
 import { SelectBase } from '@/common/components/SelectBase';
 import { COMMON_GLOBAL_PROP_SIZE_DEFAULT } from '@/constants';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 const props = withDefaults(defineProps<CommonSelectProps<ID>>(), {
   hint: '',

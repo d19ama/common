@@ -5,7 +5,7 @@ import type {
   DropdownEmits,
   DropdownItem,
 } from '@/common/components/Dropdown';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 export type SelectBaseProps = {
   loading?: boolean;
@@ -17,9 +17,9 @@ export type SelectBaseProps = {
   validation?: BaseValidation;
 };
 
-export type SelectBaseOption<ID extends OptionId = string> = DropdownItem<ID>;
+export type SelectBaseOption<ID extends ItemId = string> = DropdownItem<ID>;
 
-export type SelectBaseEmits<ID extends OptionId = string> = DropdownEmits<ID>
+export type SelectBaseEmits<ID extends ItemId = string> = DropdownEmits<ID>
   & {
     click: [];
   };

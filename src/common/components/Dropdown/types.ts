@@ -1,6 +1,6 @@
 import type { VNode } from 'vue';
 import type { CommonGlobalPropSize } from '@/types';
-import type { OptionId } from '@/common/types/option-id';
+import type { ItemId } from '@/common/types/item-id';
 
 export type DropdownProps = {
   loading?: boolean;
@@ -8,14 +8,14 @@ export type DropdownProps = {
   size?: CommonGlobalPropSize;
 };
 
-export type DropdownItem<ID extends OptionId = string> = {
+export type DropdownItem<ID extends ItemId = string> = {
   id: ID;
   text: string;
   selected: boolean;
   disabled: boolean;
 };
 
-export type DropdownEmits<ID extends OptionId = string> = {
+export type DropdownEmits<ID extends ItemId = string> = {
   'change:selected': [option: DropdownItem<ID>, options: DropdownItem<ID>[]];
 };
 
